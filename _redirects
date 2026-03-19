@@ -1,0 +1,11 @@
+# Clean URL routing
+/privacy    /privacy.html   200
+/terms      /terms.html     200
+
+# Coming soon pages — redirect to homepage for now
+/about      /       302
+/blog       /       302
+/changelog  /       302
+
+# Catch-all 404
+/*          /404.html   404

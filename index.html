@@ -1,0 +1,1235 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Heist — The brains behind the operation</title>
+<meta name="description" content="Heist is the AI content OS that generates, previews, and schedules a full month of on-brand social content from a single idea. Try free for 7 days.">
+
+<!-- OG Tags -->
+<meta property="og:type" content="website">
+<meta property="og:title" content="Heist — A month of content. Ten minutes.">
+<meta property="og:description" content="The AI content OS that generates, previews, and schedules a full month of on-brand social content from a single idea. Set up your Brain once. Take back every hour.">
+<meta property="og:url" content="https://heistbrain.com">
+<meta property="og:site_name" content="Heist">
+<meta property="og:image" content="https://heistbrain.com/og-image.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+
+<!-- Twitter Card -->
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Heist — A month of content. Ten minutes.">
+<meta name="twitter:description" content="The AI content OS. Generate, preview, and schedule a full month of content from one idea.">
+<meta name="twitter:image" content="https://heistbrain.com/og-image.png">
+
+<link rel="canonical" href="https://heistbrain.com">
+<link rel="icon" href="/favicon.svg" type="image/svg+xml">
+<link rel="apple-touch-icon" href="/apple-touch-icon.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=DM+Sans:ital,opsz,wght@0,9..40,300..800;1,9..40,300..800&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+
+<!-- JSON-LD Structured Data -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "SoftwareApplication",
+  "name": "Heist",
+  "url": "https://heistbrain.com",
+  "description": "AI content OS that generates, previews, and schedules a full month of on-brand social content from a single idea.",
+  "applicationCategory": "BusinessApplication",
+  "operatingSystem": "Web",
+  "offers": [
+    { "@type": "Offer", "name": "Starter", "price": "19", "priceCurrency": "USD", "billingIncrement": "P1M" },
+    { "@type": "Offer", "name": "Pro", "price": "49", "priceCurrency": "USD", "billingIncrement": "P1M" },
+    { "@type": "Offer", "name": "Founder", "price": "99", "priceCurrency": "USD", "billingIncrement": "P1M" }
+  ]
+}
+</script>
+
+<style>
+/* ═══════════════════════════════════════
+   HEIST — CRO-OPTIMIZED BUILD
+   ═══════════════════════════════════════ */
+*,*::before,*::after{margin:0;padding:0;box-sizing:border-box}
+
+:root {
+  --bg: #06050C;
+  --bg2: #0C0A18;
+  --bg3: #110E22;
+  --surface: rgba(16,13,30,0.55);
+  --surface-solid: #0F0D1E;
+  --accent: #8B5CF6;
+  --accent-hi: #A78BFA;
+  --accent-lo: #6D28D9;
+  --accent-glow: rgba(139,92,246,0.35);
+  --pink: #EC4899;
+  --cyan: #22D3EE;
+  --emerald: #34D399;
+  --amber: #FBBF24;
+  --text: #F1F0F5;
+  --text2: #908CA1;
+  --text3: #57536B;
+  --border: rgba(255,255,255,0.06);
+  --border2: rgba(255,255,255,0.12);
+  --fd: 'Instrument Serif', Georgia, serif;
+  --fb: 'DM Sans', system-ui, sans-serif;
+  --fm: 'JetBrains Mono', monospace;
+  --ease: cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+html { scroll-behavior: smooth; overflow-x: hidden; }
+body {
+  font-family: var(--fb); background: var(--bg); color: var(--text);
+  line-height: 1.65; -webkit-font-smoothing: antialiased; overflow-x: hidden;
+}
+
+body::after {
+  content: ''; position: fixed; inset: 0;
+  background: url("data:image/svg+xml,%3Csvg viewBox='0 0 512 512' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.8' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.022'/%3E%3C/svg%3E");
+  pointer-events: none; z-index: 10000;
+}
+
+.grid-bg {
+  position: fixed; inset: 0; z-index: 0; pointer-events: none;
+  background-image: linear-gradient(rgba(139,92,246,0.018) 1px, transparent 1px), linear-gradient(90deg, rgba(139,92,246,0.018) 1px, transparent 1px);
+  background-size: 80px 80px;
+  mask-image: radial-gradient(ellipse 70% 50% at 50% 20%, black 10%, transparent 70%);
+}
+
+.orb { position: fixed; border-radius: 50%; pointer-events: none; z-index: 0; }
+.orb-1 { width: 900px; height: 900px; background: radial-gradient(circle, rgba(139,92,246,0.08) 0%, transparent 65%); top: -400px; left: -350px; }
+.orb-2 { width: 700px; height: 700px; background: radial-gradient(circle, rgba(236,72,153,0.05) 0%, transparent 65%); top: 40%; right: -300px; }
+.orb-3 { width: 600px; height: 600px; background: radial-gradient(circle, rgba(34,211,238,0.03) 0%, transparent 65%); bottom: -100px; left: 15%; }
+
+/* ─── ANIMATIONS ─── */
+@keyframes shimmer { 0%{background-position:-200% center} 100%{background-position:200% center} }
+@keyframes float { 0%,100%{transform:translateY(0)} 50%{transform:translateY(-14px)} }
+@keyframes float-delay { 0%,100%{transform:translateY(0)} 50%{transform:translateY(-10px)} }
+@keyframes pulse { 0%,100%{opacity:0.4} 50%{opacity:1} }
+@keyframes spin-slow { 0%{transform:rotate(0deg)} 100%{transform:rotate(360deg)} }
+@keyframes text-glow { 0%,100%{text-shadow:0 0 30px rgba(167,139,250,0.3)} 50%{text-shadow:0 0 60px rgba(167,139,250,0.5),0 0 120px rgba(139,92,246,0.2)} }
+@keyframes scan-line { 0%{top:-2px;opacity:0} 10%{opacity:1} 90%{opacity:1} 100%{top:calc(100% + 2px);opacity:0} }
+@keyframes fade-in-up { from{opacity:0;transform:translateY(40px)} to{opacity:1;transform:translateY(0)} }
+@keyframes fade-in-scale { from{opacity:0;transform:scale(0.92)} to{opacity:1;transform:scale(1)} }
+@keyframes marquee { 0%{transform:translateX(0)} 100%{transform:translateX(-50%)} }
+@keyframes slide-up-in { from{opacity:0;transform:translateY(20px)} to{opacity:1;transform:translateY(0)} }
+@keyframes shake { 0%,100%{transform:translateX(0)} 25%{transform:translateX(-3px)} 75%{transform:translateX(3px)} }
+
+/* ─── SCROLL REVEALS ─── */
+.r { opacity:0; transform:translateY(50px); transition: opacity 1s var(--ease), transform 1s var(--ease); }
+.r-scale { opacity:0; transform:scale(0.92); transition: opacity 0.9s var(--ease), transform 0.9s var(--ease); }
+.r-left { opacity:0; transform:translateX(-60px); transition: opacity 1s var(--ease), transform 1s var(--ease); }
+.r-right { opacity:0; transform:translateX(60px); transition: opacity 1s var(--ease), transform 1s var(--ease); }
+.v { opacity:1 !important; transform:none !important; }
+
+/* ═══════════ NAV ═══════════ */
+nav {
+  position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+  padding: 0 48px; height: 72px;
+  display: flex; align-items: center; justify-content: space-between;
+  background: rgba(6,5,12,0.5); backdrop-filter: blur(30px) saturate(1.5);
+  border-bottom: 1px solid var(--border); transition: all 0.4s;
+}
+nav.scrolled { background: rgba(6,5,12,0.85); border-color: var(--border2); }
+.nav-logo { font-family: var(--fd); font-size: 30px; color: var(--text); text-decoration: none; letter-spacing: 0.02em; }
+.nav-logo span { color: var(--accent); }
+.nav-links { display: flex; gap: 36px; align-items: center; }
+.nav-links a { color: var(--text2); text-decoration: none; font-size: 14px; font-weight: 500; letter-spacing: 0.02em; transition: color 0.3s; position: relative; }
+.nav-links a:hover { color: var(--text); }
+.nav-links a:not(.nav-cta)::after { content:''; position:absolute; bottom:-4px; left:0; width:0; height:1px; background:var(--accent); transition:width 0.3s; }
+.nav-links a:not(.nav-cta):hover::after { width:100%; }
+.nav-cta {
+  padding: 10px 24px; border-radius: 10px; font-weight: 600; font-size: 13px;
+  letter-spacing: 0.03em; transition: all 0.3s;
+  background: linear-gradient(135deg, rgba(139,92,246,0.15), rgba(139,92,246,0.05));
+  border: 1px solid rgba(139,92,246,0.3); color: var(--accent-hi);
+}
+.nav-cta:hover { background: rgba(139,92,246,0.25); border-color: rgba(139,92,246,0.5); transform: translateY(-1px); }
+
+/* ═══════════ SHARED ═══════════ */
+section { position: relative; z-index: 1; }
+.container { max-width: 1200px; margin: 0 auto; padding: 0 48px; }
+.section-label { font-family: var(--fm); font-size: 11px; letter-spacing: 0.2em; text-transform: uppercase; color: var(--accent); margin-bottom: 20px; display: flex; align-items: center; gap: 12px; }
+.section-label::before { content:''; width:24px; height:1px; background:var(--accent); }
+.gradient-text { background: linear-gradient(135deg, var(--accent-hi), var(--pink), var(--accent-hi)); background-size: 200% auto; -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; animation: shimmer 5s linear infinite; }
+.divider { height: 1px; max-width: 500px; margin: 0 auto; background: linear-gradient(90deg, transparent, rgba(139,92,246,0.2), transparent); }
+
+/* ─── BUTTONS ─── */
+.btn-primary {
+  display: inline-flex; align-items: center; gap: 10px; padding: 18px 38px;
+  background: linear-gradient(135deg, var(--accent), var(--accent-lo));
+  color: white; border: none; border-radius: 14px; font-family: var(--fb);
+  font-size: 16px; font-weight: 600; letter-spacing: 0.02em; cursor: pointer;
+  text-decoration: none; position: relative; overflow: hidden;
+  box-shadow: 0 0 30px rgba(139,92,246,0.25), 0 4px 20px rgba(0,0,0,0.4);
+  transition: all 0.35s var(--ease);
+}
+.btn-primary::before { content:''; position:absolute; top:0; left:-100%; width:60%; height:100%; background: linear-gradient(90deg, transparent, rgba(255,255,255,0.15), transparent); animation: shimmer 3s ease-in-out infinite; }
+.btn-primary:hover { transform: translateY(-3px) scale(1.03); box-shadow: 0 0 50px rgba(139,92,246,0.4), 0 8px 30px rgba(0,0,0,0.5); }
+.btn-primary svg { transition: transform 0.3s; }
+.btn-primary:hover svg { transform: translateX(4px); }
+.btn-ghost { display: inline-flex; align-items: center; gap: 8px; padding: 18px 32px; background: var(--surface); border: 1px solid var(--border2); border-radius: 14px; color: var(--text2); font-family: var(--fb); font-size: 16px; font-weight: 500; cursor: pointer; text-decoration: none; transition: all 0.3s; }
+.btn-ghost:hover { border-color: rgba(139,92,246,0.3); color: var(--text); background: rgba(139,92,246,0.06); }
+
+/* Risk-reversal micro-copy */
+.cta-micro { display: block; font-size: 12px; color: var(--text3); margin-top: 10px; letter-spacing: 0.02em; }
+
+/* ═══════════ HERO ═══════════ */
+.hero { min-height: 100vh; display: flex; align-items: center; padding: 140px 0 120px; position: relative; overflow: hidden; }
+.hero::before { content:''; position:absolute; top:-10%; right:-15%; width:900px; height:900px; background: radial-gradient(circle, rgba(139,92,246,0.07) 0%, rgba(236,72,153,0.03) 40%, transparent 70%); pointer-events:none; }
+.hero .container { display: flex; align-items: center; gap: 80px; }
+.hero-content { flex: 0 0 50%; max-width: 560px; position: relative; z-index: 2; }
+.hero-tagline { font-family: var(--fm); font-size: 12px; color: var(--accent); letter-spacing: 0.2em; text-transform: uppercase; margin-bottom: 32px; opacity: 0; animation: fade-in-up 0.8s var(--ease) 0.2s both; }
+.hero h1 { font-family: var(--fd); font-size: clamp(48px, 5.5vw, 76px); line-height: 1.05; font-weight: 400; letter-spacing: -0.02em; margin-bottom: 28px; opacity: 0; animation: fade-in-up 0.8s var(--ease) 0.4s both; }
+.hero h1 em { font-style: italic; animation: text-glow 3s ease-in-out infinite; }
+.word-cycler { display: inline-block; position: relative; height: 1.1em; overflow: hidden; vertical-align: bottom; }
+.word-cycler span { display: block; position: absolute; left: 0; opacity: 0; transform: translateY(20px); transition: all 0.5s var(--ease); white-space: nowrap; }
+.word-cycler span.active { opacity: 1; transform: translateY(0); position: relative; }
+.hero-sub { font-size: 17px; line-height: 1.8; color: var(--text2); max-width: 480px; margin-bottom: 40px; opacity: 0; animation: fade-in-up 0.8s var(--ease) 0.65s both; }
+.hero-ctas { display: flex; gap: 16px; align-items: center; flex-wrap: wrap; opacity: 0; animation: fade-in-up 0.8s var(--ease) 0.85s both; }
+
+/* ─── TRUST STRIP ─── */
+.trust-strip {
+  display: flex; align-items: center; gap: 14px; margin-top: 20px;
+  opacity: 0; animation: fade-in-up 0.8s var(--ease) 1s both;
+}
+.trust-avatars { display: flex; }
+.trust-avatars span {
+  width: 30px; height: 30px; border-radius: 50%; border: 2px solid var(--bg);
+  margin-right: -8px; display: flex; align-items: center; justify-content: center;
+  font-size: 12px; font-weight: 700; color: white;
+}
+.trust-avatars span:nth-child(1) { background: linear-gradient(135deg, #8B5CF6, #6D28D9); }
+.trust-avatars span:nth-child(2) { background: linear-gradient(135deg, #EC4899, #BE185D); }
+.trust-avatars span:nth-child(3) { background: linear-gradient(135deg, #3B82F6, #1D4ED8); }
+.trust-avatars span:nth-child(4) { background: linear-gradient(135deg, #22D3EE, #0891B2); }
+.trust-avatars span:nth-child(5) { background: linear-gradient(135deg, #34D399, #059669); z-index: 1; }
+.trust-text { font-size: 13px; color: var(--text2); }
+.trust-text strong { color: var(--text); font-weight: 600; }
+.trust-stars { color: var(--amber); font-size: 12px; letter-spacing: 1px; }
+
+.hero-stats { display: flex; gap: 48px; margin-top: 64px; padding-top: 36px; border-top: 1px solid var(--border); opacity: 0; animation: fade-in-up 0.8s var(--ease) 1.15s both; }
+.hero-stat-val { font-family: var(--fd); font-size: 38px; color: var(--text); line-height: 1; }
+.hero-stat-val .counter { font-variant-numeric: tabular-nums; }
+.hero-stat-label { font-size: 13px; color: var(--text3); margin-top: 6px; letter-spacing: 0.02em; }
+
+/* ─── HERO MOCKUP ─── */
+.hero-mockup { flex: 1; position: relative; perspective: 1200px; opacity: 0; animation: fade-in-scale 1.2s var(--ease) 1s both; }
+.mockup-wrapper { position: relative; transform: rotateY(-8deg) rotateX(4deg); transform-style: preserve-3d; transition: transform 0.6s var(--ease); }
+.mockup-wrapper:hover { transform: rotateY(-3deg) rotateX(2deg); }
+.browser-chrome { background: #1A1726; border-radius: 16px; overflow: hidden; border: 1px solid var(--border2); box-shadow: 0 40px 120px rgba(0,0,0,0.6), 0 0 60px rgba(139,92,246,0.06), inset 0 1px 0 rgba(255,255,255,0.05); }
+.browser-bar { display: flex; align-items: center; gap: 10px; padding: 14px 18px; background: rgba(255,255,255,0.02); border-bottom: 1px solid var(--border); }
+.browser-dots { display: flex; gap: 7px; }
+.browser-dots span { width: 11px; height: 11px; border-radius: 50%; background: rgba(255,255,255,0.08); border: 1px solid rgba(255,255,255,0.06); }
+.browser-dots span:first-child { background: rgba(255,99,99,0.4); border-color: rgba(255,99,99,0.3); }
+.browser-dots span:nth-child(2) { background: rgba(255,189,46,0.4); border-color: rgba(255,189,46,0.3); }
+.browser-dots span:nth-child(3) { background: rgba(52,211,153,0.4); border-color: rgba(52,211,153,0.3); }
+.browser-url { flex: 1; margin-left: 8px; padding: 6px 14px; background: rgba(255,255,255,0.03); border-radius: 8px; font-family: var(--fm); font-size: 11px; color: var(--text3); border: 1px solid rgba(255,255,255,0.04); }
+.dash { padding: 20px; display: grid; grid-template-columns: 1fr 1fr; gap: 14px; min-height: 340px; position: relative; }
+.dash-card { background: rgba(255,255,255,0.02); border: 1px solid var(--border); border-radius: 12px; padding: 18px; position: relative; overflow: hidden; }
+.dash-card::before { content:''; position:absolute; top:0; left:0; right:0; height:1px; background: linear-gradient(90deg, transparent, rgba(255,255,255,0.08), transparent); }
+.dash-card-wide { grid-column: 1 / -1; }
+.dash-label { font-family: var(--fm); font-size: 9px; letter-spacing: 0.15em; text-transform: uppercase; color: var(--text3); margin-bottom: 12px; }
+.dash-metric { font-family: var(--fd); font-size: 28px; color: var(--accent-hi); line-height: 1; }
+.dash-metric-sub { font-size: 11px; color: var(--emerald); margin-top: 6px; font-weight: 600; }
+.mini-chart { display: flex; gap: 4px; align-items: flex-end; height: 50px; margin-top: 14px; }
+.mini-bar { flex: 1; border-radius: 3px 3px 0 0; min-width: 8px; background: linear-gradient(180deg, var(--accent), var(--accent-lo)); opacity: 0.6; transition: opacity 0.3s; }
+.mini-bar:nth-child(even) { background: linear-gradient(180deg, var(--pink), rgba(236,72,153,0.4)); }
+.dash-card:hover .mini-bar { opacity: 1; }
+.dash-status { display: inline-flex; align-items: center; gap: 6px; padding: 5px 12px; border-radius: 20px; font-size: 10px; font-weight: 700; letter-spacing: 0.05em; text-transform: uppercase; }
+.dash-status-live { background: rgba(52,211,153,0.1); color: var(--emerald); }
+.dash-status-dot { width: 6px; height: 6px; border-radius: 50%; background: var(--emerald); animation: pulse 2s infinite; }
+.dash-lines { margin-top: 12px; }
+.dash-line { height: 6px; border-radius: 3px; margin-bottom: 6px; background: rgba(255,255,255,0.04); }
+.dash-line:nth-child(1) { width: 100%; background: linear-gradient(90deg, var(--accent-lo), var(--accent)); }
+.dash-line:nth-child(2) { width: 75%; }
+.dash-line:nth-child(3) { width: 60%; }
+.dash-line:nth-child(4) { width: 85%; }
+.float-card { position: absolute; z-index: 10; background: var(--surface-solid); border: 1px solid var(--border2); border-radius: 14px; padding: 16px 20px; box-shadow: 0 20px 60px rgba(0,0,0,0.5), 0 0 30px rgba(139,92,246,0.06); backdrop-filter: blur(20px); }
+.float-card-score { bottom: -20px; left: -30px; animation: float-delay 5s ease-in-out infinite; }
+.float-card-brain { top: 40px; right: -20px; animation: float 7s ease-in-out infinite; text-align: center; }
+.float-brain-icon { width: 42px; height: 42px; border-radius: 50%; margin: 0 auto 8px; background: linear-gradient(135deg, var(--accent), var(--accent-lo)); display: flex; align-items: center; justify-content: center; font-size: 20px; box-shadow: 0 0 20px var(--accent-glow); }
+.float-card-label { font-family: var(--fm); font-size: 10px; color: var(--text3); letter-spacing: 0.1em; text-transform: uppercase; }
+.float-card-val { font-family: var(--fd); font-size: 24px; color: var(--accent-hi); margin-top: 4px; }
+.scan-line { position: absolute; left: 0; right: 0; height: 2px; top: -2px; background: linear-gradient(90deg, transparent, var(--accent-hi), transparent); opacity: 0; animation: scan-line 4s ease-in-out infinite; pointer-events: none; z-index: 5; }
+
+/* ═══════════ MANIFESTO ═══════════ */
+.manifesto { padding: 180px 0; text-align: center; position: relative; overflow: hidden; }
+.manifesto::before { content:''; position:absolute; top:50%; left:50%; transform:translate(-50%,-50%); width: 1000px; height: 1000px; background: radial-gradient(circle, rgba(139,92,246,0.06) 0%, rgba(236,72,153,0.02) 30%, transparent 60%); pointer-events:none; }
+.manifesto-rule { width: 60px; height: 2px; margin: 0 auto 40px; background: linear-gradient(90deg, var(--accent), var(--pink)); border-radius: 1px; }
+.manifesto-heading { font-family: var(--fd); font-size: clamp(30px, 4.2vw, 54px); line-height: 1.2; max-width: 800px; margin: 0 auto 36px; font-style: italic; }
+.manifesto-heading .highlight { color: var(--accent-hi); animation: text-glow 3s ease-in-out infinite; }
+.manifesto-body { font-size: 17px; color: var(--text2); max-width: 580px; margin: 0 auto; line-height: 1.85; }
+
+/* ═══════════ PERSONA SECTION ═══════════ */
+.personas { padding: 100px 0; }
+.persona-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; }
+.persona-card {
+  padding: 32px; border-radius: 20px; background: var(--surface); border: 1px solid var(--border);
+  text-align: center; transition: all 0.4s var(--ease); position: relative; overflow: hidden;
+}
+.persona-card::before { content:''; position:absolute; top:0; left:0; right:0; height:1px; background: linear-gradient(90deg, transparent, rgba(255,255,255,0.08), transparent); }
+.persona-card:hover { border-color: rgba(139,92,246,0.2); transform: translateY(-4px); }
+.persona-icon { font-size: 36px; margin-bottom: 16px; }
+.persona-card h3 { font-family: var(--fd); font-size: 22px; margin-bottom: 8px; font-weight: 400; }
+.persona-card p { font-size: 14px; color: var(--text2); line-height: 1.7; }
+
+/* ═══════════ HOW IT WORKS ═══════════ */
+.how { padding: 160px 0; }
+.how-header { margin-bottom: 80px; }
+.how-header h2 { font-family: var(--fd); font-size: clamp(36px, 4vw, 56px); line-height: 1.1; margin-bottom: 16px; }
+.how-header h2 em { font-style: italic; }
+.how-header p { font-size: 17px; color: var(--text2); max-width: 500px; }
+.steps { display: grid; grid-template-columns: 1fr 1fr; gap: 32px; }
+.step { padding: 36px; border-radius: 20px; background: var(--surface); border: 1px solid var(--border); transition: all 0.4s var(--ease); overflow: hidden; position: relative; }
+.step::before { content:''; position:absolute; top:0; left:0; right:0; height:1px; background: linear-gradient(90deg, transparent, rgba(139,92,246,0.15), transparent); }
+.step:hover { border-color: rgba(139,92,246,0.2); box-shadow: 0 0 40px rgba(139,92,246,0.06); transform: translateY(-4px); }
+.step::after { content:''; position:absolute; width:300px; height:300px; border-radius:50%; background: radial-gradient(circle, rgba(139,92,246,0.07), transparent 70%); top: var(--my, 50%); left: var(--mx, 50%); transform: translate(-50%,-50%); pointer-events:none; opacity:0; transition: opacity 0.4s; }
+.step:hover::after { opacity:1; }
+.step-num { font-family: var(--fm); font-size: 12px; font-weight: 600; color: var(--accent); letter-spacing: 0.1em; margin-bottom: 16px; display: flex; align-items: center; gap: 10px; }
+.step-num::after { content:''; flex:1; height:1px; background: linear-gradient(90deg, rgba(139,92,246,0.2), transparent); }
+.step-icon { font-size: 32px; margin-bottom: 16px; }
+.step h3 { font-family: var(--fd); font-size: 24px; margin-bottom: 10px; font-weight: 400; }
+.step p { font-size: 14px; color: var(--text2); line-height: 1.7; }
+
+/* ═══════════ VERSUS ═══════════ */
+.versus { padding: 160px 0; position: relative; overflow: hidden; }
+.versus::before { content:''; position:absolute; inset:0; background: radial-gradient(ellipse 40% 50% at 20% 50%, rgba(255,50,50,0.03), transparent), radial-gradient(ellipse 40% 50% at 80% 50%, rgba(139,92,246,0.04), transparent); pointer-events:none; }
+.versus-header { text-align: center; margin-bottom: 72px; }
+.versus-header h2 { font-family: var(--fd); font-size: clamp(30px, 3.8vw, 50px); line-height: 1.15; margin-bottom: 12px; max-width: 700px; margin-left: auto; margin-right: auto; }
+.versus-grid { display: grid; grid-template-columns: 1fr 80px 1fr; gap: 0; align-items: stretch; }
+.versus-col { padding: 40px; border-radius: 20px; }
+.versus-grind { background: rgba(255,50,50,0.02); border: 1px solid rgba(255,100,100,0.08); }
+.versus-heist { background: rgba(139,92,246,0.03); border: 1px solid rgba(139,92,246,0.12); }
+.versus-col h3 { font-family: var(--fd); font-size: 28px; margin-bottom: 8px; }
+.versus-col .versus-time { font-family: var(--fm); font-size: 12px; letter-spacing: 0.1em; margin-bottom: 28px; display: flex; align-items: center; gap: 8px; }
+.versus-grind .versus-time { color: rgba(255,100,100,0.6); }
+.versus-heist .versus-time { color: var(--emerald); }
+.versus-item { display: flex; align-items: flex-start; gap: 12px; padding: 12px 0; font-size: 14px; color: var(--text2); line-height: 1.6; }
+.versus-icon { flex-shrink: 0; width: 22px; height: 22px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 11px; margin-top: 2px; }
+.versus-grind .versus-icon { background: rgba(255,100,100,0.1); color: rgba(255,100,100,0.7); }
+.versus-heist .versus-icon { background: rgba(52,211,153,0.1); color: var(--emerald); }
+.versus-badge { display: flex; align-items: center; justify-content: center; }
+.versus-badge span { font-family: var(--fd); font-size: 20px; font-style: italic; color: var(--text3); background: var(--bg); padding: 16px 12px; border-radius: 12px; border: 1px solid var(--border); writing-mode: vertical-lr; }
+
+/* ─── INLINE TESTIMONIAL (Strategic) ─── */
+.inline-quote {
+  max-width: 700px; margin: 64px auto 0; padding: 32px 40px; text-align: center;
+  background: var(--surface); border: 1px solid var(--border); border-radius: 20px;
+  position: relative;
+}
+.inline-quote::before { content: '"'; position: absolute; top: -8px; left: 32px; font-family: var(--fd); font-size: 60px; color: var(--accent); line-height: 1; opacity: 0.3; }
+.inline-quote-text { font-size: 15px; color: var(--text2); line-height: 1.75; font-style: italic; margin-bottom: 12px; }
+.inline-quote-author { font-size: 12px; color: var(--text3); font-weight: 600; }
+.inline-quote-stars { color: var(--amber); font-size: 13px; letter-spacing: 2px; margin-bottom: 12px; }
+
+/* ═══════════ FEATURES — BENTO ═══════════ */
+.features { padding: 160px 0; }
+.features-header { margin-bottom: 72px; }
+.features-header h2 { font-family: var(--fd); font-size: clamp(36px, 4vw, 56px); line-height: 1.1; margin-bottom: 8px; }
+.features-header p { font-size: 17px; color: var(--text2); max-width: 520px; }
+.bento { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; }
+.bento-card { padding: 36px; border-radius: 20px; background: var(--surface); border: 1px solid var(--border); position: relative; overflow: hidden; transition: all 0.4s var(--ease); }
+.bento-card::before { content:''; position:absolute; top:0; left:0; right:0; height:1px; background: linear-gradient(90deg, transparent, rgba(255,255,255,0.08), transparent); }
+.bento-card::after { content:''; position:absolute; width:350px; height:350px; border-radius:50%; background: radial-gradient(circle, rgba(139,92,246,0.06), transparent 70%); top: var(--my,50%); left: var(--mx,50%); transform: translate(-50%,-50%); pointer-events:none; opacity:0; transition: opacity 0.4s; }
+.bento-card:hover::after { opacity:1; }
+.bento-card:hover { border-color: rgba(139,92,246,0.2); box-shadow: 0 0 50px rgba(139,92,246,0.05); transform: translateY(-4px); }
+.bento-card:nth-child(1) { grid-column: span 2; }
+.bento-card:nth-child(4) { grid-column: span 2; }
+.bento-icon { font-size: 32px; margin-bottom: 20px; width: 56px; height: 56px; border-radius: 14px; display: flex; align-items: center; justify-content: center; background: rgba(139,92,246,0.08); border: 1px solid rgba(139,92,246,0.12); }
+.bento-card:nth-child(2) .bento-icon { background: rgba(236,72,153,0.08); border-color: rgba(236,72,153,0.12); }
+.bento-card:nth-child(3) .bento-icon { background: rgba(34,211,238,0.08); border-color: rgba(34,211,238,0.12); }
+.bento-card:nth-child(5) .bento-icon { background: rgba(251,191,36,0.08); border-color: rgba(251,191,36,0.12); }
+.bento-card:nth-child(6) .bento-icon { background: rgba(52,211,153,0.08); border-color: rgba(52,211,153,0.12); }
+.bento-card h3 { font-family: var(--fd); font-size: 22px; margin-bottom: 10px; font-weight: 400; }
+.bento-card p { font-size: 14px; color: var(--text2); line-height: 1.7; }
+
+/* ═══════════ SOCIAL PROOF — MARQUEE ═══════════ */
+.social-proof { padding: 100px 0; overflow: hidden; position: relative; }
+.social-proof::before, .social-proof::after { content:''; position:absolute; top:0; bottom:0; width:160px; z-index:2; pointer-events:none; }
+.social-proof::before { left:0; background:linear-gradient(90deg, var(--bg), transparent); }
+.social-proof::after { right:0; background:linear-gradient(270deg, var(--bg), transparent); }
+
+/* Marquee controls */
+.marquee-controls {
+  display: flex; justify-content: center; align-items: center; gap: 16px;
+  margin-bottom: 24px; position: relative; z-index: 3;
+}
+.marquee-btn {
+  background: var(--surface); border: 1px solid var(--border); border-radius: 10px;
+  padding: 8px 16px; font-family: var(--fm); font-size: 11px; color: var(--text2);
+  cursor: pointer; transition: all 0.3s; display: flex; align-items: center; gap: 6px;
+  letter-spacing: 0.05em;
+}
+.marquee-btn:hover { border-color: var(--accent); color: var(--accent-hi); }
+.marquee-btn.active { border-color: var(--accent); color: var(--accent-hi); background: rgba(139,92,246,0.08); }
+.speed-label { font-family: var(--fm); font-size: 10px; color: var(--text3); letter-spacing: 0.1em; text-transform: uppercase; }
+
+.marquee-wrap { overflow: hidden; }
+.marquee-track {
+  display: flex; gap: 24px; width: max-content;
+  animation: marquee 40s linear infinite;
+}
+.marquee-wrap:hover .marquee-track { animation-duration: 120s; }
+.marquee-track.paused { animation-play-state: paused; }
+
+.testimonial { flex-shrink: 0; width: 380px; padding: 32px; background: var(--surface); border: 1px solid var(--border); border-radius: 18px; transition: all 0.3s; cursor: default; }
+.testimonial:hover { border-color: var(--border2); }
+.testimonial-stars { color: var(--amber); font-size: 14px; letter-spacing: 2px; margin-bottom: 16px; }
+.testimonial-text { font-size: 14px; color: var(--text2); line-height: 1.75; margin-bottom: 20px; font-style: italic; }
+.testimonial-author { font-size: 12px; color: var(--text3); font-weight: 600; padding-top: 16px; border-top: 1px solid var(--border); }
+
+/* ═══════════ COMPARISON TABLE ═══════════ */
+.comparison { padding: 100px 0; }
+.comparison-header { text-align: center; margin-bottom: 48px; }
+.comparison-header h2 { font-family: var(--fd); font-size: clamp(28px, 3vw, 40px); line-height: 1.15; margin-bottom: 12px; }
+.comparison-header p { font-size: 15px; color: var(--text2); }
+.comp-table {
+  width: 100%; border-collapse: separate; border-spacing: 0;
+  background: var(--surface); border: 1px solid var(--border); border-radius: 20px;
+  overflow: hidden;
+}
+.comp-table th, .comp-table td {
+  padding: 16px 20px; text-align: center; font-size: 14px;
+  border-bottom: 1px solid var(--border);
+}
+.comp-table th { font-family: var(--fm); font-size: 11px; letter-spacing: 0.1em; text-transform: uppercase; color: var(--text3); background: rgba(255,255,255,0.02); }
+.comp-table th:first-child, .comp-table td:first-child { text-align: left; font-weight: 600; color: var(--text2); }
+.comp-table tr:last-child td { border-bottom: none; }
+/* Highlight Heist column */
+.comp-table th.comp-heist { color: var(--accent-hi); background: rgba(139,92,246,0.06); }
+.comp-table td.comp-heist { background: rgba(139,92,246,0.03); }
+.comp-yes { color: var(--emerald); font-weight: 700; }
+.comp-no { color: var(--text3); }
+.comp-partial { color: var(--amber); }
+
+/* ═══════════ PRICING ═══════════ */
+.pricing { padding: 160px 0; position: relative; }
+.pricing::before { content:''; position:absolute; top:0; left:50%; transform:translateX(-50%); width:1200px; height:800px; background: radial-gradient(ellipse 50% 50% at 50% 30%, rgba(139,92,246,0.04), transparent 70%); pointer-events:none; }
+.pricing-header { text-align: center; margin-bottom: 48px; }
+.pricing-header h2 { font-family: var(--fd); font-size: clamp(36px, 4vw, 56px); line-height: 1.1; margin-bottom: 16px; }
+.pricing-header p { font-size: 17px; color: var(--text2); max-width: 540px; margin: 0 auto; }
+
+/* Annual/monthly toggle */
+.pricing-toggle {
+  display: flex; justify-content: center; align-items: center; gap: 14px;
+  margin-bottom: 48px;
+}
+.toggle-label { font-size: 14px; color: var(--text2); font-weight: 500; cursor: pointer; transition: color 0.3s; }
+.toggle-label.active { color: var(--text); font-weight: 600; }
+.toggle-track {
+  width: 52px; height: 28px; border-radius: 14px; padding: 3px;
+  background: var(--surface); border: 1px solid var(--border2); cursor: pointer;
+  transition: all 0.3s; position: relative;
+}
+.toggle-track.annual { background: rgba(139,92,246,0.15); border-color: rgba(139,92,246,0.3); }
+.toggle-thumb {
+  width: 22px; height: 22px; border-radius: 50%;
+  background: var(--accent); transition: transform 0.3s var(--ease);
+  box-shadow: 0 0 10px rgba(139,92,246,0.3);
+}
+.toggle-track.annual .toggle-thumb { transform: translateX(24px); }
+.toggle-save { font-family: var(--fm); font-size: 11px; color: var(--emerald); font-weight: 600; letter-spacing: 0.05em; padding: 4px 10px; background: rgba(52,211,153,0.08); border-radius: 6px; }
+
+.price-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; align-items: center; }
+.p-card { padding: 40px; border-radius: 24px; position: relative; background: var(--surface); border: 1px solid var(--border); transition: all 0.4s var(--ease); }
+.p-card:hover { transform: translateY(-6px); border-color: var(--border2); }
+.p-card-pro { background: linear-gradient(160deg, rgba(139,92,246,0.08), var(--surface)); border-color: rgba(139,92,246,0.2); transform: scale(1.04); box-shadow: 0 0 60px rgba(139,92,246,0.08), 0 30px 80px rgba(0,0,0,0.3); }
+.p-card-pro:hover { transform: scale(1.04) translateY(-6px); }
+.p-card-pro::before { content:''; position:absolute; inset:-1px; border-radius:25px; padding:1px; background: conic-gradient(from var(--angle, 0deg), var(--accent), var(--pink), var(--cyan), var(--accent)); -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0); -webkit-mask-composite: xor; mask-composite: exclude; animation: spin-slow 6s linear infinite; opacity: 0.4; }
+.p-badge { display: inline-block; padding: 5px 14px; border-radius: 20px; font-family: var(--fm); font-size: 10px; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase; background: linear-gradient(135deg, var(--accent), var(--pink)); color: white; margin-bottom: 20px; }
+.p-name { font-family: var(--fd); font-size: 26px; margin-bottom: 4px; }
+.p-price { font-family: var(--fd); font-size: 52px; line-height: 1; margin-bottom: 4px; }
+.p-price span { font-size: 18px; color: var(--text2); font-family: var(--fb); }
+.p-price-annual { display: none; }
+.p-price-was { font-size: 14px; color: var(--text3); text-decoration: line-through; margin-bottom: 4px; display: none; }
+.annual-active .p-price-monthly { display: none; }
+.annual-active .p-price-annual { display: block; }
+.annual-active .p-price-was { display: block; }
+.p-desc { font-size: 14px; color: var(--text2); margin-bottom: 28px; }
+.p-features { list-style: none; margin-bottom: 32px; }
+.p-features li { display: flex; align-items: center; gap: 10px; padding: 8px 0; font-size: 14px; color: var(--text2); }
+.p-check { width: 18px; height: 18px; border-radius: 50%; flex-shrink: 0; display: flex; align-items: center; justify-content: center; font-size: 10px; background: rgba(139,92,246,0.1); color: var(--accent-hi); }
+.p-cta { display: block; width: 100%; padding: 16px; text-align: center; border-radius: 12px; font-weight: 600; font-size: 15px; text-decoration: none; transition: all 0.3s; cursor: pointer; }
+.p-cta-ghost { background: rgba(255,255,255,0.03); border: 1px solid var(--border2); color: var(--text); }
+.p-cta-ghost:hover { background: rgba(139,92,246,0.08); border-color: rgba(139,92,246,0.3); }
+.p-cta-primary { background: linear-gradient(135deg, var(--accent), var(--accent-lo)); color: white; border: none; box-shadow: 0 4px 20px rgba(139,92,246,0.25); }
+.p-cta-primary:hover { transform: translateY(-2px); box-shadow: 0 8px 30px rgba(139,92,246,0.35); }
+.p-cta-micro { text-align: center; display: block; font-size: 11px; color: var(--text3); margin-top: 10px; }
+.pricing-note { text-align: center; margin-top: 32px; font-size: 13px; color: var(--text3); }
+
+/* ═══════════ FAQ ═══════════ */
+.faq { padding: 140px 0; }
+.faq-header { margin-bottom: 64px; }
+.faq-header h2 { font-family: var(--fd); font-size: clamp(36px, 4vw, 52px); line-height: 1.1; margin-bottom: 8px; }
+.faq-header p { font-size: 17px; color: var(--text2); }
+.faq-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; max-width: 1000px; }
+.faq-item { padding: 24px 28px; border-radius: 16px; background: var(--surface); border: 1px solid var(--border); cursor: pointer; transition: all 0.3s; }
+.faq-item:hover { border-color: var(--border2); }
+.faq-q { display: flex; align-items: center; justify-content: space-between; font-weight: 600; font-size: 15px; gap: 16px; }
+.faq-toggle { width: 28px; height: 28px; border-radius: 50%; flex-shrink: 0; background: rgba(139,92,246,0.08); display: flex; align-items: center; justify-content: center; font-size: 16px; color: var(--accent-hi); transition: transform 0.3s; }
+.faq-item.open .faq-toggle { transform: rotate(45deg); }
+.faq-a { max-height: 0; overflow: hidden; transition: max-height 0.4s var(--ease), margin 0.3s; font-size: 14px; color: var(--text2); line-height: 1.75; }
+.faq-item.open .faq-a { max-height: 300px; margin-top: 16px; }
+
+/* ═══════════ FINAL CTA + EMAIL CAPTURE ═══════════ */
+.final-cta { padding: 180px 0; text-align: center; position: relative; overflow: hidden; }
+.final-cta::before { content:''; position:absolute; top:50%; left:50%; transform:translate(-50%,-50%); width:1200px; height:1200px; background: radial-gradient(circle, rgba(139,92,246,0.08) 0%, rgba(236,72,153,0.03) 30%, transparent 55%); pointer-events:none; }
+.final-cta::after { content:''; position:absolute; top:50%; left:50%; transform:translate(-50%,-50%); width:600px; height:600px; border-radius:50%; border: 1px solid rgba(139,92,246,0.08); animation: spin-slow 30s linear infinite; pointer-events:none; }
+.final-cta .section-label { justify-content: center; }
+.final-cta h2 { font-family: var(--fd); font-size: clamp(40px, 5vw, 68px); line-height: 1.1; margin-bottom: 24px; position: relative; }
+.final-cta .sub { font-size: 17px; color: var(--text2); max-width: 520px; margin: 0 auto 44px; line-height: 1.8; }
+
+/* Email capture form */
+.email-form {
+  display: flex; gap: 12px; max-width: 460px; margin: 0 auto;
+  position: relative; z-index: 2;
+}
+.email-input {
+  flex: 1; padding: 18px 22px; border-radius: 14px;
+  background: rgba(255,255,255,0.04); border: 1px solid var(--border2);
+  color: var(--text); font-family: var(--fb); font-size: 15px;
+  outline: none; transition: all 0.3s;
+}
+.email-input::placeholder { color: var(--text3); }
+.email-input:focus { border-color: rgba(139,92,246,0.4); background: rgba(139,92,246,0.04); }
+.email-form .btn-primary { white-space: nowrap; padding: 18px 32px; }
+.email-success {
+  display: none; padding: 16px 24px; border-radius: 14px; margin: 0 auto;
+  background: rgba(52,211,153,0.08); border: 1px solid rgba(52,211,153,0.2);
+  color: var(--emerald); font-weight: 600; font-size: 15px; max-width: 460px;
+}
+.final-cta .fine-print { margin-top: 16px; font-size: 13px; color: var(--text3); position: relative; z-index: 2; }
+
+/* ═══════════ EXIT INTENT SLIDE-IN ═══════════ */
+.exit-popup {
+  position: fixed; bottom: 32px; right: -420px; z-index: 200;
+  width: 380px; padding: 28px; border-radius: 20px;
+  background: var(--surface-solid); border: 1px solid var(--border2);
+  box-shadow: 0 20px 60px rgba(0,0,0,0.5), 0 0 40px rgba(139,92,246,0.06);
+  transition: right 0.5s var(--ease);
+}
+.exit-popup.visible { right: 32px; }
+.exit-popup-close {
+  position: absolute; top: 12px; right: 12px; width: 28px; height: 28px;
+  border-radius: 50%; background: rgba(255,255,255,0.04); border: 1px solid var(--border);
+  color: var(--text3); cursor: pointer; display: flex; align-items: center;
+  justify-content: center; font-size: 14px; transition: all 0.3s;
+}
+.exit-popup-close:hover { color: var(--text); border-color: var(--border2); }
+.exit-popup h4 { font-family: var(--fd); font-size: 22px; margin-bottom: 8px; }
+.exit-popup p { font-size: 14px; color: var(--text2); margin-bottom: 16px; line-height: 1.6; }
+.exit-popup .email-form { max-width: 100%; }
+.exit-popup .email-input { padding: 14px 16px; font-size: 14px; border-radius: 10px; }
+.exit-popup .btn-primary { padding: 14px 20px; font-size: 14px; border-radius: 10px; }
+
+/* ═══════════ MOBILE STICKY CTA ═══════════ */
+.mobile-sticky {
+  display: none; position: fixed; bottom: 0; left: 0; right: 0; z-index: 150;
+  padding: 16px 24px; background: rgba(6,5,12,0.92); backdrop-filter: blur(20px);
+  border-top: 1px solid var(--border2);
+  transform: translateY(100%); transition: transform 0.4s var(--ease);
+}
+.mobile-sticky.visible { transform: translateY(0); }
+.mobile-sticky .btn-primary { width: 100%; justify-content: center; padding: 16px; font-size: 15px; border-radius: 12px; }
+.mobile-sticky .cta-micro { text-align: center; }
+
+/* ═══════════ FOOTER ═══════════ */
+footer { padding: 80px 48px 40px; border-top: 1px solid var(--border); }
+.footer-inner { max-width: 1200px; margin: 0 auto; display: grid; grid-template-columns: 2fr 1fr 1fr 1fr; gap: 48px; }
+.footer-brand .nav-logo { margin-bottom: 12px; display: inline-block; }
+.footer-tagline { font-size: 14px; color: var(--text3); }
+.footer-col h4 { font-family: var(--fm); font-size: 11px; letter-spacing: 0.15em; text-transform: uppercase; color: var(--text3); margin-bottom: 16px; }
+.footer-col a { display: block; padding: 4px 0; font-size: 14px; color: var(--text2); text-decoration: none; transition: color 0.2s; }
+.footer-col a:hover { color: var(--text); }
+.footer-bottom { max-width: 1200px; margin: 48px auto 0; padding-top: 24px; border-top: 1px solid var(--border); display: flex; justify-content: space-between; align-items: center; font-size: 13px; color: var(--text3); }
+
+/* ═══════════ RESPONSIVE ═══════════ */
+@media (max-width: 1024px) {
+  .hero .container { flex-direction: column; gap: 60px; }
+  .hero-content { flex: none; max-width: 100%; }
+  .hero-mockup { width: 100%; max-width: 600px; }
+  .mockup-wrapper { transform: none; }
+  .mockup-wrapper:hover { transform: none; }
+  .float-card-score { left: 10px; bottom: -10px; }
+  .float-card-brain { right: 10px; top: 20px; }
+  .bento { grid-template-columns: 1fr 1fr; }
+  .bento-card:nth-child(1), .bento-card:nth-child(4) { grid-column: span 1; }
+  .versus-grid { grid-template-columns: 1fr; gap: 24px; }
+  .versus-badge { display: none; }
+  .persona-grid { grid-template-columns: 1fr; max-width: 400px; margin: 0 auto; }
+  .comp-table { font-size: 12px; }
+  .comp-table th, .comp-table td { padding: 12px 10px; }
+}
+@media (max-width: 768px) {
+  .container { padding: 0 24px; }
+  nav { padding: 0 24px; }
+  .nav-links a:not(.nav-cta) { display: none; }
+  .hero { padding: 120px 0 80px; }
+  .hero h1 { font-size: clamp(38px, 8vw, 56px); }
+  .hero-stats { gap: 28px; flex-wrap: wrap; }
+  .steps { grid-template-columns: 1fr; }
+  .bento { grid-template-columns: 1fr; }
+  .bento-card:nth-child(1) { grid-column: span 1; }
+  .price-grid { grid-template-columns: 1fr; max-width: 420px; margin: 0 auto; }
+  .p-card-pro { transform: none; }
+  .p-card-pro:hover { transform: translateY(-6px); }
+  .faq-grid { grid-template-columns: 1fr; }
+  .footer-inner { grid-template-columns: 1fr 1fr; }
+  .footer-bottom { flex-direction: column; gap: 12px; text-align: center; }
+  .email-form { flex-direction: column; }
+  .email-form .btn-primary { width: 100%; justify-content: center; }
+  .exit-popup { display: none; }
+  .mobile-sticky { display: block; }
+  .marquee-controls { gap: 8px; }
+}
+</style>
+</head>
+<body>
+
+<div class="grid-bg"></div>
+<div class="orb orb-1"></div>
+<div class="orb orb-2"></div>
+<div class="orb orb-3"></div>
+
+<!-- ═══════════ NAV ═══════════ -->
+<nav id="nav">
+  <a href="/" class="nav-logo">Heist<span>.</span></a>
+  <div class="nav-links">
+    <a href="#how">How It Works</a>
+    <a href="#features">Features</a>
+    <a href="#pricing">Pricing</a>
+    <a href="#faq">FAQ</a>
+    <a href="#start" class="nav-cta">Get Your Time Back →</a>
+  </div>
+</nav>
+
+<!-- ═══════════ HERO ═══════════ -->
+<section class="hero">
+  <div class="container">
+    <div class="hero-content">
+      <div class="hero-tagline">The brains behind the operation</div>
+      <h1>
+        A month of <em>content.</em><br>
+        Ten minutes.<br>
+        <span class="word-cycler" id="cycler">
+          <span class="active">No grind required.</span>
+          <span>No burnout required.</span>
+          <span>No Sundays sacrificed.</span>
+        </span>
+      </h1>
+      <p class="hero-sub">
+        Heist is the AI content OS that generates, previews, and schedules
+        a full month of on-brand social content from a single idea. Set up
+        your Brain once. Take back every hour you've been losing to content.
+      </p>
+      <div class="hero-ctas">
+        <a href="#start" class="btn-primary">
+          Try Heist Free
+          <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </a>
+        <a href="#how" class="btn-ghost">See How It Works</a>
+      </div>
+      <!-- TRUST STRIP -->
+      <div class="trust-strip">
+        <div class="trust-avatars">
+          <span>J</span><span>A</span><span>M</span><span>K</span><span>S</span>
+        </div>
+        <div>
+          <div class="trust-stars">★★★★★</div>
+          <div class="trust-text"><strong>500+</strong> creators in early access</div>
+        </div>
+      </div>
+      <div class="hero-stats">
+        <div>
+          <div class="hero-stat-val"><span class="counter" data-target="10">0</span></div>
+          <div class="hero-stat-label">minutes to plan a month</div>
+        </div>
+        <div>
+          <div class="hero-stat-val"><span class="counter" data-target="40">0</span>+</div>
+          <div class="hero-stat-label">hours reclaimed per month</div>
+        </div>
+        <div>
+          <div class="hero-stat-val"><span class="counter" data-target="4">0</span></div>
+          <div class="hero-stat-label">platforms, one workflow</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- PRODUCT MOCKUP -->
+    <div class="hero-mockup">
+      <div class="mockup-wrapper">
+        <div class="browser-chrome">
+          <div class="browser-bar">
+            <div class="browser-dots"><span></span><span></span><span></span></div>
+            <div class="browser-url">heistbrain.com/dashboard</div>
+          </div>
+          <div class="dash" style="position:relative;">
+            <div class="scan-line"></div>
+            <div class="dash-card">
+              <div class="dash-label">The Vault</div>
+              <div class="dash-status dash-status-live"><span class="dash-status-dot"></span> Brain Active</div>
+              <div class="dash-lines"><div class="dash-line"></div><div class="dash-line"></div><div class="dash-line"></div><div class="dash-line"></div></div>
+            </div>
+            <div class="dash-card">
+              <div class="dash-label">The Score</div>
+              <div class="dash-metric">+42%</div>
+              <div class="dash-metric-sub">↑ engagement this month</div>
+              <div class="mini-chart">
+                <div class="mini-bar" style="height:30%"></div><div class="mini-bar" style="height:45%"></div>
+                <div class="mini-bar" style="height:35%"></div><div class="mini-bar" style="height:60%"></div>
+                <div class="mini-bar" style="height:50%"></div><div class="mini-bar" style="height:75%"></div>
+                <div class="mini-bar" style="height:65%"></div><div class="mini-bar" style="height:85%"></div>
+                <div class="mini-bar" style="height:70%"></div><div class="mini-bar" style="height:100%"></div>
+              </div>
+            </div>
+            <div class="dash-card dash-card-wide">
+              <div class="dash-label">Active Operation</div>
+              <div style="display:flex;justify-content:space-between;align-items:center;">
+                <div>
+                  <div style="font-weight:600;font-size:15px;margin-bottom:4px;">Q1 Brand Launch Campaign</div>
+                  <div style="font-size:12px;color:var(--text3);">32 of 48 posts deployed · 4 platforms</div>
+                </div>
+                <div style="font-family:var(--fd);font-size:28px;color:var(--accent-hi);">67%</div>
+              </div>
+              <div style="margin-top:14px;height:6px;border-radius:3px;background:rgba(255,255,255,0.04);overflow:hidden;">
+                <div style="height:100%;width:67%;border-radius:3px;background:linear-gradient(90deg,var(--accent-lo),var(--accent),var(--pink));"></div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="float-card float-card-score">
+          <div class="float-card-label">Weekly Score</div>
+          <div class="float-card-val">+42%</div>
+        </div>
+        <div class="float-card float-card-brain">
+          <div class="float-brain-icon">🧠</div>
+          <div class="float-card-label">Brain Active</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<!-- ═══════════ MANIFESTO ═══════════ -->
+<section class="manifesto">
+  <div class="container">
+    <div class="section-label r" style="justify-content:center;">The Anti-Hustle Manifesto</div>
+    <div class="manifesto-rule r"></div>
+    <h2 class="manifesto-heading r">
+      The real crime? Hours <span class="highlight">stolen</span> from you.<br>
+      But now the tables have turned —<br>
+      we're planning a heist.
+    </h2>
+    <p class="manifesto-body r">
+      Every week, content creation takes your mornings, your evenings, your weekends.
+      Heist takes it all back. Set up your Brain once, feed it one idea, and walk away
+      with a full month of on-brand content. That's not a productivity hack.
+      That's your time, returned.
+    </p>
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<!-- ═══════════ WHO IT'S FOR (Personas) ═══════════ -->
+<section class="personas">
+  <div class="container">
+    <div class="section-label r" style="justify-content:center;">Who It's For</div>
+    <div class="persona-grid">
+      <div class="persona-card r">
+        <div class="persona-icon">🎯</div>
+        <h3>Solo Creators</h3>
+        <p>Stop trading evenings and weekends for content. One Brain, one idea, one month of posts — done in 10 minutes.</p>
+      </div>
+      <div class="persona-card r">
+        <div class="persona-icon">👥</div>
+        <h3>Small Teams</h3>
+        <p>Align your brand voice across every team member and platform. One Brain keeps everyone on the same page.</p>
+      </div>
+      <div class="persona-card r">
+        <div class="persona-icon">🚀</div>
+        <h3>Growing Brands</h3>
+        <p>Scale from 1 to 10 Brand Brains. Run parallel campaigns, manage multiple brands, and export analytics.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<!-- ═══════════ HOW IT WORKS ═══════════ -->
+<section class="how" id="how">
+  <div class="container">
+    <div class="how-header r">
+      <div class="section-label">How It Works</div>
+      <h2>One idea in. <em>One month out.</em></h2>
+      <p>Four steps. Ten minutes. The rest of your week is yours again.</p>
+    </div>
+    <div class="steps">
+      <div class="step r"><div class="step-num">01</div><div class="step-icon">🧠</div><h3>Set Up Your Brain</h3><p>Define your voice, audience, and offer. The Brain remembers everything and gets smarter over time.</p></div>
+      <div class="step r"><div class="step-num">02</div><div class="step-icon">⚡</div><h3>Pull the Heist</h3><p>Enter one idea. Heist generates a full month of content across LinkedIn, X, Instagram, and Facebook.</p></div>
+      <div class="step r"><div class="step-num">03</div><div class="step-icon">👁</div><h3>Preview Everything</h3><p>See exactly how each post looks on every platform. Pixel-accurate. No surprises when it goes live.</p></div>
+      <div class="step r"><div class="step-num">04</div><div class="step-icon">🚀</div><h3>Schedule &amp; Go</h3><p>Drag posts to your calendar, hit schedule, walk away clean. Your content runs on autopilot.</p></div>
+    </div>
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<!-- ═══════════ VERSUS ═══════════ -->
+<section class="versus">
+  <div class="container">
+    <div class="versus-header r">
+      <div class="section-label" style="justify-content:center;">The Old Way vs. The Heist</div>
+      <h2>The hours. The money. All spent on content creation.<br>Now that's armed robbery. <em>And we're taking it back.</em></h2>
+    </div>
+    <div class="versus-grid">
+      <div class="versus-col versus-grind r-left">
+        <h3>The Grind</h3>
+        <div class="versus-time">⏱ ~10 hours / week</div>
+        <div class="versus-item"><span class="versus-icon">✕</span><span>Open ChatGPT, prompt for ideas manually</span></div>
+        <div class="versus-item"><span class="versus-icon">✕</span><span>Copy to Google Docs to edit and organize</span></div>
+        <div class="versus-item"><span class="versus-icon">✕</span><span>Reformat for each platform individually</span></div>
+        <div class="versus-item"><span class="versus-icon">✕</span><span>Switch to Buffer to schedule one by one</span></div>
+        <div class="versus-item"><span class="versus-icon">✕</span><span>Repeat every week. Lose your weekends.</span></div>
+      </div>
+      <div class="versus-badge"><span>vs</span></div>
+      <div class="versus-col versus-heist r-right">
+        <h3>Heist</h3>
+        <div class="versus-time">⚡ ~10 minutes / month</div>
+        <div class="versus-item"><span class="versus-icon">✓</span><span>Your Brain remembers your voice permanently</span></div>
+        <div class="versus-item"><span class="versus-icon">✓</span><span>One idea becomes a full month of content</span></div>
+        <div class="versus-item"><span class="versus-icon">✓</span><span>Platform-perfect previews, every network</span></div>
+        <div class="versus-item"><span class="versus-icon">✓</span><span>Organized into campaigns automatically</span></div>
+        <div class="versus-item"><span class="versus-icon">✓</span><span>Schedule everything. Walk away clean.</span></div>
+      </div>
+    </div>
+    <!-- Strategic testimonial after versus -->
+    <div class="inline-quote r">
+      <div class="inline-quote-stars">★★★★★</div>
+      <div class="inline-quote-text">"Heist replaced Jasper, Buffer, and my Google Docs chaos. One tool, one Brain, done."</div>
+      <div class="inline-quote-author">— Founder, SaaS Startup</div>
+    </div>
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<!-- ═══════════ FEATURES (BENTO) ═══════════ -->
+<section class="features" id="features">
+  <div class="container">
+    <div class="features-header r">
+      <div class="section-label">The Arsenal</div>
+      <h2>Everything your <em>operation</em> needs.</h2>
+      <p>Six tools that replace your entire content stack. One Brain that ties it all together.</p>
+    </div>
+    <div class="bento">
+      <div class="bento-card r"><div class="bento-icon">🧠</div><h3>The Brain</h3><p>Persistent brand memory. Learns your voice, audience, and offer. Gets smarter with every use. Never forgets.</p></div>
+      <div class="bento-card r"><div class="bento-icon">👁</div><h3>The Lookout</h3><p>Pixel-accurate previews on LinkedIn, X, Instagram, and Facebook. See what your audience sees before you post.</p></div>
+      <div class="bento-card r"><div class="bento-icon">🗂</div><h3>The Operation</h3><p>Structured campaigns with goals, progress, and status tracking. Run multiple operations at once.</p></div>
+      <div class="bento-card r"><div class="bento-icon">🗄</div><h3>The Vault</h3><p>Your complete content library. Every post, draft, and asset — searchable, filterable, always accessible.</p></div>
+      <div class="bento-card r"><div class="bento-icon">📐</div><h3>The Blueprint</h3><p>A visual content calendar that maps your entire month. Drag, drop, reschedule. Total clarity at a glance.</p></div>
+      <div class="bento-card r"><div class="bento-icon">📊</div><h3>The Score</h3><p>Platform-level analytics. What's working, what's not, and where to double down. Data, not guesswork.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════ SOCIAL PROOF — MARQUEE ═══════════ -->
+<section class="social-proof">
+  <div class="marquee-controls">
+    <button class="marquee-btn" id="marquee-pause" title="Pause/Play">⏸ Pause</button>
+    <span class="speed-label">Speed:</span>
+    <button class="marquee-btn active" data-speed="40">Normal</button>
+    <button class="marquee-btn" data-speed="80">Slow</button>
+  </div>
+  <div class="marquee-wrap" id="marquee-wrap">
+    <div class="marquee-track" id="marquee">
+      <div class="testimonial"><div class="testimonial-stars">★★★★★</div><div class="testimonial-text">"I used to spend every Sunday night in content panic mode. Heist gave me my weekends back. That alone is worth 10x the price."</div><div class="testimonial-author">— Early Access Creator</div></div>
+      <div class="testimonial"><div class="testimonial-stars">★★★★★</div><div class="testimonial-text">"Heist replaced Jasper, Buffer, and my Google Docs chaos. One tool, one Brain, done."</div><div class="testimonial-author">— Founder, SaaS Startup</div></div>
+      <div class="testimonial"><div class="testimonial-stars">★★★★★</div><div class="testimonial-text">"The previews alone sold me. I finally know what my posts look like before they go live."</div><div class="testimonial-author">— Marketing Consultant</div></div>
+      <div class="testimonial"><div class="testimonial-stars">★★★★★</div><div class="testimonial-text">"My followers think I have a content team. I have a Brain."</div><div class="testimonial-author">— Solo Consultant</div></div>
+      <div class="testimonial"><div class="testimonial-stars">★★★★★</div><div class="testimonial-text">"I got 8 hours a week back. My mornings are mine again. My weekends are mine again. Never going back."</div><div class="testimonial-author">— Content Creator</div></div>
+      <div class="testimonial"><div class="testimonial-stars">★★★★★</div><div class="testimonial-text">"Everyone asks how I post so consistently across 4 platforms. I tell them it's classified."</div><div class="testimonial-author">— Executive Coach</div></div>
+      <!-- Duplicate for seamless loop -->
+      <div class="testimonial"><div class="testimonial-stars">★★★★★</div><div class="testimonial-text">"I used to spend every Sunday night in content panic mode. Heist gave me my weekends back. That alone is worth 10x the price."</div><div class="testimonial-author">— Early Access Creator</div></div>
+      <div class="testimonial"><div class="testimonial-stars">★★★★★</div><div class="testimonial-text">"Heist replaced Jasper, Buffer, and my Google Docs chaos. One tool, one Brain, done."</div><div class="testimonial-author">— Founder, SaaS Startup</div></div>
+      <div class="testimonial"><div class="testimonial-stars">★★★★★</div><div class="testimonial-text">"The previews alone sold me. I finally know what my posts look like before they go live."</div><div class="testimonial-author">— Marketing Consultant</div></div>
+      <div class="testimonial"><div class="testimonial-stars">★★★★★</div><div class="testimonial-text">"My followers think I have a content team. I have a Brain."</div><div class="testimonial-author">— Solo Consultant</div></div>
+      <div class="testimonial"><div class="testimonial-stars">★★★★★</div><div class="testimonial-text">"I got 8 hours a week back. My mornings are mine again. My weekends are mine again. Never going back."</div><div class="testimonial-author">— Content Creator</div></div>
+      <div class="testimonial"><div class="testimonial-stars">★★★★★</div><div class="testimonial-text">"Everyone asks how I post so consistently across 4 platforms. I tell them it's classified."</div><div class="testimonial-author">— Executive Coach</div></div>
+    </div>
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<!-- ═══════════ COMPETITIVE COMPARISON ═══════════ -->
+<section class="comparison">
+  <div class="container">
+    <div class="comparison-header r">
+      <h2>How Heist <em>stacks up</em></h2>
+      <p>One tool to replace three. Here's what you'd need without Heist.</p>
+    </div>
+    <div class="r" style="overflow-x:auto;">
+      <table class="comp-table">
+        <thead>
+          <tr>
+            <th>Feature</th>
+            <th class="comp-heist">Heist Pro — $49/mo</th>
+            <th>Jasper — $49/mo</th>
+            <th>Buffer — $30/mo</th>
+            <th>Hootsuite — $99/mo</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr><td>AI content generation</td><td class="comp-heist comp-yes">✓</td><td class="comp-yes">✓</td><td class="comp-no">✕</td><td class="comp-no">✕</td></tr>
+          <tr><td>Persistent brand memory</td><td class="comp-heist comp-yes">✓</td><td class="comp-no">✕</td><td class="comp-no">✕</td><td class="comp-no">✕</td></tr>
+          <tr><td>Full-fidelity previews</td><td class="comp-heist comp-yes">✓</td><td class="comp-no">✕</td><td class="comp-partial">Partial</td><td class="comp-partial">Partial</td></tr>
+          <tr><td>Multi-platform scheduling</td><td class="comp-heist comp-yes">✓</td><td class="comp-no">✕</td><td class="comp-yes">✓</td><td class="comp-yes">✓</td></tr>
+          <tr><td>Campaign organization</td><td class="comp-heist comp-yes">✓</td><td class="comp-no">✕</td><td class="comp-no">✕</td><td class="comp-partial">Partial</td></tr>
+          <tr><td>Content calendar</td><td class="comp-heist comp-yes">✓</td><td class="comp-no">✕</td><td class="comp-yes">✓</td><td class="comp-yes">✓</td></tr>
+          <tr><td>One-idea → full month</td><td class="comp-heist comp-yes">✓</td><td class="comp-no">✕</td><td class="comp-no">✕</td><td class="comp-no">✕</td></tr>
+          <tr><td>Total monthly cost</td><td class="comp-heist" style="color:var(--emerald);font-weight:700;">$49</td><td colspan="3" style="color:var(--text3);">$49 + $30 = $79+ (and still no Brain)</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<!-- ═══════════ PRICING ═══════════ -->
+<section class="pricing" id="pricing">
+  <div class="container">
+    <div class="pricing-header r">
+      <div class="section-label" style="justify-content:center;">Pricing</div>
+      <h2>Pricing this good? <em>It's a steal.</em></h2>
+      <p>Every plan includes full-fidelity previews, calendar scheduling, and your Brand Brain. Get your time back for less than your daily coffee habit.</p>
+    </div>
+
+    <!-- Annual/Monthly Toggle -->
+    <div class="pricing-toggle r">
+      <span class="toggle-label active" id="lbl-monthly">Monthly</span>
+      <div class="toggle-track" id="pricing-switch"><div class="toggle-thumb"></div></div>
+      <span class="toggle-label" id="lbl-annual">Annual</span>
+      <span class="toggle-save">Save 17%</span>
+    </div>
+
+    <div class="price-grid" id="price-grid">
+      <!-- Starter -->
+      <div class="p-card r">
+        <div class="p-name">Starter</div>
+        <div class="p-price-was">$19/mo</div>
+        <div class="p-price p-price-monthly">$19<span>/mo</span></div>
+        <div class="p-price p-price-annual">$16<span>/mo</span></div>
+        <div class="p-desc">For creators getting started.</div>
+        <ul class="p-features">
+          <li><span class="p-check">✓</span> 1 Brand Brain</li>
+          <li><span class="p-check">✓</span> 20 posts / month</li>
+          <li><span class="p-check">✓</span> 2 platforms</li>
+          <li><span class="p-check">✓</span> Full-fidelity previews</li>
+          <li><span class="p-check">✓</span> 1 active campaign</li>
+        </ul>
+        <a href="#start" class="p-cta p-cta-ghost">Start Free Trial</a>
+        <span class="p-cta-micro">No credit card required</span>
+      </div>
+      <!-- Pro -->
+      <div class="p-card p-card-pro r">
+        <div class="p-badge">Most Popular</div>
+        <div class="p-name">Pro</div>
+        <div class="p-price-was">$49/mo</div>
+        <div class="p-price p-price-monthly">$49<span>/mo</span></div>
+        <div class="p-price p-price-annual">$41<span>/mo</span></div>
+        <div class="p-desc">For creators serious about growth.</div>
+        <ul class="p-features">
+          <li><span class="p-check">✓</span> 3 Brand Brains</li>
+          <li><span class="p-check">✓</span> 150 posts / month</li>
+          <li><span class="p-check">✓</span> All 4 platforms</li>
+          <li><span class="p-check">✓</span> Unlimited campaigns</li>
+          <li><span class="p-check">✓</span> Basic analytics</li>
+        </ul>
+        <a href="#start" class="p-cta p-cta-primary">Start Free Trial</a>
+        <span class="p-cta-micro">No credit card required</span>
+      </div>
+      <!-- Founder -->
+      <div class="p-card r">
+        <div class="p-name">Founder</div>
+        <div class="p-price-was">$99/mo</div>
+        <div class="p-price p-price-monthly">$99<span>/mo</span></div>
+        <div class="p-price p-price-annual">$82<span>/mo</span></div>
+        <div class="p-desc">For operators who want the full arsenal.</div>
+        <ul class="p-features">
+          <li><span class="p-check">✓</span> 10 Brand Brains</li>
+          <li><span class="p-check">✓</span> Unlimited posts</li>
+          <li><span class="p-check">✓</span> 4 platforms + blog</li>
+          <li><span class="p-check">✓</span> 3 team seats included</li>
+          <li><span class="p-check">✓</span> Full analytics + export</li>
+        </ul>
+        <a href="#start" class="p-cta p-cta-ghost">Start Free Trial</a>
+        <span class="p-cta-micro">No credit card required</span>
+      </div>
+    </div>
+    <!-- Strategic testimonial in pricing -->
+    <div class="inline-quote r" style="margin-top:48px;">
+      <div class="inline-quote-stars">★★★★★</div>
+      <div class="inline-quote-text">"I used to spend every Sunday night in content panic mode. Heist gave me my weekends back. That alone is worth 10x the price."</div>
+      <div class="inline-quote-author">— Early Access Creator</div>
+    </div>
+    <div class="pricing-note r">All plans include a 7-day free trial of Pro. No credit card required. Cancel anytime.</div>
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<!-- ═══════════ FAQ ═══════════ -->
+<section class="faq" id="faq">
+  <div class="container">
+    <div class="faq-header r">
+      <div class="section-label">FAQ</div>
+      <h2>Got questions? <em>We've got answers.</em></h2>
+    </div>
+    <div class="faq-grid">
+      <div class="faq-item r"><div class="faq-q">How is Heist different from ChatGPT? <span class="faq-toggle">+</span></div><div class="faq-a">ChatGPT generates text. Heist generates a system — with brand memory that persists, platform-specific previews, campaign organization, and scheduling. It's the difference between a tool and a workflow.</div></div>
+      <div class="faq-item r"><div class="faq-q">How does the Brand Brain work? <span class="faq-toggle">+</span></div><div class="faq-a">You define your voice, audience, and offer during onboarding. The Brain stores this permanently and applies it to every piece of content. The longer you use Heist, the more it sounds like you.</div></div>
+      <div class="faq-item r"><div class="faq-q">Does AI content sound robotic? <span class="faq-toggle">+</span></div><div class="faq-a">Not when it has a Brain. Most AI tools are stateless — they forget you after every session. Your Brain learns from you and applies your voice, tone, and style to every single post.</div></div>
+      <div class="faq-item r"><div class="faq-q">What platforms does Heist support? <span class="faq-toggle">+</span></div><div class="faq-a">LinkedIn, X (Twitter), Instagram, and Facebook. The Founder plan also includes blog content generation. More platforms are on the roadmap.</div></div>
+      <div class="faq-item r"><div class="faq-q">Can I try it before I pay? <span class="faq-toggle">+</span></div><div class="faq-a">Yes. Every plan includes a 7-day free trial with full Pro features. No credit card required. Set up your Brain and see for yourself.</div></div>
+      <div class="faq-item r"><div class="faq-q">What if I need more posts? <span class="faq-toggle">+</span></div><div class="faq-a">You can purchase generation credit packs starting at $9 for 50 extra posts, or upgrade your plan at any time. No long-term commitments.</div></div>
+    </div>
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<!-- ═══════════ FINAL CTA + EMAIL CAPTURE ═══════════ -->
+<section class="final-cta" id="start">
+  <div class="container">
+    <div class="section-label r">Ready?</div>
+    <h2 class="r">Ready to steal back<br><span class="gradient-text">your time?</span></h2>
+    <p class="sub r">A month of on-brand content. Ten minutes. No credit card required. Your evenings and weekends are about to be yours again.</p>
+    <div class="r" id="cta-form-wrap">
+      <div class="email-form" id="email-form">
+        <input type="email" class="email-input" id="email-input" placeholder="you@example.com" required>
+        <button class="btn-primary" id="email-submit" type="button">
+          Try Heist Free
+          <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </button>
+      </div>
+      <div class="email-success" id="email-success">🎉 You're in! Check your inbox for next steps.</div>
+    </div>
+    <div class="fine-print r">7-day free trial · No credit card · Cancel anytime</div>
+  </div>
+</section>
+
+<!-- ═══════════ FOOTER ═══════════ -->
+<footer>
+  <div class="footer-inner">
+    <div class="footer-brand">
+      <a href="/" class="nav-logo">Heist<span>.</span></a>
+      <div class="footer-tagline">The brains behind the operation.</div>
+    </div>
+    <div class="footer-col"><h4>Product</h4><a href="#features">Features</a><a href="#pricing">Pricing</a><a href="/changelog">Changelog</a></div>
+    <div class="footer-col"><h4>Company</h4><a href="/about">About</a><a href="/blog">Blog</a><a href="mailto:pulledtheheist@gmail.com">Contact</a></div>
+    <div class="footer-col"><h4>Legal</h4><a href="/privacy">Privacy</a><a href="/terms">Terms</a></div>
+  </div>
+  <div class="footer-bottom">
+    <span>© 2026 HeistBrain. All rights reserved.</span>
+    <span>Steal back your time.</span>
+  </div>
+</footer>
+
+<!-- ═══════════ EXIT INTENT POPUP ═══════════ -->
+<div class="exit-popup" id="exit-popup">
+  <button class="exit-popup-close" id="exit-close">✕</button>
+  <h4>Wait — want to see Heist in action?</h4>
+  <p>Get early access and a free month of Pro. No credit card required.</p>
+  <div class="email-form">
+    <input type="email" class="email-input" id="exit-email" placeholder="you@example.com">
+    <button class="btn-primary" id="exit-submit" type="button">Get Access</button>
+  </div>
+</div>
+
+<!-- ═══════════ MOBILE STICKY CTA ═══════════ -->
+<div class="mobile-sticky" id="mobile-sticky">
+  <a href="#start" class="btn-primary">Try Heist Free</a>
+  <span class="cta-micro">7-day free trial · No credit card</span>
+</div>
+
+<script>
+// ─── SCROLL REVEAL ───
+const obs = new IntersectionObserver(e => {
+  e.forEach(e => { if (e.isIntersecting) e.target.classList.add('v'); });
+}, { threshold: 0.06, rootMargin: '0px 0px -60px 0px' });
+document.querySelectorAll('.r,.r-scale,.r-left,.r-right').forEach(el => obs.observe(el));
+document.querySelectorAll('.steps .step,.bento .bento-card,.price-grid .p-card,.faq-grid .faq-item,.persona-grid .persona-card').forEach((el,i) => {
+  el.style.transitionDelay = `${i * 0.08}s`;
+});
+
+// ─── WORD CYCLER ───
+const cycler = document.getElementById('cycler');
+const words = cycler.querySelectorAll('span');
+let wi = 0;
+setInterval(() => { words[wi].classList.remove('active'); wi = (wi + 1) % words.length; words[wi].classList.add('active'); }, 2800);
+
+// ─── ANIMATED COUNTERS ───
+const cObs = new IntersectionObserver(e => {
+  e.forEach(e => {
+    if (e.isIntersecting) {
+      const el = e.target, t = parseInt(el.dataset.target);
+      let c = 0; const s = Math.max(1, Math.ceil(t / 30));
+      const tm = setInterval(() => { c += s; if (c >= t) { c = t; clearInterval(tm); } el.textContent = c; }, 40);
+      cObs.unobserve(el);
+    }
+  });
+}, { threshold: 0.5 });
+document.querySelectorAll('.counter').forEach(c => cObs.observe(c));
+
+// ─── NAV SCROLL ───
+window.addEventListener('scroll', () => { document.getElementById('nav').classList.toggle('scrolled', window.scrollY > 60); });
+
+// ─── PARALLAX ORBS ───
+let tk = false;
+window.addEventListener('scroll', () => {
+  if (!tk) { requestAnimationFrame(() => {
+    const y = window.scrollY;
+    document.querySelector('.orb-1').style.transform = `translate(${y*0.02}px,${y*0.04}px)`;
+    document.querySelector('.orb-2').style.transform = `translate(${y*-0.03}px,${y*0.02}px)`;
+    document.querySelector('.orb-3').style.transform = `translate(${y*0.015}px,${y*-0.03}px)`;
+    tk = false;
+  }); tk = true; }
+});
+
+// ─── SPOTLIGHT FOLLOW ───
+document.querySelectorAll('.bento-card,.step').forEach(c => {
+  c.addEventListener('mousemove', e => {
+    const r = c.getBoundingClientRect();
+    c.style.setProperty('--mx', ((e.clientX-r.left)/r.width*100)+'%');
+    c.style.setProperty('--my', ((e.clientY-r.top)/r.height*100)+'%');
+  });
+});
+
+// ─── FAQ TOGGLE ───
+document.querySelectorAll('.faq-item').forEach(i => { i.addEventListener('click', () => i.classList.toggle('open')); });
+
+// ─── SMOOTH NAV SCROLL ───
+document.querySelectorAll('a[href^="#"]').forEach(a => {
+  a.addEventListener('click', e => { e.preventDefault(); const t = document.querySelector(a.getAttribute('href')); if (t) t.scrollIntoView({behavior:'smooth'}); });
+});
+
+// ─── PRO CARD BORDER ROTATION ───
+(function() {
+  const pc = document.querySelector('.p-card-pro'); if (!pc) return;
+  let a = 0; (function r() { a = (a + 0.5) % 360; pc.style.setProperty('--angle', a+'deg'); requestAnimationFrame(r); })();
+})();
+
+// ─── PRICING TOGGLE ───
+const pSwitch = document.getElementById('pricing-switch');
+const pGrid = document.getElementById('price-grid');
+const lblM = document.getElementById('lbl-monthly');
+const lblA = document.getElementById('lbl-annual');
+let isAnnual = false;
+
+pSwitch.addEventListener('click', () => {
+  isAnnual = !isAnnual;
+  pSwitch.classList.toggle('annual', isAnnual);
+  pGrid.classList.toggle('annual-active', isAnnual);
+  lblM.classList.toggle('active', !isAnnual);
+  lblA.classList.toggle('active', isAnnual);
+});
+// Click labels too
+lblM.addEventListener('click', () => { if (isAnnual) pSwitch.click(); });
+lblA.addEventListener('click', () => { if (!isAnnual) pSwitch.click(); });
+
+// ─── MARQUEE CONTROLS ───
+const marqueeTrack = document.getElementById('marquee');
+const pauseBtn = document.getElementById('marquee-pause');
+let isPaused = false;
+
+pauseBtn.addEventListener('click', () => {
+  isPaused = !isPaused;
+  marqueeTrack.classList.toggle('paused', isPaused);
+  pauseBtn.textContent = isPaused ? '▶ Play' : '⏸ Pause';
+  pauseBtn.classList.toggle('active', isPaused);
+});
+
+document.querySelectorAll('[data-speed]').forEach(btn => {
+  btn.addEventListener('click', () => {
+    document.querySelectorAll('[data-speed]').forEach(b => b.classList.remove('active'));
+    btn.classList.add('active');
+    marqueeTrack.style.animationDuration = btn.dataset.speed + 's';
+  });
+});
+
+// ─── EMAIL CAPTURE ───
+// SETUP: Replace YOUR_FORM_ID with your Formspree form ID
+// 1. Sign up free at https://formspree.io
+// 2. Create a form, copy the form ID (e.g. "xabc1234")
+// 3. Replace "YOUR_FORM_ID" below
+const FORM_ENDPOINT = 'https://formspree.io/f/xwvragzl';
+
+function handleEmail(inputId, formParentId, successId) {
+  const input = document.getElementById(inputId);
+  const btn = formParentId === 'email-form' ? document.getElementById('email-submit') : document.getElementById('exit-submit');
+  btn.addEventListener('click', async () => {
+    const email = input.value.trim();
+    if (!email || !email.includes('@') || !email.includes('.')) {
+      input.style.borderColor = 'rgba(255,100,100,0.5)';
+      input.style.animation = 'shake 0.4s';
+      setTimeout(() => { input.style.animation = ''; input.style.borderColor = ''; }, 400);
+      return;
+    }
+    btn.textContent = 'Sending...';
+    btn.style.pointerEvents = 'none';
+    try {
+      const res = await fetch(FORM_ENDPOINT, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
+        body: JSON.stringify({ email: email, source: formParentId === 'email-form' ? 'main-cta' : 'exit-popup' })
+      });
+      if (res.ok) {
+        if (successId) {
+          document.getElementById(formParentId).style.display = 'none';
+          document.getElementById(successId).style.display = 'block';
+        } else {
+          document.getElementById('exit-popup').innerHTML = '<div style="text-align:center;padding:20px;"><div style="font-size:28px;margin-bottom:12px;">🎉</div><h4 style="font-family:var(--fd);font-size:22px;margin-bottom:8px;">You\'re in!</h4><p style="font-size:14px;color:var(--text2);">Check your inbox for next steps.</p></div>';
+        }
+      } else { throw new Error('Submit failed'); }
+    } catch (err) {
+      // Fallback: open mailto
+      window.location.href = 'mailto:pulledtheheist@gmail.com?subject=Early Access&body=Sign me up: ' + encodeURIComponent(email);
+    }
+  });
+  // Allow Enter key submission
+  input.addEventListener('keydown', e => { if (e.key === 'Enter') btn.click(); });
+}
+handleEmail('email-input', 'email-form', 'email-success');
+handleEmail('exit-email', 'exit-popup', null);
+
+// ─── EXIT INTENT (desktop only) ───
+let exitShown = false;
+document.addEventListener('mouseleave', e => {
+  if (e.clientY < 10 && !exitShown && window.innerWidth > 768) {
+    exitShown = true;
+    setTimeout(() => document.getElementById('exit-popup').classList.add('visible'), 500);
+  }
+});
+document.getElementById('exit-close').addEventListener('click', () => {
+  document.getElementById('exit-popup').classList.remove('visible');
+});
+
+// ─── MOBILE STICKY CTA BAR ───
+const sticky = document.getElementById('mobile-sticky');
+const heroSection = document.querySelector('.hero');
+if (sticky && window.innerWidth <= 768) {
+  const sObs = new IntersectionObserver(e => {
+    e.forEach(e => { sticky.classList.toggle('visible', !e.isIntersecting); });
+  }, { threshold: 0 });
+  sObs.observe(heroSection);
+}
+</script>
+</body>
+</html>
