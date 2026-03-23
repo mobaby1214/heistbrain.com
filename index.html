@@ -22,7 +22,7 @@
 <meta name="twitter:description" content="The AI content OS. Generate, preview, and schedule a full month of content from one idea.">
 <meta name="twitter:image" content="https://heistbrain.com/og-image.png">
 
-<link rel="canonical" href="https://heistbrain.com">
+<link rel="canonical" href="https://heistbrain.com/">
 <link rel="icon" href="/favicon.svg" type="image/svg+xml">
 <link rel="apple-touch-icon" href="/apple-touch-icon.png">
 <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -31,21 +31,18 @@
 
 <!-- JSON-LD Structured Data -->
 <script type="application/ld+json">
-{
-  "@context": "https://schema.org",
-  "@type": "SoftwareApplication",
-  "name": "Heist",
-  "url": "https://heistbrain.com",
-  "description": "AI content OS that generates, previews, and schedules a full month of on-brand social content from a single idea.",
-  "applicationCategory": "BusinessApplication",
-  "operatingSystem": "Web",
-  "offers": [
-    { "@type": "Offer", "name": "Starter", "price": "19", "priceCurrency": "USD", "billingIncrement": "P1M" },
-    { "@type": "Offer", "name": "Pro", "price": "49", "priceCurrency": "USD", "billingIncrement": "P1M" },
-    { "@type": "Offer", "name": "Founder", "price": "99", "priceCurrency": "USD", "billingIncrement": "P1M" }
-  ]
-}
+{"@context":"https://schema.org","@type":"SoftwareApplication","name":"Heist","description":"AI-powered content OS that generates a month of social media content in 10 minutes.","url":"https://heistbrain.com","applicationCategory":"BusinessApplication","operatingSystem":"Web","offers":[{"@type":"Offer","name":"Starter","price":"19.00","priceCurrency":"USD"},{"@type":"Offer","name":"Pro","price":"49.00","priceCurrency":"USD"},{"@type":"Offer","name":"Founder","price":"99.00","priceCurrency":"USD"}],"aggregateRating":{"@type":"AggregateRating","ratingValue":"4.9","reviewCount":"500","bestRating":"5"}}
 </script>
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"How is Heist different from ChatGPT?","acceptedAnswer":{"@type":"Answer","text":"ChatGPT generates text. Heist generates a system with brand memory, platform previews, campaign organization, and scheduling."}},{"@type":"Question","name":"How does the Brand Brain work?","acceptedAnswer":{"@type":"Answer","text":"Define your voice, audience, and offer during onboarding. The Brain stores this permanently and applies it to every piece of content."}},{"@type":"Question","name":"What platforms does Heist support?","acceptedAnswer":{"@type":"Answer","text":"LinkedIn, X (Twitter), Instagram, Facebook, and blog content on the Founder plan."}},{"@type":"Question","name":"Can I try it before I pay?","acceptedAnswer":{"@type":"Answer","text":"Yes. 7-day free trial with full Pro features. No credit card required."}},{"@type":"Question","name":"Can I cancel anytime?","acceptedAnswer":{"@type":"Answer","text":"Yes, cancel from Settings. No fees, no questions asked."}},{"@type":"Question","name":"Do I own the content?","acceptedAnswer":{"@type":"Answer","text":"Absolutely. Everything Heist generates is 100% yours."}}]}
+</script>
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"Organization","name":"Heist","url":"https://heistbrain.com","contactPoint":{"@type":"ContactPoint","email":"support@heistbrain.com","contactType":"customer service"}}
+</script>
+
+<!-- GA4 -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-XXXXXXXXXX"></script>
+<script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','G-XXXXXXXXXX');</script>
 
 <style>
 /* ═══════════════════════════════════════
@@ -145,7 +142,39 @@ nav.scrolled { background: rgba(6,5,12,0.85); border-color: var(--border2); }
   background: linear-gradient(135deg, rgba(139,92,246,0.15), rgba(139,92,246,0.05));
   border: 1px solid rgba(139,92,246,0.3); color: var(--accent-hi);
 }
-.nav-cta:hover { background: rgba(139,92,246,0.25); border-color: rgba(139,92,246,0.5); transform: translateY(-1px); }
+.nav-cta {
+  background: linear-gradient(135deg, #8B5CF6, #6D28D9) !important;
+  color: #fff !important; border: none !important;
+}
+.nav-cta:hover { transform: translateY(-1px); box-shadow: 0 4px 20px rgba(139,92,246,0.3); }
+.nav-login { color: var(--text2); text-decoration: none; font-size: 14px; font-weight: 500; transition: color 0.3s; }
+.nav-login:hover { color: var(--text); }
+
+/* Hamburger */
+.nav-hamburger {
+  display: none; background: none; border: none; cursor: pointer; padding: 8px;
+  flex-direction: column; gap: 5px; z-index: 110;
+}
+.nav-hamburger span {
+  display: block; width: 22px; height: 2px; background: var(--text); border-radius: 1px;
+  transition: all 0.3s;
+}
+.nav-hamburger.active span:nth-child(1) { transform: rotate(45deg) translate(5px, 5px); }
+.nav-hamburger.active span:nth-child(2) { opacity: 0; }
+.nav-hamburger.active span:nth-child(3) { transform: rotate(-45deg) translate(5px, -5px); }
+
+@media (max-width: 768px) {
+  .nav-hamburger { display: flex; }
+  .nav-links {
+    position: fixed; top: 0; right: -100%; width: 280px; height: 100vh;
+    flex-direction: column; background: var(--bg2); padding: 100px 32px 32px;
+    border-left: 1px solid var(--border2); transition: right 0.4s var(--ease);
+    gap: 24px; z-index: 105;
+  }
+  .nav-links.open { right: 0; }
+  .nav-links a:not(.nav-cta) { display: block !important; font-size: 18px; }
+  .nav-login { font-size: 18px; }
+}
 
 /* ═══════════ SHARED ═══════════ */
 section { position: relative; z-index: 1; }
@@ -287,7 +316,7 @@ section { position: relative; z-index: 1; }
 .step:hover { border-color: rgba(139,92,246,0.2); box-shadow: 0 0 40px rgba(139,92,246,0.06); transform: translateY(-4px); }
 .step::after { content:''; position:absolute; width:300px; height:300px; border-radius:50%; background: radial-gradient(circle, rgba(139,92,246,0.07), transparent 70%); top: var(--my, 50%); left: var(--mx, 50%); transform: translate(-50%,-50%); pointer-events:none; opacity:0; transition: opacity 0.4s; }
 .step:hover::after { opacity:1; }
-.step-num { font-family: var(--fm); font-size: 12px; font-weight: 600; color: var(--accent); letter-spacing: 0.1em; margin-bottom: 16px; display: flex; align-items: center; gap: 10px; }
+.step-num { font-family: var(--fm); font-size: 48px; font-weight: 800; color: rgba(139,92,246,0.15); margin-bottom: 16px; display: flex; align-items: center; gap: 10px; line-height: 1; }
 .step-num::after { content:''; flex:1; height:1px; background: linear-gradient(90deg, rgba(139,92,246,0.2), transparent); }
 .step-icon { font-size: 32px; margin-bottom: 16px; }
 .step h3 { font-family: var(--fd); font-size: 24px; margin-bottom: 10px; font-weight: 400; }
@@ -435,7 +464,7 @@ section { position: relative; z-index: 1; }
 .price-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; align-items: center; }
 .p-card { padding: 40px; border-radius: 24px; position: relative; background: var(--surface); border: 1px solid var(--border); transition: all 0.4s var(--ease); }
 .p-card:hover { transform: translateY(-6px); border-color: var(--border2); }
-.p-card-pro { background: linear-gradient(160deg, rgba(139,92,246,0.08), var(--surface)); border-color: rgba(139,92,246,0.2); transform: scale(1.04); box-shadow: 0 0 60px rgba(139,92,246,0.08), 0 30px 80px rgba(0,0,0,0.3); }
+.p-card-pro { background: linear-gradient(180deg, rgba(139,92,246,0.06) 0%, transparent 40%) !important; border-color: rgba(139,92,246,.4) !important; transform: scale(1.05); box-shadow: 0 0 40px rgba(139,92,246,.08), 0 30px 80px rgba(0,0,0,0.3); }
 .p-card-pro:hover { transform: scale(1.04) translateY(-6px); }
 .p-card-pro::before { content:''; position:absolute; inset:-1px; border-radius:25px; padding:1px; background: conic-gradient(from var(--angle, 0deg), var(--accent), var(--pink), var(--cyan), var(--accent)); -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0); -webkit-mask-composite: xor; mask-composite: exclude; animation: spin-slow 6s linear infinite; opacity: 0.4; }
 .p-badge { display: inline-block; padding: 5px 14px; border-radius: 20px; font-family: var(--fm); font-size: 10px; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase; background: linear-gradient(135deg, var(--accent), var(--pink)); color: white; margin-bottom: 20px; }
@@ -457,7 +486,9 @@ section { position: relative; z-index: 1; }
 .p-cta-primary { background: linear-gradient(135deg, var(--accent), var(--accent-lo)); color: white; border: none; box-shadow: 0 4px 20px rgba(139,92,246,0.25); }
 .p-cta-primary:hover { transform: translateY(-2px); box-shadow: 0 8px 30px rgba(139,92,246,0.35); }
 .p-cta-micro { text-align: center; display: block; font-size: 11px; color: var(--text3); margin-top: 10px; }
+.per-post-cost { text-align: center; font-family: var(--fm); font-size: 12px; color: var(--accent-hi); margin-top: 8px; letter-spacing: 0.03em; }
 .pricing-note { text-align: center; margin-top: 32px; font-size: 13px; color: var(--text3); }
+.persona-stat { font-family: var(--fm); font-size: 13px; font-weight: 700; color: var(--accent-hi); margin-top: 12px; letter-spacing: 0.02em; }
 
 /* ═══════════ FAQ ═══════════ */
 .faq { padding: 80px 0; }
@@ -558,7 +589,8 @@ footer { padding: 80px 48px 40px; border-top: 1px solid var(--border); }
   .bento-card:nth-child(1), .bento-card:nth-child(4) { grid-column: span 1; }
   .versus-grid { grid-template-columns: 1fr; gap: 24px; }
   .versus-badge { display: none; }
-  .persona-grid { grid-template-columns: 1fr; max-width: 400px; margin: 0 auto; }
+  .persona-grid { grid-template-columns: 1fr 1fr !important; }
+  .persona-grid .persona-card { max-width: 100%; }
   .comp-table { font-size: 12px; }
   .comp-table th, .comp-table td { padding: 12px 10px; }
 }
@@ -569,6 +601,7 @@ footer { padding: 80px 48px 40px; border-top: 1px solid var(--border); }
   .hero { padding: 120px 0 80px; }
   .hero h1 { font-size: clamp(38px, 8vw, 56px); }
   .hero-stats { gap: 28px; flex-wrap: wrap; }
+  .persona-grid { grid-template-columns: 1fr !important; max-width: 400px; margin: 0 auto; }
   .steps { grid-template-columns: 1fr; }
   .bento { grid-template-columns: 1fr; }
   .bento-card:nth-child(1) { grid-column: span 1; }
@@ -587,6 +620,7 @@ footer { padding: 80px 48px 40px; border-top: 1px solid var(--border); }
 </style>
 </head>
 <body>
+<a href="#main-content" class="skip-nav" style="position:absolute;top:-40px;left:0;background:#8B5CF6;color:#fff;padding:8px 16px;z-index:10001;transition:top 0.3s;font-size:14px;border-radius:0 0 8px 0;">Skip to content</a>
 
 <div class="grid-bg"></div>
 <div class="orb orb-1"></div>
@@ -596,17 +630,21 @@ footer { padding: 80px 48px 40px; border-top: 1px solid var(--border); }
 <!-- ═══════════ NAV ═══════════ -->
 <nav id="nav">
   <a href="/" class="nav-logo">Heist<span>.</span></a>
-  <div class="nav-links">
+  <div class="nav-links" id="nav-links">
     <a href="#how">How It Works</a>
     <a href="#features">Features</a>
     <a href="#pricing">Pricing</a>
     <a href="#faq">FAQ</a>
-    <a href="#start" class="nav-cta">Get Your Time Back →</a>
+    <a href="https://app.heistbrain.com/#login" class="nav-login">Login</a>
+    <a href="https://app.heistbrain.com/#signup" class="nav-cta">Get Your Time Back →</a>
   </div>
+  <button class="nav-hamburger" id="nav-hamburger" aria-label="Menu">
+    <span></span><span></span><span></span>
+  </button>
 </nav>
 
 <!-- ═══════════ HERO ═══════════ -->
-<section class="hero">
+<section class="hero" id="main-content">
   <div class="container">
     <div class="hero-content">
       <div class="hero-tagline">The brains behind the operation</div>
@@ -625,8 +663,8 @@ footer { padding: 80px 48px 40px; border-top: 1px solid var(--border); }
         your Brain once. Take back every hour you've been losing to content.
       </p>
       <div class="hero-ctas">
-        <a href="#start" class="btn-primary">
-          Try Heist Free
+        <a href="https://app.heistbrain.com/#signup" class="btn-primary">
+          Generate Your First Month Free
           <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
         </a>
         <a href="#how" class="btn-ghost">See How It Works</a>
@@ -638,7 +676,7 @@ footer { padding: 80px 48px 40px; border-top: 1px solid var(--border); }
         </div>
         <div>
           <div class="trust-stars">★★★★★</div>
-          <div class="trust-text"><strong>500+</strong> creators in early access</div>
+          <div class="trust-text"><strong>500+</strong> creators in early access <span style="margin-left:12px;font-size:13px;color:rgba(241,240,245,.6)">Rated 4.9/5 by early users</span></div>
         </div>
       </div>
       <div class="hero-stats">
@@ -739,21 +777,30 @@ footer { padding: 80px 48px 40px; border-top: 1px solid var(--border); }
 <section class="personas">
   <div class="container">
     <div class="section-label r" style="justify-content:center;">Who It's For</div>
-    <div class="persona-grid">
+    <div class="persona-grid" style="grid-template-columns:repeat(4,1fr);">
       <div class="persona-card r">
-        <div class="persona-icon">🎯</div>
+        <div class="persona-icon"><svg width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75"><circle cx="12" cy="12" r="10"/><circle cx="12" cy="12" r="3"/><path d="M12 2v4M12 18v4M2 12h4M18 12h4"/></svg></div>
         <h3>Solo Creators</h3>
         <p>Stop trading evenings and weekends for content. One Brain, one idea, one month of posts — done in 10 minutes.</p>
+        <div class="persona-stat">Save 8+ hours per week</div>
       </div>
       <div class="persona-card r">
-        <div class="persona-icon">👥</div>
+        <div class="persona-icon"><svg width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg></div>
         <h3>Small Teams</h3>
         <p>Align your brand voice across every team member and platform. One Brain keeps everyone on the same page.</p>
+        <div class="persona-stat">Ship 4x more content</div>
       </div>
       <div class="persona-card r">
-        <div class="persona-icon">🚀</div>
+        <div class="persona-icon"><svg width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75"><path d="M22 2L11 13"/><path d="M22 2L15 22l-4-9-9-4z"/></svg></div>
         <h3>Growing Brands</h3>
         <p>Scale from 1 to 10 Brand Brains. Run parallel campaigns, manage multiple brands, and export analytics.</p>
+        <div class="persona-stat">10 brands, one dashboard</div>
+      </div>
+      <div class="persona-card r">
+        <div class="persona-icon"><svg width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg></div>
+        <h3>Growing Agencies</h3>
+        <p>Manage client brands from one dashboard. Each with its own Brain. 5x more output, zero extra headcount.</p>
+        <div class="persona-stat">5x client output</div>
       </div>
     </div>
   </div>
@@ -893,9 +940,14 @@ footer { padding: 80px 48px 40px; border-top: 1px solid var(--border); }
           <tr><td>Campaign organization</td><td class="comp-heist comp-yes">✓</td><td class="comp-no">✕</td><td class="comp-no">✕</td><td class="comp-partial">Partial</td></tr>
           <tr><td>Content calendar</td><td class="comp-heist comp-yes">✓</td><td class="comp-no">✕</td><td class="comp-yes">✓</td><td class="comp-yes">✓</td></tr>
           <tr><td>One-idea → full month</td><td class="comp-heist comp-yes">✓</td><td class="comp-no">✕</td><td class="comp-no">✕</td><td class="comp-no">✕</td></tr>
-          <tr><td>Total monthly cost</td><td class="comp-heist" style="color:var(--emerald);font-weight:700;">$49</td><td colspan="3" style="color:var(--text3);">$49 + $30 = $79+ (and still no Brain)</td></tr>
+          <tr><td>Setup time</td><td class="comp-heist comp-yes" style="font-weight:700;">10 min</td><td style="color:var(--text3);">Hours</td><td style="color:var(--text3);">30 min</td><td style="color:var(--text3);">1+ hour</td></tr>
+          <tr><td style="font-size:16px;font-weight:700;">Total monthly cost</td><td class="comp-heist" style="color:var(--emerald);font-weight:700;font-size:18px;">$49</td><td colspan="3" style="color:var(--text3);font-size:16px;">$49 + $30 = $79+ (and still no Brain)</td></tr>
         </tbody>
       </table>
+    </div>
+    <div style="text-align:center;margin-top:24px">
+      <p style="font-size:18px;font-weight:700;margin-bottom:12px">Get all of this for <span style="color:#8B5CF6">$49/mo</span></p>
+      <a href="https://app.heistbrain.com/#signup" style="display:inline-flex;align-items:center;gap:8px;padding:12px 28px;background:linear-gradient(135deg,#8B5CF6,#6D28D9);color:#fff;border-radius:10px;font-weight:600;text-decoration:none">Start Your Free Trial</a>
     </div>
   </div>
 </section>
@@ -934,7 +986,8 @@ footer { padding: 80px 48px 40px; border-top: 1px solid var(--border); }
           <li><span class="p-check">✓</span> Full-fidelity previews</li>
           <li><span class="p-check">✓</span> 1 active campaign</li>
         </ul>
-        <a href="#start" class="p-cta p-cta-ghost">Start Free Trial</a>
+        <a href="https://app.heistbrain.com/#signup" class="p-cta p-cta-ghost">Start Free Trial</a>
+        <div class="per-post-cost">~$0.95/post</div>
         <span class="p-cta-micro">No credit card required</span>
       </div>
       <!-- Pro -->
@@ -952,7 +1005,8 @@ footer { padding: 80px 48px 40px; border-top: 1px solid var(--border); }
           <li><span class="p-check">✓</span> Unlimited campaigns</li>
           <li><span class="p-check">✓</span> Basic analytics</li>
         </ul>
-        <a href="#start" class="p-cta p-cta-primary">Start Free Trial</a>
+        <a href="https://app.heistbrain.com/#signup" class="p-cta p-cta-primary">Start Free Trial</a>
+        <div class="per-post-cost">~$0.33/post</div>
         <span class="p-cta-micro">No credit card required</span>
       </div>
       <!-- Founder -->
@@ -969,7 +1023,8 @@ footer { padding: 80px 48px 40px; border-top: 1px solid var(--border); }
           <li><span class="p-check">✓</span> 3 team seats included</li>
           <li><span class="p-check">✓</span> Full analytics + export</li>
         </ul>
-        <a href="#start" class="p-cta p-cta-ghost">Start Free Trial</a>
+        <a href="https://app.heistbrain.com/#signup" class="p-cta p-cta-ghost">Start Free Trial</a>
+        <div class="per-post-cost">Unlimited</div>
         <span class="p-cta-micro">No credit card required</span>
       </div>
     </div>
@@ -979,6 +1034,11 @@ footer { padding: 80px 48px 40px; border-top: 1px solid var(--border); }
       <div class="inline-quote-text">"I used to spend every Sunday night in content panic mode. Heist gave me my weekends back. That alone is worth 10x the price."</div>
       <div class="inline-quote-author">— Early Access Creator</div>
     </div>
+    <div style="text-align:center;margin-top:20px;font-size:13px;color:rgba(241,240,245,.5);display:flex;align-items:center;justify-content:center;gap:8px">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+      7-day free trial. No credit card. Cancel anytime.
+    </div>
+    <p style="text-align:center;margin-top:16px;font-size:13px;color:rgba(241,240,245,.4)">Need more? <a href="mailto:support@heistbrain.com" style="color:#8B5CF6">Contact us for custom plans</a></p>
     <div class="pricing-note r">All plans include a 7-day free trial of Pro. No credit card required. Cancel anytime.</div>
   </div>
 </section>
@@ -999,7 +1059,22 @@ footer { padding: 80px 48px 40px; border-top: 1px solid var(--border); }
       <div class="faq-item r"><div class="faq-q">What platforms does Heist support? <span class="faq-toggle">+</span></div><div class="faq-a">LinkedIn, X (Twitter), Instagram, and Facebook. The Founder plan also includes blog content generation. More platforms are on the roadmap.</div></div>
       <div class="faq-item r"><div class="faq-q">Can I try it before I pay? <span class="faq-toggle">+</span></div><div class="faq-a">Yes. Every plan includes a 7-day free trial with full Pro features. No credit card required. Set up your Brain and see for yourself.</div></div>
       <div class="faq-item r"><div class="faq-q">What if I need more posts? <span class="faq-toggle">+</span></div><div class="faq-a">You can purchase generation credit packs starting at $9 for 50 extra posts, or upgrade your plan at any time. No long-term commitments.</div></div>
+      <div class="faq-item r"><div class="faq-q">What happens after my trial ends? <span class="faq-toggle">+</span></div><div class="faq-a">You'll be moved to the Starter plan. No surprise charges.</div></div>
+      <div class="faq-item r"><div class="faq-q">Can I cancel anytime? <span class="faq-toggle">+</span></div><div class="faq-a">Yes, cancel from Settings. No fees, no questions asked.</div></div>
+      <div class="faq-item r"><div class="faq-q">Do I own the content Heist creates? <span class="faq-toggle">+</span></div><div class="faq-a">Absolutely. Everything generated is 100% yours.</div></div>
+      <div class="faq-item r"><div class="faq-q">Is there an API? <span class="faq-toggle">+</span></div><div class="faq-a">Not yet, but it's on our roadmap. Let us know at support@heistbrain.com.</div></div>
     </div>
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<!-- ═══════════ FOUNDER STORY ═══════════ -->
+<section style="padding:60px 0;text-align:center">
+  <div class="container">
+    <p style="font-size:14px;color:rgba(241,240,245,.5);font-family:'JetBrains Mono',monospace;letter-spacing:.1em;margin-bottom:8px" class="r">BUILT BY A CREATOR</p>
+    <h2 style="font-family:'Instrument Serif',Georgia,serif;font-size:28px;font-weight:400;margin-bottom:12px" class="r">For creators.</h2>
+    <p style="max-width:500px;margin:0 auto;font-size:15px;color:rgba(241,240,245,.6);line-height:1.6" class="r">Heist was born from the frustration of spending more time planning content than creating it. We built the tool we wished existed.</p>
   </div>
 </section>
 
@@ -1009,7 +1084,7 @@ footer { padding: 80px 48px 40px; border-top: 1px solid var(--border); }
 <section class="final-cta" id="start">
   <div class="container">
     <div class="section-label r">Ready?</div>
-    <h2 class="r">Ready to steal back<br><span class="gradient-text">your time?</span></h2>
+    <h2 class="r">Start your free month<br><span class="gradient-text">in 10 minutes</span></h2>
     <p class="sub r">A month of on-brand content. Ten minutes. No credit card required. Your evenings and weekends are about to be yours again.</p>
     <div class="r" id="cta-form-wrap">
       <div class="email-form" id="email-form">
@@ -1020,6 +1095,10 @@ footer { padding: 80px 48px 40px; border-top: 1px solid var(--border); }
         </button>
       </div>
       <div class="email-success" id="email-success">🎉 You're in! Check your inbox for next steps.</div>
+      <div style="display:flex;align-items:center;gap:6px;margin-top:8px;font-size:12px;color:rgba(241,240,245,.4);justify-content:center;">
+        <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="11" width="18" height="11" rx="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg>
+        No spam. No credit card. Cancel anytime.
+      </div>
     </div>
     <div class="fine-print r">7-day free trial · No credit card · Cancel anytime</div>
   </div>
@@ -1033,7 +1112,7 @@ footer { padding: 80px 48px 40px; border-top: 1px solid var(--border); }
       <div class="footer-tagline">The brains behind the operation.</div>
     </div>
     <div class="footer-col"><h4>Product</h4><a href="#features">Features</a><a href="#pricing">Pricing</a><a href="/changelog">Changelog</a></div>
-    <div class="footer-col"><h4>Company</h4><a href="/about">About</a><a href="/blog">Blog</a><a href="mailto:pulledtheheist@gmail.com">Contact</a></div>
+    <div class="footer-col"><h4>Company</h4><a href="/about">About</a><a href="/blog">Blog</a><a href="mailto:support@heistbrain.com">Contact</a></div>
     <div class="footer-col"><h4>Legal</h4><a href="/privacy">Privacy</a><a href="/terms">Terms</a></div>
   </div>
   <div class="footer-bottom">
@@ -1055,7 +1134,7 @@ footer { padding: 80px 48px 40px; border-top: 1px solid var(--border); }
 
 <!-- ═══════════ MOBILE STICKY CTA ═══════════ -->
 <div class="mobile-sticky" id="mobile-sticky">
-  <a href="#start" class="btn-primary">Try Heist Free</a>
+  <a href="https://app.heistbrain.com/#signup" class="btn-primary">Try Heist Free</a>
   <span class="cta-micro">7-day free trial · No credit card</span>
 </div>
 
@@ -1205,7 +1284,7 @@ function handleEmail(inputId, formParentId, successId) {
       } else { throw new Error('Submit failed'); }
     } catch (err) {
       // Fallback: open mailto
-      window.location.href = 'mailto:pulledtheheist@gmail.com?subject=Early Access&body=Sign me up: ' + encodeURIComponent(email);
+      window.location.href = 'mailto:support@heistbrain.com?subject=Early Access&body=Sign me up: ' + encodeURIComponent(email);
     }
   });
   // Allow Enter key submission
@@ -1214,10 +1293,12 @@ function handleEmail(inputId, formParentId, successId) {
 handleEmail('email-input', 'email-form', 'email-success');
 handleEmail('exit-email', 'exit-popup', null);
 
-// ─── EXIT INTENT (desktop only) ───
+// ─── EXIT INTENT (desktop only, after scroll) ───
 let exitShown = false;
+let hasScrolled = false;
+window.addEventListener('scroll', () => { hasScrolled = true; }, { once: true });
 document.addEventListener('mouseleave', e => {
-  if (e.clientY < 10 && !exitShown && window.innerWidth > 768) {
+  if (e.clientY < 10 && !exitShown && window.innerWidth > 768 && hasScrolled) {
     exitShown = true;
     setTimeout(() => document.getElementById('exit-popup').classList.add('visible'), 500);
   }
@@ -1235,6 +1316,20 @@ if (sticky && window.innerWidth <= 768) {
   }, { threshold: 0 });
   sObs.observe(heroSection);
 }
+
+// ─── HAMBURGER MENU ───
+const hamburger = document.getElementById('nav-hamburger');
+const navLinks = document.getElementById('nav-links');
+hamburger.addEventListener('click', () => {
+  hamburger.classList.toggle('active');
+  navLinks.classList.toggle('open');
+});
+navLinks.querySelectorAll('a').forEach(a => {
+  a.addEventListener('click', () => {
+    hamburger.classList.remove('active');
+    navLinks.classList.remove('open');
+  });
+});
 </script>
 </body>
 </html>
