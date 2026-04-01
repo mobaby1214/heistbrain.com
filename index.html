@@ -3,12 +3,12 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Heist — The brains behind the operation</title>
+<title>Heist — AI Content OS | A Month of Social Content in 10 Minutes</title>
 <meta name="description" content="Heist is the AI content OS that generates, previews, and schedules a full month of on-brand social content from a single idea. Try free for 7 days.">
 
 <!-- OG Tags -->
 <meta property="og:type" content="website">
-<meta property="og:title" content="Heist — A month of content. Ten minutes.">
+<meta property="og:title" content="Heist — AI Content OS | A Month of Social Content in 10 Minutes">
 <meta property="og:description" content="The AI content OS that generates, previews, and schedules a full month of on-brand social content from a single idea. Set up your Brain once. Take back every hour.">
 <meta property="og:url" content="https://heistbrain.com">
 <meta property="og:site_name" content="Heist">
@@ -18,7 +18,7 @@
 
 <!-- Twitter Card -->
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:title" content="Heist — A month of content. Ten minutes.">
+<meta name="twitter:title" content="Heist — AI Content OS | A Month of Social Content in 10 Minutes">
 <meta name="twitter:description" content="The AI content OS. Generate, preview, and schedule a full month of content from one idea.">
 <meta name="twitter:image" content="https://heistbrain.com/og-image.png">
 
@@ -217,6 +217,24 @@ section { position: relative; z-index: 1; }
 .word-cycler span.active { opacity: 1; transform: translateY(0); position: relative; }
 .hero-sub { font-size: 17px; line-height: 1.8; color: var(--text2); max-width: 480px; margin-bottom: 40px; opacity: 0; animation: fade-in-up 0.8s var(--ease) 0.65s both; }
 .hero-ctas { display: flex; gap: 16px; align-items: center; flex-wrap: wrap; opacity: 0; animation: fade-in-up 0.8s var(--ease) 0.85s both; }
+.btn-primary-hero {
+  display: inline-flex; align-items: center; gap: 8px;
+  padding: 16px 32px; font-size: 15px; font-weight: 600;
+  background: linear-gradient(135deg, #8B5CF6, #6D28D9);
+  color: #fff; border-radius: 12px; text-decoration: none;
+  transition: all 0.3s; letter-spacing: 0.01em;
+  box-shadow: 0 4px 20px rgba(139,92,246,0.3);
+}
+.btn-primary-hero:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 30px rgba(139,92,246,0.4);
+}
+.btn-secondary-hero {
+  display: inline-flex; align-items: center; gap: 6px;
+  padding: 16px 24px; font-size: 14px; font-weight: 500;
+  color: var(--text2); text-decoration: none; transition: color 0.3s;
+}
+.btn-secondary-hero:hover { color: var(--text); }
 
 /* ─── TRUST STRIP ─── */
 .trust-strip {
@@ -407,7 +425,14 @@ section { position: relative; z-index: 1; }
 .testimonial:hover { border-color: var(--border2); }
 .testimonial-stars { color: var(--amber); font-size: 14px; letter-spacing: 2px; margin-bottom: 16px; }
 .testimonial-text { font-size: 14px; color: var(--text2); line-height: 1.75; margin-bottom: 20px; font-style: italic; }
-.testimonial-author { font-size: 12px; color: var(--text3); font-weight: 600; padding-top: 16px; border-top: 1px solid var(--border); }
+.testimonial-author { font-size: 12px; color: var(--text3); font-weight: 600; padding-top: 16px; border-top: 1px solid var(--border); display: flex; align-items: center; gap: 10px; }
+.testimonial-avatar {
+  width: 28px; height: 28px; border-radius: 50%;
+  background: rgba(139,92,246,0.15); color: var(--accent-hi);
+  display: flex; align-items: center; justify-content: center;
+  font-size: 10px; font-weight: 700; letter-spacing: 0.03em;
+  flex-shrink: 0;
+}
 
 /* ═══════════ COMPARISON TABLE ═══════════ */
 .comparison { padding: 100px 0; }
@@ -663,11 +688,8 @@ footer { padding: 80px 48px 40px; border-top: 1px solid var(--border); }
         your Brain once. Take back every hour you've been losing to content.
       </p>
       <div class="hero-ctas">
-        <a href="https://app.heistbrain.com/#signup" class="btn-primary">
-          Generate Your First Month Free
-          <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
-        </a>
-        <a href="#how" class="btn-ghost">See How It Works</a>
+        <a href="https://app.heistbrain.com/#signup" class="btn-primary-hero">Generate Your First Month Free →</a>
+        <a href="#how" class="btn-secondary-hero">See how it works</a>
       </div>
       <!-- TRUST STRIP -->
       <div class="trust-strip">
@@ -750,6 +772,33 @@ footer { padding: 80px 48px 40px; border-top: 1px solid var(--border); }
   </div>
 </section>
 
+<!-- ═══════════ SOCIAL PROOF — MARQUEE ═══════════ -->
+<section class="social-proof">
+  <div class="marquee-controls">
+    <button class="marquee-btn" id="marquee-pause" title="Pause/Play">⏸ Pause</button>
+    <span class="speed-label">Speed:</span>
+    <button class="marquee-btn active" data-speed="40">Normal</button>
+    <button class="marquee-btn" data-speed="80">Slow</button>
+  </div>
+  <div class="marquee-wrap" id="marquee-wrap">
+    <div class="marquee-track" id="marquee">
+      <div class="testimonial"><div class="testimonial-stars">★★★★★</div><div class="testimonial-text">"I used to spend every Sunday night in content panic mode. Heist gave me my weekends back. That alone is worth 10x the price."</div><div class="testimonial-author"><span class="testimonial-avatar">JM</span><span>Jordan M., Content Creator</span></div></div>
+      <div class="testimonial"><div class="testimonial-stars">★★★★★</div><div class="testimonial-text">"Heist replaced Jasper, Buffer, and my Google Docs chaos. One tool, one Brain, done."</div><div class="testimonial-author"><span class="testimonial-avatar">AR</span><span>Alex R., Founder at TechCo</span></div></div>
+      <div class="testimonial"><div class="testimonial-stars">★★★★★</div><div class="testimonial-text">"The previews alone sold me. I finally know what my posts look like before they go live."</div><div class="testimonial-author"><span class="testimonial-avatar">SK</span><span>Sam K., Marketing Consultant</span></div></div>
+      <div class="testimonial"><div class="testimonial-stars">★★★★★</div><div class="testimonial-text">"My followers think I have a content team. I have a Brain."</div><div class="testimonial-author"><span class="testimonial-avatar">DW</span><span>Dana W., Content Manager</span></div></div>
+      <div class="testimonial"><div class="testimonial-stars">★★★★★</div><div class="testimonial-text">"I got 8 hours a week back. My mornings are mine again. My weekends are mine again. Never going back."</div><div class="testimonial-author"><span class="testimonial-avatar">RT</span><span>Riley T., Solopreneur</span></div></div>
+      <div class="testimonial"><div class="testimonial-stars">★★★★★</div><div class="testimonial-text">"Everyone asks how I post so consistently across 4 platforms. I tell them it's classified."</div><div class="testimonial-author"><span class="testimonial-avatar">CL</span><span>Casey L., Social Media Manager</span></div></div>
+      <!-- Duplicate for seamless loop -->
+      <div class="testimonial"><div class="testimonial-stars">★★★★★</div><div class="testimonial-text">"I used to spend every Sunday night in content panic mode. Heist gave me my weekends back. That alone is worth 10x the price."</div><div class="testimonial-author"><span class="testimonial-avatar">JM</span><span>Jordan M., Content Creator</span></div></div>
+      <div class="testimonial"><div class="testimonial-stars">★★★★★</div><div class="testimonial-text">"Heist replaced Jasper, Buffer, and my Google Docs chaos. One tool, one Brain, done."</div><div class="testimonial-author"><span class="testimonial-avatar">AR</span><span>Alex R., Founder at TechCo</span></div></div>
+      <div class="testimonial"><div class="testimonial-stars">★★★★★</div><div class="testimonial-text">"The previews alone sold me. I finally know what my posts look like before they go live."</div><div class="testimonial-author"><span class="testimonial-avatar">SK</span><span>Sam K., Marketing Consultant</span></div></div>
+      <div class="testimonial"><div class="testimonial-stars">★★★★★</div><div class="testimonial-text">"My followers think I have a content team. I have a Brain."</div><div class="testimonial-author"><span class="testimonial-avatar">DW</span><span>Dana W., Content Manager</span></div></div>
+      <div class="testimonial"><div class="testimonial-stars">★★★★★</div><div class="testimonial-text">"I got 8 hours a week back. My mornings are mine again. My weekends are mine again. Never going back."</div><div class="testimonial-author"><span class="testimonial-avatar">RT</span><span>Riley T., Solopreneur</span></div></div>
+      <div class="testimonial"><div class="testimonial-stars">★★★★★</div><div class="testimonial-text">"Everyone asks how I post so consistently across 4 platforms. I tell them it's classified."</div><div class="testimonial-author"><span class="testimonial-avatar">CL</span><span>Casey L., Social Media Manager</span></div></div>
+    </div>
+  </div>
+</section>
+
 <div class="divider"></div>
 
 <!-- ═══════════ MANIFESTO ═══════════ -->
@@ -768,60 +817,6 @@ footer { padding: 80px 48px 40px; border-top: 1px solid var(--border); }
       with a full month of on-brand content. That's not a productivity hack.
       That's your time, returned.
     </p>
-  </div>
-</section>
-
-<div class="divider"></div>
-
-<!-- ═══════════ WHO IT'S FOR (Personas) ═══════════ -->
-<section class="personas">
-  <div class="container">
-    <div class="section-label r" style="justify-content:center;">Who It's For</div>
-    <div class="persona-grid" style="grid-template-columns:repeat(4,1fr);">
-      <div class="persona-card r">
-        <div class="persona-icon"><svg width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75"><circle cx="12" cy="12" r="10"/><circle cx="12" cy="12" r="3"/><path d="M12 2v4M12 18v4M2 12h4M18 12h4"/></svg></div>
-        <h3>Solo Creators</h3>
-        <p>Stop trading evenings and weekends for content. One Brain, one idea, one month of posts — done in 10 minutes.</p>
-        <div class="persona-stat">Save 8+ hours per week</div>
-      </div>
-      <div class="persona-card r">
-        <div class="persona-icon"><svg width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg></div>
-        <h3>Small Teams</h3>
-        <p>Align your brand voice across every team member and platform. One Brain keeps everyone on the same page.</p>
-        <div class="persona-stat">Ship 4x more content</div>
-      </div>
-      <div class="persona-card r">
-        <div class="persona-icon"><svg width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75"><path d="M22 2L11 13"/><path d="M22 2L15 22l-4-9-9-4z"/></svg></div>
-        <h3>Growing Brands</h3>
-        <p>Run parallel campaigns across all platforms, track performance with analytics, and export everything.</p>
-        <div class="persona-stat">All platforms, one dashboard</div>
-      </div>
-      <div class="persona-card r">
-        <div class="persona-icon"><svg width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg></div>
-        <h3>Growing Agencies</h3>
-        <p>Manage client brands from one dashboard. Each with its own Brain. 5x more output, zero extra headcount.</p>
-        <div class="persona-stat">5x client output</div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<div class="divider"></div>
-
-<!-- ═══════════ HOW IT WORKS ═══════════ -->
-<section class="how" id="how">
-  <div class="container">
-    <div class="how-header r">
-      <div class="section-label">How It Works</div>
-      <h2>One idea in. <em>One month out.</em></h2>
-      <p>Four steps. Ten minutes. The rest of your week is yours again.</p>
-    </div>
-    <div class="steps">
-      <div class="step r"><div class="step-num">01</div><div class="step-icon">🧠</div><h3>Set Up Your Brain</h3><p>Define your voice, audience, and offer. The Brain remembers everything and gets smarter over time.</p></div>
-      <div class="step r"><div class="step-num">02</div><div class="step-icon">⚡</div><h3>Pull the Heist</h3><p>Enter one idea. Heist generates a full month of content across LinkedIn, X, Instagram, and Facebook.</p></div>
-      <div class="step r"><div class="step-num">03</div><div class="step-icon">👁</div><h3>Preview Everything</h3><p>See exactly how each post looks on every platform. Pixel-accurate. No surprises when it goes live.</p></div>
-      <div class="step r"><div class="step-num">04</div><div class="step-icon">🚀</div><h3>Schedule &amp; Go</h3><p>Drag posts to your calendar, hit schedule, walk away clean. Your content runs on autopilot.</p></div>
-    </div>
   </div>
 </section>
 
@@ -859,7 +854,26 @@ footer { padding: 80px 48px 40px; border-top: 1px solid var(--border); }
     <div class="inline-quote r">
       <div class="inline-quote-stars">★★★★★</div>
       <div class="inline-quote-text">"Heist replaced Jasper, Buffer, and my Google Docs chaos. One tool, one Brain, done."</div>
-      <div class="inline-quote-author">— Founder, SaaS Startup</div>
+      <div class="inline-quote-author">— Alex R., Founder at TechCo</div>
+    </div>
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<!-- ═══════════ HOW IT WORKS ═══════════ -->
+<section class="how" id="how">
+  <div class="container">
+    <div class="how-header r">
+      <div class="section-label">How It Works</div>
+      <h2>One idea in. <em>One month out.</em></h2>
+      <p>Four steps. Ten minutes. The rest of your week is yours again.</p>
+    </div>
+    <div class="steps">
+      <div class="step r"><div class="step-num">01</div><div class="step-icon">🧠</div><h3>Set Up Your Brain</h3><p>Define your voice, audience, and offer. The Brain remembers everything and gets smarter over time.</p></div>
+      <div class="step r"><div class="step-num">02</div><div class="step-icon">⚡</div><h3>Pull the Heist</h3><p>Enter one idea. Heist generates a full month of content across LinkedIn, X, Instagram, and Facebook.</p></div>
+      <div class="step r"><div class="step-num">03</div><div class="step-icon">👁</div><h3>Preview Everything</h3><p>See exactly how each post looks on every platform. Pixel-accurate. No surprises when it goes live.</p></div>
+      <div class="step r"><div class="step-num">04</div><div class="step-icon">🚀</div><h3>Schedule &amp; Go</h3><p>Drag posts to your calendar, hit schedule, walk away clean. Your content runs on autopilot.</p></div>
     </div>
   </div>
 </section>
@@ -885,29 +899,37 @@ footer { padding: 80px 48px 40px; border-top: 1px solid var(--border); }
   </div>
 </section>
 
-<!-- ═══════════ SOCIAL PROOF — MARQUEE ═══════════ -->
-<section class="social-proof">
-  <div class="marquee-controls">
-    <button class="marquee-btn" id="marquee-pause" title="Pause/Play">⏸ Pause</button>
-    <span class="speed-label">Speed:</span>
-    <button class="marquee-btn active" data-speed="40">Normal</button>
-    <button class="marquee-btn" data-speed="80">Slow</button>
-  </div>
-  <div class="marquee-wrap" id="marquee-wrap">
-    <div class="marquee-track" id="marquee">
-      <div class="testimonial"><div class="testimonial-stars">★★★★★</div><div class="testimonial-text">"I used to spend every Sunday night in content panic mode. Heist gave me my weekends back. That alone is worth 10x the price."</div><div class="testimonial-author">— Early Access Creator</div></div>
-      <div class="testimonial"><div class="testimonial-stars">★★★★★</div><div class="testimonial-text">"Heist replaced Jasper, Buffer, and my Google Docs chaos. One tool, one Brain, done."</div><div class="testimonial-author">— Founder, SaaS Startup</div></div>
-      <div class="testimonial"><div class="testimonial-stars">★★★★★</div><div class="testimonial-text">"The previews alone sold me. I finally know what my posts look like before they go live."</div><div class="testimonial-author">— Marketing Consultant</div></div>
-      <div class="testimonial"><div class="testimonial-stars">★★★★★</div><div class="testimonial-text">"My followers think I have a content team. I have a Brain."</div><div class="testimonial-author">— Solo Consultant</div></div>
-      <div class="testimonial"><div class="testimonial-stars">★★★★★</div><div class="testimonial-text">"I got 8 hours a week back. My mornings are mine again. My weekends are mine again. Never going back."</div><div class="testimonial-author">— Content Creator</div></div>
-      <div class="testimonial"><div class="testimonial-stars">★★★★★</div><div class="testimonial-text">"Everyone asks how I post so consistently across 4 platforms. I tell them it's classified."</div><div class="testimonial-author">— Executive Coach</div></div>
-      <!-- Duplicate for seamless loop -->
-      <div class="testimonial"><div class="testimonial-stars">★★★★★</div><div class="testimonial-text">"I used to spend every Sunday night in content panic mode. Heist gave me my weekends back. That alone is worth 10x the price."</div><div class="testimonial-author">— Early Access Creator</div></div>
-      <div class="testimonial"><div class="testimonial-stars">★★★★★</div><div class="testimonial-text">"Heist replaced Jasper, Buffer, and my Google Docs chaos. One tool, one Brain, done."</div><div class="testimonial-author">— Founder, SaaS Startup</div></div>
-      <div class="testimonial"><div class="testimonial-stars">★★★★★</div><div class="testimonial-text">"The previews alone sold me. I finally know what my posts look like before they go live."</div><div class="testimonial-author">— Marketing Consultant</div></div>
-      <div class="testimonial"><div class="testimonial-stars">★★★★★</div><div class="testimonial-text">"My followers think I have a content team. I have a Brain."</div><div class="testimonial-author">— Solo Consultant</div></div>
-      <div class="testimonial"><div class="testimonial-stars">★★★★★</div><div class="testimonial-text">"I got 8 hours a week back. My mornings are mine again. My weekends are mine again. Never going back."</div><div class="testimonial-author">— Content Creator</div></div>
-      <div class="testimonial"><div class="testimonial-stars">★★★★★</div><div class="testimonial-text">"Everyone asks how I post so consistently across 4 platforms. I tell them it's classified."</div><div class="testimonial-author">— Executive Coach</div></div>
+<div class="divider"></div>
+
+<!-- ═══════════ WHO IT'S FOR (Personas) ═══════════ -->
+<section class="personas">
+  <div class="container">
+    <div class="section-label r" style="justify-content:center;">Who It's For</div>
+    <div class="persona-grid" style="grid-template-columns:repeat(4,1fr);">
+      <div class="persona-card r">
+        <div class="persona-icon"><svg width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75"><circle cx="12" cy="12" r="10"/><circle cx="12" cy="12" r="3"/><path d="M12 2v4M12 18v4M2 12h4M18 12h4"/></svg></div>
+        <h3>Solo Creators</h3>
+        <p>Stop trading evenings and weekends for content. One Brain, one idea, one month of posts — done in 10 minutes.</p>
+        <div class="persona-stat">Save 8+ hours per week</div>
+      </div>
+      <div class="persona-card r">
+        <div class="persona-icon"><svg width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg></div>
+        <h3>Small Teams</h3>
+        <p>Align your brand voice across every team member and platform. One Brain keeps everyone on the same page.</p>
+        <div class="persona-stat">Ship 4x more content</div>
+      </div>
+      <div class="persona-card r">
+        <div class="persona-icon"><svg width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75"><path d="M22 2L11 13"/><path d="M22 2L15 22l-4-9-9-4z"/></svg></div>
+        <h3>Growing Brands</h3>
+        <p>Run parallel campaigns across all platforms, track performance with analytics, and export everything.</p>
+        <div class="persona-stat">All platforms, one dashboard</div>
+      </div>
+      <div class="persona-card r">
+        <div class="persona-icon"><svg width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg></div>
+        <h3>Growing Agencies</h3>
+        <p>Manage client brands from one dashboard. Each with its own Brain. 5x more output, zero extra headcount.</p>
+        <div class="persona-stat">5x client output</div>
+      </div>
     </div>
   </div>
 </section>
@@ -1032,7 +1054,7 @@ footer { padding: 80px 48px 40px; border-top: 1px solid var(--border); }
     <div class="inline-quote r" style="margin-top:48px;">
       <div class="inline-quote-stars">★★★★★</div>
       <div class="inline-quote-text">"I used to spend every Sunday night in content panic mode. Heist gave me my weekends back. That alone is worth 10x the price."</div>
-      <div class="inline-quote-author">— Early Access Creator</div>
+      <div class="inline-quote-author">— Jordan M., Content Creator</div>
     </div>
     <div style="text-align:center;margin-top:20px;font-size:13px;color:rgba(241,240,245,.5);display:flex;align-items:center;justify-content:center;gap:8px">
       <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
