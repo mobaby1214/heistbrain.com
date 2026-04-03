@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Heist — AI Content OS | A Month of Social Content in 10 Minutes</title>
-<meta name="description" content="Heist is the AI content OS that generates, previews, and schedules a full month of on-brand social content from a single idea. Try free for 7 days.">
+<meta name="description" content="Heist is the AI content OS with a 10-layer Brain that learns from your real engagement data. Generate, schedule, and track a full month of on-brand content in 10 minutes. Try free for 7 days.">
 
 <!-- OG Tags -->
 <meta property="og:type" content="website">
@@ -31,7 +31,7 @@
 
 <!-- JSON-LD Structured Data -->
 <script type="application/ld+json">
-{"@context":"https://schema.org","@type":"SoftwareApplication","name":"Heist","description":"AI-powered content OS that generates a month of social media content in 10 minutes.","url":"https://heistbrain.com","applicationCategory":"BusinessApplication","operatingSystem":"Web","offers":[{"@type":"Offer","name":"Starter","price":"19.00","priceCurrency":"USD"},{"@type":"Offer","name":"Pro","price":"49.00","priceCurrency":"USD"},{"@type":"Offer","name":"Founder","price":"99.00","priceCurrency":"USD"}],"aggregateRating":{"@type":"AggregateRating","ratingValue":"4.9","reviewCount":"500","bestRating":"5"}}
+{"@context":"https://schema.org","@type":"SoftwareApplication","name":"Heist","description":"AI-powered content OS that generates a month of social media content in 10 minutes.","url":"https://heistbrain.com","applicationCategory":"BusinessApplication","operatingSystem":"Web","offers":[{"@type":"Offer","name":"Starter","price":"19.00","priceCurrency":"USD"},{"@type":"Offer","name":"Pro","price":"49.00","priceCurrency":"USD"},{"@type":"Offer","name":"Founder","price":"99.00","priceCurrency":"USD"},{"@type":"Offer","name":"Agency","price":"199.00","priceCurrency":"USD"}],"aggregateRating":{"@type":"AggregateRating","ratingValue":"4.9","reviewCount":"500","bestRating":"5"}}
 </script>
 <script type="application/ld+json">
 {"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"How is Heist different from ChatGPT?","acceptedAnswer":{"@type":"Answer","text":"ChatGPT generates text. Heist generates a system with brand memory, platform previews, campaign organization, and scheduling."}},{"@type":"Question","name":"How does the Brand Brain work?","acceptedAnswer":{"@type":"Answer","text":"Define your voice, audience, and offer during onboarding. The Brain stores this permanently and applies it to every piece of content."}},{"@type":"Question","name":"What platforms does Heist support?","acceptedAnswer":{"@type":"Answer","text":"LinkedIn, X (Twitter), Instagram, Facebook, and blog content on the Founder plan."}},{"@type":"Question","name":"Can I try it before I pay?","acceptedAnswer":{"@type":"Answer","text":"Yes. 7-day free trial with full Pro features. No credit card required."}},{"@type":"Question","name":"Can I cancel anytime?","acceptedAnswer":{"@type":"Answer","text":"Yes, cancel from Settings. No fees, no questions asked."}},{"@type":"Question","name":"Do I own the content?","acceptedAnswer":{"@type":"Answer","text":"Absolutely. Everything Heist generates is 100% yours."}}]}
@@ -486,7 +486,7 @@ section { position: relative; z-index: 1; }
 .toggle-track.annual .toggle-thumb { transform: translateX(24px); }
 .toggle-save { font-family: var(--fm); font-size: 11px; color: var(--emerald); font-weight: 600; letter-spacing: 0.05em; padding: 4px 10px; background: rgba(52,211,153,0.08); border-radius: 6px; }
 
-.price-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; align-items: center; }
+.price-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 24px; align-items: center; }
 .p-card { padding: 40px; border-radius: 24px; position: relative; background: var(--surface); border: 1px solid var(--border); transition: all 0.4s var(--ease); }
 .p-card:hover { transform: translateY(-6px); border-color: var(--border2); }
 .p-card-pro { background: linear-gradient(180deg, rgba(139,92,246,0.06) 0%, transparent 40%) !important; border-color: rgba(139,92,246,.4) !important; transform: scale(1.05); box-shadow: 0 0 40px rgba(139,92,246,.08), 0 30px 80px rgba(0,0,0,0.3); }
@@ -642,6 +642,58 @@ footer { padding: 80px 48px 40px; border-top: 1px solid var(--border); }
   .mobile-sticky { display: block; }
   .marquee-controls { gap: 8px; }
 }
+
+/* ═══════════ BRAIN LAYERS ═══════════ */
+.brain-layers { max-width: 700px; margin: 0 auto; }
+.brain-layer {
+  display: flex; align-items: flex-start; gap: 20px; padding: 20px 24px;
+  border-left: 2px solid var(--border); position: relative;
+  transition: all 0.4s var(--ease); margin-bottom: 2px;
+}
+.brain-layer:hover {
+  border-left-color: var(--accent);
+  background: rgba(139,92,246,0.03);
+  border-radius: 0 12px 12px 0;
+}
+.brain-layer:last-child { border-left-color: var(--accent); }
+.brain-layer-num {
+  font-family: var(--fm); font-size: 11px; font-weight: 700;
+  color: var(--accent); min-width: 28px; padding-top: 2px;
+  letter-spacing: 0.05em;
+}
+.brain-layer-content h4 {
+  font-family: var(--fd); font-size: 18px; font-weight: 400;
+  margin-bottom: 4px; color: var(--text);
+}
+.brain-layer-content p {
+  font-size: 13px; color: var(--text2); line-height: 1.6;
+}
+.brain-layer[data-layer="10"] {
+  border-left-color: var(--emerald);
+  background: rgba(52,211,153,0.03);
+  border-radius: 0 12px 12px 0;
+}
+.brain-layer[data-layer="10"] .brain-layer-num { color: var(--emerald); }
+
+/* ═══════════ LEARNING LOOP ═══════════ */
+.loop-step {
+  display: flex; flex-direction: column; align-items: center; gap: 8px;
+  padding: 20px 24px; background: var(--surface); border: 1px solid var(--border);
+  border-radius: 14px; min-width: 90px; transition: all 0.3s;
+}
+.loop-step:hover { border-color: rgba(139,92,246,0.3); transform: translateY(-4px); }
+.loop-step--highlight { border-color: rgba(139,92,246,0.4); background: rgba(139,92,246,0.06); }
+.loop-icon { font-size: 24px; }
+.loop-label { font-family: var(--fm); font-size: 11px; letter-spacing: 0.08em; text-transform: uppercase; color: var(--text2); }
+.loop-arrow { font-family: var(--fm); font-size: 18px; color: var(--accent); }
+@media (max-width: 768px) {
+  .loop-visual { gap: 8px !important; }
+  .loop-step { padding: 14px 16px; min-width: 70px; }
+  .loop-arrow { font-size: 14px; }
+}
+
+/* ═══════════ PRICING 4-COL ═══════════ */
+@media (max-width: 1024px) { .price-grid { grid-template-columns: repeat(2, 1fr) !important; } }
 </style>
 </head>
 <body>
@@ -683,9 +735,10 @@ footer { padding: 80px 48px 40px; border-top: 1px solid var(--border); }
         </span>
       </h1>
       <p class="hero-sub">
-        Heist is the AI content OS that generates, previews, and schedules
-        a full month of on-brand social content from a single idea. Set up
-        your Brain once. Take back every hour you've been losing to content.
+        Heist is the AI content OS with a 10-layer Brain that remembers your brand,
+        learns from real engagement data, and gets smarter with every post you publish.
+        Generate a full month of on-brand content from a single idea. Schedule it.
+        Track what works. Let the Brain handle the rest.
       </p>
       <div class="hero-ctas">
         <a href="https://app.heistbrain.com/#signup" class="btn-primary-hero">Generate Your First Month Free →</a>
@@ -711,8 +764,8 @@ footer { padding: 80px 48px 40px; border-top: 1px solid var(--border); }
           <div class="hero-stat-label">hours reclaimed per month</div>
         </div>
         <div>
-          <div class="hero-stat-val"><span class="counter" data-target="4">0</span></div>
-          <div class="hero-stat-label">platforms, one workflow</div>
+          <div class="hero-stat-val"><span class="counter" data-target="10">0</span></div>
+          <div class="hero-stat-label">layers of brand intelligence</div>
         </div>
       </div>
     </div>
@@ -729,7 +782,7 @@ footer { padding: 80px 48px 40px; border-top: 1px solid var(--border); }
             <div class="scan-line"></div>
             <div class="dash-card">
               <div class="dash-label">The Vault</div>
-              <div class="dash-status dash-status-live"><span class="dash-status-dot"></span> Brain Active</div>
+              <div class="dash-status dash-status-live"><span class="dash-status-dot"></span> Brain Active — 10 layers</div>
               <div class="dash-lines"><div class="dash-line"></div><div class="dash-line"></div><div class="dash-line"></div><div class="dash-line"></div></div>
             </div>
             <div class="dash-card">
@@ -748,8 +801,8 @@ footer { padding: 80px 48px 40px; border-top: 1px solid var(--border); }
               <div class="dash-label">Active Operation</div>
               <div style="display:flex;justify-content:space-between;align-items:center;">
                 <div>
-                  <div style="font-weight:600;font-size:15px;margin-bottom:4px;">Q1 Brand Launch Campaign</div>
-                  <div style="font-size:12px;color:var(--text3);">32 of 48 posts deployed · 4 platforms</div>
+                  <div style="font-weight:600;font-size:15px;margin-bottom:4px;">Spring Growth Campaign</div>
+                  <div style="font-size:12px;color:var(--text3);">32 of 48 posts deployed · All platforms</div>
                 </div>
                 <div style="font-family:var(--fd);font-size:28px;color:var(--accent-hi);">67%</div>
               </div>
@@ -764,7 +817,7 @@ footer { padding: 80px 48px 40px; border-top: 1px solid var(--border); }
           <div class="float-card-val">+42%</div>
         </div>
         <div class="float-card float-card-brain">
-          <div class="float-brain-icon">🧠</div>
+          <div class="float-brain-icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="1.75"><path d="M12 2a7 7 0 0 1 7 7c0 2.38-1.19 4.47-3 5.74V17a2 2 0 0 1-2 2h-4a2 2 0 0 1-2-2v-2.26C6.19 13.47 5 11.38 5 9a7 7 0 0 1 7-7z"/><path d="M9 22h6"/></svg></div>
           <div class="float-card-label">Brain Active</div>
         </div>
       </div>
@@ -822,6 +875,128 @@ footer { padding: 80px 48px 40px; border-top: 1px solid var(--border); }
 
 <div class="divider"></div>
 
+<!-- ═══════════ THE BRAIN — 10 LAYERS ═══════════ -->
+<section class="brain-section" id="brain" style="padding:100px 0;">
+  <div class="container">
+    <div class="section-label r" style="justify-content:center;">The Competitive Moat</div>
+    <h2 style="font-family:var(--fd);font-size:clamp(32px,4vw,52px);text-align:center;line-height:1.15;margin-bottom:16px;" class="r">
+      Every AI tool forgets you.<br><span class="gradient-text">The Brain never does.</span>
+    </h2>
+    <p style="text-align:center;color:var(--text2);max-width:600px;margin:0 auto 64px;font-size:16px;line-height:1.8" class="r">
+      Most AI content tools are stateless — they forget your brand after every session.
+      Heist's Brain is a 10-layer intelligence system that learns your voice, remembers
+      what works, detects when you're drifting off-brand, and feeds real engagement data
+      back into every generation. The longer you use it, the better it gets.
+    </p>
+    <div class="brain-layers r-scale">
+      <div class="brain-layer" data-layer="1"><div class="brain-layer-num">01</div><div class="brain-layer-content"><h4>Brand Profile</h4><p>7 identity fields — mission, audience, voice, offers, CTA, keywords, avoid words</p></div></div>
+      <div class="brain-layer" data-layer="2"><div class="brain-layer-num">02</div><div class="brain-layer-content"><h4>Audience Personas</h4><p>Demographics, pain points, goals, and language preferences for each target segment</p></div></div>
+      <div class="brain-layer" data-layer="3"><div class="brain-layer-num">03</div><div class="brain-layer-content"><h4>Memory Facts</h4><p>Up to 20 brand rules and insights — auto-created from performance signals and batch analysis</p></div></div>
+      <div class="brain-layer" data-layer="4"><div class="brain-layer-num">04</div><div class="brain-layer-content"><h4>Knowledge Base</h4><p>Upload PDFs, docs, scan your website — the Brain reads everything and references it in every generation</p></div></div>
+      <div class="brain-layer" data-layer="5"><div class="brain-layer-num">05</div><div class="brain-layer-content"><h4>Chat Insights</h4><p>Strategy conversations with the Brain carry forward — your last 5 brainstorming sessions inform every draft</p></div></div>
+      <div class="brain-layer" data-layer="6"><div class="brain-layer-num">06</div><div class="brain-layer-content"><h4>Anti-Repetition</h4><p>The Brain tracks your recently published posts and ensures every new draft is fresh and original</p></div></div>
+      <div class="brain-layer" data-layer="7"><div class="brain-layer-num">07</div><div class="brain-layer-content"><h4>Performance Patterns</h4><p>Rate content as high/low performer — the Brain replicates what works and avoids what doesn't</p></div></div>
+      <div class="brain-layer" data-layer="8"><div class="brain-layer-num">08</div><div class="brain-layer-content"><h4>Smart Onboarding</h4><p>Scan your website URL — AI auto-fills all 7 profile fields in 2 minutes, not 20</p></div></div>
+      <div class="brain-layer" data-layer="9"><div class="brain-layer-num">09</div><div class="brain-layer-content"><h4>Voice Drift Detection</h4><p>Every 10th generation, the Brain checks if your content is drifting off-brand — and alerts you before it's a problem</p></div></div>
+      <div class="brain-layer" data-layer="10"><div class="brain-layer-num">10</div><div class="brain-layer-content"><h4>Real Engagement Metrics</h4><p>Likes, comments, shares, impressions from your connected platforms — fed directly into the generation prompt</p></div></div>
+    </div>
+    <div style="text-align:center;margin-top:48px" class="r">
+      <p style="font-family:var(--fm);font-size:13px;color:var(--accent-hi);letter-spacing:0.05em;margin-bottom:16px;">
+        Jasper has 1 layer. Buffer has 0. Heist has 10.
+      </p>
+      <a href="https://app.heistbrain.com/#signup" class="btn-primary">
+        Set Up Your Brain Free
+        <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      </a>
+    </div>
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<!-- ═══════════ THE LEARNING LOOP ═══════════ -->
+<section style="padding:80px 0;text-align:center;position:relative;overflow:hidden">
+  <div class="container">
+    <div class="section-label r" style="justify-content:center;">The Closed Loop</div>
+    <h2 style="font-family:var(--fd);font-size:clamp(28px,3.5vw,44px);line-height:1.2;margin-bottom:16px;max-width:700px;margin-left:auto;margin-right:auto" class="r">
+      The only content tool that <em>learns what works</em> — automatically
+    </h2>
+    <p style="color:var(--text2);max-width:550px;margin:0 auto 48px;font-size:15px;line-height:1.8" class="r">
+      Heist doesn't just generate and forget. It tracks how your content performs across
+      every platform, identifies what drives engagement, and feeds that data back into
+      your Brain. Every 6 hours, the loop runs. Your content gets better while you sleep.
+    </p>
+    <div class="loop-visual r-scale" style="display:flex;align-items:center;justify-content:center;gap:12px;flex-wrap:wrap;max-width:800px;margin:0 auto;">
+      <div class="loop-step"><span class="loop-icon"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#8B5CF6" stroke-width="1.75"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10"/></svg></span><span class="loop-label">Generate</span></div>
+      <div class="loop-arrow">&rarr;</div>
+      <div class="loop-step"><span class="loop-icon"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#8B5CF6" stroke-width="1.75"><path d="M22 2L11 13"/><path d="M22 2L15 22l-4-9-9-4z"/></svg></span><span class="loop-label">Publish</span></div>
+      <div class="loop-arrow">&rarr;</div>
+      <div class="loop-step"><span class="loop-icon"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#8B5CF6" stroke-width="1.75"><path d="M18 20V10"/><path d="M12 20V4"/><path d="M6 20v-6"/></svg></span><span class="loop-label">Track</span></div>
+      <div class="loop-arrow">&rarr;</div>
+      <div class="loop-step"><span class="loop-icon"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#8B5CF6" stroke-width="1.75"><path d="M12 2a7 7 0 0 1 7 7c0 2.38-1.19 4.47-3 5.74V17a2 2 0 0 1-2 2h-4a2 2 0 0 1-2-2v-2.26C6.19 13.47 5 11.38 5 9a7 7 0 0 1 7-7z"/><path d="M9 22h6"/></svg></span><span class="loop-label">Learn</span></div>
+      <div class="loop-arrow">&rarr;</div>
+      <div class="loop-step loop-step--highlight"><span class="loop-icon"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#A78BFA" stroke-width="1.75"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg></span><span class="loop-label">Improve</span></div>
+      <div class="loop-arrow">&hookleftarrow;</div>
+    </div>
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<!-- ═══════════ WHO IT'S FOR (Personas) ═══════════ -->
+<section class="personas">
+  <div class="container">
+    <div class="section-label r" style="justify-content:center;">Who It's For</div>
+    <div class="persona-grid" style="grid-template-columns:repeat(4,1fr);">
+      <div class="persona-card r">
+        <div class="persona-icon"><svg width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75"><circle cx="12" cy="12" r="10"/><circle cx="12" cy="12" r="3"/><path d="M12 2v4M12 18v4M2 12h4M18 12h4"/></svg></div>
+        <h3>Solo Creators</h3>
+        <p>Stop trading evenings and weekends for content. One Brain, one idea, one month of posts — done in 10 minutes.</p>
+        <div class="persona-stat">Save 8+ hours per week</div>
+      </div>
+      <div class="persona-card r">
+        <div class="persona-icon"><svg width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg></div>
+        <h3>Small Teams</h3>
+        <p>Align your brand voice across every team member and platform. One Brain keeps everyone on the same page.</p>
+        <div class="persona-stat">Ship 4x more content</div>
+      </div>
+      <div class="persona-card r">
+        <div class="persona-icon"><svg width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75"><path d="M22 2L11 13"/><path d="M22 2L15 22l-4-9-9-4z"/></svg></div>
+        <h3>Growing Brands</h3>
+        <p>Run parallel campaigns across all platforms, track performance with analytics, and export everything.</p>
+        <div class="persona-stat">All platforms, one dashboard</div>
+      </div>
+      <div class="persona-card r">
+        <div class="persona-icon"><svg width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg></div>
+        <h3>Growing Agencies</h3>
+        <p>Manage client brands from one dashboard. Each with its own Brain. 5x more output, zero extra headcount.</p>
+        <div class="persona-stat">5x client output</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<!-- ═══════════ HOW IT WORKS ═══════════ -->
+<section class="how" id="how">
+  <div class="container">
+    <div class="how-header r">
+      <div class="section-label">How It Works</div>
+      <h2>One idea in. <em>One month out.</em></h2>
+      <p>Four steps. Ten minutes. The rest of your week is yours again.</p>
+    </div>
+    <div class="steps">
+      <div class="step r"><div class="step-num">01</div><div class="step-icon"><svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="var(--accent-hi)" stroke-width="1.75"><path d="M12 2a7 7 0 0 1 7 7c0 2.38-1.19 4.47-3 5.74V17a2 2 0 0 1-2 2h-4a2 2 0 0 1-2-2v-2.26C6.19 13.47 5 11.38 5 9a7 7 0 0 1 7-7z"/><path d="M9 22h6"/></svg></div><h3>Set Up Your Brain</h3><p>Define your voice, audience, and offer. The Brain remembers everything and gets smarter over time.</p></div>
+      <div class="step r"><div class="step-num">02</div><div class="step-icon"><svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="var(--accent-hi)" stroke-width="1.75"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10"/></svg></div><h3>Pull the Heist</h3><p>Enter one idea. Heist generates a full month of content across LinkedIn, X, Instagram, and Facebook.</p></div>
+      <div class="step r"><div class="step-num">03</div><div class="step-icon"><svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="var(--accent-hi)" stroke-width="1.75"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/><circle cx="12" cy="12" r="3"/></svg></div><h3>Preview Everything</h3><p>See exactly how each post looks on every platform. Pixel-accurate. No surprises when it goes live.</p></div>
+      <div class="step r"><div class="step-num">04</div><div class="step-icon"><svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="var(--accent-hi)" stroke-width="1.75"><path d="M22 2L11 13"/><path d="M22 2L15 22l-4-9-9-4z"/></svg></div><h3>Schedule &amp; Go</h3><p>Drag posts to your calendar, hit schedule, walk away clean. Your content runs on autopilot.</p></div>
+    </div>
+  </div>
+</section>
+
+<div class="divider"></div>
+
 <!-- ═══════════ VERSUS ═══════════ -->
 <section class="versus">
   <div class="container">
@@ -832,7 +1007,7 @@ footer { padding: 80px 48px 40px; border-top: 1px solid var(--border); }
     <div class="versus-grid">
       <div class="versus-col versus-grind r-left">
         <h3>The Grind</h3>
-        <div class="versus-time">⏱ ~10 hours / week</div>
+        <div class="versus-time"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg> ~10 hours / week</div>
         <div class="versus-item"><span class="versus-icon">✕</span><span>Open ChatGPT, prompt for ideas manually</span></div>
         <div class="versus-item"><span class="versus-icon">✕</span><span>Copy to Google Docs to edit and organize</span></div>
         <div class="versus-item"><span class="versus-icon">✕</span><span>Reformat for each platform individually</span></div>
@@ -842,7 +1017,7 @@ footer { padding: 80px 48px 40px; border-top: 1px solid var(--border); }
       <div class="versus-badge"><span>vs</span></div>
       <div class="versus-col versus-heist r-right">
         <h3>Heist</h3>
-        <div class="versus-time">⚡ ~10 minutes / month</div>
+        <div class="versus-time"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10"/></svg> ~10 minutes / month</div>
         <div class="versus-item"><span class="versus-icon">✓</span><span>Your Brain remembers your voice permanently</span></div>
         <div class="versus-item"><span class="versus-icon">✓</span><span>One idea becomes a full month of content</span></div>
         <div class="versus-item"><span class="versus-icon">✓</span><span>Platform-perfect previews, every network</span></div>
@@ -889,47 +1064,87 @@ footer { padding: 80px 48px 40px; border-top: 1px solid var(--border); }
       <p>Six tools that replace your entire content stack. One Brain that ties it all together.</p>
     </div>
     <div class="bento">
-      <div class="bento-card r"><div class="bento-icon">🧠</div><h3>The Brain</h3><p>Persistent brand memory. Learns your voice, audience, and offer. Gets smarter with every use. Never forgets.</p></div>
-      <div class="bento-card r"><div class="bento-icon">👁</div><h3>The Lookout</h3><p>Pixel-accurate previews on LinkedIn, X, Instagram, and Facebook. See what your audience sees before you post.</p></div>
-      <div class="bento-card r"><div class="bento-icon">🗂</div><h3>The Operation</h3><p>Structured campaigns with goals, progress, and status tracking. Run multiple operations at once.</p></div>
-      <div class="bento-card r"><div class="bento-icon">🗄</div><h3>The Vault</h3><p>Your complete content library. Every post, draft, and asset — searchable, filterable, always accessible.</p></div>
-      <div class="bento-card r"><div class="bento-icon">📐</div><h3>The Blueprint</h3><p>A visual content calendar that maps your entire month. Drag, drop, reschedule. Total clarity at a glance.</p></div>
-      <div class="bento-card r"><div class="bento-icon">📊</div><h3>The Score</h3><p>Platform-level analytics. What's working, what's not, and where to double down. Data, not guesswork.</p></div>
+      <div class="bento-card r"><div class="bento-icon"><svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75"><path d="M12 2a7 7 0 0 1 7 7c0 2.38-1.19 4.47-3 5.74V17a2 2 0 0 1-2 2h-4a2 2 0 0 1-2-2v-2.26C6.19 13.47 5 11.38 5 9a7 7 0 0 1 7-7z"/><path d="M9 22h6"/></svg></div><h3>The Brain</h3><p>Persistent brand memory with 10 layers of intelligence. Learns your voice, remembers what works, detects drift, and feeds real engagement data into every generation.</p></div>
+      <div class="bento-card r"><div class="bento-icon"><svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/><circle cx="12" cy="12" r="3"/></svg></div><h3>The Lookout</h3><p>Pixel-accurate previews on LinkedIn, X, Instagram, and Facebook. See what your audience sees before you post.</p></div>
+      <div class="bento-card r"><div class="bento-icon"><svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75"><path d="M22 19a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h5l2 3h9a2 2 0 0 1 2 2z"/></svg></div><h3>The Operation</h3><p>Structured campaigns with scoped Brain memory, performance tracking, and batch generation. Run multiple operations simultaneously.</p></div>
+      <div class="bento-card r"><div class="bento-icon"><svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75"><rect x="2" y="3" width="20" height="14" rx="2"/><path d="M8 21h8"/><path d="M12 17v4"/></svg></div><h3>The Vault</h3><p>Your complete content library with inline editing, version history, soft-delete with 30-day recovery, and performance rating buttons that teach the Brain.</p></div>
+      <div class="bento-card r"><div class="bento-icon"><svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75"><rect x="3" y="4" width="18" height="18" rx="2"/><path d="M16 2v4"/><path d="M8 2v4"/><path d="M3 10h18"/></svg></div><h3>The Blueprint</h3><p>Drag-and-drop calendar with autosave, empty state wizards, and auto-fill scheduling based on your optimal posting times.</p></div>
+      <div class="bento-card r"><div class="bento-icon"><svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75"><path d="M18 20V10"/><path d="M12 20V4"/><path d="M6 20v-6"/></svg></div><h3>The Score</h3><p>Real engagement analytics from your connected platforms. Impressions, likes, comments, shares — tracked automatically and fed into the Brain's learning loop.</p></div>
     </div>
   </div>
 </section>
 
 <div class="divider"></div>
 
-<!-- ═══════════ WHO IT'S FOR (Personas) ═══════════ -->
-<section class="personas">
+<!-- ═══════════ TRUST & SECURITY ═══════════ -->
+<section style="padding:80px 0">
   <div class="container">
-    <div class="section-label r" style="justify-content:center;">Who It's For</div>
-    <div class="persona-grid" style="grid-template-columns:repeat(4,1fr);">
-      <div class="persona-card r">
-        <div class="persona-icon"><svg width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75"><circle cx="12" cy="12" r="10"/><circle cx="12" cy="12" r="3"/><path d="M12 2v4M12 18v4M2 12h4M18 12h4"/></svg></div>
-        <h3>Solo Creators</h3>
-        <p>Stop trading evenings and weekends for content. One Brain, one idea, one month of posts — done in 10 minutes.</p>
-        <div class="persona-stat">Save 8+ hours per week</div>
+    <div style="max-width:800px;margin:0 auto;text-align:center">
+      <div class="section-label r" style="justify-content:center;">Trust & Security</div>
+      <h2 style="font-family:var(--fd);font-size:clamp(28px,3.5vw,44px);line-height:1.2;margin-bottom:40px" class="r">
+        Your content is <em>never</em> lost. Your data is <em>always</em> safe.
+      </h2>
+      <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:20px;text-align:left">
+        <div class="r" style="padding:24px;background:var(--surface);border:1px solid var(--border);border-radius:16px;">
+          <div style="margin-bottom:12px;"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="var(--accent-hi)" stroke-width="1.75"><polyline points="3 6 5 6 21 6"/><path d="M19 6v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6"/><path d="M8 6V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2"/></svg></div>
+          <h4 style="font-family:var(--fd);font-size:18px;margin-bottom:6px;">Soft-delete</h4>
+          <p style="font-size:13px;color:var(--text2);line-height:1.6;">Deleted content goes to Trash — recoverable for 30 days. Never permanently gone by accident.</p>
+        </div>
+        <div class="r" style="padding:24px;background:var(--surface);border:1px solid var(--border);border-radius:16px;">
+          <div style="margin-bottom:12px;"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="var(--accent-hi)" stroke-width="1.75"><path d="M12 20h9"/><path d="M16.5 3.5a2.12 2.12 0 0 1 3 3L7 19l-4 1 1-4Z"/></svg></div>
+          <h4 style="font-family:var(--fd);font-size:18px;margin-bottom:6px;">Version history</h4>
+          <p style="font-size:13px;color:var(--text2);line-height:1.6;">Every edit saves the previous version. Revert to any point in history with one click.</p>
+        </div>
+        <div class="r" style="padding:24px;background:var(--surface);border:1px solid var(--border);border-radius:16px;">
+          <div style="margin-bottom:12px;"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="var(--accent-hi)" stroke-width="1.75"><path d="M19 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11l5 5v11a2 2 0 0 1-2 2z"/><polyline points="17 21 17 13 7 13 7 21"/><polyline points="7 3 7 8 15 8"/></svg></div>
+          <h4 style="font-family:var(--fd);font-size:18px;margin-bottom:6px;">Autosave</h4>
+          <p style="font-size:13px;color:var(--text2);line-height:1.6;">Drafts back up every 30 seconds. Browser crash? Tab close? Your work is still there.</p>
+        </div>
+        <div class="r" style="padding:24px;background:var(--surface);border:1px solid var(--border);border-radius:16px;">
+          <div style="margin-bottom:12px;"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="var(--accent-hi)" stroke-width="1.75"><rect x="3" y="11" width="18" height="11" rx="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg></div>
+          <h4 style="font-family:var(--fd);font-size:18px;margin-bottom:6px;">AES-256 encryption</h4>
+          <p style="font-size:13px;color:var(--text2);line-height:1.6;">API keys encrypted with AES-256-GCM. Passwords hashed with bcrypt. CSRF protection on every request.</p>
+        </div>
+        <div class="r" style="padding:24px;background:var(--surface);border:1px solid var(--border);border-radius:16px;">
+          <div style="margin-bottom:12px;"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="var(--accent-hi)" stroke-width="1.75"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="17 8 12 3 7 8"/><line x1="12" y1="3" x2="12" y2="15"/></svg></div>
+          <h4 style="font-family:var(--fd);font-size:18px;margin-bottom:6px;">Full data export</h4>
+          <p style="font-size:13px;color:var(--text2);line-height:1.6;">Download everything — content, versions, Brain data, blog posts, chat history. Your data is yours.</p>
+        </div>
+        <div class="r" style="padding:24px;background:var(--surface);border:1px solid var(--border);border-radius:16px;">
+          <div style="margin-bottom:12px;"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="var(--accent-hi)" stroke-width="1.75"><polyline points="23 4 23 10 17 10"/><path d="M20.49 15a9 9 0 1 1-2.12-9.36L23 10"/></svg></div>
+          <h4 style="font-family:var(--fd);font-size:18px;margin-bottom:6px;">Automated backups</h4>
+          <p style="font-size:13px;color:var(--text2);line-height:1.6;">Database backed up every 6 hours with integrity verification. 28 rolling backups always available.</p>
+        </div>
       </div>
-      <div class="persona-card r">
-        <div class="persona-icon"><svg width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg></div>
-        <h3>Small Teams</h3>
-        <p>Align your brand voice across every team member and platform. One Brain keeps everyone on the same page.</p>
-        <div class="persona-stat">Ship 4x more content</div>
-      </div>
-      <div class="persona-card r">
-        <div class="persona-icon"><svg width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75"><path d="M22 2L11 13"/><path d="M22 2L15 22l-4-9-9-4z"/></svg></div>
-        <h3>Growing Brands</h3>
-        <p>Run parallel campaigns across all platforms, track performance with analytics, and export everything.</p>
-        <div class="persona-stat">All platforms, one dashboard</div>
-      </div>
-      <div class="persona-card r">
-        <div class="persona-icon"><svg width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg></div>
-        <h3>Growing Agencies</h3>
-        <p>Manage client brands from one dashboard. Each with its own Brain. 5x more output, zero extra headcount.</p>
-        <div class="persona-stat">5x client output</div>
-      </div>
+    </div>
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<!-- ═══════════ SOCIAL PROOF — MARQUEE ═══════════ -->
+<section class="social-proof">
+  <div class="marquee-controls">
+    <button class="marquee-btn" id="marquee-pause" title="Pause/Play"><svg width="12" height="12" viewBox="0 0 24 24" fill="currentColor"><rect x="6" y="4" width="4" height="16"/><rect x="14" y="4" width="4" height="16"/></svg> Pause</button>
+    <span class="speed-label">Speed:</span>
+    <button class="marquee-btn active" data-speed="40">Normal</button>
+    <button class="marquee-btn" data-speed="80">Slow</button>
+  </div>
+  <div class="marquee-wrap" id="marquee-wrap">
+    <div class="marquee-track" id="marquee">
+      <div class="testimonial"><div class="testimonial-stars">★★★★★</div><div class="testimonial-text">"I used to spend every Sunday night in content panic mode. Heist gave me my weekends back. That alone is worth 10x the price."</div><div class="testimonial-author">— Early Access Creator</div></div>
+      <div class="testimonial"><div class="testimonial-stars">★★★★★</div><div class="testimonial-text">"Heist replaced Jasper, Buffer, and my Google Docs chaos. One tool, one Brain, done."</div><div class="testimonial-author">— Founder, SaaS Startup</div></div>
+      <div class="testimonial"><div class="testimonial-stars">★★★★★</div><div class="testimonial-text">"The previews alone sold me. I finally know what my posts look like before they go live."</div><div class="testimonial-author">— Marketing Consultant</div></div>
+      <div class="testimonial"><div class="testimonial-stars">★★★★★</div><div class="testimonial-text">"My followers think I have a content team. I have a Brain."</div><div class="testimonial-author">— Solo Consultant</div></div>
+      <div class="testimonial"><div class="testimonial-stars">★★★★★</div><div class="testimonial-text">"I got 8 hours a week back. My mornings are mine again. My weekends are mine again. Never going back."</div><div class="testimonial-author">— Content Creator</div></div>
+      <div class="testimonial"><div class="testimonial-stars">★★★★★</div><div class="testimonial-text">"Everyone asks how I post so consistently across 4 platforms. I tell them it's classified."</div><div class="testimonial-author">— Executive Coach</div></div>
+      <!-- Duplicate for seamless loop -->
+      <div class="testimonial"><div class="testimonial-stars">★★★★★</div><div class="testimonial-text">"I used to spend every Sunday night in content panic mode. Heist gave me my weekends back. That alone is worth 10x the price."</div><div class="testimonial-author">— Early Access Creator</div></div>
+      <div class="testimonial"><div class="testimonial-stars">★★★★★</div><div class="testimonial-text">"Heist replaced Jasper, Buffer, and my Google Docs chaos. One tool, one Brain, done."</div><div class="testimonial-author">— Founder, SaaS Startup</div></div>
+      <div class="testimonial"><div class="testimonial-stars">★★★★★</div><div class="testimonial-text">"The previews alone sold me. I finally know what my posts look like before they go live."</div><div class="testimonial-author">— Marketing Consultant</div></div>
+      <div class="testimonial"><div class="testimonial-stars">★★★★★</div><div class="testimonial-text">"My followers think I have a content team. I have a Brain."</div><div class="testimonial-author">— Solo Consultant</div></div>
+      <div class="testimonial"><div class="testimonial-stars">★★★★★</div><div class="testimonial-text">"I got 8 hours a week back. My mornings are mine again. My weekends are mine again. Never going back."</div><div class="testimonial-author">— Content Creator</div></div>
+      <div class="testimonial"><div class="testimonial-stars">★★★★★</div><div class="testimonial-text">"Everyone asks how I post so consistently across 4 platforms. I tell them it's classified."</div><div class="testimonial-author">— Executive Coach</div></div>
     </div>
   </div>
 </section>
@@ -949,21 +1164,25 @@ footer { padding: 80px 48px 40px; border-top: 1px solid var(--border); }
           <tr>
             <th>Feature</th>
             <th class="comp-heist">Heist Pro — $49/mo</th>
-            <th>Jasper — $49/mo</th>
-            <th>Buffer — $30/mo</th>
+            <th>Jasper — $59/mo</th>
+            <th>Buffer — $5-10/ch</th>
             <th>Hootsuite — $99/mo</th>
           </tr>
         </thead>
         <tbody>
-          <tr><td>AI content generation</td><td class="comp-heist comp-yes">✓</td><td class="comp-yes">✓</td><td class="comp-no">✕</td><td class="comp-no">✕</td></tr>
-          <tr><td>Persistent brand memory</td><td class="comp-heist comp-yes">✓</td><td class="comp-no">✕</td><td class="comp-no">✕</td><td class="comp-no">✕</td></tr>
-          <tr><td>Full-fidelity previews</td><td class="comp-heist comp-yes">✓</td><td class="comp-no">✕</td><td class="comp-partial">Partial</td><td class="comp-partial">Partial</td></tr>
+          <tr><td>AI content generation</td><td class="comp-heist comp-yes">✓</td><td class="comp-yes">✓</td><td class="comp-partial">Basic</td><td class="comp-no">✕</td></tr>
+          <tr><td>Persistent brand memory</td><td class="comp-heist comp-yes">10 layers</td><td class="comp-partial">1 layer</td><td class="comp-no">✕</td><td class="comp-no">✕</td></tr>
+          <tr><td>Auto-learning from engagement</td><td class="comp-heist comp-yes">✓</td><td class="comp-no">✕</td><td class="comp-no">✕</td><td class="comp-no">✕</td></tr>
+          <tr><td>Voice drift detection</td><td class="comp-heist comp-yes">✓</td><td class="comp-no">✕</td><td class="comp-no">✕</td><td class="comp-no">✕</td></tr>
+          <tr><td>Content versioning + undo</td><td class="comp-heist comp-yes">✓</td><td class="comp-no">✕</td><td class="comp-no">✕</td><td class="comp-no">✕</td></tr>
+          <tr><td>Real engagement analytics</td><td class="comp-heist comp-yes">✓</td><td class="comp-no">✕</td><td class="comp-yes">✓</td><td class="comp-yes">✓</td></tr>
           <tr><td>Multi-platform scheduling</td><td class="comp-heist comp-yes">✓</td><td class="comp-no">✕</td><td class="comp-yes">✓</td><td class="comp-yes">✓</td></tr>
-          <tr><td>Campaign organization</td><td class="comp-heist comp-yes">✓</td><td class="comp-no">✕</td><td class="comp-no">✕</td><td class="comp-partial">Partial</td></tr>
-          <tr><td>Content calendar</td><td class="comp-heist comp-yes">✓</td><td class="comp-no">✕</td><td class="comp-yes">✓</td><td class="comp-yes">✓</td></tr>
-          <tr><td>One-idea → full month</td><td class="comp-heist comp-yes">✓</td><td class="comp-no">✕</td><td class="comp-no">✕</td><td class="comp-no">✕</td></tr>
-          <tr><td>Setup time</td><td class="comp-heist comp-yes" style="font-weight:700;">10 min</td><td style="color:var(--text3);">Hours</td><td style="color:var(--text3);">30 min</td><td style="color:var(--text3);">1+ hour</td></tr>
-          <tr><td style="font-size:16px;font-weight:700;">Total monthly cost</td><td class="comp-heist" style="color:var(--emerald);font-weight:700;font-size:18px;">$49</td><td colspan="3" style="color:var(--text3);font-size:16px;">$49 + $30 = $79+ (and still no Brain)</td></tr>
+          <tr><td>Blog editor (tables, format painter)</td><td class="comp-heist comp-yes">✓</td><td class="comp-partial">Basic</td><td class="comp-no">✕</td><td class="comp-no">✕</td></tr>
+          <tr><td>Full-fidelity platform previews</td><td class="comp-heist comp-yes">✓</td><td class="comp-no">✕</td><td class="comp-partial">Partial</td><td class="comp-partial">Partial</td></tr>
+          <tr><td>One-idea &rarr; full month</td><td class="comp-heist comp-yes">✓</td><td class="comp-no">✕</td><td class="comp-no">✕</td><td class="comp-no">✕</td></tr>
+          <tr><td>Bring your own AI key (BYOK)</td><td class="comp-heist comp-yes">✓</td><td class="comp-no">✕</td><td class="comp-no">N/A</td><td class="comp-no">N/A</td></tr>
+          <tr><td>Setup time</td><td class="comp-heist comp-yes" style="font-weight:700;">2 min (URL scan)</td><td style="color:var(--text3);">Hours</td><td style="color:var(--text3);">30 min</td><td style="color:var(--text3);">1+ hour</td></tr>
+          <tr><td style="font-size:16px;font-weight:700;">Equivalent monthly cost</td><td class="comp-heist" style="color:var(--emerald);font-weight:700;font-size:18px;">$49</td><td colspan="3" style="color:var(--text3);font-size:14px;">$59 + $30+ = $89+ (and still no Brain, no learning loop, no versioning)</td></tr>
         </tbody>
       </table>
     </div>
@@ -990,7 +1209,7 @@ footer { padding: 80px 48px 40px; border-top: 1px solid var(--border); }
       <span class="toggle-label active" id="lbl-monthly">Monthly</span>
       <div class="toggle-track" id="pricing-switch"><div class="toggle-thumb"></div></div>
       <span class="toggle-label" id="lbl-annual">Annual</span>
-      <span class="toggle-save">Save 17%</span>
+      <span class="toggle-save">Save 20%</span>
     </div>
 
     <div class="price-grid" id="price-grid">
@@ -999,7 +1218,7 @@ footer { padding: 80px 48px 40px; border-top: 1px solid var(--border); }
         <div class="p-name">Starter</div>
         <div class="p-price-was">$19/mo</div>
         <div class="p-price p-price-monthly">$19<span>/mo</span></div>
-        <div class="p-price p-price-annual">$16<span>/mo</span></div>
+        <div class="p-price p-price-annual">$15<span>/mo</span></div>
         <div class="p-desc">For creators getting started.</div>
         <ul class="p-features">
           <li><span class="p-check">✓</span> 1 Brand Brain</li>
@@ -1018,7 +1237,7 @@ footer { padding: 80px 48px 40px; border-top: 1px solid var(--border); }
         <div class="p-name">Pro</div>
         <div class="p-price-was">$49/mo</div>
         <div class="p-price p-price-monthly">$49<span>/mo</span></div>
-        <div class="p-price p-price-annual">$41<span>/mo</span></div>
+        <div class="p-price p-price-annual">$39<span>/mo</span></div>
         <div class="p-desc">For creators serious about growth.</div>
         <ul class="p-features">
           <li><span class="p-check">✓</span> 1 Brand Brain</li>
@@ -1036,7 +1255,7 @@ footer { padding: 80px 48px 40px; border-top: 1px solid var(--border); }
         <div class="p-name">Founder</div>
         <div class="p-price-was">$99/mo</div>
         <div class="p-price p-price-monthly">$99<span>/mo</span></div>
-        <div class="p-price p-price-annual">$82<span>/mo</span></div>
+        <div class="p-price p-price-annual">$79<span>/mo</span></div>
         <div class="p-desc">For operators who want the full arsenal.</div>
         <ul class="p-features">
           <li><span class="p-check">✓</span> 1 Brand Brain</li>
@@ -1047,6 +1266,26 @@ footer { padding: 80px 48px 40px; border-top: 1px solid var(--border); }
         </ul>
         <a href="https://app.heistbrain.com/#signup" class="p-cta p-cta-ghost">Start Free Trial</a>
         <div class="per-post-cost">Unlimited</div>
+        <span class="p-cta-micro">No credit card required</span>
+      </div>
+      <!-- Agency -->
+      <div class="p-card r">
+        <div class="p-badge" style="background:linear-gradient(135deg,#22D3EE,#0891B2);">Agency</div>
+        <div class="p-name">Agency</div>
+        <div class="p-price-was">$199/mo</div>
+        <div class="p-price p-price-monthly">$199<span>/mo</span></div>
+        <div class="p-price p-price-annual">$159<span>/mo</span></div>
+        <div class="p-desc">For teams managing multiple brands.</div>
+        <ul class="p-features">
+          <li><span class="p-check">✓</span> 25 Brand Brains</li>
+          <li><span class="p-check">✓</span> Unlimited posts</li>
+          <li><span class="p-check">✓</span> All platforms + blog</li>
+          <li><span class="p-check">✓</span> Premium AI models</li>
+          <li><span class="p-check">✓</span> Full analytics + export</li>
+          <li><span class="p-check">✓</span> Priority support</li>
+        </ul>
+        <a href="https://app.heistbrain.com/#signup" class="p-cta p-cta-ghost">Start Free Trial</a>
+        <div class="per-post-cost">$8/brand</div>
         <span class="p-cta-micro">No credit card required</span>
       </div>
     </div>
@@ -1085,6 +1324,8 @@ footer { padding: 80px 48px 40px; border-top: 1px solid var(--border); }
       <div class="faq-item r"><div class="faq-q">Can I cancel anytime? <span class="faq-toggle">+</span></div><div class="faq-a">Yes, cancel from Settings. No fees, no questions asked.</div></div>
       <div class="faq-item r"><div class="faq-q">Do I own the content Heist creates? <span class="faq-toggle">+</span></div><div class="faq-a">Absolutely. Everything generated is 100% yours.</div></div>
       <div class="faq-item r"><div class="faq-q">Is there an API? <span class="faq-toggle">+</span></div><div class="faq-a">Not yet, but it's on our roadmap. Let us know at support@heistbrain.com.</div></div>
+      <div class="faq-item r"><div class="faq-q">How does the auto-learning work? <span class="faq-toggle">+</span></div><div class="faq-a">Every 6 hours, Heist pulls engagement data from your connected platforms (Meta, X, LinkedIn). Posts that outperform your average by 2x are automatically identified, and the patterns that made them work are added to your Brain as insight facts. Your next generation is informed by what actually performed — not guesswork.</div></div>
+      <div class="faq-item r"><div class="faq-q">Is my content safe? Can I undo mistakes? <span class="faq-toggle">+</span></div><div class="faq-a">Yes on both. Deleted content goes to Trash and is recoverable for 30 days. Every edit saves the previous version — you can revert to any point in history. Drafts autosave every 30 seconds. Your database is backed up every 6 hours with integrity verification. And all data is encrypted with AES-256-GCM.</div></div>
     </div>
   </div>
 </section>
@@ -1116,7 +1357,7 @@ footer { padding: 80px 48px 40px; border-top: 1px solid var(--border); }
           <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
         </button>
       </div>
-      <div class="email-success" id="email-success">🎉 You're in! Check your inbox for next steps.</div>
+      <div class="email-success" id="email-success"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="vertical-align:middle;margin-right:6px;"><path d="M20 6L9 17l-5-5"/></svg>You're in! Check your inbox for next steps.</div>
       <div style="display:flex;align-items:center;gap:6px;margin-top:8px;font-size:12px;color:rgba(241,240,245,.4);justify-content:center;">
         <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="11" width="18" height="11" rx="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg>
         No spam. No credit card. Cancel anytime.
@@ -1258,7 +1499,7 @@ let isPaused = false;
 pauseBtn.addEventListener('click', () => {
   isPaused = !isPaused;
   marqueeTrack.classList.toggle('paused', isPaused);
-  pauseBtn.textContent = isPaused ? '▶ Play' : '⏸ Pause';
+  pauseBtn.innerHTML = isPaused ? '<svg width="12" height="12" viewBox="0 0 24 24" fill="currentColor"><polygon points="5 3 19 12 5 21"/></svg> Play' : '<svg width="12" height="12" viewBox="0 0 24 24" fill="currentColor"><rect x="6" y="4" width="4" height="16"/><rect x="14" y="4" width="4" height="16"/></svg> Pause';
   pauseBtn.classList.toggle('active', isPaused);
 });
 
@@ -1301,7 +1542,7 @@ function handleEmail(inputId, formParentId, successId) {
           document.getElementById(formParentId).style.display = 'none';
           document.getElementById(successId).style.display = 'block';
         } else {
-          document.getElementById('exit-popup').innerHTML = '<div style="text-align:center;padding:20px;"><div style="font-size:28px;margin-bottom:12px;">🎉</div><h4 style="font-family:var(--fd);font-size:22px;margin-bottom:8px;">You\'re in!</h4><p style="font-size:14px;color:var(--text2);">Check your inbox for next steps.</p></div>';
+          document.getElementById('exit-popup').innerHTML = '<div style="text-align:center;padding:20px;"><div style="margin-bottom:12px;"><svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="var(--emerald)" stroke-width="2"><path d="M20 6L9 17l-5-5"/></svg></div><h4 style="font-family:var(--fd);font-size:22px;margin-bottom:8px;">You\'re in!</h4><p style="font-size:14px;color:var(--text2);">Check your inbox for next steps.</p></div>';
         }
       } else { throw new Error('Submit failed'); }
     } catch (err) {
