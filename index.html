@@ -75,10 +75,10 @@
   --ease: cubic-bezier(0.16, 1, 0.3, 1);
 }
 
-html { scroll-behavior: smooth; overflow-x: hidden; }
+html { scroll-behavior: smooth; overflow-x: clip; }
 body {
   font-family: var(--fb); background: var(--bg); color: var(--text);
-  line-height: 1.65; -webkit-font-smoothing: antialiased; overflow-x: hidden;
+  line-height: 1.65; -webkit-font-smoothing: antialiased; overflow-x: clip;
 }
 
 body::after {
@@ -205,7 +205,7 @@ section { position: relative; z-index: 1; }
 .cta-micro { display: block; font-size: 12px; color: var(--text3); margin-top: 10px; letter-spacing: 0.02em; }
 
 /* ═══════════ HERO ═══════════ */
-.hero { min-height: 100vh; display: flex; align-items: center; padding: 120px 0 100px; position: relative; overflow: hidden; }
+.hero { min-height: 100vh; display: flex; align-items: center; padding: 120px 0 100px; position: relative; overflow: clip; }
 .hero::before { content:''; position:absolute; top:-10%; right:-15%; width:900px; height:900px; background: radial-gradient(circle, rgba(139,92,246,0.07) 0%, rgba(236,72,153,0.03) 40%, transparent 70%); pointer-events:none; }
 .hero .container { display: flex; align-items: center; gap: 80px; }
 .hero-content { flex: 0 0 50%; max-width: 560px; position: relative; z-index: 2; }
@@ -302,7 +302,7 @@ section { position: relative; z-index: 1; }
 .scan-line { position: absolute; left: 0; right: 0; height: 2px; top: -2px; background: linear-gradient(90deg, transparent, var(--accent-hi), transparent); opacity: 0; animation: scan-line 4s ease-in-out infinite; pointer-events: none; z-index: 5; }
 
 /* ═══════════ MANIFESTO ═══════════ */
-.manifesto { padding: 100px 0; text-align: center; position: relative; overflow: hidden; }
+.manifesto { padding: 100px 0; text-align: center; position: relative; overflow: clip; }
 .manifesto::before { content:''; position:absolute; top:50%; left:50%; transform:translate(-50%,-50%); width: 1000px; height: 1000px; background: radial-gradient(circle, rgba(139,92,246,0.06) 0%, rgba(236,72,153,0.02) 30%, transparent 60%); pointer-events:none; }
 .manifesto-rule { width: 60px; height: 2px; margin: 0 auto 40px; background: linear-gradient(90deg, var(--accent), var(--pink)); border-radius: 1px; }
 .manifesto-heading { font-family: var(--fd); font-size: clamp(30px, 4.2vw, 54px); line-height: 1.2; max-width: 800px; margin: 0 auto 36px; font-style: italic; }
@@ -341,7 +341,7 @@ section { position: relative; z-index: 1; }
 .step p { font-size: 14px; color: var(--text2); line-height: 1.7; }
 
 /* ═══════════ VERSUS ═══════════ */
-.versus { padding: 100px 0; position: relative; overflow: hidden; }
+.versus { padding: 100px 0; position: relative; overflow: clip; }
 .versus::before { content:''; position:absolute; inset:0; background: radial-gradient(ellipse 40% 50% at 20% 50%, rgba(255,50,50,0.03), transparent), radial-gradient(ellipse 40% 50% at 80% 50%, rgba(139,92,246,0.04), transparent); pointer-events:none; }
 .versus-header { text-align: center; margin-bottom: 72px; }
 .versus-header h2 { font-family: var(--fd); font-size: clamp(30px, 3.8vw, 50px); line-height: 1.15; margin-bottom: 12px; max-width: 700px; margin-left: auto; margin-right: auto; }
@@ -459,7 +459,7 @@ section { position: relative; z-index: 1; }
 .comp-partial { color: var(--amber); }
 
 /* ═══════════ PRICING ═══════════ */
-.pricing { padding: 100px 0; position: relative; }
+.pricing { padding: 100px 0; position: relative; overflow: clip; }
 .pricing::before { content:''; position:absolute; top:0; left:50%; transform:translateX(-50%); width:1200px; height:800px; background: radial-gradient(ellipse 50% 50% at 50% 30%, rgba(139,92,246,0.04), transparent 70%); pointer-events:none; }
 .pricing-header { text-align: center; margin-bottom: 48px; }
 .pricing-header h2 { font-family: var(--fd); font-size: clamp(36px, 4vw, 56px); line-height: 1.1; margin-bottom: 16px; }
@@ -530,7 +530,7 @@ section { position: relative; z-index: 1; }
 .faq-item.open .faq-a { max-height: 300px; margin-top: 16px; }
 
 /* ═══════════ FINAL CTA + EMAIL CAPTURE ═══════════ */
-.final-cta { padding: 100px 0; text-align: center; position: relative; overflow: hidden; }
+.final-cta { padding: 100px 0; text-align: center; position: relative; overflow: clip; }
 .final-cta::before { content:''; position:absolute; top:50%; left:50%; transform:translate(-50%,-50%); width:1200px; height:1200px; background: radial-gradient(circle, rgba(139,92,246,0.08) 0%, rgba(236,72,153,0.03) 30%, transparent 55%); pointer-events:none; }
 .final-cta::after { content:''; position:absolute; top:50%; left:50%; transform:translate(-50%,-50%); width:600px; height:600px; border-radius:50%; border: 1px solid rgba(139,92,246,0.08); animation: spin-slow 30s linear infinite; pointer-events:none; }
 .final-cta .section-label { justify-content: center; }
@@ -596,6 +596,7 @@ footer { padding: 80px 48px 40px; border-top: 1px solid var(--border); }
   .persona-grid .persona-card { max-width: 100%; }
   .comp-table { font-size: 12px; }
   .comp-table th, .comp-table td { padding: 12px 10px; }
+  .footer-inner { grid-template-columns: 1fr 1fr 1fr; gap: 32px; }
 }
 @media (max-width: 768px) {
   .container { padding: 0 24px; }
@@ -706,15 +707,18 @@ footer { padding: 80px 48px 40px; border-top: 1px solid var(--border); }
         Ten minutes.<br>
         <span class="word-cycler" id="cycler">
           <span class="active">No grind required.</span>
+          <span>Steal your time back.</span>
           <span>No burnout required.</span>
-          <span>No Sundays sacrificed.</span>
+          <span>Walk away clean.</span>
         </span>
       </h1>
       <p class="hero-sub">
-        Heist is the AI content OS with a 10-layer Brain that remembers your brand,
-        learns from real engagement data, and gets smarter with every post you publish.
-        Generate a full month of on-brand content from a single idea. Schedule it.
-        Track what works. Let the Brain handle the rest.
+        Every week, content robs you — the planning, the formatting,
+        the "what do I even post today?" spiral.<br><br>
+        But Heist takes it all back.<br><br>
+        Tell Heist your idea and it remembers your voice, writes for
+        every platform, and schedules the whole month. Then you walk
+        away with your time in your pocket.
       </p>
       <div class="hero-ctas">
         <a href="https://app.heistbrain.com/#signup" class="btn-primary-hero">Generate Your First Month Free →</a>
@@ -1101,35 +1105,6 @@ footer { padding: 80px 48px 40px; border-top: 1px solid var(--border); }
           <p style="font-size:13px;color:var(--text2);line-height:1.6;">Database backed up every 6 hours with integrity verification. 28 rolling backups always available.</p>
         </div>
       </div>
-    </div>
-  </div>
-</section>
-
-<div class="divider"></div>
-
-<!-- ═══════════ SOCIAL PROOF — MARQUEE ═══════════ -->
-<section class="social-proof">
-  <div class="marquee-controls">
-    <button class="marquee-btn" id="marquee-pause" title="Pause/Play"><svg width="12" height="12" viewBox="0 0 24 24" fill="currentColor"><rect x="6" y="4" width="4" height="16"/><rect x="14" y="4" width="4" height="16"/></svg> Pause</button>
-    <span class="speed-label">Speed:</span>
-    <button class="marquee-btn active" data-speed="40">Normal</button>
-    <button class="marquee-btn" data-speed="80">Slow</button>
-  </div>
-  <div class="marquee-wrap" id="marquee-wrap">
-    <div class="marquee-track" id="marquee">
-      <div class="testimonial"><div class="testimonial-stars">★★★★★</div><div class="testimonial-text">"I used to spend every Sunday night in content panic mode. Heist gave me my weekends back. That alone is worth 10x the price."</div><div class="testimonial-author">— Early Access Creator</div></div>
-      <div class="testimonial"><div class="testimonial-stars">★★★★★</div><div class="testimonial-text">"Heist replaced Jasper, Buffer, and my Google Docs chaos. One tool, one Brain, done."</div><div class="testimonial-author">— Founder, SaaS Startup</div></div>
-      <div class="testimonial"><div class="testimonial-stars">★★★★★</div><div class="testimonial-text">"The previews alone sold me. I finally know what my posts look like before they go live."</div><div class="testimonial-author">— Marketing Consultant</div></div>
-      <div class="testimonial"><div class="testimonial-stars">★★★★★</div><div class="testimonial-text">"My followers think I have a content team. I have a Brain."</div><div class="testimonial-author">— Solo Consultant</div></div>
-      <div class="testimonial"><div class="testimonial-stars">★★★★★</div><div class="testimonial-text">"I got 8 hours a week back. My mornings are mine again. My weekends are mine again. Never going back."</div><div class="testimonial-author">— Content Creator</div></div>
-      <div class="testimonial"><div class="testimonial-stars">★★★★★</div><div class="testimonial-text">"Everyone asks how I post so consistently across 6 platforms. I tell them it's classified."</div><div class="testimonial-author">— Executive Coach</div></div>
-      <!-- Duplicate for seamless loop -->
-      <div class="testimonial"><div class="testimonial-stars">★★★★★</div><div class="testimonial-text">"I used to spend every Sunday night in content panic mode. Heist gave me my weekends back. That alone is worth 10x the price."</div><div class="testimonial-author">— Early Access Creator</div></div>
-      <div class="testimonial"><div class="testimonial-stars">★★★★★</div><div class="testimonial-text">"Heist replaced Jasper, Buffer, and my Google Docs chaos. One tool, one Brain, done."</div><div class="testimonial-author">— Founder, SaaS Startup</div></div>
-      <div class="testimonial"><div class="testimonial-stars">★★★★★</div><div class="testimonial-text">"The previews alone sold me. I finally know what my posts look like before they go live."</div><div class="testimonial-author">— Marketing Consultant</div></div>
-      <div class="testimonial"><div class="testimonial-stars">★★★★★</div><div class="testimonial-text">"My followers think I have a content team. I have a Brain."</div><div class="testimonial-author">— Solo Consultant</div></div>
-      <div class="testimonial"><div class="testimonial-stars">★★★★★</div><div class="testimonial-text">"I got 8 hours a week back. My mornings are mine again. My weekends are mine again. Never going back."</div><div class="testimonial-author">— Content Creator</div></div>
-      <div class="testimonial"><div class="testimonial-stars">★★★★★</div><div class="testimonial-text">"Everyone asks how I post so consistently across 6 platforms. I tell them it's classified."</div><div class="testimonial-author">— Executive Coach</div></div>
     </div>
   </div>
 </section>
