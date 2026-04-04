@@ -31,10 +31,10 @@
 
 <!-- JSON-LD Structured Data -->
 <script type="application/ld+json">
-{"@context":"https://schema.org","@type":"SoftwareApplication","name":"Heist","description":"AI-powered content OS that generates a month of social media content in 10 minutes.","url":"https://heistbrain.com","applicationCategory":"BusinessApplication","operatingSystem":"Web","offers":[{"@type":"Offer","name":"Starter","price":"19.00","priceCurrency":"USD"},{"@type":"Offer","name":"Pro","price":"49.00","priceCurrency":"USD"},{"@type":"Offer","name":"Founder","price":"99.00","priceCurrency":"USD"},{"@type":"Offer","name":"Agency","price":"199.00","priceCurrency":"USD"}],"aggregateRating":{"@type":"AggregateRating","ratingValue":"4.9","reviewCount":"500","bestRating":"5"}}
+{"@context":"https://schema.org","@type":"SoftwareApplication","name":"Heist","description":"AI-powered content OS that generates a month of social media content across 6 platforms in 10 minutes. Supports text and video for LinkedIn, X, Instagram, Facebook, TikTok, and YouTube.","url":"https://heistbrain.com","applicationCategory":"BusinessApplication","operatingSystem":"Web","offers":[{"@type":"Offer","name":"Starter","price":"19.00","priceCurrency":"USD"},{"@type":"Offer","name":"Pro","price":"49.00","priceCurrency":"USD"},{"@type":"Offer","name":"Founder","price":"99.00","priceCurrency":"USD"},{"@type":"Offer","name":"Agency","price":"199.00","priceCurrency":"USD"}],"aggregateRating":{"@type":"AggregateRating","ratingValue":"4.9","reviewCount":"500","bestRating":"5"}}
 </script>
 <script type="application/ld+json">
-{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"How is Heist different from ChatGPT?","acceptedAnswer":{"@type":"Answer","text":"ChatGPT generates text. Heist generates a system with brand memory, platform previews, campaign organization, and scheduling."}},{"@type":"Question","name":"How does the Brand Brain work?","acceptedAnswer":{"@type":"Answer","text":"Define your voice, audience, and offer during onboarding. The Brain stores this permanently and applies it to every piece of content."}},{"@type":"Question","name":"What platforms does Heist support?","acceptedAnswer":{"@type":"Answer","text":"LinkedIn, X (Twitter), Instagram, Facebook, and blog content on the Founder plan."}},{"@type":"Question","name":"Can I try it before I pay?","acceptedAnswer":{"@type":"Answer","text":"Yes. 7-day free trial with full Pro features. No credit card required."}},{"@type":"Question","name":"Can I cancel anytime?","acceptedAnswer":{"@type":"Answer","text":"Yes, cancel from Settings. No fees, no questions asked."}},{"@type":"Question","name":"Do I own the content?","acceptedAnswer":{"@type":"Answer","text":"Absolutely. Everything Heist generates is 100% yours."}}]}
+{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"How is Heist different from ChatGPT?","acceptedAnswer":{"@type":"Answer","text":"ChatGPT generates text. Heist generates a system with brand memory, platform previews, campaign organization, and scheduling."}},{"@type":"Question","name":"How does the Brand Brain work?","acceptedAnswer":{"@type":"Answer","text":"Define your voice, audience, and offer during onboarding. The Brain stores this permanently and applies it to every piece of content."}},{"@type":"Question","name":"What platforms does Heist support?","acceptedAnswer":{"@type":"Answer","text":"LinkedIn, X (Twitter), Instagram, Facebook, TikTok, and YouTube. TikTok and YouTube support native video uploads. Founder and Agency plans include blog content."}},{"@type":"Question","name":"Can I try it before I pay?","acceptedAnswer":{"@type":"Answer","text":"Yes. 7-day free trial with full Pro features. No credit card required."}},{"@type":"Question","name":"Can I cancel anytime?","acceptedAnswer":{"@type":"Answer","text":"Yes, cancel from Settings. No fees, no questions asked."}},{"@type":"Question","name":"Do I own the content?","acceptedAnswer":{"@type":"Answer","text":"Absolutely. Everything Heist generates is 100% yours."}}]}
 </script>
 <script type="application/ld+json">
 {"@context":"https://schema.org","@type":"Organization","name":"Heist","url":"https://heistbrain.com","contactPoint":{"@type":"ContactPoint","email":"support@heistbrain.com","contactType":"customer service"}}
@@ -764,8 +764,8 @@ footer { padding: 80px 48px 40px; border-top: 1px solid var(--border); }
           <div class="hero-stat-label">hours reclaimed per month</div>
         </div>
         <div>
-          <div class="hero-stat-val"><span class="counter" data-target="10">0</span></div>
-          <div class="hero-stat-label">layers of brand intelligence</div>
+          <div class="hero-stat-val"><span class="counter" data-target="6">0</span></div>
+          <div class="hero-stat-label">platforms, one workflow</div>
         </div>
       </div>
     </div>
@@ -776,49 +776,76 @@ footer { padding: 80px 48px 40px; border-top: 1px solid var(--border); }
         <div class="browser-chrome">
           <div class="browser-bar">
             <div class="browser-dots"><span></span><span></span><span></span></div>
-            <div class="browser-url">heistbrain.com/dashboard</div>
+            <div class="browser-url">app.heistbrain.com/create</div>
           </div>
-          <div class="dash" style="position:relative;">
+          <div class="dash" style="position:relative; display:flex; gap:12px; padding:16px; min-height:340px;">
             <div class="scan-line"></div>
-            <div class="dash-card">
-              <div class="dash-label">The Vault</div>
-              <div class="dash-status dash-status-live"><span class="dash-status-dot"></span> Brain Active — 10 layers</div>
-              <div class="dash-lines"><div class="dash-line"></div><div class="dash-line"></div><div class="dash-line"></div><div class="dash-line"></div></div>
-            </div>
-            <div class="dash-card">
-              <div class="dash-label">The Score</div>
-              <div class="dash-metric">+42%</div>
-              <div class="dash-metric-sub">↑ engagement this month</div>
-              <div class="mini-chart">
-                <div class="mini-bar" style="height:30%"></div><div class="mini-bar" style="height:45%"></div>
-                <div class="mini-bar" style="height:35%"></div><div class="mini-bar" style="height:60%"></div>
-                <div class="mini-bar" style="height:50%"></div><div class="mini-bar" style="height:75%"></div>
-                <div class="mini-bar" style="height:65%"></div><div class="mini-bar" style="height:85%"></div>
-                <div class="mini-bar" style="height:70%"></div><div class="mini-bar" style="height:100%"></div>
+            <!-- LEFT: Editor Panel -->
+            <div style="flex:1.1; display:flex; flex-direction:column; gap:10px;">
+              <div style="display:flex; align-items:center; gap:6px; padding:8px 12px; background:rgba(255,255,255,0.02); border:1px solid var(--border); border-radius:10px;">
+                <div style="flex:1; font-size:10px; color:var(--text3); white-space:nowrap; overflow:hidden; text-overflow:ellipsis;">Product launch announcement for our new SaaS tool</div>
+                <div style="padding:4px 10px; background:linear-gradient(135deg,var(--accent),var(--accent-lo)); border-radius:6px; font-size:9px; color:#fff; font-weight:700; white-space:nowrap;"><svg width="8" height="8" viewBox="0 0 24 24" fill="currentColor" style="vertical-align:middle;margin-right:2px;"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>Generate</div>
+              </div>
+              <div style="display:flex; gap:4px; flex-wrap:wrap;">
+                <span style="display:inline-flex;align-items:center;gap:3px;padding:3px 8px;border-radius:20px;font-size:8px;font-weight:600;background:rgba(24,119,242,0.15);border:1px solid rgba(24,119,242,0.3);color:#60a5fa;"><span style="width:5px;height:5px;border-radius:50%;background:#1877F2;"></span>FB</span>
+                <span style="display:inline-flex;align-items:center;gap:3px;padding:3px 8px;border-radius:20px;font-size:8px;font-weight:600;background:rgba(228,64,95,0.15);border:1px solid rgba(228,64,95,0.3);color:#f472b6;"><span style="width:5px;height:5px;border-radius:50%;background:#E4405F;"></span>IG</span>
+                <span style="display:inline-flex;align-items:center;gap:3px;padding:3px 8px;border-radius:20px;font-size:8px;font-weight:600;background:rgba(148,163,184,0.1);border:1px solid rgba(148,163,184,0.2);color:#94a3b8;"><span style="width:5px;height:5px;border-radius:50%;background:#94A3B8;"></span>X</span>
+                <span style="display:inline-flex;align-items:center;gap:3px;padding:3px 8px;border-radius:20px;font-size:8px;font-weight:600;background:rgba(10,102,194,0.15);border:1px solid rgba(10,102,194,0.3);color:#60a5fa;"><span style="width:5px;height:5px;border-radius:50%;background:#0A66C2;"></span>LI</span>
+                <span style="display:inline-flex;align-items:center;gap:3px;padding:3px 8px;border-radius:20px;font-size:8px;font-weight:600;background:rgba(238,29,82,0.12);border:1px solid rgba(238,29,82,0.25);color:#f87171;"><span style="width:5px;height:5px;border-radius:50%;background:#EE1D52;"></span>TT</span>
+                <span style="display:inline-flex;align-items:center;gap:3px;padding:3px 8px;border-radius:20px;font-size:8px;font-weight:600;background:rgba(255,0,0,0.1);border:1px solid rgba(255,0,0,0.2);color:#f87171;"><span style="width:5px;height:5px;border-radius:50%;background:#FF0000;"></span>YT</span>
+              </div>
+              <div style="flex:1; padding:12px; background:rgba(255,255,255,0.015); border:1px solid var(--border); border-radius:10px;">
+                <div style="font-size:9px; color:var(--text3); margin-bottom:6px; font-family:var(--fm); letter-spacing:0.05em;">EDITOR</div>
+                <div style="font-size:11px; color:var(--text); line-height:1.6; margin-bottom:8px;">Excited to announce our newest feature — the Heist Brain now learns from your real engagement data</div>
+                <div style="font-size:11px; color:var(--text2); line-height:1.6; margin-bottom:10px;">Every post you publish makes your next one smarter. It's not just AI — it's YOUR AI.</div>
+                <div style="font-size:11px; color:rgba(139,92,246,0.7); line-height:1.6;">#ContentOS #AIMarketing #HeistBrain</div>
+              </div>
+              <div style="display:flex; gap:6px;">
+                <div style="flex:1; padding:6px; text-align:center; font-size:9px; font-weight:600; color:var(--text2); background:rgba(255,255,255,0.03); border:1px solid var(--border); border-radius:8px;">Save Draft</div>
+                <div style="flex:1; padding:6px; text-align:center; font-size:9px; font-weight:600; color:#fff; background:linear-gradient(135deg,var(--accent),var(--accent-lo)); border-radius:8px;">Schedule Post</div>
               </div>
             </div>
-            <div class="dash-card dash-card-wide">
-              <div class="dash-label">Active Operation</div>
-              <div style="display:flex;justify-content:space-between;align-items:center;">
-                <div>
-                  <div style="font-weight:600;font-size:15px;margin-bottom:4px;">Spring Growth Campaign</div>
-                  <div style="font-size:12px;color:var(--text3);">32 of 48 posts deployed · All platforms</div>
+            <!-- RIGHT: Preview Panel -->
+            <div style="flex:0.9; display:flex; flex-direction:column; gap:8px;">
+              <div style="display:flex; gap:2px; overflow:hidden;">
+                <span style="padding:4px 8px; font-size:8px; font-weight:600; border-radius:6px 6px 0 0; background:rgba(139,92,246,0.15); color:var(--accent-hi); border:1px solid rgba(139,92,246,0.2); border-bottom:none;">Facebook</span>
+                <span style="padding:4px 6px; font-size:8px; color:var(--text3);">IG</span>
+                <span style="padding:4px 6px; font-size:8px; color:var(--text3);">X</span>
+                <span style="padding:4px 6px; font-size:8px; color:var(--text3);">LI</span>
+                <span style="padding:4px 6px; font-size:8px; color:var(--text3);">TikTok</span>
+                <span style="padding:4px 6px; font-size:8px; color:var(--text3);">YT</span>
+              </div>
+              <div style="flex:1; background:rgba(255,255,255,0.03); border:1px solid var(--border); border-radius:0 10px 10px 10px; padding:10px; overflow:hidden;">
+                <div style="font-size:8px; color:var(--text3); font-family:var(--fm); letter-spacing:0.1em; margin-bottom:8px;">LIVE PREVIEW</div>
+                <div style="background:rgba(255,255,255,0.04); border-radius:8px; padding:8px; border:1px solid rgba(255,255,255,0.04);">
+                  <div style="display:flex; align-items:center; gap:6px; margin-bottom:6px;">
+                    <div style="width:22px;height:22px;border-radius:50%;background:linear-gradient(135deg,#6366F1,#8B5CF6);display:flex;align-items:center;justify-content:center;color:#fff;font-size:7px;font-weight:700;flex-shrink:0;">HB</div>
+                    <div><div style="font-size:9px; font-weight:700; color:#e8e8ee;">Heist Brand</div><div style="font-size:7px; color:var(--text3);">Just now</div></div>
+                  </div>
+                  <div style="font-size:9px; color:#d1d0d8; line-height:1.5; margin-bottom:6px;">Excited to announce our newest feature — the Heist Brain now learns from your real engagement data</div>
+                  <div style="width:100%;height:60px;border-radius:4px;background:linear-gradient(135deg,#667eea 0%,#764ba2 100%);margin-bottom:6px;"></div>
+                  <div style="display:flex;justify-content:space-between;align-items:center;padding:4px 0;border-top:1px solid rgba(255,255,255,0.04);font-size:7px;color:var(--text3);">
+                    <div style="display:flex;align-items:center;gap:4px;"><span>42 likes</span></div>
+                    <span>12 comments</span>
+                  </div>
+                  <div style="display:flex;gap:4px;padding-top:4px;border-top:1px solid rgba(255,255,255,0.04);">
+                    <div style="flex:1;text-align:center;font-size:8px;color:var(--text3);padding:3px;border-radius:4px;">Like</div>
+                    <div style="flex:1;text-align:center;font-size:8px;color:var(--text3);padding:3px;border-radius:4px;">Comment</div>
+                    <div style="flex:1;text-align:center;font-size:8px;color:var(--text3);padding:3px;border-radius:4px;">Share</div>
+                  </div>
                 </div>
-                <div style="font-family:var(--fd);font-size:28px;color:var(--accent-hi);">67%</div>
-              </div>
-              <div style="margin-top:14px;height:6px;border-radius:3px;background:rgba(255,255,255,0.04);overflow:hidden;">
-                <div style="height:100%;width:67%;border-radius:3px;background:linear-gradient(90deg,var(--accent-lo),var(--accent),var(--pink));"></div>
               </div>
             </div>
           </div>
         </div>
         <div class="float-card float-card-score">
-          <div class="float-card-label">Weekly Score</div>
-          <div class="float-card-val">+42%</div>
+          <div class="float-card-label">Brand Score</div>
+          <div class="float-card-val" style="color:var(--emerald);">92%</div>
         </div>
         <div class="float-card float-card-brain">
           <div class="float-brain-icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="1.75"><path d="M12 2a7 7 0 0 1 7 7c0 2.38-1.19 4.47-3 5.74V17a2 2 0 0 1-2 2h-4a2 2 0 0 1-2-2v-2.26C6.19 13.47 5 11.38 5 9a7 7 0 0 1 7-7z"/><path d="M9 22h6"/></svg></div>
           <div class="float-card-label">Brain Active</div>
+          <div style="font-size:9px;color:var(--text3);margin-top:2px;">10 layers</div>
         </div>
       </div>
     </div>
@@ -840,14 +867,14 @@ footer { padding: 80px 48px 40px; border-top: 1px solid var(--border); }
       <div class="testimonial"><div class="testimonial-stars">★★★★★</div><div class="testimonial-text">"The previews alone sold me. I finally know what my posts look like before they go live."</div><div class="testimonial-author"><span class="testimonial-avatar">SK</span><span>Sam K., Marketing Consultant</span></div></div>
       <div class="testimonial"><div class="testimonial-stars">★★★★★</div><div class="testimonial-text">"My followers think I have a content team. I have a Brain."</div><div class="testimonial-author"><span class="testimonial-avatar">DW</span><span>Dana W., Content Manager</span></div></div>
       <div class="testimonial"><div class="testimonial-stars">★★★★★</div><div class="testimonial-text">"I got 8 hours a week back. My mornings are mine again. My weekends are mine again. Never going back."</div><div class="testimonial-author"><span class="testimonial-avatar">RT</span><span>Riley T., Solopreneur</span></div></div>
-      <div class="testimonial"><div class="testimonial-stars">★★★★★</div><div class="testimonial-text">"Everyone asks how I post so consistently across 4 platforms. I tell them it's classified."</div><div class="testimonial-author"><span class="testimonial-avatar">CL</span><span>Casey L., Social Media Manager</span></div></div>
+      <div class="testimonial"><div class="testimonial-stars">★★★★★</div><div class="testimonial-text">"Everyone asks how I post so consistently across 6 platforms. I tell them it's classified."</div><div class="testimonial-author"><span class="testimonial-avatar">CL</span><span>Casey L., Social Media Manager</span></div></div>
       <!-- Duplicate for seamless loop -->
       <div class="testimonial"><div class="testimonial-stars">★★★★★</div><div class="testimonial-text">"I used to spend every Sunday night in content panic mode. Heist gave me my weekends back. That alone is worth 10x the price."</div><div class="testimonial-author"><span class="testimonial-avatar">JM</span><span>Jordan M., Content Creator</span></div></div>
       <div class="testimonial"><div class="testimonial-stars">★★★★★</div><div class="testimonial-text">"Heist replaced Jasper, Buffer, and my Google Docs chaos. One tool, one Brain, done."</div><div class="testimonial-author"><span class="testimonial-avatar">AR</span><span>Alex R., Founder at TechCo</span></div></div>
       <div class="testimonial"><div class="testimonial-stars">★★★★★</div><div class="testimonial-text">"The previews alone sold me. I finally know what my posts look like before they go live."</div><div class="testimonial-author"><span class="testimonial-avatar">SK</span><span>Sam K., Marketing Consultant</span></div></div>
       <div class="testimonial"><div class="testimonial-stars">★★★★★</div><div class="testimonial-text">"My followers think I have a content team. I have a Brain."</div><div class="testimonial-author"><span class="testimonial-avatar">DW</span><span>Dana W., Content Manager</span></div></div>
       <div class="testimonial"><div class="testimonial-stars">★★★★★</div><div class="testimonial-text">"I got 8 hours a week back. My mornings are mine again. My weekends are mine again. Never going back."</div><div class="testimonial-author"><span class="testimonial-avatar">RT</span><span>Riley T., Solopreneur</span></div></div>
-      <div class="testimonial"><div class="testimonial-stars">★★★★★</div><div class="testimonial-text">"Everyone asks how I post so consistently across 4 platforms. I tell them it's classified."</div><div class="testimonial-author"><span class="testimonial-avatar">CL</span><span>Casey L., Social Media Manager</span></div></div>
+      <div class="testimonial"><div class="testimonial-stars">★★★★★</div><div class="testimonial-text">"Everyone asks how I post so consistently across 6 platforms. I tell them it's classified."</div><div class="testimonial-author"><span class="testimonial-avatar">CL</span><span>Casey L., Social Media Manager</span></div></div>
     </div>
   </div>
 </section>
@@ -968,9 +995,9 @@ footer { padding: 80px 48px 40px; border-top: 1px solid var(--border); }
       </div>
       <div class="persona-card r">
         <div class="persona-icon"><svg width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg></div>
-        <h3>Growing Agencies</h3>
-        <p>Manage client brands from one dashboard. Each with its own Brain. 5x more output, zero extra headcount.</p>
-        <div class="persona-stat">5x client output</div>
+        <h3>Agencies</h3>
+        <p>Manage 25 client brands from one dashboard. Each with its own Brain. Team seats, content approvals, and role-based access built in.</p>
+        <div class="persona-stat">25 brands, 10 team seats</div>
       </div>
     </div>
   </div>
@@ -988,7 +1015,7 @@ footer { padding: 80px 48px 40px; border-top: 1px solid var(--border); }
     </div>
     <div class="steps">
       <div class="step r"><div class="step-num">01</div><div class="step-icon"><svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="var(--accent-hi)" stroke-width="1.75"><path d="M12 2a7 7 0 0 1 7 7c0 2.38-1.19 4.47-3 5.74V17a2 2 0 0 1-2 2h-4a2 2 0 0 1-2-2v-2.26C6.19 13.47 5 11.38 5 9a7 7 0 0 1 7-7z"/><path d="M9 22h6"/></svg></div><h3>Set Up Your Brain</h3><p>Define your voice, audience, and offer. The Brain remembers everything and gets smarter over time.</p></div>
-      <div class="step r"><div class="step-num">02</div><div class="step-icon"><svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="var(--accent-hi)" stroke-width="1.75"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10"/></svg></div><h3>Pull the Heist</h3><p>Enter one idea. Heist generates a full month of content across LinkedIn, X, Instagram, and Facebook.</p></div>
+      <div class="step r"><div class="step-num">02</div><div class="step-icon"><svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="var(--accent-hi)" stroke-width="1.75"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10"/></svg></div><h3>Pull the Heist</h3><p>Enter one idea. Heist generates a full month of content across LinkedIn, X, Instagram, Facebook, TikTok, and YouTube — text and video.</p></div>
       <div class="step r"><div class="step-num">03</div><div class="step-icon"><svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="var(--accent-hi)" stroke-width="1.75"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/><circle cx="12" cy="12" r="3"/></svg></div><h3>Preview Everything</h3><p>See exactly how each post looks on every platform. Pixel-accurate. No surprises when it goes live.</p></div>
       <div class="step r"><div class="step-num">04</div><div class="step-icon"><svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="var(--accent-hi)" stroke-width="1.75"><path d="M22 2L11 13"/><path d="M22 2L15 22l-4-9-9-4z"/></svg></div><h3>Schedule &amp; Go</h3><p>Drag posts to your calendar, hit schedule, walk away clean. Your content runs on autopilot.</p></div>
     </div>
@@ -1020,7 +1047,7 @@ footer { padding: 80px 48px 40px; border-top: 1px solid var(--border); }
         <div class="versus-time"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10"/></svg> ~10 minutes / month</div>
         <div class="versus-item"><span class="versus-icon">✓</span><span>Your Brain remembers your voice permanently</span></div>
         <div class="versus-item"><span class="versus-icon">✓</span><span>One idea becomes a full month of content</span></div>
-        <div class="versus-item"><span class="versus-icon">✓</span><span>Platform-perfect previews, every network</span></div>
+        <div class="versus-item"><span class="versus-icon">✓</span><span>Platform-perfect previews, all 6 networks + video</span></div>
         <div class="versus-item"><span class="versus-icon">✓</span><span>Organized into campaigns automatically</span></div>
         <div class="versus-item"><span class="versus-icon">✓</span><span>Schedule everything. Walk away clean.</span></div>
       </div>
@@ -1036,40 +1063,22 @@ footer { padding: 80px 48px 40px; border-top: 1px solid var(--border); }
 
 <div class="divider"></div>
 
-<!-- ═══════════ HOW IT WORKS ═══════════ -->
-<section class="how" id="how">
-  <div class="container">
-    <div class="how-header r">
-      <div class="section-label">How It Works</div>
-      <h2>One idea in. <em>One month out.</em></h2>
-      <p>Four steps. Ten minutes. The rest of your week is yours again.</p>
-    </div>
-    <div class="steps">
-      <div class="step r"><div class="step-num">01</div><div class="step-icon">🧠</div><h3>Set Up Your Brain</h3><p>Define your voice, audience, and offer. The Brain remembers everything and gets smarter over time.</p></div>
-      <div class="step r"><div class="step-num">02</div><div class="step-icon">⚡</div><h3>Pull the Heist</h3><p>Enter one idea. Heist generates a full month of content across LinkedIn, X, Instagram, and Facebook.</p></div>
-      <div class="step r"><div class="step-num">03</div><div class="step-icon">👁</div><h3>Preview Everything</h3><p>See exactly how each post looks on every platform. Pixel-accurate. No surprises when it goes live.</p></div>
-      <div class="step r"><div class="step-num">04</div><div class="step-icon">🚀</div><h3>Schedule &amp; Go</h3><p>Drag posts to your calendar, hit schedule, walk away clean. Your content runs on autopilot.</p></div>
-    </div>
-  </div>
-</section>
-
-<div class="divider"></div>
-
 <!-- ═══════════ FEATURES (BENTO) ═══════════ -->
 <section class="features" id="features">
   <div class="container">
     <div class="features-header r">
       <div class="section-label">The Arsenal</div>
       <h2>Everything your <em>operation</em> needs.</h2>
-      <p>Six tools that replace your entire content stack. One Brain that ties it all together.</p>
+      <p>Seven tools that replace your entire content stack. One Brain that ties it all together.</p>
     </div>
     <div class="bento">
-      <div class="bento-card r"><div class="bento-icon"><svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75"><path d="M12 2a7 7 0 0 1 7 7c0 2.38-1.19 4.47-3 5.74V17a2 2 0 0 1-2 2h-4a2 2 0 0 1-2-2v-2.26C6.19 13.47 5 11.38 5 9a7 7 0 0 1 7-7z"/><path d="M9 22h6"/></svg></div><h3>The Brain</h3><p>Persistent brand memory with 10 layers of intelligence. Learns your voice, remembers what works, detects drift, and feeds real engagement data into every generation.</p></div>
-      <div class="bento-card r"><div class="bento-icon"><svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/><circle cx="12" cy="12" r="3"/></svg></div><h3>The Lookout</h3><p>Pixel-accurate previews on LinkedIn, X, Instagram, and Facebook. See what your audience sees before you post.</p></div>
+      <div class="bento-card r"><div class="bento-icon"><svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75"><path d="M12 2a7 7 0 0 1 7 7c0 2.38-1.19 4.47-3 5.74V17a2 2 0 0 1-2 2h-4a2 2 0 0 1-2-2v-2.26C6.19 13.47 5 11.38 5 9a7 7 0 0 1 7-7z"/><path d="M9 22h6"/></svg></div><h3>The Brain</h3><p>Persistent brand memory with 10 layers of intelligence. Learns your voice, audience, and offer. Gets smarter from real engagement data. Never forgets.</p></div>
+      <div class="bento-card r"><div class="bento-icon"><svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/><circle cx="12" cy="12" r="3"/></svg></div><h3>The Lookout</h3><p>Pixel-accurate previews on LinkedIn, X, Instagram, Facebook, TikTok, and YouTube. See what your audience sees before you post.</p></div>
       <div class="bento-card r"><div class="bento-icon"><svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75"><path d="M22 19a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h5l2 3h9a2 2 0 0 1 2 2z"/></svg></div><h3>The Operation</h3><p>Structured campaigns with scoped Brain memory, performance tracking, and batch generation. Run multiple operations simultaneously.</p></div>
       <div class="bento-card r"><div class="bento-icon"><svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75"><rect x="2" y="3" width="20" height="14" rx="2"/><path d="M8 21h8"/><path d="M12 17v4"/></svg></div><h3>The Vault</h3><p>Your complete content library with inline editing, version history, soft-delete with 30-day recovery, and performance rating buttons that teach the Brain.</p></div>
       <div class="bento-card r"><div class="bento-icon"><svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75"><rect x="3" y="4" width="18" height="18" rx="2"/><path d="M16 2v4"/><path d="M8 2v4"/><path d="M3 10h18"/></svg></div><h3>The Blueprint</h3><p>Drag-and-drop calendar with autosave, empty state wizards, and auto-fill scheduling based on your optimal posting times.</p></div>
       <div class="bento-card r"><div class="bento-icon"><svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75"><path d="M18 20V10"/><path d="M12 20V4"/><path d="M6 20v-6"/></svg></div><h3>The Score</h3><p>Real engagement analytics from your connected platforms. Impressions, likes, comments, shares — tracked automatically and fed into the Brain's learning loop.</p></div>
+      <div class="bento-card r"><div class="bento-icon" style="background:rgba(238,29,82,0.08);border-color:rgba(238,29,82,0.12);"><svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75"><rect x="2" y="2" width="20" height="20" rx="2.18"/><path d="M7 2v20"/><path d="M17 2v20"/><path d="M2 12h20"/><path d="M2 7h5"/><path d="M2 17h5"/><path d="M17 17h5"/><path d="M17 7h5"/></svg></div><h3>The Reel</h3><p>Upload video directly to TikTok and YouTube. Chunked uploads with pause and resume. AI-generated captions, descriptions, and hashtags.</p></div>
     </div>
   </div>
 </section>
@@ -1137,14 +1146,14 @@ footer { padding: 80px 48px 40px; border-top: 1px solid var(--border); }
       <div class="testimonial"><div class="testimonial-stars">★★★★★</div><div class="testimonial-text">"The previews alone sold me. I finally know what my posts look like before they go live."</div><div class="testimonial-author">— Marketing Consultant</div></div>
       <div class="testimonial"><div class="testimonial-stars">★★★★★</div><div class="testimonial-text">"My followers think I have a content team. I have a Brain."</div><div class="testimonial-author">— Solo Consultant</div></div>
       <div class="testimonial"><div class="testimonial-stars">★★★★★</div><div class="testimonial-text">"I got 8 hours a week back. My mornings are mine again. My weekends are mine again. Never going back."</div><div class="testimonial-author">— Content Creator</div></div>
-      <div class="testimonial"><div class="testimonial-stars">★★★★★</div><div class="testimonial-text">"Everyone asks how I post so consistently across 4 platforms. I tell them it's classified."</div><div class="testimonial-author">— Executive Coach</div></div>
+      <div class="testimonial"><div class="testimonial-stars">★★★★★</div><div class="testimonial-text">"Everyone asks how I post so consistently across 6 platforms. I tell them it's classified."</div><div class="testimonial-author">— Executive Coach</div></div>
       <!-- Duplicate for seamless loop -->
       <div class="testimonial"><div class="testimonial-stars">★★★★★</div><div class="testimonial-text">"I used to spend every Sunday night in content panic mode. Heist gave me my weekends back. That alone is worth 10x the price."</div><div class="testimonial-author">— Early Access Creator</div></div>
       <div class="testimonial"><div class="testimonial-stars">★★★★★</div><div class="testimonial-text">"Heist replaced Jasper, Buffer, and my Google Docs chaos. One tool, one Brain, done."</div><div class="testimonial-author">— Founder, SaaS Startup</div></div>
       <div class="testimonial"><div class="testimonial-stars">★★★★★</div><div class="testimonial-text">"The previews alone sold me. I finally know what my posts look like before they go live."</div><div class="testimonial-author">— Marketing Consultant</div></div>
       <div class="testimonial"><div class="testimonial-stars">★★★★★</div><div class="testimonial-text">"My followers think I have a content team. I have a Brain."</div><div class="testimonial-author">— Solo Consultant</div></div>
       <div class="testimonial"><div class="testimonial-stars">★★★★★</div><div class="testimonial-text">"I got 8 hours a week back. My mornings are mine again. My weekends are mine again. Never going back."</div><div class="testimonial-author">— Content Creator</div></div>
-      <div class="testimonial"><div class="testimonial-stars">★★★★★</div><div class="testimonial-text">"Everyone asks how I post so consistently across 4 platforms. I tell them it's classified."</div><div class="testimonial-author">— Executive Coach</div></div>
+      <div class="testimonial"><div class="testimonial-stars">★★★★★</div><div class="testimonial-text">"Everyone asks how I post so consistently across 6 platforms. I tell them it's classified."</div><div class="testimonial-author">— Executive Coach</div></div>
     </div>
   </div>
 </section>
@@ -1163,31 +1172,30 @@ footer { padding: 80px 48px 40px; border-top: 1px solid var(--border); }
         <thead>
           <tr>
             <th>Feature</th>
-            <th class="comp-heist">Heist Pro — $49/mo</th>
-            <th>Jasper — $59/mo</th>
-            <th>Buffer — $5-10/ch</th>
+            <th class="comp-heist">Heist — $49/mo</th>
+            <th>Jasper — $49/mo</th>
+            <th>Buffer — $30/mo</th>
             <th>Hootsuite — $99/mo</th>
           </tr>
         </thead>
         <tbody>
-          <tr><td>AI content generation</td><td class="comp-heist comp-yes">✓</td><td class="comp-yes">✓</td><td class="comp-partial">Basic</td><td class="comp-no">✕</td></tr>
-          <tr><td>Persistent brand memory</td><td class="comp-heist comp-yes">10 layers</td><td class="comp-partial">1 layer</td><td class="comp-no">✕</td><td class="comp-no">✕</td></tr>
-          <tr><td>Auto-learning from engagement</td><td class="comp-heist comp-yes">✓</td><td class="comp-no">✕</td><td class="comp-no">✕</td><td class="comp-no">✕</td></tr>
-          <tr><td>Voice drift detection</td><td class="comp-heist comp-yes">✓</td><td class="comp-no">✕</td><td class="comp-no">✕</td><td class="comp-no">✕</td></tr>
-          <tr><td>Content versioning + undo</td><td class="comp-heist comp-yes">✓</td><td class="comp-no">✕</td><td class="comp-no">✕</td><td class="comp-no">✕</td></tr>
-          <tr><td>Real engagement analytics</td><td class="comp-heist comp-yes">✓</td><td class="comp-no">✕</td><td class="comp-yes">✓</td><td class="comp-yes">✓</td></tr>
-          <tr><td>Multi-platform scheduling</td><td class="comp-heist comp-yes">✓</td><td class="comp-no">✕</td><td class="comp-yes">✓</td><td class="comp-yes">✓</td></tr>
-          <tr><td>Blog editor (tables, format painter)</td><td class="comp-heist comp-yes">✓</td><td class="comp-partial">Basic</td><td class="comp-no">✕</td><td class="comp-no">✕</td></tr>
-          <tr><td>Full-fidelity platform previews</td><td class="comp-heist comp-yes">✓</td><td class="comp-no">✕</td><td class="comp-partial">Partial</td><td class="comp-partial">Partial</td></tr>
+          <tr><td>AI content generation</td><td class="comp-heist comp-yes">✓</td><td class="comp-yes">✓</td><td class="comp-no">✕</td><td class="comp-no">✕</td></tr>
+          <tr><td>Persistent brand memory</td><td class="comp-heist comp-yes">✓</td><td class="comp-no">✕</td><td class="comp-no">✕</td><td class="comp-no">✕</td></tr>
+          <tr><td>Full-fidelity previews</td><td class="comp-heist comp-yes">✓</td><td class="comp-no">✕</td><td class="comp-partial">Partial</td><td class="comp-partial">Partial</td></tr>
+          <tr><td>Multi-platform scheduling</td><td class="comp-heist comp-yes">✓ (6 platforms)</td><td class="comp-no">✕</td><td class="comp-yes">✓</td><td class="comp-yes">✓</td></tr>
+          <tr><td>TikTok + YouTube video</td><td class="comp-heist comp-yes">✓</td><td class="comp-no">✕</td><td class="comp-partial">Partial</td><td class="comp-yes">✓</td></tr>
+          <tr><td>Campaign organization</td><td class="comp-heist comp-yes">✓</td><td class="comp-no">✕</td><td class="comp-no">✕</td><td class="comp-partial">Partial</td></tr>
+          <tr><td>Content calendar</td><td class="comp-heist comp-yes">✓</td><td class="comp-no">✕</td><td class="comp-yes">✓</td><td class="comp-yes">✓</td></tr>
           <tr><td>One-idea &rarr; full month</td><td class="comp-heist comp-yes">✓</td><td class="comp-no">✕</td><td class="comp-no">✕</td><td class="comp-no">✕</td></tr>
-          <tr><td>Bring your own AI key (BYOK)</td><td class="comp-heist comp-yes">✓</td><td class="comp-no">✕</td><td class="comp-no">N/A</td><td class="comp-no">N/A</td></tr>
-          <tr><td>Setup time</td><td class="comp-heist comp-yes" style="font-weight:700;">2 min (URL scan)</td><td style="color:var(--text3);">Hours</td><td style="color:var(--text3);">30 min</td><td style="color:var(--text3);">1+ hour</td></tr>
-          <tr><td style="font-size:16px;font-weight:700;">Equivalent monthly cost</td><td class="comp-heist" style="color:var(--emerald);font-weight:700;font-size:18px;">$49</td><td colspan="3" style="color:var(--text3);font-size:14px;">$59 + $30+ = $89+ (and still no Brain, no learning loop, no versioning)</td></tr>
+          <tr><td>Team workspace + roles</td><td class="comp-heist comp-yes">✓ (Agency)</td><td class="comp-no">✕</td><td class="comp-yes">✓</td><td class="comp-yes">✓</td></tr>
+          <tr><td>Multi-brand management</td><td class="comp-heist comp-yes">✓ (up to 25)</td><td class="comp-no">✕</td><td class="comp-partial">3 channels</td><td class="comp-yes">✓</td></tr>
+          <tr><td>Setup time</td><td class="comp-heist comp-yes" style="font-weight:700;">10 min</td><td style="color:var(--text3);">Hours</td><td style="color:var(--text3);">30 min</td><td style="color:var(--text3);">1+ hour</td></tr>
+          <tr><td style="font-size:16px;font-weight:700;">Total monthly cost</td><td class="comp-heist" style="color:var(--emerald);font-weight:700;font-size:18px;">$49</td><td colspan="3" style="color:var(--text3);font-size:16px;">$49 + $30 = $79+ (and still no Brain)</td></tr>
         </tbody>
       </table>
     </div>
     <div style="text-align:center;margin-top:24px">
-      <p style="font-size:18px;font-weight:700;margin-bottom:12px">Get all of this for <span style="color:#8B5CF6">$49/mo</span></p>
+      <p style="font-size:18px;font-weight:700;margin-bottom:12px">Start with Pro at <span style="color:#8B5CF6">$49/mo</span> — or go Agency at <span style="color:#34D399">$199/mo</span> for teams</p>
       <a href="https://app.heistbrain.com/#signup" style="display:inline-flex;align-items:center;gap:8px;padding:12px 28px;background:linear-gradient(135deg,#8B5CF6,#6D28D9);color:#fff;border-radius:10px;font-weight:600;text-decoration:none">Start Your Free Trial</a>
     </div>
   </div>
@@ -1223,7 +1231,7 @@ footer { padding: 80px 48px 40px; border-top: 1px solid var(--border); }
         <ul class="p-features">
           <li><span class="p-check">✓</span> 1 Brand Brain</li>
           <li><span class="p-check">✓</span> 100 posts / month</li>
-          <li><span class="p-check">✓</span> All platforms</li>
+          <li><span class="p-check">✓</span> 6 platforms (text)</li>
           <li><span class="p-check">✓</span> Full-fidelity previews</li>
           <li><span class="p-check">✓</span> 5 active campaigns</li>
         </ul>
@@ -1242,7 +1250,7 @@ footer { padding: 80px 48px 40px; border-top: 1px solid var(--border); }
         <ul class="p-features">
           <li><span class="p-check">✓</span> 1 Brand Brain</li>
           <li><span class="p-check">✓</span> 500 posts / month</li>
-          <li><span class="p-check">✓</span> All platforms</li>
+          <li><span class="p-check">✓</span> 6 platforms + video upload</li>
           <li><span class="p-check">✓</span> 20 campaigns</li>
           <li><span class="p-check">✓</span> Priority AI models</li>
         </ul>
@@ -1260,7 +1268,7 @@ footer { padding: 80px 48px 40px; border-top: 1px solid var(--border); }
         <ul class="p-features">
           <li><span class="p-check">✓</span> 1 Brand Brain</li>
           <li><span class="p-check">✓</span> Unlimited posts</li>
-          <li><span class="p-check">✓</span> All platforms + blog</li>
+          <li><span class="p-check">✓</span> All 6 platforms + blog + video</li>
           <li><span class="p-check">✓</span> Premium AI models</li>
           <li><span class="p-check">✓</span> Full analytics + export</li>
         </ul>
@@ -1270,22 +1278,22 @@ footer { padding: 80px 48px 40px; border-top: 1px solid var(--border); }
       </div>
       <!-- Agency -->
       <div class="p-card r">
-        <div class="p-badge" style="background:linear-gradient(135deg,#22D3EE,#0891B2);">Agency</div>
+        <div class="p-badge" style="background:linear-gradient(135deg,var(--emerald),#059669);">For Teams</div>
         <div class="p-name">Agency</div>
         <div class="p-price-was">$199/mo</div>
         <div class="p-price p-price-monthly">$199<span>/mo</span></div>
         <div class="p-price p-price-annual">$159<span>/mo</span></div>
-        <div class="p-desc">For teams managing multiple brands.</div>
+        <div class="p-desc">For agencies managing multiple brands.</div>
         <ul class="p-features">
           <li><span class="p-check">✓</span> 25 Brand Brains</li>
           <li><span class="p-check">✓</span> Unlimited posts</li>
-          <li><span class="p-check">✓</span> All platforms + blog</li>
-          <li><span class="p-check">✓</span> Premium AI models</li>
-          <li><span class="p-check">✓</span> Full analytics + export</li>
-          <li><span class="p-check">✓</span> Priority support</li>
+          <li><span class="p-check">✓</span> All 6 platforms + blog + video</li>
+          <li><span class="p-check">✓</span> 10 team seats included</li>
+          <li><span class="p-check">✓</span> Content approvals + roles</li>
+          <li><span class="p-check">✓</span> 200 GB video storage</li>
         </ul>
         <a href="https://app.heistbrain.com/#signup" class="p-cta p-cta-ghost">Start Free Trial</a>
-        <div class="per-post-cost">$8/brand</div>
+        <div class="per-post-cost">Best for teams</div>
         <span class="p-cta-micro">No credit card required</span>
       </div>
     </div>
@@ -1317,13 +1325,15 @@ footer { padding: 80px 48px 40px; border-top: 1px solid var(--border); }
       <div class="faq-item r"><div class="faq-q">How is Heist different from ChatGPT? <span class="faq-toggle">+</span></div><div class="faq-a">ChatGPT generates text. Heist generates a system — with brand memory that persists, platform-specific previews, campaign organization, and scheduling. It's the difference between a tool and a workflow.</div></div>
       <div class="faq-item r"><div class="faq-q">How does the Brand Brain work? <span class="faq-toggle">+</span></div><div class="faq-a">You define your voice, audience, and offer during onboarding. The Brain stores this permanently and applies it to every piece of content. The longer you use Heist, the more it sounds like you.</div></div>
       <div class="faq-item r"><div class="faq-q">Does AI content sound robotic? <span class="faq-toggle">+</span></div><div class="faq-a">Not when it has a Brain. Most AI tools are stateless — they forget you after every session. Your Brain learns from you and applies your voice, tone, and style to every single post.</div></div>
-      <div class="faq-item r"><div class="faq-q">What platforms does Heist support? <span class="faq-toggle">+</span></div><div class="faq-a">LinkedIn, X (Twitter), Instagram, and Facebook. The Founder plan also includes blog content generation. More platforms are on the roadmap.</div></div>
+      <div class="faq-item r"><div class="faq-q">What platforms does Heist support? <span class="faq-toggle">+</span></div><div class="faq-a">LinkedIn, X (Twitter), Instagram, Facebook, TikTok, and YouTube — six platforms from one dashboard. TikTok and YouTube support native video uploads. The Founder and Agency plans also include blog content generation.</div></div>
       <div class="faq-item r"><div class="faq-q">Can I try it before I pay? <span class="faq-toggle">+</span></div><div class="faq-a">Yes. Every plan includes a 7-day free trial with full Pro features. No credit card required. Set up your Brain and see for yourself.</div></div>
       <div class="faq-item r"><div class="faq-q">What if I need more posts? <span class="faq-toggle">+</span></div><div class="faq-a">You can purchase generation credit packs starting at $9 for 50 extra posts, or upgrade your plan at any time. No long-term commitments.</div></div>
       <div class="faq-item r"><div class="faq-q">What happens after my trial ends? <span class="faq-toggle">+</span></div><div class="faq-a">You'll be moved to the Starter plan. No surprise charges.</div></div>
       <div class="faq-item r"><div class="faq-q">Can I cancel anytime? <span class="faq-toggle">+</span></div><div class="faq-a">Yes, cancel from Settings. No fees, no questions asked.</div></div>
       <div class="faq-item r"><div class="faq-q">Do I own the content Heist creates? <span class="faq-toggle">+</span></div><div class="faq-a">Absolutely. Everything generated is 100% yours.</div></div>
       <div class="faq-item r"><div class="faq-q">Is there an API? <span class="faq-toggle">+</span></div><div class="faq-a">Not yet, but it's on our roadmap. Let us know at support@heistbrain.com.</div></div>
+      <div class="faq-item r"><div class="faq-q">Can I manage multiple brands or clients? <span class="faq-toggle">+</span></div><div class="faq-a">Yes. The Agency plan ($199/mo) supports up to 25 Brand Brains, each with its own voice, memory, and analytics — completely isolated. You also get 10 team seats with role-based access (Owner, Admin, Editor, Viewer) and content approval workflows.</div></div>
+      <div class="faq-item r"><div class="faq-q">Does Heist support video content? <span class="faq-toggle">+</span></div><div class="faq-a">Yes. Upload videos directly to TikTok and YouTube from Heist. The Brain generates optimized captions, descriptions, tags, and hashtags for each platform. Chunked uploads with pause and resume — even large files.</div></div>
       <div class="faq-item r"><div class="faq-q">How does the auto-learning work? <span class="faq-toggle">+</span></div><div class="faq-a">Every 6 hours, Heist pulls engagement data from your connected platforms (Meta, X, LinkedIn). Posts that outperform your average by 2x are automatically identified, and the patterns that made them work are added to your Brain as insight facts. Your next generation is informed by what actually performed — not guesswork.</div></div>
       <div class="faq-item r"><div class="faq-q">Is my content safe? Can I undo mistakes? <span class="faq-toggle">+</span></div><div class="faq-a">Yes on both. Deleted content goes to Trash and is recoverable for 30 days. Every edit saves the previous version — you can revert to any point in history. Drafts autosave every 30 seconds. Your database is backed up every 6 hours with integrity verification. And all data is encrypted with AES-256-GCM.</div></div>
     </div>
