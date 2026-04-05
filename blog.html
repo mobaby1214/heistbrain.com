@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>The Heist Blog — Content Strategy & AI Insights</title>
+<meta name="description" content="Content strategy, AI-powered creation tips, and product updates from Heist Brain. Learn how the Brain remembers your brand so you can create better content in less time.">
+
+<meta property="og:type" content="website">
+<meta property="og:title" content="The Heist Blog — Content Strategy & AI Insights">
+<meta property="og:description" content="Content strategy, AI-powered creation tips, and product updates from Heist Brain.">
+<meta property="og:url" content="https://heistbrain.com/blog">
+<meta property="og:site_name" content="Heist">
+<meta property="og:image" content="https://heistbrain.com/og-image.png">
+
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="The Heist Blog — Content Strategy & AI Insights">
+<meta name="twitter:description" content="Content strategy, AI-powered creation tips, and product updates from Heist Brain.">
+
+<link rel="canonical" href="https://heistbrain.com/blog">
+<link rel="icon" href="/favicon.svg" type="image/svg+xml">
+<link rel="apple-touch-icon" href="/apple-touch-icon.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=DM+Sans:ital,opsz,wght@0,9..40,300..800;1,9..40,300..800&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-XXXXXXXXXX"></script>
+<script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','G-XXXXXXXXXX');</script>
+
+<style>
+*,*::before,*::after{margin:0;padding:0;box-sizing:border-box}
+:root{--bg:#06050C;--bg2:#0C0A18;--surface:rgba(16,13,30,0.55);--accent:#8B5CF6;--accent-hi:#A78BFA;--accent-lo:#6D28D9;--text:#F1F0F5;--text2:#908CA1;--text3:#57536B;--border:rgba(255,255,255,0.06);--border2:rgba(255,255,255,0.12);--fd:'Instrument Serif',Georgia,serif;--fb:'DM Sans',system-ui,sans-serif;--fm:'JetBrains Mono',monospace}
+html{scroll-behavior:smooth;overflow-x:clip}
+body{font-family:var(--fb);background:var(--bg);color:var(--text);line-height:1.65;-webkit-font-smoothing:antialiased;overflow-x:clip}
+
+nav{position:fixed;top:0;left:0;right:0;z-index:100;padding:0 48px;height:72px;display:flex;align-items:center;justify-content:space-between;background:rgba(6,5,12,0.85);backdrop-filter:blur(30px) saturate(1.5);border-bottom:1px solid var(--border)}
+.nav-logo{font-family:var(--fd);font-size:30px;color:var(--text);text-decoration:none;letter-spacing:0.02em}
+.nav-logo span{color:var(--accent)}
+.nav-links{display:flex;gap:36px;align-items:center}
+.nav-links a{color:var(--text2);text-decoration:none;font-size:14px;font-weight:500;letter-spacing:0.02em;transition:color 0.3s}
+.nav-links a:hover{color:var(--text)}
+.nav-cta{background:linear-gradient(135deg,#8B5CF6,#6D28D9)!important;color:#fff!important;border:none!important;padding:10px 24px;border-radius:10px;font-weight:600;font-size:13px;letter-spacing:0.03em}
+.nav-login{color:var(--text2);text-decoration:none;font-size:14px;font-weight:500;transition:color 0.3s}
+.nav-hamburger{display:none;flex-direction:column;gap:5px;background:none;border:none;cursor:pointer;padding:8px}
+.nav-hamburger span{display:block;width:22px;height:2px;background:var(--text);border-radius:1px}
+@media(max-width:768px){
+  nav{padding:0 24px}
+  .nav-hamburger{display:flex}
+  .nav-links{position:fixed;top:0;right:-100%;width:280px;height:100vh;flex-direction:column;background:var(--bg2);padding:100px 32px 32px;border-left:1px solid var(--border2);transition:right 0.4s;gap:24px;z-index:105}
+  .nav-links.open{right:0}
+  .nav-links a{display:block!important;font-size:18px}
+}
+
+.container{max-width:1200px;margin:0 auto;padding:0 48px}
+@media(max-width:768px){.container{padding:0 24px}}
+.page-hero{padding:140px 0 60px;text-align:center}
+.page-hero h1{font-family:var(--fd);font-size:clamp(32px,5vw,52px);line-height:1.15;margin-bottom:16px;font-weight:400}
+.page-hero p{font-size:17px;color:var(--text2);max-width:600px;margin:0 auto;line-height:1.8}
+.divider{height:1px;max-width:500px;margin:0 auto;background:linear-gradient(90deg,transparent,rgba(139,92,246,0.2),transparent)}
+
+/* Blog grid */
+.blog-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:28px;max-width:1000px;margin:0 auto;padding:60px 0 80px}
+@media(max-width:900px){.blog-grid{grid-template-columns:1fr}}
+.blog-card{background:rgba(255,255,255,0.03);border:1px solid rgba(255,255,255,0.08);border-radius:16px;padding:28px;transition:transform 0.2s,border-color 0.2s;display:flex;flex-direction:column}
+.blog-card:hover{transform:translateY(-2px);border-color:rgba(255,255,255,0.15)}
+.blog-card-category{display:inline-block;padding:4px 12px;border-radius:20px;font-size:12px;font-weight:600;text-transform:uppercase;letter-spacing:0.05em;margin-bottom:14px;width:fit-content}
+.cat-strategy{background:rgba(74,222,128,0.15);color:#4ade80}
+.cat-product{background:rgba(139,92,246,0.15);color:#8b5cf6}
+.blog-card h3{font-size:19px;font-weight:700;color:white;margin-bottom:10px;line-height:1.35}
+.blog-card h3 a{color:white;text-decoration:none}
+.blog-card h3 a:hover{color:#a78bfa}
+.blog-card-excerpt{font-size:14.5px;line-height:1.65;color:rgba(255,255,255,0.6);margin-bottom:16px;flex-grow:1}
+.blog-card-date{font-size:13px;color:rgba(255,255,255,0.35)}
+.blog-card-readmore{display:inline-block;color:#a78bfa;font-size:14px;font-weight:600;text-decoration:none;margin-top:8px}
+.blog-card-readmore:hover{color:#c4b5fd}
+
+/* Newsletter */
+.newsletter-section{padding:60px 0 80px;text-align:center}
+.newsletter-section h2{font-family:var(--fd);font-size:clamp(24px,3.5vw,36px);margin-bottom:8px;font-weight:400}
+.newsletter-section p{font-size:15px;color:var(--text2);margin-bottom:24px}
+.blog-newsletter{max-width:480px;margin:0 auto;display:flex;gap:10px}
+.blog-newsletter input[type="email"]{flex:1;padding:12px 16px;border-radius:10px;border:1px solid rgba(255,255,255,0.15);background:rgba(255,255,255,0.05);color:white;font-size:15px;font-family:var(--fb);outline:none}
+.blog-newsletter input[type="email"]::placeholder{color:rgba(255,255,255,0.35)}
+.blog-newsletter button{padding:12px 24px;border-radius:10px;border:none;background:linear-gradient(135deg,#7c3aed,#5b21b6);color:white;font-weight:700;font-size:15px;cursor:pointer;white-space:nowrap;font-family:var(--fb)}
+.newsletter-fine{font-size:12px;color:var(--text3);margin-top:10px}
+@media(max-width:500px){.blog-newsletter{flex-direction:column}}
+
+/* CTA */
+.page-cta{padding:80px 0;text-align:center}
+.page-cta h2{font-family:var(--fd);font-size:clamp(28px,4vw,44px);margin-bottom:16px;font-weight:400}
+.btn-primary{display:inline-flex;align-items:center;gap:10px;padding:16px 32px;background:linear-gradient(135deg,var(--accent),var(--accent-lo));color:white;border:none;border-radius:14px;font-family:var(--fb);font-size:16px;font-weight:600;cursor:pointer;text-decoration:none;box-shadow:0 0 30px rgba(139,92,246,0.25);transition:all 0.3s}
+.btn-primary:hover{transform:translateY(-2px);box-shadow:0 0 50px rgba(139,92,246,0.4)}
+
+footer{padding:80px 48px 40px;border-top:1px solid var(--border)}
+.footer-inner{max-width:1200px;margin:0 auto;display:grid;grid-template-columns:2fr 1fr 1fr 1fr;gap:48px}
+.footer-brand .nav-logo{margin-bottom:12px;display:inline-block}
+.footer-tagline{font-size:14px;color:var(--text3)}
+.footer-col h4{font-family:var(--fm);font-size:11px;letter-spacing:0.15em;text-transform:uppercase;color:var(--text3);margin-bottom:16px}
+.footer-col a{display:block;padding:4px 0;font-size:14px;color:var(--text2);text-decoration:none;transition:color 0.2s}
+.footer-col a:hover{color:var(--text)}
+.footer-bottom{max-width:1200px;margin:48px auto 0;padding-top:24px;border-top:1px solid var(--border);display:flex;justify-content:space-between;align-items:center;font-size:13px;color:var(--text3)}
+@media(max-width:1024px){.footer-inner{grid-template-columns:1fr 1fr 1fr;gap:32px}}
+@media(max-width:768px){footer{padding:60px 24px 40px}.footer-inner{grid-template-columns:1fr 1fr}.footer-bottom{flex-direction:column;gap:12px;text-align:center}}
+</style>
+</head>
+<body>
+
+<nav id="nav">
+  <a href="/" class="nav-logo">Heist<span>.</span></a>
+  <div class="nav-links" id="nav-links">
+    <a href="/#how">How It Works</a>
+    <a href="/#features">Features</a>
+    <a href="/#pricing">Pricing</a>
+    <a href="/#faq">FAQ</a>
+    <a href="https://app.heistbrain.com/#login" class="nav-login">Login</a>
+    <a href="https://app.heistbrain.com/#signup" class="nav-cta">Get Your Time Back &rarr;</a>
+  </div>
+  <button class="nav-hamburger" id="nav-hamburger" aria-label="Menu">
+    <span></span><span></span><span></span>
+  </button>
+</nav>
+
+<div class="page-hero">
+  <div class="container">
+    <h1>The Heist Blog</h1>
+    <p>Content strategy, AI insights, and the playbook for creators who'd rather work smarter than harder.</p>
+  </div>
+</div>
+
+<div class="divider"></div>
+
+<div class="container">
+  <div class="blog-grid">
+    <div class="blog-card">
+      <span class="blog-card-category cat-strategy">Content Strategy</span>
+      <h3><a href="blog/ai-tools-forget-you.html">Why Every AI Content Tool Forgets You</a></h3>
+      <p class="blog-card-excerpt">You open ChatGPT. You explain your brand. Again. You describe your audience. Again. You clarify your tone. Again. Here's why that's broken — and what a content tool should actually remember.</p>
+      <span class="blog-card-date">April 3, 2026</span>
+      <a href="blog/ai-tools-forget-you.html" class="blog-card-readmore">Read more &rarr;</a>
+    </div>
+    <div class="blog-card">
+      <span class="blog-card-category cat-product">Product Deep Dive</span>
+      <h3><a href="blog/the-brain-10-layers.html">The Brain: 10 Layers of Memory That Change Everything</a></h3>
+      <p class="blog-card-excerpt">Most AI tools have one layer of context — your last prompt. The Brain has ten. Here's what each layer does and why it means your content actually sounds like you.</p>
+      <span class="blog-card-date">April 1, 2026</span>
+      <a href="blog/the-brain-10-layers.html" class="blog-card-readmore">Read more &rarr;</a>
+    </div>
+    <div class="blog-card">
+      <span class="blog-card-category cat-strategy">Content Strategy</span>
+      <h3><a href="blog/one-tool-vs-four.html">One Tool vs. Four: The Real Cost of Your Content Stack</a></h3>
+      <p class="blog-card-excerpt">Jasper for writing. Buffer for scheduling. Google Analytics for data. WordPress for blogging. Four logins. Four bills. Four tools that don't talk to each other. Let's do the math.</p>
+      <span class="blog-card-date">March 28, 2026</span>
+      <a href="blog/one-tool-vs-four.html" class="blog-card-readmore">Read more &rarr;</a>
+    </div>
+  </div>
+</div>
+
+<div class="divider"></div>
+
+<div class="newsletter-section">
+  <div class="container">
+    <h2>Don't miss the next play.</h2>
+    <p>New posts every week. Content strategy, product updates, and the occasional heist story.</p>
+    <form class="blog-newsletter" action="https://formspree.io/f/xwvragzl" method="POST">
+      <input type="hidden" name="_subject" value="Blog Newsletter Signup">
+      <input type="email" name="email" placeholder="you@example.com" required>
+      <button type="submit">Subscribe</button>
+    </form>
+    <p class="newsletter-fine">No spam. Unsubscribe anytime.</p>
+  </div>
+</div>
+
+<div class="divider"></div>
+
+<div class="page-cta">
+  <div class="container">
+    <h2>Stop reading about content. Start creating it.</h2>
+    <a href="https://app.heistbrain.com" class="btn-primary">Start Free Trial</a>
+  </div>
+</div>
+
+<footer>
+  <div class="footer-inner">
+    <div class="footer-brand">
+      <a href="/" class="nav-logo">Heist<span>.</span></a>
+      <div class="footer-tagline">The brains behind the operation.</div>
+    </div>
+    <div class="footer-col"><h4>Product</h4><a href="/#features">Features</a><a href="/#pricing">Pricing</a><a href="/changelog">Changelog</a></div>
+    <div class="footer-col"><h4>Company</h4><a href="/about">About</a><a href="/blog">Blog</a><a href="mailto:support@heistbrain.com">Contact</a></div>
+    <div class="footer-col"><h4>Legal</h4><a href="/privacy">Privacy</a><a href="/terms">Terms</a></div>
+  </div>
+  <div class="footer-bottom">
+    <span>&copy; 2026 HeistBrain. All rights reserved.</span>
+    <span>Steal back your time.</span>
+  </div>
+</footer>
+
+<script>
+document.getElementById('nav-hamburger')?.addEventListener('click',()=>{document.getElementById('nav-links')?.classList.toggle('open')});
+document.querySelectorAll('#nav-links a').forEach(a=>{a.addEventListener('click',()=>{document.getElementById('nav-hamburger')?.classList.remove('active');document.getElementById('nav-links')?.classList.remove('open')})});
+</script>
+</body>
+</html>
