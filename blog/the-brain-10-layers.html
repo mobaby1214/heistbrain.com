@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>The Brain: 10 Layers of AI Memory — Heist Brain Blog</title>
+<meta name="description" content="Most AI tools have one layer of context. The Brain has ten — from brand voice profiles to performance learning. Here's what each layer does.">
+
+<meta property="og:type" content="article">
+<meta property="og:title" content="The Brain: 10 Layers of Memory That Change Everything">
+<meta property="og:description" content="Most AI tools have one layer of context. The Brain has ten. Here's what each layer does.">
+<meta property="og:url" content="https://heistbrain.com/blog/the-brain-10-layers">
+<meta property="og:site_name" content="Heist">
+<meta property="og:image" content="https://heistbrain.com/og-image.png">
+
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="The Brain: 10 Layers of Memory That Change Everything">
+<meta name="twitter:description" content="Most AI tools have one layer of context. The Brain has ten. Here's what each layer does.">
+
+<link rel="canonical" href="https://heistbrain.com/blog/the-brain-10-layers">
+<link rel="icon" href="/favicon.svg" type="image/svg+xml">
+<link rel="apple-touch-icon" href="/apple-touch-icon.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=DM+Sans:ital,opsz,wght@0,9..40,300..800;1,9..40,300..800&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-XXXXXXXXXX"></script>
+<script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','G-XXXXXXXXXX');</script>
+
+<style>
+*,*::before,*::after{margin:0;padding:0;box-sizing:border-box}
+:root{--bg:#06050C;--bg2:#0C0A18;--surface:rgba(16,13,30,0.55);--accent:#8B5CF6;--accent-hi:#A78BFA;--accent-lo:#6D28D9;--text:#F1F0F5;--text2:#908CA1;--text3:#57536B;--border:rgba(255,255,255,0.06);--border2:rgba(255,255,255,0.12);--fd:'Instrument Serif',Georgia,serif;--fb:'DM Sans',system-ui,sans-serif;--fm:'JetBrains Mono',monospace}
+html{scroll-behavior:smooth;overflow-x:clip}
+body{font-family:var(--fb);background:var(--bg);color:var(--text);line-height:1.65;-webkit-font-smoothing:antialiased;overflow-x:clip}
+nav{position:fixed;top:0;left:0;right:0;z-index:100;padding:0 48px;height:72px;display:flex;align-items:center;justify-content:space-between;background:rgba(6,5,12,0.85);backdrop-filter:blur(30px) saturate(1.5);border-bottom:1px solid var(--border)}
+.nav-logo{font-family:var(--fd);font-size:30px;color:var(--text);text-decoration:none;letter-spacing:0.02em}.nav-logo span{color:var(--accent)}
+.nav-links{display:flex;gap:36px;align-items:center}.nav-links a{color:var(--text2);text-decoration:none;font-size:14px;font-weight:500;letter-spacing:0.02em;transition:color 0.3s}.nav-links a:hover{color:var(--text)}
+.nav-cta{background:linear-gradient(135deg,#8B5CF6,#6D28D9)!important;color:#fff!important;border:none!important;padding:10px 24px;border-radius:10px;font-weight:600;font-size:13px;letter-spacing:0.03em}
+.nav-login{color:var(--text2);text-decoration:none;font-size:14px;font-weight:500;transition:color 0.3s}
+.nav-hamburger{display:none;flex-direction:column;gap:5px;background:none;border:none;cursor:pointer;padding:8px}.nav-hamburger span{display:block;width:22px;height:2px;background:var(--text);border-radius:1px}
+@media(max-width:768px){nav{padding:0 24px}.nav-hamburger{display:flex}.nav-links{position:fixed;top:0;right:-100%;width:280px;height:100vh;flex-direction:column;background:var(--bg2);padding:100px 32px 32px;border-left:1px solid var(--border2);transition:right 0.4s;gap:24px;z-index:105}.nav-links.open{right:0}.nav-links a{display:block!important;font-size:18px}}
+.blog-post{max-width:720px;margin:0 auto;padding:120px 20px 80px}
+.blog-post-category{display:inline-block;padding:4px 12px;border-radius:20px;font-size:12px;font-weight:600;text-transform:uppercase;letter-spacing:0.05em;margin-bottom:16px}
+.cat-strategy{background:rgba(74,222,128,0.15);color:#4ade80}.cat-product{background:rgba(139,92,246,0.15);color:#8b5cf6}
+.blog-post h1{font-size:36px;font-weight:800;line-height:1.2;color:white;margin-bottom:16px}
+@media(max-width:600px){.blog-post h1{font-size:28px}}
+.blog-post-meta{font-size:14px;color:rgba(255,255,255,0.4);margin-bottom:40px;padding-bottom:24px;border-bottom:1px solid rgba(255,255,255,0.08)}
+.blog-post-body{font-size:17px;line-height:1.8;color:rgba(255,255,255,0.75)}
+.blog-post-body h2{font-size:24px;font-weight:700;color:white;margin:40px 0 16px}
+.blog-post-body p{margin-bottom:20px}
+.blog-post-body strong{color:white;font-weight:600}
+.blog-post-body em{color:rgba(255,255,255,0.85)}
+.blog-post-cta{margin-top:48px;padding:32px;text-align:center;background:rgba(124,58,237,0.1);border:1px solid rgba(124,58,237,0.25);border-radius:16px}
+.blog-post-cta h3{font-size:22px;font-weight:700;color:white;margin-bottom:12px}
+.blog-post-cta p{color:rgba(255,255,255,0.6);margin-bottom:20px;font-size:15px}
+.blog-back{display:inline-block;color:#a78bfa;font-size:14px;font-weight:600;text-decoration:none;margin-bottom:24px}.blog-back:hover{color:#c4b5fd}
+.btn-primary{display:inline-flex;align-items:center;gap:10px;padding:16px 32px;background:linear-gradient(135deg,var(--accent),var(--accent-lo));color:white;border:none;border-radius:14px;font-family:var(--fb);font-size:16px;font-weight:600;cursor:pointer;text-decoration:none;box-shadow:0 0 30px rgba(139,92,246,0.25);transition:all 0.3s}.btn-primary:hover{transform:translateY(-2px);box-shadow:0 0 50px rgba(139,92,246,0.4)}
+footer{padding:80px 48px 40px;border-top:1px solid var(--border)}
+.footer-inner{max-width:1200px;margin:0 auto;display:grid;grid-template-columns:2fr 1fr 1fr 1fr;gap:48px}
+.footer-brand .nav-logo{margin-bottom:12px;display:inline-block}.footer-tagline{font-size:14px;color:var(--text3)}
+.footer-col h4{font-family:var(--fm);font-size:11px;letter-spacing:0.15em;text-transform:uppercase;color:var(--text3);margin-bottom:16px}
+.footer-col a{display:block;padding:4px 0;font-size:14px;color:var(--text2);text-decoration:none;transition:color 0.2s}.footer-col a:hover{color:var(--text)}
+.footer-bottom{max-width:1200px;margin:48px auto 0;padding-top:24px;border-top:1px solid var(--border);display:flex;justify-content:space-between;align-items:center;font-size:13px;color:var(--text3)}
+@media(max-width:1024px){.footer-inner{grid-template-columns:1fr 1fr 1fr;gap:32px}}
+@media(max-width:768px){footer{padding:60px 24px 40px}.footer-inner{grid-template-columns:1fr 1fr}.footer-bottom{flex-direction:column;gap:12px;text-align:center}}
+</style>
+</head>
+<body>
+
+<nav id="nav">
+  <a href="/" class="nav-logo">Heist<span>.</span></a>
+  <div class="nav-links" id="nav-links">
+    <a href="/#how">How It Works</a>
+    <a href="/#features">Features</a>
+    <a href="/#pricing">Pricing</a>
+    <a href="/#faq">FAQ</a>
+    <a href="https://app.heistbrain.com/#login" class="nav-login">Login</a>
+    <a href="https://app.heistbrain.com/#signup" class="nav-cta">Get Your Time Back &rarr;</a>
+  </div>
+  <button class="nav-hamburger" id="nav-hamburger" aria-label="Menu"><span></span><span></span><span></span></button>
+</nav>
+
+<article class="blog-post">
+  <a href="/blog" class="blog-back">&larr; Back to Blog</a>
+  <span class="blog-post-category cat-product">Product Deep Dive</span>
+  <h1>The Brain: 10 Layers of Memory That Change Everything</h1>
+  <div class="blog-post-meta">Morgan Miles &middot; April 1, 2026</div>
+
+  <div class="blog-post-body">
+    <p>Most AI content tools have one layer of context: whatever you type in the prompt box right now. That's it. That's the entire relationship. You show up, explain yourself, get some text, and leave. The AI doesn't know you. It never did.</p>
+
+    <p>Heist's Brain has ten layers. Not ten features — ten layers of understanding that build on each other over time. Each one adds depth to how the system understands your brand, your audience, and what actually works. Here's what they do and why the difference between one layer and ten isn't incremental. It's structural.</p>
+
+    <h2>The Foundation: Who You Are</h2>
+
+    <p>The first three layers are what you set up on day one. Your brand identity — name, industry, the audience you're talking to. Your voice and tone profile — not a dropdown menu with "professional" and "casual" but a detailed map of how you actually communicate. The phrases you lean on, the humor you use (or don't), the line between confident and arrogant that's different for every brand.</p>
+
+    <p>Then there's your knowledge base. Upload PDFs, paste URLs, point the Brain at your website. It reads everything and holds onto it. When it generates content, it's not pulling from generic training data alone — it's referencing <em>your</em> materials, <em>your</em> terminology, <em>your</em> way of explaining what you do.</p>
+
+    <p>Most tools stop here. And even then, they forget it between sessions. You fill out a brand voice questionnaire, the tool uses it for one generation, and next time you're starting from a blank page. The Brain doesn't forget. These first three layers are permanent — they persist across every session, every piece of content, every platform.</p>
+
+    <h2>The Intelligence: What Works</h2>
+
+    <p>Layers four through six are where things get interesting. This is where the Brain stops being a profile and starts being a learning system.</p>
+
+    <p>Layer four is content performance data. The Brain tracks which of your posts got engagement and which ones didn't. Not in the abstract — specifically. It knows that your Tuesday afternoon LinkedIn posts about client transformations consistently outperform your Monday morning industry commentary. It knows that questions in your opening line drive more comments than statements. It knows this because it's been watching.</p>
+
+    <p>Layer five is platform-specific optimization. What works on LinkedIn doesn't work on Instagram. The Brain knows this not because someone programmed a rule — it knows because it's seen your content perform differently across platforms and adjusted accordingly. The tone shifts. The length adapts. The hashtag strategy changes. Same brand, different contexts.</p>
+
+    <p>Layer six is audience response patterns. Over time, the Brain builds a picture of what your specific audience responds to. Not audiences in general — <em>your</em> audience. The topics that spark conversation. The formats that get saved and shared. The pain points that resonate most deeply. This isn't guesswork. It's pattern recognition across your actual engagement data.</p>
+
+    <h2>The Guard Rails: Staying On Brand</h2>
+
+    <p>Layers seven and eight are the quality control most tools don't even attempt.</p>
+
+    <p>Layer seven is brand alignment scoring. Every piece of content the Brain generates gets scored against your established voice profile. How close is this draft to how you actually sound? Is it using your terminology? Does the tone match? This isn't a vague "sounds good" check — it's a measurable score that tells you whether this content would pass for something you wrote yourself.</p>
+
+    <p>Layer eight is voice drift detection. This is subtle but critical. Over time, AI-generated content can gradually shift away from your authentic voice. It happens slowly — a phrase here, a tone shift there — until one day your content sounds like it was written by a generic marketing bot. The Brain watches for this. Every tenth generation, it runs a drift check and alerts you if things are starting to slide. It's a guard rail you didn't know you needed until you realize how easy it is to drift without one.</p>
+
+    <h2>The Edge: Getting Better Over Time</h2>
+
+    <p>Layers nine and ten are what make the Brain genuinely different from anything else on the market.</p>
+
+    <p>Layer nine is cross-platform content intelligence. The Brain doesn't just know what you posted on LinkedIn — it knows what you posted everywhere. It understands your content holistically. That Instagram story you posted Tuesday informs the LinkedIn article it writes on Wednesday. It won't accidentally repeat a point you already made on another platform. It sees the full picture because it's managing the full picture.</p>
+
+    <p>Layer ten is temporal learning — the Brain understands content patterns over time. It knows your seasonal topics, your recurring themes, what you always post about on Mondays versus Fridays. It understands that Q4 means different messaging than Q1. It picks up on rhythms that even you might not have consciously noticed. This is what separates a tool that generates content from a system that understands your content strategy.</p>
+
+    <h2>Why Layers Matter More Than Features</h2>
+
+    <p>The point of all this isn't a long feature list. Feature lists are for comparison tables. The point is that these layers compound.</p>
+
+    <p>Layer one alone is a profile. Useful, but static. Layer one plus layer five means the Brain knows who you are <em>and</em> how to adapt your voice for each platform. Add layer seven and it can also tell you when a draft doesn't sound like you. Stack layer four on top and it knows not just your voice but what kind of content in your voice actually gets engagement. Put all ten together and you have something that doesn't exist anywhere else — an AI that knows your brand as well as you do, and in some measurable ways, better.</p>
+
+    <p>Most tools are a blank notepad. The Brain is a colleague who's been paying attention since day one and gets sharper every week.</p>
+
+    <p>Want to see what ten layers of memory actually feels like? The trial is free and the Brain starts learning immediately.</p>
+  </div>
+
+  <div class="blog-post-cta">
+    <h3>Ready to give your content a memory?</h3>
+    <p>Start your free trial. The Brain starts learning your brand from day one.</p>
+    <a href="https://app.heistbrain.com" class="btn-primary">Try Heist Free for 7 Days</a>
+  </div>
+
+  <div style="margin-top:40px;">
+    <a href="/blog" class="blog-back">&larr; Back to Blog</a>
+  </div>
+</article>
+
+<footer>
+  <div class="footer-inner">
+    <div class="footer-brand"><a href="/" class="nav-logo">Heist<span>.</span></a><div class="footer-tagline">The brains behind the operation.</div></div>
+    <div class="footer-col"><h4>Product</h4><a href="/#features">Features</a><a href="/#pricing">Pricing</a><a href="/changelog">Changelog</a></div>
+    <div class="footer-col"><h4>Company</h4><a href="/about">About</a><a href="/blog">Blog</a><a href="mailto:support@heistbrain.com">Contact</a></div>
+    <div class="footer-col"><h4>Legal</h4><a href="/privacy">Privacy</a><a href="/terms">Terms</a></div>
+  </div>
+  <div class="footer-bottom"><span>&copy; 2026 HeistBrain. All rights reserved.</span><span>Steal back your time.</span></div>
+</footer>
+
+<script>
+document.getElementById('nav-hamburger')?.addEventListener('click',()=>{document.getElementById('nav-links')?.classList.toggle('open')});
+document.querySelectorAll('#nav-links a').forEach(a=>{a.addEventListener('click',()=>{document.getElementById('nav-hamburger')?.classList.remove('active');document.getElementById('nav-links')?.classList.remove('open')})});
+</script>
+</body>
+</html>
