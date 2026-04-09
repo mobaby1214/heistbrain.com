@@ -1636,25 +1636,33 @@ navLinks.addEventListener('click', e => {
     return;
   }
 
+  // Only handle if mobile menu is open
+  if (!navLinks.classList.contains('open')) return;
+
   const href = link.getAttribute('href');
   if (!href) return;
 
-  // Anchor link — scroll to section
+  // Anchor link — close menu, then scroll
   if (href.startsWith('#') && href !== '#') {
     e.preventDefault();
+    // Store target before closing menu
     const target = document.querySelector(href);
-    closeMenu();
-    if (target) {
-      setTimeout(() => {
-        target.scrollIntoView({ behavior: 'smooth' });
-      }, 400);
-    }
+    // Close menu without animation first
+    hamburger.classList.remove('active');
+    navLinks.style.transition = 'none';
+    navLinks.classList.remove('open');
+    navOverlay.classList.remove('visible');
+    navOverlay.style.display = '';
+    // Scroll immediately
+    if (target) target.scrollIntoView({ behavior: 'smooth' });
+    // Restore transition for next open
+    requestAnimationFrame(() => { navLinks.style.transition = ''; });
     return;
   }
 
-  // External/page link — navigate after closing menu
-  closeMenu();
-  // Allow default navigation to proceed
+  // Page/external link — navigate immediately, don't close menu first
+  // (closing moves the element and cancels navigation on mobile)
+  // The page will unload anyway
 });
 </script>
 </body>
