@@ -651,6 +651,57 @@ footer { padding: 80px 48px 40px; border-top: 1px solid var(--border); }
   .hero-stats { gap: 20px; }
   .hero-stat-val { font-size: 30px; }
 }
+
+/* ═══════════ BRAIN LAYERS ═══════════ */
+.brain-layers { max-width: 900px; margin: 0 auto; }
+.brain-group-label {
+  font-family: var(--fm); font-size: 11px; letter-spacing: 0.15em;
+  text-transform: uppercase; color: var(--accent); margin: 40px 0 16px;
+  display: flex; align-items: center; gap: 12px;
+}
+.brain-group-label:first-child { margin-top: 0; }
+.brain-group-label::after {
+  content: ''; flex: 1; height: 1px; background: linear-gradient(90deg, rgba(139,92,246,0.2), transparent);
+}
+.brain-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+.brain-card {
+  padding: 24px; border-radius: 16px;
+  background: var(--surface); border: 1px solid var(--border);
+  transition: all 0.3s var(--ease); position: relative; overflow: hidden;
+}
+.brain-card:hover {
+  border-color: rgba(139,92,246,0.2); transform: translateY(-2px);
+  box-shadow: 0 0 30px rgba(139,92,246,0.04);
+}
+.brain-card-num {
+  font-family: var(--fm); font-size: 32px; font-weight: 800;
+  color: rgba(139,92,246,0.12); line-height: 1; margin-bottom: 8px;
+}
+.brain-card h4 { font-family: var(--fd); font-size: 18px; font-weight: 400; color: var(--text); margin-bottom: 6px; }
+.brain-card p { font-size: 13px; color: var(--text2); line-height: 1.55; }
+.brain-card--highlight { border-color: rgba(52,211,153,0.2); background: rgba(52,211,153,0.03); }
+.brain-card--highlight .brain-card-num { color: rgba(52,211,153,0.15); }
+@media (max-width: 768px) { .brain-grid { grid-template-columns: 1fr; } }
+
+/* ═══════════ LEARNING LOOP ═══════════ */
+.loop-step {
+  display: flex; flex-direction: column; align-items: center; gap: 8px;
+  padding: 20px 24px; background: var(--surface); border: 1px solid var(--border);
+  border-radius: 14px; min-width: 90px; transition: all 0.3s;
+}
+.loop-step:hover { border-color: rgba(139,92,246,0.3); transform: translateY(-4px); }
+.loop-step--highlight { border-color: rgba(139,92,246,0.4); background: rgba(139,92,246,0.06); }
+.loop-icon { font-size: 24px; }
+.loop-label { font-family: var(--fm); font-size: 11px; letter-spacing: 0.08em; text-transform: uppercase; color: var(--text2); }
+.loop-arrow { font-family: var(--fm); font-size: 18px; color: var(--accent); }
+@media (max-width: 768px) {
+  .loop-visual { gap: 8px !important; }
+  .loop-step { padding: 14px 16px; min-width: 70px; }
+  .loop-arrow { font-size: 14px; }
+}
+
+/* ═══════════ PRICING 4-COL ═══════════ */
+@media (max-width: 1024px) { .price-grid { grid-template-columns: repeat(2, 1fr) !important; } }
 </style>
 </head>
 <body>
@@ -886,16 +937,27 @@ footer { padding: 80px 48px 40px; border-top: 1px solid var(--border); }
       back into every generation. The longer you use it, the better it gets.
     </p>
     <div class="brain-layers r-scale">
-      <div class="brain-layer" data-layer="1"><div class="brain-layer-num">01</div><div class="brain-layer-content"><h4>Brand Profile</h4><p>7 identity fields — mission, audience, voice, offers, CTA, keywords, avoid words</p></div></div>
-      <div class="brain-layer" data-layer="2"><div class="brain-layer-num">02</div><div class="brain-layer-content"><h4>Audience Personas</h4><p>Demographics, pain points, goals, and language preferences for each target segment</p></div></div>
-      <div class="brain-layer" data-layer="3"><div class="brain-layer-num">03</div><div class="brain-layer-content"><h4>Memory Facts</h4><p>Up to 20 brand rules and insights — auto-created from performance signals and batch analysis</p></div></div>
-      <div class="brain-layer" data-layer="4"><div class="brain-layer-num">04</div><div class="brain-layer-content"><h4>Knowledge Base</h4><p>Upload PDFs, docs, scan your website — the Brain reads everything and references it in every generation</p></div></div>
-      <div class="brain-layer" data-layer="5"><div class="brain-layer-num">05</div><div class="brain-layer-content"><h4>Chat Insights</h4><p>Strategy conversations with the Brain carry forward — your last 5 brainstorming sessions inform every draft</p></div></div>
-      <div class="brain-layer" data-layer="6"><div class="brain-layer-num">06</div><div class="brain-layer-content"><h4>Anti-Repetition</h4><p>The Brain tracks your recently published posts and ensures every new draft is fresh and original</p></div></div>
-      <div class="brain-layer" data-layer="7"><div class="brain-layer-num">07</div><div class="brain-layer-content"><h4>Performance Patterns</h4><p>Rate content as high/low performer — the Brain replicates what works and avoids what doesn't</p></div></div>
-      <div class="brain-layer" data-layer="8"><div class="brain-layer-num">08</div><div class="brain-layer-content"><h4>Smart Onboarding</h4><p>Scan your website URL — AI auto-fills all 7 profile fields in 2 minutes, not 20</p></div></div>
-      <div class="brain-layer" data-layer="9"><div class="brain-layer-num">09</div><div class="brain-layer-content"><h4>Voice Drift Detection</h4><p>Every 10th generation, the Brain checks if your content is drifting off-brand — and alerts you before it's a problem</p></div></div>
-      <div class="brain-layer" data-layer="10"><div class="brain-layer-num">10</div><div class="brain-layer-content"><h4>Real Engagement Metrics</h4><p>Likes, comments, shares, impressions from your connected platforms — fed directly into the generation prompt</p></div></div>
+      <div class="brain-group-label">Foundation</div>
+      <div class="brain-grid">
+        <div class="brain-card"><div class="brain-card-num">01</div><h4>Brand Profile</h4><p>Mission, audience, voice, offers, CTA, keywords — 7 identity fields that define you</p></div>
+        <div class="brain-card"><div class="brain-card-num">02</div><h4>Audience Personas</h4><p>Demographics, pain points, and language preferences for each segment</p></div>
+        <div class="brain-card"><div class="brain-card-num">03</div><h4>Memory Facts</h4><p>Up to 20 brand rules — auto-created from performance signals</p></div>
+      </div>
+
+      <div class="brain-group-label">Intelligence</div>
+      <div class="brain-grid">
+        <div class="brain-card"><div class="brain-card-num">04</div><h4>Knowledge Base</h4><p>Upload PDFs, docs, or scan your website — referenced in every generation</p></div>
+        <div class="brain-card"><div class="brain-card-num">05</div><h4>Chat Insights</h4><p>Your last 5 brainstorming sessions carry forward into every draft</p></div>
+        <div class="brain-card"><div class="brain-card-num">06</div><h4>Anti-Repetition</h4><p>Tracks recent posts to ensure every new draft is fresh and original</p></div>
+        <div class="brain-card"><div class="brain-card-num">07</div><h4>Performance Patterns</h4><p>Rate content high/low — the Brain replicates what works</p></div>
+      </div>
+
+      <div class="brain-group-label">The Edge</div>
+      <div class="brain-grid">
+        <div class="brain-card"><div class="brain-card-num">08</div><h4>Smart Onboarding</h4><p>Scan your URL — AI fills all 7 profile fields in 2 minutes</p></div>
+        <div class="brain-card"><div class="brain-card-num">09</div><h4>Voice Drift Detection</h4><p>Checks every 10th generation for off-brand drift and alerts you</p></div>
+        <div class="brain-card brain-card--highlight"><div class="brain-card-num">10</div><h4>Real Engagement Metrics</h4><p>Likes, comments, shares fed directly into the generation prompt</p></div>
+      </div>
     </div>
     <div style="text-align:center;margin-top:48px" class="r">
       <p style="font-family:var(--fm);font-size:13px;color:var(--accent-hi);letter-spacing:0.05em;margin-bottom:16px;">
