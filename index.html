@@ -1528,18 +1528,11 @@ document.querySelectorAll('.faq-item').forEach(i => { i.addEventListener('click'
 // ─── SMOOTH NAV SCROLL ───
 document.querySelectorAll('a[href^="#"]').forEach(a => {
   a.addEventListener('click', e => {
+    const href = a.getAttribute('href');
+    if (!href || href === '#') return;
     e.preventDefault();
-    const t = document.querySelector(a.getAttribute('href'));
-    // Close mobile menu if open
-    const ml = document.getElementById('nav-links');
-    if (ml && ml.classList.contains('open')) {
-      document.getElementById('nav-hamburger')?.classList.remove('active');
-      ml.classList.remove('open');
-      const ov = document.getElementById('nav-overlay');
-      if (ov) { ov.classList.remove('visible'); setTimeout(() => { ov.style.display = ''; }, 300); }
-      document.querySelectorAll('.nav-dropdown').forEach(d => d.classList.remove('open'));
-    }
-    if (t) setTimeout(() => t.scrollIntoView({behavior:'smooth'}), 50);
+    const t = document.querySelector(href);
+    if (t) t.scrollIntoView({behavior:'smooth'});
   });
 });
 
@@ -1638,11 +1631,21 @@ hamburger.addEventListener('click', () => {
 // Close on overlay click
 navOverlay.addEventListener('click', closeMenu);
 
-// Close when navigating to a link (but NOT the dropdown trigger)
+// Close menu when any link is clicked (except the dropdown trigger)
 navLinks.querySelectorAll('a').forEach(a => {
-  if (!a.classList.contains('nav-dropdown-trigger')) {
-    a.addEventListener('click', closeMenu);
-  }
+  a.addEventListener('click', e => {
+    if (!a.classList.contains('nav-dropdown-trigger')) {
+      closeMenu();
+      // For anchor links, scroll after menu closes
+      const href = a.getAttribute('href');
+      if (href && href.startsWith('#') && href !== '#') {
+        e.preventDefault();
+        const target = document.querySelector(href);
+        if (target) setTimeout(() => target.scrollIntoView({behavior:'smooth'}), 350);
+      }
+      // For page links (/about, /blog, etc.) — let default navigation happen
+    }
+  });
 });
 
 // ─── MOBILE DROPDOWN CARET TOGGLE ───
@@ -1650,6 +1653,7 @@ document.querySelectorAll('.nav-dropdown-trigger').forEach(trigger => {
   trigger.addEventListener('click', e => {
     if (window.innerWidth <= 768) {
       e.preventDefault();
+      e.stopPropagation();
       trigger.parentElement.classList.toggle('open');
     }
   });
