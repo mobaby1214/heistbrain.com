@@ -31,7 +31,7 @@
 
 <!-- JSON-LD Structured Data -->
 <script type="application/ld+json">
-{"@context":"https://schema.org","@type":"SoftwareApplication","name":"Heist","description":"AI-powered content OS that generates a month of social media content across 6 platforms in 10 minutes. Supports text and video for LinkedIn, X, Instagram, Facebook, TikTok, and YouTube.","url":"https://heistbrain.com","applicationCategory":"BusinessApplication","operatingSystem":"Web","offers":[{"@type":"Offer","name":"Starter","price":"19.00","priceCurrency":"USD"},{"@type":"Offer","name":"Pro","price":"49.00","priceCurrency":"USD"},{"@type":"Offer","name":"Founder","price":"99.00","priceCurrency":"USD"},{"@type":"Offer","name":"Agency","price":"199.00","priceCurrency":"USD"}]}
+{"@context":"https://schema.org","@type":"SoftwareApplication","name":"Heist","description":"AI-powered content OS that generates a month of social media content in 10 minutes.","url":"https://heistbrain.com","applicationCategory":"BusinessApplication","operatingSystem":"Web","offers":[{"@type":"Offer","name":"Starter","price":"19.00","priceCurrency":"USD"},{"@type":"Offer","name":"Pro","price":"49.00","priceCurrency":"USD"},{"@type":"Offer","name":"Founder","price":"99.00","priceCurrency":"USD"}]}
 </script>
 <script type="application/ld+json">
 {"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"How is Heist different from ChatGPT?","acceptedAnswer":{"@type":"Answer","text":"ChatGPT generates text. Heist generates a system with brand memory, platform previews, campaign organization, and scheduling."}},{"@type":"Question","name":"How does the Brand Brain work?","acceptedAnswer":{"@type":"Answer","text":"Define your voice, audience, and offer during onboarding. The Brain stores this permanently and applies it to every piece of content."}},{"@type":"Question","name":"What platforms does Heist support?","acceptedAnswer":{"@type":"Answer","text":"LinkedIn, X (Twitter), Instagram, Facebook, TikTok, and YouTube. TikTok and YouTube support native video uploads. Founder and Agency plans include blog content."}},{"@type":"Question","name":"Can I try it before I pay?","acceptedAnswer":{"@type":"Answer","text":"Yes. 7-day free trial with full Pro features. No credit card required."}},{"@type":"Question","name":"Can I cancel anytime?","acceptedAnswer":{"@type":"Answer","text":"Yes, cancel from Settings. No fees, no questions asked."}},{"@type":"Question","name":"Do I own the content?","acceptedAnswer":{"@type":"Answer","text":"Absolutely. Everything Heist generates is 100% yours."}}]}
@@ -643,58 +643,14 @@ footer { padding: 80px 48px 40px; border-top: 1px solid var(--border); }
   .mobile-sticky { display: block; }
   .marquee-controls { gap: 8px; }
 }
-
-/* ═══════════ BRAIN LAYERS ═══════════ */
-.brain-layers { max-width: 700px; margin: 0 auto; }
-.brain-layer {
-  display: flex; align-items: flex-start; gap: 20px; padding: 20px 24px;
-  border-left: 2px solid var(--border); position: relative;
-  transition: all 0.4s var(--ease); margin-bottom: 2px;
+@media (max-width: 480px) {
+  .container { padding: 0 20px; }
+  .hero-content { max-width: 100%; padding-right: 4px; box-sizing: border-box; }
+  .hero h1 { font-size: clamp(32px, 9vw, 44px); }
+  .hero-sub { font-size: 15px; max-width: 100%; }
+  .hero-stats { gap: 20px; }
+  .hero-stat-val { font-size: 30px; }
 }
-.brain-layer:hover {
-  border-left-color: var(--accent);
-  background: rgba(139,92,246,0.03);
-  border-radius: 0 12px 12px 0;
-}
-.brain-layer:last-child { border-left-color: var(--accent); }
-.brain-layer-num {
-  font-family: var(--fm); font-size: 11px; font-weight: 700;
-  color: var(--accent); min-width: 28px; padding-top: 2px;
-  letter-spacing: 0.05em;
-}
-.brain-layer-content h4 {
-  font-family: var(--fd); font-size: 18px; font-weight: 400;
-  margin-bottom: 4px; color: var(--text);
-}
-.brain-layer-content p {
-  font-size: 13px; color: var(--text2); line-height: 1.6;
-}
-.brain-layer[data-layer="10"] {
-  border-left-color: var(--emerald);
-  background: rgba(52,211,153,0.03);
-  border-radius: 0 12px 12px 0;
-}
-.brain-layer[data-layer="10"] .brain-layer-num { color: var(--emerald); }
-
-/* ═══════════ LEARNING LOOP ═══════════ */
-.loop-step {
-  display: flex; flex-direction: column; align-items: center; gap: 8px;
-  padding: 20px 24px; background: var(--surface); border: 1px solid var(--border);
-  border-radius: 14px; min-width: 90px; transition: all 0.3s;
-}
-.loop-step:hover { border-color: rgba(139,92,246,0.3); transform: translateY(-4px); }
-.loop-step--highlight { border-color: rgba(139,92,246,0.4); background: rgba(139,92,246,0.06); }
-.loop-icon { font-size: 24px; }
-.loop-label { font-family: var(--fm); font-size: 11px; letter-spacing: 0.08em; text-transform: uppercase; color: var(--text2); }
-.loop-arrow { font-family: var(--fm); font-size: 18px; color: var(--accent); }
-@media (max-width: 768px) {
-  .loop-visual { gap: 8px !important; }
-  .loop-step { padding: 14px 16px; min-width: 70px; }
-  .loop-arrow { font-size: 14px; }
-}
-
-/* ═══════════ PRICING 4-COL ═══════════ */
-@media (max-width: 1024px) { .price-grid { grid-template-columns: repeat(2, 1fr) !important; } }
 </style>
 </head>
 <body>

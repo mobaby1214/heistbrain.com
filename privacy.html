@@ -11,9 +11,12 @@
 :root{--bg:#06050C;--text:#F1F0F5;--text2:#908CA1;--text3:#57536B;--accent:#8B5CF6;--border:rgba(255,255,255,0.06);--fd:'Instrument Serif',Georgia,serif;--fb:'DM Sans',system-ui,sans-serif;--fm:'JetBrains Mono',monospace}
 html{scroll-behavior:smooth}
 body{font-family:var(--fb);background:var(--bg);color:var(--text);line-height:1.75;-webkit-font-smoothing:antialiased}
-nav{padding:0 48px;height:72px;display:flex;align-items:center;border-bottom:1px solid var(--border)}
+nav{padding:0 48px;height:72px;display:flex;align-items:center;justify-content:space-between;border-bottom:1px solid var(--border)}
 .nav-logo{font-family:var(--fd);font-size:30px;color:var(--text);text-decoration:none}
 .nav-logo span{color:var(--accent)}
+.nav-links{display:flex;gap:24px;align-items:center}
+.nav-links a{color:var(--text2);text-decoration:none;font-size:14px;transition:color 0.2s}
+.nav-links a:hover{color:var(--text)}
 .content{max-width:720px;margin:0 auto;padding:80px 48px 120px}
 h1{font-family:var(--fd);font-size:42px;margin-bottom:12px;font-weight:400}
 .updated{font-family:var(--fm);font-size:12px;color:var(--text3);letter-spacing:0.1em;margin-bottom:48px}
@@ -24,7 +27,7 @@ footer{padding:40px 48px;border-top:1px solid var(--border);text-align:center;fo
 </style>
 </head>
 <body>
-<nav><a href="/" class="nav-logo">Heist<span>.</span></a></nav>
+<nav><a href="/" class="nav-logo">Heist<span>.</span></a><div class="nav-links"><a href="/about">About</a><a href="/blog">Blog</a><a href="/changelog">Changelog</a><a href="https://app.heistbrain.com/#login">Login</a></div></nav>
 <div class="content">
 <h1>Privacy Policy</h1>
 <div class="updated">Last updated: March 2026</div>
@@ -45,11 +48,11 @@ footer{padding:40px 48px;border-top:1px solid var(--border);text-align:center;fo
 <p>Your account data is retained as long as your account is active. If you delete your account, we remove your data within 30 days. You can export your content at any time.</p>
 
 <h2>Your rights</h2>
-<p>You can access, correct, export, or delete your data at any time from your account settings or by emailing <a href="mailto:pulledtheheist@gmail.com">pulledtheheist@gmail.com</a>.</p>
+<p>You can access, correct, export, or delete your data at any time from your account settings or by emailing <a href="mailto:support@heistbrain.com">support@heistbrain.com</a>.</p>
 
 <h2>Contact</h2>
-<p>Questions about privacy? Email us at <a href="mailto:pulledtheheist@gmail.com">pulledtheheist@gmail.com</a>.</p>
+<p>Questions about privacy? Email us at <a href="mailto:support@heistbrain.com">support@heistbrain.com</a>.</p>
 </div>
-<footer>© 2026 HeistBrain. All rights reserved.</footer>
+<footer><div style="display:flex;justify-content:center;gap:24px;margin-bottom:12px;font-size:13px"><a href="/" style="color:var(--text2);text-decoration:none">Home</a><a href="/about" style="color:var(--text2);text-decoration:none">About</a><a href="/blog" style="color:var(--text2);text-decoration:none">Blog</a><a href="/terms" style="color:var(--text2);text-decoration:none">Terms</a><a href="/privacy" style="color:var(--text2);text-decoration:none">Privacy</a></div>© 2026 HeistBrain. All rights reserved.</footer>
 </body>
 </html>

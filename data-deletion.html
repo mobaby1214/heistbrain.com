@@ -11,9 +11,12 @@
 :root{--bg:#06050C;--text:#F1F0F5;--text2:#908CA1;--text3:#57536B;--accent:#8B5CF6;--border:rgba(255,255,255,0.06);--fd:'Instrument Serif',Georgia,serif;--fb:'DM Sans',system-ui,sans-serif;--fm:'JetBrains Mono',monospace}
 html{scroll-behavior:smooth}
 body{font-family:var(--fb);background:var(--bg);color:var(--text);line-height:1.75;-webkit-font-smoothing:antialiased}
-nav{padding:0 48px;height:72px;display:flex;align-items:center;border-bottom:1px solid var(--border)}
+nav{padding:0 48px;height:72px;display:flex;align-items:center;justify-content:space-between;border-bottom:1px solid var(--border)}
 .nav-logo{font-family:var(--fd);font-size:30px;color:var(--text);text-decoration:none}
 .nav-logo span{color:var(--accent)}
+.nav-links{display:flex;gap:24px;align-items:center}
+.nav-links a{color:var(--text2);text-decoration:none;font-size:14px;transition:color 0.2s}
+.nav-links a:hover{color:var(--text)}
 .content{max-width:720px;margin:0 auto;padding:80px 48px 120px}
 h1{font-family:var(--fd);font-size:42px;margin-bottom:12px;font-weight:400}
 .updated{font-family:var(--fm);font-size:12px;color:var(--text3);letter-spacing:0.1em;margin-bottom:48px}
@@ -26,7 +29,7 @@ footer{padding:40px 48px;border-top:1px solid var(--border);text-align:center;fo
 </style>
 </head>
 <body>
-<nav><a href="/" class="nav-logo">Heist<span>.</span></a></nav>
+<nav><a href="/" class="nav-logo">Heist<span>.</span></a><div class="nav-links"><a href="/about">About</a><a href="/blog">Blog</a><a href="/changelog">Changelog</a><a href="https://app.heistbrain.com/#login">Login</a></div></nav>
 <div class="content">
 <h1>Data Deletion Policy</h1>
 <div class="updated">Last updated: March 2026</div>
@@ -38,7 +41,7 @@ footer{padding:40px 48px;border-top:1px solid var(--border);text-align:center;fo
 <p>You can delete your data using any of the following methods:</p>
 <ul>
 <li><strong>Self-service:</strong> Log in to your Heist account, go to Settings, and use the "Delete Account" option. This permanently removes all your data within 24 hours.</li>
-<li><strong>Email request:</strong> Send an email to <a href="mailto:pulledtheheist@gmail.com">pulledtheheist@gmail.com</a> with the subject line "Data Deletion Request" and include the email address associated with your account. We will process your request within 30 days.</li>
+<li><strong>Email request:</strong> Send an email to <a href="mailto:support@heistbrain.com">support@heistbrain.com</a> with the subject line "Data Deletion Request" and include the email address associated with your account. We will process your request within 30 days.</li>
 <li><strong>Facebook/Instagram:</strong> If you connected your Facebook or Instagram account to Heist, you can also request data deletion through Facebook's settings. We will receive and process the deletion callback automatically.</li>
 </ul>
 
@@ -71,7 +74,7 @@ footer{padding:40px 48px;border-top:1px solid var(--border);text-align:center;fo
 <p>If you connected your Facebook or Instagram account to Heist, Meta may send us a data deletion request on your behalf. When we receive this callback, we automatically delete all data associated with your Facebook/Instagram user ID from our systems and return a confirmation code and status URL to Meta.</p>
 
 <h2>Contact</h2>
-<p>Questions about data deletion? Email us at <a href="mailto:pulledtheheist@gmail.com">pulledtheheist@gmail.com</a>.</p>
+<p>Questions about data deletion? Email us at <a href="mailto:support@heistbrain.com">support@heistbrain.com</a>.</p>
 </div>
 <footer>&copy; 2026 Heist. All rights reserved. &middot; <a href="/privacy">Privacy</a> &middot; <a href="/terms">Terms</a></footer>
 </body>

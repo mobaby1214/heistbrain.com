@@ -163,7 +163,7 @@ Replace `G-XXXXXXXXXX` with your Measurement ID from Google Analytics.
 | Get Access (exit popup) | Email capture form | ✅ Working |
 | Privacy | `/privacy` → privacy.html | ✅ Working |
 | Terms | `/terms` → terms.html | ✅ Working |
-| Contact | `mailto:pulledtheheist@gmail.com` | ✅ Working |
+| Contact | `mailto:support@heistbrain.com` | ✅ Working |
 | Changelog | `/changelog` → redirects to `/` | ✅ Redirect |
 | About | `/about` → redirects to `/` | ✅ Redirect |
 | Blog | `/blog` → redirects to `/` | ✅ Redirect |
