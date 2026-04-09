@@ -1527,7 +1527,20 @@ document.querySelectorAll('.faq-item').forEach(i => { i.addEventListener('click'
 
 // ─── SMOOTH NAV SCROLL ───
 document.querySelectorAll('a[href^="#"]').forEach(a => {
-  a.addEventListener('click', e => { e.preventDefault(); const t = document.querySelector(a.getAttribute('href')); if (t) t.scrollIntoView({behavior:'smooth'}); });
+  a.addEventListener('click', e => {
+    e.preventDefault();
+    const t = document.querySelector(a.getAttribute('href'));
+    // Close mobile menu if open
+    const ml = document.getElementById('nav-links');
+    if (ml && ml.classList.contains('open')) {
+      document.getElementById('nav-hamburger')?.classList.remove('active');
+      ml.classList.remove('open');
+      const ov = document.getElementById('nav-overlay');
+      if (ov) { ov.classList.remove('visible'); setTimeout(() => { ov.style.display = ''; }, 300); }
+      document.querySelectorAll('.nav-dropdown').forEach(d => d.classList.remove('open'));
+    }
+    if (t) setTimeout(() => t.scrollIntoView({behavior:'smooth'}), 50);
+  });
 });
 
 // ─── PRO CARD BORDER ROTATION ───
