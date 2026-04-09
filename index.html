@@ -1622,36 +1622,39 @@ hamburger.addEventListener('click', () => {
 // Close on overlay click
 navOverlay.addEventListener('click', closeMenu);
 
-// Close menu when any link is clicked (except the dropdown trigger)
-navLinks.querySelectorAll('a').forEach(a => {
-  a.addEventListener('click', e => {
-    if (a.classList.contains('nav-dropdown-trigger')) return;
+// Close menu and navigate when any link is clicked
+navLinks.addEventListener('click', e => {
+  const link = e.target.closest('a');
+  if (!link) return;
 
-    const isMenuOpen = navLinks.classList.contains('open');
-    if (isMenuOpen) {
-      const href = a.getAttribute('href');
-      if (href && href.startsWith('#') && href !== '#') {
-        e.preventDefault();
-        closeMenu();
-        const target = document.querySelector(href);
-        if (target) setTimeout(() => target.scrollIntoView({behavior:'smooth'}), 350);
-      } else {
-        // Page links — close menu, let browser navigate
-        closeMenu();
-      }
-    }
-  });
-});
-
-// ─── MOBILE DROPDOWN CARET TOGGLE ───
-document.querySelectorAll('.nav-dropdown-trigger').forEach(trigger => {
-  trigger.addEventListener('click', e => {
+  // Dropdown trigger — toggle submenu, don't navigate
+  if (link.classList.contains('nav-dropdown-trigger')) {
     if (window.innerWidth <= 768) {
       e.preventDefault();
-      e.stopPropagation();
-      trigger.parentElement.classList.toggle('open');
+      link.parentElement.classList.toggle('open');
     }
-  });
+    return;
+  }
+
+  const href = link.getAttribute('href');
+  if (!href) return;
+
+  // Anchor link — scroll to section
+  if (href.startsWith('#') && href !== '#') {
+    e.preventDefault();
+    const target = document.querySelector(href);
+    closeMenu();
+    if (target) {
+      setTimeout(() => {
+        target.scrollIntoView({ behavior: 'smooth' });
+      }, 400);
+    }
+    return;
+  }
+
+  // External/page link — navigate after closing menu
+  closeMenu();
+  // Allow default navigation to proceed
 });
 </script>
 </body>
