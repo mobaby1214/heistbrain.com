@@ -192,11 +192,15 @@ nav.scrolled { background: rgba(6,5,12,0.85); border-color: var(--border2); }
   .nav-links.open { right: 0; }
   .nav-links a:not(.nav-cta) { display: block !important; font-size: 18px; }
   .nav-login { font-size: 18px; }
+  .nav-dropdown:hover .nav-dropdown-menu { opacity: 0; visibility: hidden; }
   .nav-dropdown-menu {
-    position: static; transform: none; opacity: 1; visibility: visible;
+    position: static; transform: none;
     background: none; border: none; box-shadow: none; backdrop-filter: none;
     padding: 0 0 0 16px; min-width: 0;
+    max-height: 0; overflow: hidden; opacity: 1; visibility: visible;
+    transition: max-height 0.3s ease;
   }
+  .nav-dropdown.open .nav-dropdown-menu { max-height: 200px; }
   .nav-dropdown-menu a { padding: 4px 0 !important; font-size: 16px !important; }
 }
 
@@ -1554,6 +1558,16 @@ navLinks.querySelectorAll('a').forEach(a => {
   a.addEventListener('click', () => {
     hamburger.classList.remove('active');
     navLinks.classList.remove('open');
+  });
+});
+
+// ─── MOBILE DROPDOWN TOGGLE ───
+document.querySelectorAll('.nav-dropdown > a').forEach(trigger => {
+  trigger.addEventListener('click', e => {
+    if (window.innerWidth <= 768) {
+      e.preventDefault();
+      trigger.parentElement.classList.toggle('open');
+    }
   });
 });
 </script>
