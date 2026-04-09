@@ -692,12 +692,12 @@ footer { padding: 80px 48px 40px; border-top: 1px solid var(--border); }
   .steps { grid-template-columns: 1fr; }
   .bento { grid-template-columns: 1fr; }
   .bento-card:nth-child(1) { grid-column: span 1; }
-  .price-grid { grid-template-columns: 1fr; max-width: 420px; margin: 0 auto; }
+  .price-grid { grid-template-columns: 1fr !important; max-width: 420px; margin: 0 auto; }
   .p-card-pro { transform: none; }
   .p-card-pro:hover { transform: translateY(-6px); }
   .faq-grid { grid-template-columns: 1fr; }
   .footer-inner { grid-template-columns: 1fr 1fr; }
-  .footer-bottom { flex-direction: column; gap: 12px; text-align: center; }
+  .footer-bottom { flex-direction: column; gap: 12px; text-align: center; padding-bottom: 80px; }
   .exit-popup { display: none; }
   .mobile-sticky { display: block; }
   .marquee-controls { gap: 8px; }
@@ -760,7 +760,7 @@ footer { padding: 80px 48px 40px; border-top: 1px solid var(--border); }
 }
 
 /* ═══════════ PRICING 4-COL ═══════════ */
-@media (max-width: 1024px) { .price-grid { grid-template-columns: repeat(2, 1fr) !important; } }
+@media (max-width: 1024px) and (min-width: 769px) { .price-grid { grid-template-columns: repeat(2, 1fr) !important; } }
 </style>
 </head>
 <body>
