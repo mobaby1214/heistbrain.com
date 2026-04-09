@@ -245,7 +245,7 @@ nav.scrolled { background: rgba(6,5,12,0.85); border-color: var(--border2); }
     max-height: 0; overflow: hidden; opacity: 1; visibility: visible;
     transition: max-height 0.3s var(--ease);
   }
-  .nav-dropdown.open .nav-dropdown-menu { max-height: 200px; }
+  .nav-dropdown.open .nav-dropdown-menu { max-height: 200px; opacity: 1 !important; visibility: visible !important; }
   .nav-dropdown-menu a {
     padding: 14px 28px 14px 44px !important; font-size: 15px !important;
     border-bottom: 1px solid var(--border) !important;
@@ -1530,7 +1530,10 @@ document.querySelectorAll('.bento-card,.step').forEach(c => {
 // ─── FAQ TOGGLE ───
 document.querySelectorAll('.faq-item').forEach(i => { i.addEventListener('click', () => i.classList.toggle('open')); });
 
-// Smooth scrolling handled by html { scroll-behavior: smooth } + mobile menu JS below
+// ─── SMOOTH NAV SCROLL ───
+document.querySelectorAll('a[href^="#"]').forEach(a => {
+  a.addEventListener('click', e => { e.preventDefault(); const t = document.querySelector(a.getAttribute('href')); if (t) t.scrollIntoView({behavior:'smooth'}); });
+});
 
 // ─── PRO CARD BORDER ROTATION ───
 (function() {
@@ -1627,47 +1630,26 @@ hamburger.addEventListener('click', () => {
 // Close on overlay click
 navOverlay.addEventListener('click', closeMenu);
 
-// Close menu and navigate when any link is clicked
-navLinks.addEventListener('click', e => {
-  const link = e.target.closest('a');
-  if (!link) return;
+// Close when navigating to a link (but NOT the dropdown trigger)
+navLinks.querySelectorAll('a').forEach(a => {
+  if (!a.classList.contains('nav-dropdown-trigger')) {
+    a.addEventListener('click', closeMenu);
+  }
+});
 
-  // Dropdown trigger — toggle submenu, don't navigate
-  if (link.classList.contains('nav-dropdown-trigger')) {
+// ─── MOBILE DROPDOWN CARET TOGGLE ───
+document.querySelectorAll('.nav-dropdown-trigger').forEach(trigger => {
+  trigger.addEventListener('click', e => {
     if (window.innerWidth <= 768) {
       e.preventDefault();
-      link.parentElement.classList.toggle('open');
+      const dd = trigger.parentElement;
+      dd.classList.toggle('open');
+      // Scroll the dropdown into view within the nav panel
+      if (dd.classList.contains('open')) {
+        setTimeout(() => dd.scrollIntoView({ behavior: 'smooth', block: 'start' }), 100);
+      }
     }
-    return;
-  }
-
-  // Only handle if mobile menu is open
-  if (!navLinks.classList.contains('open')) return;
-
-  const href = link.getAttribute('href');
-  if (!href) return;
-
-  // Anchor link — close menu, then scroll
-  if (href.startsWith('#') && href !== '#') {
-    e.preventDefault();
-    // Store target before closing menu
-    const target = document.querySelector(href);
-    // Close menu without animation first
-    hamburger.classList.remove('active');
-    navLinks.style.transition = 'none';
-    navLinks.classList.remove('open');
-    navOverlay.classList.remove('visible');
-    navOverlay.style.display = '';
-    // Scroll immediately
-    if (target) target.scrollIntoView({ behavior: 'smooth' });
-    // Restore transition for next open
-    requestAnimationFrame(() => { navLinks.style.transition = ''; });
-    return;
-  }
-
-  // Page/external link — navigate immediately, don't close menu first
-  // (closing moves the element and cancels navigation on mobile)
-  // The page will unload anyway
+  });
 });
 </script>
 </body>
