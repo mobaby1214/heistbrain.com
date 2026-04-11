@@ -44,6 +44,9 @@
 <script type="application/ld+json">
 {"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://heistbrain.com/"},{"@type":"ListItem","position":2,"name":"Blog","item":"https://heistbrain.com/blog"},{"@type":"ListItem","position":3,"name":"Writing for Six Platforms","item":"https://heistbrain.com/blog/writing-for-six-platforms.html"}]}
 </script>
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"How do I adapt content for multiple social media platforms?","acceptedAnswer":{"@type":"Answer","text":"Keep the voice the same, change the form. Your vocabulary, rhythm, attitude, and values stay consistent. What changes is the length, structure, and format per platform."}},{"@type":"Question","name":"What's the character limit for each social platform?","acceptedAnswer":{"@type":"Answer","text":"X: 280. LinkedIn: 3,000 (truncated at ~210 on mobile). Instagram: 2,200 (cutoff at 125). Facebook: 63,206. TikTok: 2,200. YouTube description: 5,000."}},{"@type":"Question","name":"Should I post the same content on every platform?","acceptedAnswer":{"@type":"Answer","text":"Never exactly the same. Same voice, same perspective, same values — but shape each version for the platform it lives on."}}]}
+</script>
 <link rel="icon" href="/favicon.svg" type="image/svg+xml">
 <link rel="apple-touch-icon" href="/apple-touch-icon.png">
 <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -79,13 +82,30 @@ nav{position:fixed;top:0;left:0;right:0;z-index:100;padding:0 48px;height:72px;d
 .blog-post-body em{color:rgba(255,255,255,0.85)}
 .blog-post-body ul,.blog-post-body ol{margin:0 0 24px 24px;padding:0}
 .blog-post-body li{margin-bottom:10px}
+.related-section{margin-top:64px;padding-top:40px;border-top:1px solid rgba(255,255,255,0.08)}
+.related-section h3{font-family:var(--fb);font-size:13px;text-transform:uppercase;letter-spacing:0.1em;color:var(--text3);margin-bottom:20px}
+.related-grid{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+@media(max-width:600px){.related-grid{grid-template-columns:1fr}}
+.related-card{padding:20px;background:rgba(255,255,255,0.03);border:1px solid rgba(255,255,255,0.08);border-radius:12px;text-decoration:none;transition:border-color 0.2s,transform 0.2s;display:block}
+.related-card:hover{border-color:rgba(139,92,246,0.4);transform:translateY(-2px)}
+.related-card .cat{font-size:11px;font-weight:600;color:var(--accent-hi);text-transform:uppercase;letter-spacing:0.05em}
+.related-card h4{font-size:16px;font-weight:700;color:white;margin:8px 0 6px;line-height:1.35}
+.related-card p{font-size:13px;color:var(--text2);line-height:1.5}
+.faq-section-blog{margin-top:56px;padding-top:40px;border-top:1px solid rgba(255,255,255,0.08)}
+.faq-section-blog h3{font-family:var(--fb);font-size:13px;text-transform:uppercase;letter-spacing:0.1em;color:var(--text3);margin-bottom:20px}
+.faq-item-blog{border:1px solid rgba(255,255,255,0.08);border-radius:10px;margin-bottom:10px;overflow:hidden;background:rgba(255,255,255,0.02)}
+.faq-item-blog summary{padding:18px 22px;cursor:pointer;font-weight:600;font-size:15px;color:white;list-style:none;display:flex;justify-content:space-between;align-items:center;user-select:none}
+.faq-item-blog summary::-webkit-details-marker{display:none}
+.faq-item-blog summary::after{content:'+';font-size:22px;color:var(--accent-hi);transition:transform 0.2s;line-height:1}
+.faq-item-blog[open] summary::after{transform:rotate(45deg)}
+.faq-item-blog p{padding:0 22px 18px;color:var(--text2);font-size:14px;line-height:1.7}
 .blog-post-cta{margin-top:48px;padding:32px;text-align:center;background:rgba(124,58,237,0.1);border:1px solid rgba(124,58,237,0.25);border-radius:16px}
 .blog-post-cta h3{font-size:22px;font-weight:700;color:white;margin-bottom:12px}
 .blog-post-cta p{color:rgba(255,255,255,0.6);margin-bottom:20px;font-size:15px}
 .blog-back{display:inline-block;color:#a78bfa;font-size:14px;font-weight:600;text-decoration:none;margin-bottom:24px}.blog-back:hover{color:#c4b5fd}
 .btn-primary{display:inline-flex;align-items:center;gap:10px;padding:16px 32px;background:linear-gradient(135deg,var(--accent),var(--accent-lo));color:white;border:none;border-radius:14px;font-family:var(--fb);font-size:16px;font-weight:600;cursor:pointer;text-decoration:none;box-shadow:0 0 30px rgba(139,92,246,0.25);transition:all 0.3s}.btn-primary:hover{transform:translateY(-2px);box-shadow:0 0 50px rgba(139,92,246,0.4)}
 footer{padding:80px 48px 40px;border-top:1px solid var(--border)}
-.footer-inner{max-width:1200px;margin:0 auto;display:grid;grid-template-columns:2fr 1fr 1fr 1fr;gap:48px}
+.footer-inner{max-width:1200px;margin:0 auto;display:grid;grid-template-columns:2fr 1fr 1fr 1fr 1fr 1fr;gap:32px}
 .footer-brand .nav-logo{margin-bottom:12px;display:inline-block}.footer-tagline{font-size:14px;color:var(--text3)}
 .footer-col h4{font-family:var(--fm);font-size:11px;letter-spacing:0.15em;text-transform:uppercase;color:var(--text3);margin-bottom:16px}
 .footer-col a{display:block;padding:4px 0;font-size:14px;color:var(--text2);text-decoration:none;transition:color 0.2s}.footer-col a:hover{color:var(--text)}
@@ -103,6 +123,7 @@ footer{padding:80px 48px 40px;border-top:1px solid var(--border)}
     <a href="/#features">Features</a>
     <a href="/#pricing">Pricing</a>
     <a href="/#faq">FAQ</a>
+    <a href="/tools/hooks.html">Tools</a>
     <a href="https://app.heistbrain.com/#login" class="nav-login">Login</a>
     <a href="https://app.heistbrain.com/#signup" class="nav-cta">Get Your Time Back &rarr;</a>
   </div>
@@ -197,6 +218,48 @@ footer{padding:80px 48px 40px;border-top:1px solid var(--border)}
     <p>You save the hours. Your voice stays whole. The audience sees the same person across six platforms &mdash; which is the whole point of being on six platforms in the first place.</p>
   </div>
 
+  <div class="related-section">
+    <h3>Related reading</h3>
+    <div class="related-grid">
+      <a href="/blog/10-hooks-that-stop-scroll.html" class="related-card">
+        <span class="cat">Copywriting</span>
+        <h4>10 Hooks That Stop the Scroll</h4>
+        <p>The first-line frameworks that work across every platform — with examples and rules.</p>
+      </a>
+      <a href="/blog/batch-a-week-in-30-minutes.html" class="related-card">
+        <span class="cat">Workflow</span>
+        <h4>Batch a Week in 30 Minutes</h4>
+        <p>Apply the six-platforms approach in a single 30-minute batching session.</p>
+      </a>
+      <a href="/tools/character-counter.html" class="related-card">
+        <span class="cat">Free Tool</span>
+        <h4>Character Counter</h4>
+        <p>Real-time character counts and limits for LinkedIn, X, Instagram, Facebook, TikTok, YouTube.</p>
+      </a>
+      <a href="/blog/brand-voice-ai-can-use.html" class="related-card">
+        <span class="cat">Strategy</span>
+        <h4>Brand Voice: How to Define It for AI</h4>
+        <p>Your voice is what stays the same across platforms. Here's how to make sure AI gets it right.</p>
+      </a>
+    </div>
+  </div>
+
+  <div class="faq-section-blog">
+    <h3>Frequently asked questions</h3>
+    <details class="faq-item-blog">
+      <summary>How do I adapt content for multiple social media platforms?</summary>
+      <p>Keep the voice the same, change the form. Your vocabulary, rhythm, attitude, and values stay consistent across platforms. What changes is the length, structure, and format — LinkedIn gets the essay, X gets the punchline, Instagram needs a visual-first approach, TikTok puts the hook in the video. Same idea, six different shells.</p>
+    </details>
+    <details class="faq-item-blog">
+      <summary>What's the character limit for each social platform?</summary>
+      <p>X: 280 characters. LinkedIn: 3,000 (but truncated at ~210 on mobile). Instagram: 2,200 (cutoff at 125). Facebook: 63,206 (best engagement under 80). TikTok: 2,200. YouTube description: 5,000. <a href="/tools/character-counter.html">Check your post against all platforms with our free tool</a>.</p>
+    </details>
+    <details class="faq-item-blog">
+      <summary>Should I post the same content on every platform?</summary>
+      <p>Never exactly the same — it looks lazy and performs badly. But never fundamentally different either. The right answer is: same voice, same perspective, same values, but shape each version for the platform it lives on. Copy-paste kills performance. From-scratch kills your weekends.</p>
+    </details>
+  </div>
+
   <div class="blog-post-cta">
     <h3>One idea, six platforms, thirty seconds.</h3>
     <p>Heist generates platform-native versions of the same idea so your voice stays consistent and your form stays right.</p>
@@ -212,6 +275,8 @@ footer{padding:80px 48px 40px;border-top:1px solid var(--border)}
   <div class="footer-inner">
     <div class="footer-brand"><a href="/" class="nav-logo">Heist<span>.</span></a><div class="footer-tagline">The brains behind the operation.</div></div>
     <div class="footer-col"><h4>Product</h4><a href="/#features">Features</a><a href="/#pricing">Pricing</a><a href="/changelog">Changelog</a></div>
+    <div class="footer-col"><h4>Free Tools</h4><a href="/tools/hooks.html">Hook Generator</a><a href="/tools/character-counter.html">Character Counter</a></div>
+    <div class="footer-col"><h4>Compare</h4><a href="/vs/jasper.html">vs Jasper</a><a href="/vs/buffer.html">vs Buffer</a><a href="/vs/hootsuite.html">vs Hootsuite</a></div>
     <div class="footer-col"><h4>Company</h4><a href="/about">About</a><a href="/blog">Blog</a><a href="mailto:support@heistbrain.com">Contact</a></div>
     <div class="footer-col"><h4>Legal</h4><a href="/privacy">Privacy</a><a href="/terms">Terms</a></div>
   </div>

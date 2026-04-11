@@ -47,6 +47,9 @@
 <script type="application/ld+json">
 {"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://heistbrain.com/"},{"@type":"ListItem","position":2,"name":"Blog","item":"https://heistbrain.com/blog"},{"@type":"ListItem","position":3,"name":"Why Every AI Content Tool Forgets You","item":"https://heistbrain.com/blog/ai-tools-forget-you.html"}]}
 </script>
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"Does ChatGPT remember my brand between sessions?","acceptedAnswer":{"@type":"Answer","text":"No. ChatGPT's standard memory is session-scoped — once a chat ends, the brand context is gone. The Memory feature helps but is shallow compared to a purpose-built brand memory system. You still re-explain yourself at the start of most projects."}},{"@type":"Question","name":"Can AI content tools save my brand voice permanently?","acceptedAnswer":{"@type":"Answer","text":"Most can't. They offer 'brand voice' fields that are essentially one note appended to every prompt. Heist's Brain is different — ten layers of persistent memory including example content, audience personas, memory facts, and performance learning."}},{"@type":"Question","name":"Why do AI tools keep forgetting context?","acceptedAnswer":{"@type":"Answer","text":"Because most AI tools are chat interfaces wrapped around a model, not knowledge systems. Memory has to be deliberately engineered — structured, persistent, and applied to every generation. That's architectural work most consumer AI tools haven't done yet."}}]}
+</script>
 <link rel="icon" href="/favicon.svg" type="image/svg+xml">
 <link rel="apple-touch-icon" href="/apple-touch-icon.png">
 <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -93,6 +96,23 @@ nav{position:fixed;top:0;left:0;right:0;z-index:100;padding:0 48px;height:72px;d
 .blog-post-body p{margin-bottom:20px}
 .blog-post-body strong{color:white;font-weight:600}
 .blog-post-body em{color:rgba(255,255,255,0.85)}
+.related-section{margin-top:64px;padding-top:40px;border-top:1px solid rgba(255,255,255,0.08)}
+.related-section h3{font-family:var(--fb);font-size:13px;text-transform:uppercase;letter-spacing:0.1em;color:var(--text3);margin-bottom:20px}
+.related-grid{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+@media(max-width:600px){.related-grid{grid-template-columns:1fr}}
+.related-card{padding:20px;background:rgba(255,255,255,0.03);border:1px solid rgba(255,255,255,0.08);border-radius:12px;text-decoration:none;transition:border-color 0.2s,transform 0.2s;display:block}
+.related-card:hover{border-color:rgba(139,92,246,0.4);transform:translateY(-2px)}
+.related-card .cat{font-size:11px;font-weight:600;color:var(--accent-hi);text-transform:uppercase;letter-spacing:0.05em}
+.related-card h4{font-size:16px;font-weight:700;color:white;margin:8px 0 6px;line-height:1.35}
+.related-card p{font-size:13px;color:var(--text2);line-height:1.5}
+.faq-section-blog{margin-top:56px;padding-top:40px;border-top:1px solid rgba(255,255,255,0.08)}
+.faq-section-blog h3{font-family:var(--fb);font-size:13px;text-transform:uppercase;letter-spacing:0.1em;color:var(--text3);margin-bottom:20px}
+.faq-item-blog{border:1px solid rgba(255,255,255,0.08);border-radius:10px;margin-bottom:10px;overflow:hidden;background:rgba(255,255,255,0.02)}
+.faq-item-blog summary{padding:18px 22px;cursor:pointer;font-weight:600;font-size:15px;color:white;list-style:none;display:flex;justify-content:space-between;align-items:center;user-select:none}
+.faq-item-blog summary::-webkit-details-marker{display:none}
+.faq-item-blog summary::after{content:'+';font-size:22px;color:var(--accent-hi);transition:transform 0.2s;line-height:1}
+.faq-item-blog[open] summary::after{transform:rotate(45deg)}
+.faq-item-blog p{padding:0 22px 18px;color:var(--text2);font-size:14px;line-height:1.7}
 .blog-post-cta{margin-top:48px;padding:32px;text-align:center;background:rgba(124,58,237,0.1);border:1px solid rgba(124,58,237,0.25);border-radius:16px}
 .blog-post-cta h3{font-size:22px;font-weight:700;color:white;margin-bottom:12px}
 .blog-post-cta p{color:rgba(255,255,255,0.6);margin-bottom:20px;font-size:15px}
@@ -102,7 +122,7 @@ nav{position:fixed;top:0;left:0;right:0;z-index:100;padding:0 48px;height:72px;d
 .btn-primary:hover{transform:translateY(-2px);box-shadow:0 0 50px rgba(139,92,246,0.4)}
 
 footer{padding:80px 48px 40px;border-top:1px solid var(--border)}
-.footer-inner{max-width:1200px;margin:0 auto;display:grid;grid-template-columns:2fr 1fr 1fr 1fr;gap:48px}
+.footer-inner{max-width:1200px;margin:0 auto;display:grid;grid-template-columns:2fr 1fr 1fr 1fr 1fr 1fr;gap:32px}
 .footer-brand .nav-logo{margin-bottom:12px;display:inline-block}
 .footer-tagline{font-size:14px;color:var(--text3)}
 .footer-col h4{font-family:var(--fm);font-size:11px;letter-spacing:0.15em;text-transform:uppercase;color:var(--text3);margin-bottom:16px}
@@ -122,6 +142,7 @@ footer{padding:80px 48px 40px;border-top:1px solid var(--border)}
     <a href="/#features">Features</a>
     <a href="/#pricing">Pricing</a>
     <a href="/#faq">FAQ</a>
+    <a href="/tools/hooks.html">Tools</a>
     <a href="https://app.heistbrain.com/#login" class="nav-login">Login</a>
     <a href="https://app.heistbrain.com/#signup" class="nav-cta">Get Your Time Back &rarr;</a>
   </div>
@@ -186,6 +207,48 @@ footer{padding:80px 48px 40px;border-top:1px solid var(--border)}
     <p>Your brand deserves better than an amnesiac assistant. And honestly, so do you.</p>
   </div>
 
+  <div class="related-section">
+    <h3>Related reading</h3>
+    <div class="related-grid">
+      <a href="/blog/the-brain-10-layers.html" class="related-card">
+        <span class="cat">Product</span>
+        <h4>The Brain: 10 Layers of Memory</h4>
+        <p>Inside the persistent memory architecture that makes Heist different from every other AI tool.</p>
+      </a>
+      <a href="/blog/brand-voice-ai-can-use.html" class="related-card">
+        <span class="cat">Strategy</span>
+        <h4>Brand Voice: How to Define It So AI Can Use It</h4>
+        <p>Most brand voice docs are useless for AI. Here's how to write one that actually works.</p>
+      </a>
+      <a href="/tools/hooks.html" class="related-card">
+        <span class="cat">Free Tool</span>
+        <h4>Hook Generator</h4>
+        <p>Free tool with 10 proven hook frameworks. Type a topic, get three variants.</p>
+      </a>
+      <a href="/vs/jasper.html" class="related-card">
+        <span class="cat">Compare</span>
+        <h4>Heist vs Jasper</h4>
+        <p>The honest comparison of Jasper and Heist across pricing, memory, and scheduling.</p>
+      </a>
+    </div>
+  </div>
+
+  <div class="faq-section-blog">
+    <h3>Frequently asked questions</h3>
+    <details class="faq-item-blog">
+      <summary>Does ChatGPT remember my brand between sessions?</summary>
+      <p>No. ChatGPT's standard memory is session-scoped — once a chat ends, the brand context is gone. The Memory feature helps but is shallow compared to a purpose-built brand memory system. You still re-explain yourself at the start of most projects.</p>
+    </details>
+    <details class="faq-item-blog">
+      <summary>Can AI content tools save my brand voice permanently?</summary>
+      <p>Most can't. They offer "brand voice" fields that are essentially one note appended to every prompt. Heist's Brain is different — ten layers of persistent memory including example content, audience personas, memory facts, and performance learning.</p>
+    </details>
+    <details class="faq-item-blog">
+      <summary>Why do AI tools keep forgetting context?</summary>
+      <p>Because most AI tools are chat interfaces wrapped around a model, not knowledge systems. Memory has to be deliberately engineered — structured, persistent, and applied to every generation. That's architectural work most consumer AI tools haven't done yet.</p>
+    </details>
+  </div>
+
   <div class="blog-post-cta">
     <h3>Ready to stop re-explaining yourself?</h3>
     <p>Start your free trial. The Brain starts learning your brand from day one.</p>
@@ -204,6 +267,8 @@ footer{padding:80px 48px 40px;border-top:1px solid var(--border)}
       <div class="footer-tagline">The brains behind the operation.</div>
     </div>
     <div class="footer-col"><h4>Product</h4><a href="/#features">Features</a><a href="/#pricing">Pricing</a><a href="/changelog">Changelog</a></div>
+    <div class="footer-col"><h4>Free Tools</h4><a href="/tools/hooks.html">Hook Generator</a><a href="/tools/character-counter.html">Character Counter</a></div>
+    <div class="footer-col"><h4>Compare</h4><a href="/vs/jasper.html">vs Jasper</a><a href="/vs/buffer.html">vs Buffer</a><a href="/vs/hootsuite.html">vs Hootsuite</a></div>
     <div class="footer-col"><h4>Company</h4><a href="/about">About</a><a href="/blog">Blog</a><a href="mailto:support@heistbrain.com">Contact</a></div>
     <div class="footer-col"><h4>Legal</h4><a href="/privacy">Privacy</a><a href="/terms">Terms</a></div>
   </div>

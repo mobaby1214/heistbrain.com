@@ -47,6 +47,9 @@
 <script type="application/ld+json">
 {"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://heistbrain.com/"},{"@type":"ListItem","position":2,"name":"Blog","item":"https://heistbrain.com/blog"},{"@type":"ListItem","position":3,"name":"10 Hooks That Stop the Scroll","item":"https://heistbrain.com/blog/10-hooks-that-stop-scroll.html"}]}
 </script>
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"How do I write a good social media hook?","acceptedAnswer":{"@type":"Answer","text":"Write the post body first, then pick the framework that matches — contrarian, specific number, confession, curiosity gap, etc. Never open with a rhetorical question."}},{"@type":"Question","name":"What's the best hook for LinkedIn?","acceptedAnswer":{"@type":"Answer","text":"The Contrarian, The Specific Number, and The Confession work best because LinkedIn readers are skeptical and the ~210 character truncation means you need substance in the first line."}},{"@type":"Question","name":"How do I stop the scroll on Instagram?","acceptedAnswer":{"@type":"Answer","text":"On Instagram the image is the real hook. For the caption, use Pattern Break, Zoom In, or Inner Quote. Your first 125 characters are what shows before 'more'."}}]}
+</script>
 <link rel="icon" href="/favicon.svg" type="image/svg+xml">
 <link rel="apple-touch-icon" href="/apple-touch-icon.png">
 <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -87,13 +90,30 @@ nav{position:fixed;top:0;left:0;right:0;z-index:100;padding:0 48px;height:72px;d
 .hook-block h3{margin-top:0;color:#c4b5fd}
 .hook-block p{margin-bottom:12px}
 .hook-block .when{font-size:14px;color:rgba(255,255,255,0.55);margin-top:10px}
+.related-section{margin-top:64px;padding-top:40px;border-top:1px solid rgba(255,255,255,0.08)}
+.related-section h3{font-family:var(--fb);font-size:13px;text-transform:uppercase;letter-spacing:0.1em;color:var(--text3);margin-bottom:20px}
+.related-grid{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+@media(max-width:600px){.related-grid{grid-template-columns:1fr}}
+.related-card{padding:20px;background:rgba(255,255,255,0.03);border:1px solid rgba(255,255,255,0.08);border-radius:12px;text-decoration:none;transition:border-color 0.2s,transform 0.2s;display:block}
+.related-card:hover{border-color:rgba(139,92,246,0.4);transform:translateY(-2px)}
+.related-card .cat{font-size:11px;font-weight:600;color:var(--accent-hi);text-transform:uppercase;letter-spacing:0.05em}
+.related-card h4{font-size:16px;font-weight:700;color:white;margin:8px 0 6px;line-height:1.35}
+.related-card p{font-size:13px;color:var(--text2);line-height:1.5}
+.faq-section-blog{margin-top:56px;padding-top:40px;border-top:1px solid rgba(255,255,255,0.08)}
+.faq-section-blog h3{font-family:var(--fb);font-size:13px;text-transform:uppercase;letter-spacing:0.1em;color:var(--text3);margin-bottom:20px}
+.faq-item-blog{border:1px solid rgba(255,255,255,0.08);border-radius:10px;margin-bottom:10px;overflow:hidden;background:rgba(255,255,255,0.02)}
+.faq-item-blog summary{padding:18px 22px;cursor:pointer;font-weight:600;font-size:15px;color:white;list-style:none;display:flex;justify-content:space-between;align-items:center;user-select:none}
+.faq-item-blog summary::-webkit-details-marker{display:none}
+.faq-item-blog summary::after{content:'+';font-size:22px;color:var(--accent-hi);transition:transform 0.2s;line-height:1}
+.faq-item-blog[open] summary::after{transform:rotate(45deg)}
+.faq-item-blog p{padding:0 22px 18px;color:var(--text2);font-size:14px;line-height:1.7}
 .blog-post-cta{margin-top:48px;padding:32px;text-align:center;background:rgba(124,58,237,0.1);border:1px solid rgba(124,58,237,0.25);border-radius:16px}
 .blog-post-cta h3{font-size:22px;font-weight:700;color:white;margin-bottom:12px}
 .blog-post-cta p{color:rgba(255,255,255,0.6);margin-bottom:20px;font-size:15px}
 .blog-back{display:inline-block;color:#a78bfa;font-size:14px;font-weight:600;text-decoration:none;margin-bottom:24px}.blog-back:hover{color:#c4b5fd}
 .btn-primary{display:inline-flex;align-items:center;gap:10px;padding:16px 32px;background:linear-gradient(135deg,var(--accent),var(--accent-lo));color:white;border:none;border-radius:14px;font-family:var(--fb);font-size:16px;font-weight:600;cursor:pointer;text-decoration:none;box-shadow:0 0 30px rgba(139,92,246,0.25);transition:all 0.3s}.btn-primary:hover{transform:translateY(-2px);box-shadow:0 0 50px rgba(139,92,246,0.4)}
 footer{padding:80px 48px 40px;border-top:1px solid var(--border)}
-.footer-inner{max-width:1200px;margin:0 auto;display:grid;grid-template-columns:2fr 1fr 1fr 1fr;gap:48px}
+.footer-inner{max-width:1200px;margin:0 auto;display:grid;grid-template-columns:2fr 1fr 1fr 1fr 1fr 1fr;gap:32px}
 .footer-brand .nav-logo{margin-bottom:12px;display:inline-block}.footer-tagline{font-size:14px;color:var(--text3)}
 .footer-col h4{font-family:var(--fm);font-size:11px;letter-spacing:0.15em;text-transform:uppercase;color:var(--text3);margin-bottom:16px}
 .footer-col a{display:block;padding:4px 0;font-size:14px;color:var(--text2);text-decoration:none;transition:color 0.2s}.footer-col a:hover{color:var(--text)}
@@ -111,6 +131,7 @@ footer{padding:80px 48px 40px;border-top:1px solid var(--border)}
     <a href="/#features">Features</a>
     <a href="/#pricing">Pricing</a>
     <a href="/#faq">FAQ</a>
+    <a href="/tools/hooks.html">Tools</a>
     <a href="https://app.heistbrain.com/#login" class="nav-login">Login</a>
     <a href="https://app.heistbrain.com/#signup" class="nav-cta">Get Your Time Back &rarr;</a>
   </div>
@@ -229,6 +250,48 @@ footer{padding:80px 48px 40px;border-top:1px solid var(--border)}
     <p>The frameworks are free. The consistent application is the work. Steal all ten. Use them well. Watch what happens.</p>
   </div>
 
+  <div class="related-section">
+    <h3>Related reading</h3>
+    <div class="related-grid">
+      <a href="/tools/hooks.html" class="related-card">
+        <span class="cat">Free Tool</span>
+        <h4>Hook Generator</h4>
+        <p>Try the 10 frameworks yourself. Free, no signup. Type a topic, pick a framework, get three hooks.</p>
+      </a>
+      <a href="/blog/writing-for-six-platforms.html" class="related-card">
+        <span class="cat">Strategy</span>
+        <h4>Writing for Six Platforms</h4>
+        <p>Which hooks work on which platforms. How to pick the right framework for LinkedIn vs X vs TikTok.</p>
+      </a>
+      <a href="/blog/batch-a-week-in-30-minutes.html" class="related-card">
+        <span class="cat">Workflow</span>
+        <h4>Batch a Week in 30 Minutes</h4>
+        <p>Apply the hook frameworks across a full week of batched content in a single session.</p>
+      </a>
+      <a href="/tools/character-counter.html" class="related-card">
+        <span class="cat">Free Tool</span>
+        <h4>Character Counter</h4>
+        <p>Check your hook length against every platform's truncation point in real time.</p>
+      </a>
+    </div>
+  </div>
+
+  <div class="faq-section-blog">
+    <h3>Frequently asked questions</h3>
+    <details class="faq-item-blog">
+      <summary>How do I write a good social media hook?</summary>
+      <p>Write the body of your post first. Then pick the hook framework that matches what you wrote — contrarian, specific number, confession, curiosity gap, etc. Never open with a rhetorical question. Keep your first line under the platform's truncation point (about 210 characters on LinkedIn, first line only on Instagram).</p>
+    </details>
+    <details class="faq-item-blog">
+      <summary>What's the best hook for LinkedIn?</summary>
+      <p>The Contrarian, The Specific Number, and The Confession work best on LinkedIn because LinkedIn readers are sophisticated and skeptical. You need substance in the first 210 characters — that's the "see more" cutoff on mobile. Avoid rhetorical questions entirely.</p>
+    </details>
+    <details class="faq-item-blog">
+      <summary>How do I stop the scroll on Instagram?</summary>
+      <p>On Instagram the image or video is the real hook — the caption is supporting. For the caption itself, use The Pattern Break, The Zoom In, or The Inner Quote. Your first 125 characters are what shows before the "more" cutoff, so earn the tap.</p>
+    </details>
+  </div>
+
   <div class="blog-post-cta">
     <h3>Let the Brain pick your hook.</h3>
     <p>Heist's generator chooses from these ten frameworks automatically based on your topic and voice.</p>
@@ -244,6 +307,8 @@ footer{padding:80px 48px 40px;border-top:1px solid var(--border)}
   <div class="footer-inner">
     <div class="footer-brand"><a href="/" class="nav-logo">Heist<span>.</span></a><div class="footer-tagline">The brains behind the operation.</div></div>
     <div class="footer-col"><h4>Product</h4><a href="/#features">Features</a><a href="/#pricing">Pricing</a><a href="/changelog">Changelog</a></div>
+    <div class="footer-col"><h4>Free Tools</h4><a href="/tools/hooks.html">Hook Generator</a><a href="/tools/character-counter.html">Character Counter</a></div>
+    <div class="footer-col"><h4>Compare</h4><a href="/vs/jasper.html">vs Jasper</a><a href="/vs/buffer.html">vs Buffer</a><a href="/vs/hootsuite.html">vs Hootsuite</a></div>
     <div class="footer-col"><h4>Company</h4><a href="/about">About</a><a href="/blog">Blog</a><a href="mailto:support@heistbrain.com">Contact</a></div>
     <div class="footer-col"><h4>Legal</h4><a href="/privacy">Privacy</a><a href="/terms">Terms</a></div>
   </div>
