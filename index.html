@@ -261,7 +261,8 @@ nav.scrolled { background: rgba(6,5,12,0.85); border-color: var(--border2); }
     max-height: 0; overflow: hidden; opacity: 1; visibility: visible;
     transition: max-height 0.3s var(--ease);
   }
-  .nav-dropdown.open .nav-dropdown-menu { max-height: 200px; opacity: 1 !important; visibility: visible !important; }
+  .nav-dropdown.open .nav-dropdown-menu { max-height: 720px; opacity: 1 !important; visibility: visible !important; }
+  .nav-caret-tools, .nav-caret { display: none !important; }
   .nav-dropdown-menu a {
     padding: 14px 28px 14px 44px !important; font-size: 15px !important;
     border-bottom: 1px solid var(--border) !important;
@@ -792,9 +793,6 @@ footer { padding: 80px 48px 40px; border-top: 1px solid var(--border); }
   <a href="/" class="nav-logo">Heist<span>.</span></a>
   <div class="nav-links" id="nav-links">
     <a href="#how">How It Works</a>
-    <a href="#features">Features</a>
-    <a href="#pricing">Pricing</a>
-    <a href="#faq">FAQ</a>
     <div class="nav-dropdown">
       <a href="/tools/" class="nav-dropdown-trigger">Tools <svg class="nav-caret-tools" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg></a>
       <div class="nav-dropdown-menu">
@@ -807,13 +805,34 @@ footer { padding: 80px 48px 40px; border-top: 1px solid var(--border); }
       </div>
     </div>
     <div class="nav-dropdown">
-      <a href="/about" class="nav-dropdown-trigger">About <svg class="nav-caret" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg></a>
+      <a href="/for/" class="nav-dropdown-trigger">Solutions <svg class="nav-caret-tools" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg></a>
       <div class="nav-dropdown-menu">
-        <a href="/about">Team</a>
-        <a href="/blog">Blog</a>
-        <a href="mailto:support@heistbrain.com">Contact</a>
+        <a href="/for/agencies.html">For Agencies</a>
+        <a href="/for/coaches.html">For Coaches</a>
+        <a href="/for/consultants.html">For Consultants</a>
+        <a href="/for/ecommerce.html">For Ecommerce</a>
+        <a href="/for/fitness-creators.html">For Fitness Creators</a>
+        <a href="/for/freelancers.html">For Freelancers</a>
+        <a href="/for/real-estate.html">For Real Estate</a>
+        <a href="/for/saas.html">For SaaS</a>
+        <a href="/for/nonprofits.html">For Nonprofits</a>
+        <a href="/for/authors.html">For Authors</a>
+        <a href="/for/" class="see-all">See all solutions &rarr;</a>
       </div>
     </div>
+    <div class="nav-dropdown">
+      <a href="/resources/" class="nav-dropdown-trigger">Resources <svg class="nav-caret-tools" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg></a>
+      <div class="nav-dropdown-menu">
+        <a href="/guides/">Guides</a>
+        <a href="/benchmarks/">Benchmarks</a>
+        <a href="/blog">Blog</a>
+        <a href="/templates/">Templates</a>
+        <a href="/glossary/">Glossary</a>
+        <a href="/quiz/brand-voice.html">Brand Voice Quiz</a>
+        <a href="/resources/" class="see-all">All resources &rarr;</a>
+      </div>
+    </div>
+    <a href="#pricing">Pricing</a>
     <a href="https://app.heistbrain.com/#login" class="nav-login">Login</a>
     <a href="https://app.heistbrain.com/#signup" class="nav-cta">Get Your Time Back →</a>
   </div>

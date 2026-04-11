@@ -3,9 +3,9 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Resources — Curated Content Marketing Tools, Books & Creators | Heist</title>
-<meta name="description" content="Curated list of tools, books, newsletters, and creators we actually recommend for content marketing. No affiliate links, just honest recommendations.">
-<meta name="keywords" content="content marketing resources, content marketing books, content marketing tools, content creators to follow, marketing newsletters">
+<title>Resources — Guides, Benchmarks, Templates & Tools | Heist</title>
+<meta name="description" content="Everything you need to ship better content — pillar guides, engagement benchmarks, copy-pasteable templates, a glossary, a brand voice quiz, and the blog. Plus recommended reading.">
+<meta name="keywords" content="content marketing resources, content marketing guides, engagement benchmarks, content templates, brand voice framework">
 <meta name="author" content="Heist Brain">
 <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1">
 <meta name="theme-color" content="#8B5CF6">
@@ -147,6 +147,49 @@ footer{padding:80px 48px 40px;border-top:1px solid var(--border);margin-top:60px
 @media(max-width:1024px){.footer-inner{grid-template-columns:1fr 1fr 1fr}}
 @media(max-width:768px){footer{padding:60px 24px 40px}.footer-inner{grid-template-columns:1fr 1fr}.footer-bottom{flex-direction:column;gap:12px;text-align:center}}
 
+.hub-section{padding:56px 0 24px;border-top:1px solid var(--border)}
+.hub-section:first-of-type{border-top:none;padding-top:32px}
+.hub-header{display:flex;align-items:baseline;justify-content:space-between;margin-bottom:22px;flex-wrap:wrap;gap:12px}
+.hub-eyebrow{font-family:var(--fm);font-size:11px;letter-spacing:0.2em;text-transform:uppercase;color:var(--accent-hi);margin-bottom:8px}
+.hub-section h2{font-family:var(--fd);font-size:32px;font-weight:400;color:white;line-height:1.2;letter-spacing:-0.01em}
+.hub-section h2 em{font-style:italic;color:var(--accent-hi)}
+.hub-section .lead{font-size:15px;color:var(--text2);margin-top:6px;max-width:640px}
+.hub-see-all{font-size:13px;color:var(--accent-hi);text-decoration:none;font-weight:600;white-space:nowrap}
+.hub-see-all:hover{color:white}
+.hub-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin-top:6px}
+.hub-grid.two{grid-template-columns:repeat(2,1fr)}
+.hub-grid.four{grid-template-columns:repeat(4,1fr)}
+@media(max-width:900px){.hub-grid,.hub-grid.four{grid-template-columns:repeat(2,1fr)}}
+@media(max-width:560px){.hub-grid,.hub-grid.two,.hub-grid.four{grid-template-columns:1fr}}
+.hub-card{display:block;padding:20px;background:rgba(255,255,255,0.025);border:1px solid rgba(255,255,255,0.07);border-radius:14px;text-decoration:none;transition:all 0.2s;position:relative;overflow:hidden}
+.hub-card:hover{border-color:rgba(139,92,246,0.35);transform:translateY(-2px);background:rgba(139,92,246,0.04)}
+.hub-card .tag{display:inline-block;padding:3px 9px;border-radius:20px;font-size:10px;font-weight:700;letter-spacing:0.06em;text-transform:uppercase;background:rgba(139,92,246,0.15);color:var(--accent-hi);margin-bottom:10px}
+.hub-card h3{font-size:16px;color:white;margin-bottom:6px;line-height:1.35;font-weight:700}
+.hub-card p{font-size:13px;color:var(--text2);line-height:1.55}
+.hub-list{display:grid;grid-template-columns:repeat(3,1fr);gap:8px;margin-top:8px}
+@media(max-width:900px){.hub-list{grid-template-columns:repeat(2,1fr)}}
+@media(max-width:560px){.hub-list{grid-template-columns:1fr}}
+.hub-chip{display:block;padding:12px 16px;background:rgba(255,255,255,0.02);border:1px solid rgba(255,255,255,0.06);border-radius:10px;color:var(--text2);text-decoration:none;font-size:14px;font-weight:500;transition:all 0.2s}
+.hub-chip:hover{border-color:rgba(139,92,246,0.35);color:white;background:rgba(139,92,246,0.05)}
+.hub-chip strong{display:block;color:white;font-size:14px;font-weight:600;margin-bottom:2px}
+.hub-chip span{font-size:12px;color:var(--text3)}
+.hub-quick{display:grid;grid-template-columns:repeat(4,1fr);gap:12px;margin:8px 0 0}
+@media(max-width:900px){.hub-quick{grid-template-columns:repeat(2,1fr)}}
+@media(max-width:480px){.hub-quick{grid-template-columns:1fr}}
+.hub-quick a{display:flex;flex-direction:column;padding:18px;background:linear-gradient(180deg,rgba(139,92,246,0.08),rgba(139,92,246,0.02));border:1px solid rgba(139,92,246,0.18);border-radius:14px;text-decoration:none;transition:all 0.2s}
+.hub-quick a:hover{border-color:rgba(139,92,246,0.5);transform:translateY(-2px)}
+.hub-quick .q-icon{width:36px;height:36px;border-radius:10px;background:rgba(139,92,246,0.15);display:flex;align-items:center;justify-content:center;color:var(--accent-hi);margin-bottom:12px}
+.hub-quick strong{color:white;font-size:15px;margin-bottom:3px;font-weight:700}
+.hub-quick span{font-size:12px;color:var(--text2)}
+.reading-list{margin-top:16px}
+.reading-list h3{font-size:16px;color:white;margin:24px 0 10px;font-weight:700}
+.reading-list ul{list-style:none;margin:0;padding:0}
+.reading-list li{padding:10px 0;border-bottom:1px solid var(--border);font-size:14px;color:var(--text2);line-height:1.6}
+.reading-list li:last-child{border-bottom:none}
+.reading-list strong{color:white;font-weight:600}
+.reading-list a{color:var(--accent-hi);text-decoration:none}
+.reading-list a:hover{text-decoration:underline}
+.container.hub{max-width:1120px}
 </style>
 </head>
 <body>
@@ -154,8 +197,6 @@ footer{padding:80px 48px 40px;border-top:1px solid var(--border);margin-top:60px
   <a href="/" class="nav-logo">Heist<span>.</span></a>
   <div class="nav-links" id="nav-links">
     <a href="/#how">How It Works</a>
-    <a href="/#features">Features</a>
-    <a href="/#pricing">Pricing</a>
     <div class="nav-dropdown">
       <a href="/tools/" class="nav-dropdown-trigger">Tools <svg class="nav-caret-tools" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg></a>
       <div class="nav-dropdown-menu">
@@ -168,102 +209,228 @@ footer{padding:80px 48px 40px;border-top:1px solid var(--border);margin-top:60px
       </div>
     </div>
     <div class="nav-dropdown">
-      <a href="/about" class="nav-dropdown-trigger">About <svg class="nav-caret-tools" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg></a>
+      <a href="/for/" class="nav-dropdown-trigger">Solutions <svg class="nav-caret-tools" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg></a>
       <div class="nav-dropdown-menu">
-        <a href="/about">Team</a>
-        <a href="/blog">Blog</a>
-        <a href="/guides/">Guides</a>
-        <a href="/glossary/">Glossary</a>
-        <a href="mailto:support@heistbrain.com">Contact</a>
+        <a href="/for/agencies.html">For Agencies</a>
+        <a href="/for/coaches.html">For Coaches</a>
+        <a href="/for/consultants.html">For Consultants</a>
+        <a href="/for/ecommerce.html">For Ecommerce</a>
+        <a href="/for/fitness-creators.html">For Fitness Creators</a>
+        <a href="/for/freelancers.html">For Freelancers</a>
+        <a href="/for/real-estate.html">For Real Estate</a>
+        <a href="/for/saas.html">For SaaS</a>
+        <a href="/for/nonprofits.html">For Nonprofits</a>
+        <a href="/for/authors.html">For Authors</a>
+        <a href="/for/" class="see-all">See all solutions &rarr;</a>
       </div>
     </div>
+    <div class="nav-dropdown">
+      <a href="/resources/" class="nav-dropdown-trigger">Resources <svg class="nav-caret-tools" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg></a>
+      <div class="nav-dropdown-menu">
+        <a href="/guides/">Guides</a>
+        <a href="/benchmarks/">Benchmarks</a>
+        <a href="/blog">Blog</a>
+        <a href="/templates/">Templates</a>
+        <a href="/glossary/">Glossary</a>
+        <a href="/quiz/brand-voice.html">Brand Voice Quiz</a>
+        <a href="/resources/" class="see-all">All resources &rarr;</a>
+      </div>
+    </div>
+    <a href="/#pricing">Pricing</a>
     <a href="https://app.heistbrain.com/#login" class="nav-login">Login</a>
     <a href="https://app.heistbrain.com/#signup" class="nav-cta">Get Your Time Back &rarr;</a>
-  </div>
-  <button class="nav-hamburger" id="nav-hamburger" aria-label="Menu"><span></span><span></span><span></span></button>
+  </div><button class="nav-hamburger" id="nav-hamburger" aria-label="Menu"><span></span><span></span><span></span></button>
 </nav>
 
 <div class="page-hero">
   <div class="container">
     <div class="breadcrumb"><a href="/">Home</a> &rsaquo; Resources</div>
-    <h1>Curated <span class="highlight">resources</span></h1>
-    <p class="lede">Tools, books, creators, and newsletters we actually recommend for content marketing. No affiliate links, no sponsored placements.</p>
+    <h1>Everything you need to <span class="highlight">ship better content</span></h1>
+    <p class="lede">Pillar guides, engagement benchmarks, copy-pasteable templates, a full glossary, and a brand voice quiz — all free, all in one place.</p>
   </div>
 </div>
 
-<div class="container">
-<article class="article-body">
-<p>A curated list of the tools, books, creators, and resources we actually recommend for content marketing. No affiliate links, no sponsored placements — just honest recommendations.</p>
+<div class="container hub">
 
-<h2>Books that shaped how we think about content</h2>
-<ul>
-<li><strong>Building a StoryBrand</strong> by Donald Miller — the framework for making your content about the customer, not you.</li>
-<li><strong>Made to Stick</strong> by Chip & Dan Heath — why some ideas compound and others don't. Still relevant in 2026.</li>
-<li><strong>The Brain Audit</strong> by Sean D'Souza — the seven objections every buyer has and how content addresses them.</li>
-<li><strong>Show Your Work</strong> by Austin Kleon — the case for building in public, still undervalued.</li>
-<li><strong>Everybody Writes</strong> by Ann Handley — the practical manual for writing useful marketing content.</li>
-<li><strong>The Copywriter's Handbook</strong> by Robert Bly — old but the fundamentals haven't aged.</li>
-</ul>
+<!-- QUICK ACCESS -->
+<section class="hub-section">
+  <div class="hub-header">
+    <div>
+      <div class="hub-eyebrow">Start here</div>
+      <h2>Jump to what you <em>need</em></h2>
+    </div>
+  </div>
+  <div class="hub-quick">
+    <a href="/guides/">
+      <div class="q-icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"/></svg></div>
+      <strong>Guides</strong>
+      <span>4 long-form pillar posts</span>
+    </a>
+    <a href="/benchmarks/">
+      <div class="q-icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="20" x2="12" y2="10"/><line x1="18" y1="20" x2="18" y2="4"/><line x1="6" y1="20" x2="6" y2="16"/></svg></div>
+      <strong>Benchmarks</strong>
+      <span>13 data pages with real numbers</span>
+    </a>
+    <a href="/templates/">
+      <div class="q-icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="2"/><line x1="3" y1="9" x2="21" y2="9"/><line x1="9" y1="21" x2="9" y2="9"/></svg></div>
+      <strong>Templates</strong>
+      <span>6 copy-pasteable frameworks</span>
+    </a>
+    <a href="/quiz/brand-voice.html">
+      <div class="q-icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M9.09 9a3 3 0 0 1 5.83 1c0 2-3 3-3 3"/><line x1="12" y1="17" x2="12.01" y2="17"/></svg></div>
+      <strong>Brand Voice Quiz</strong>
+      <span>Find your archetype in 10 questions</span>
+    </a>
+  </div>
+</section>
 
-<h2>Creators worth following in 2026</h2>
-<ul>
-<li><strong>Packy McCormick</strong> (Not Boring) — the model for newsletter-driven B2B content.</li>
-<li><strong>Rand Fishkin</strong> (SparkToro) — honest SEO and audience research.</li>
-<li><strong>Justin Welsh</strong> — LinkedIn content at scale from a solopreneur.</li>
-<li><strong>Dickie Bush & Nicolas Cole</strong> (Ship 30 for 30) — writing in public community.</li>
-<li><strong>Amanda Natividad</strong> (SparkToro) — content strategy for the modern attention landscape.</li>
-<li><strong>Katelyn Bourgoin</strong> — customer research and buyer psychology.</li>
-</ul>
+<!-- GUIDES -->
+<section class="hub-section">
+  <div class="hub-header">
+    <div>
+      <div class="hub-eyebrow">Long-form</div>
+      <h2>Pillar <em>guides</em></h2>
+      <p class="lead">Deep-dive strategy playbooks — the stuff we'd want to read if we were starting from zero.</p>
+    </div>
+    <a href="/guides/" class="hub-see-all">All guides &rarr;</a>
+  </div>
+  <div class="hub-grid">
+    <a class="hub-card" href="/guides/content-marketing-2026.html">
+      <span class="tag">Strategy</span>
+      <h3>The Complete Guide to Content Marketing in 2026</h3>
+      <p>4,500 words on what actually works this year — frameworks, channels, and the numbers to hit.</p>
+    </a>
+    <a class="hub-card" href="/guides/brand-voice-framework.html">
+      <span class="tag">Framework</span>
+      <h3>The Brand Voice Framework</h3>
+      <p>The complete document structure behind consistent content — archetype, tone, vocabulary, do/don't.</p>
+    </a>
+    <a class="hub-card" href="/guides/multi-platform-content-strategy.html">
+      <span class="tag">Workflow</span>
+      <h3>Multi-Platform Content Strategy</h3>
+      <p>How to publish to 3+ platforms without burning out or sounding like a template.</p>
+    </a>
+    <a class="hub-card" href="/guides/ai-content-tools-guide.html">
+      <span class="tag">Tools</span>
+      <h3>AI Content Tools Guide</h3>
+      <p>What every major AI tool is actually good at — and where they quietly fall apart.</p>
+    </a>
+  </div>
+</section>
 
-<h2>Newsletters we read</h2>
-<ul>
-<li><strong>Not Boring</strong> (Packy McCormick) — smart takes on tech + business.</li>
-<li><strong>Every</strong> — bundle of business + tech + creator newsletters.</li>
-<li><strong>The Diff</strong> (Byrne Hobart) — macroeconomics meets strategy.</li>
-<li><strong>The Marketing Millennials</strong> (Daniel Murray) — B2B marketing done well.</li>
-<li><strong>Demand Curve</strong> — growth and content strategy.</li>
-<li><strong>Stratechery</strong> (Ben Thompson) — tech strategy, the standard.</li>
-</ul>
+<!-- BENCHMARKS -->
+<section class="hub-section">
+  <div class="hub-header">
+    <div>
+      <div class="hub-eyebrow">Data</div>
+      <h2>Real <em>benchmarks</em></h2>
+      <p class="lead">Honest numbers for engagement, reach, and growth — so you know what "good" looks like on your platform.</p>
+    </div>
+    <a href="/benchmarks/" class="hub-see-all">All benchmarks &rarr;</a>
+  </div>
+  <div class="hub-list">
+    <a class="hub-chip" href="/benchmarks/instagram-engagement-rate.html"><strong>Instagram engagement rate</strong><span>by follower tier</span></a>
+    <a class="hub-chip" href="/benchmarks/linkedin-engagement.html"><strong>LinkedIn engagement</strong><span>post length + timing</span></a>
+    <a class="hub-chip" href="/benchmarks/tiktok-views.html"><strong>TikTok views</strong><span>what's normal vs viral</span></a>
+    <a class="hub-chip" href="/benchmarks/youtube-ctr.html"><strong>YouTube CTR</strong><span>thumbnail + title data</span></a>
+    <a class="hub-chip" href="/benchmarks/twitter-engagement.html"><strong>X / Twitter engagement</strong><span>impressions-to-reply ratio</span></a>
+    <a class="hub-chip" href="/benchmarks/facebook-reach.html"><strong>Facebook reach</strong><span>organic decline curve</span></a>
+    <a class="hub-chip" href="/benchmarks/email-open-rate.html"><strong>Email open rate</strong><span>by industry</span></a>
+    <a class="hub-chip" href="/benchmarks/newsletter-open-rate.html"><strong>Newsletter open rate</strong><span>creator vs brand</span></a>
+    <a class="hub-chip" href="/benchmarks/content-roi.html"><strong>Content ROI</strong><span>honest timelines</span></a>
+  </div>
+</section>
 
-<h2>Tools beyond Heist</h2>
-<ul>
-<li><strong>Writing:</strong> <a href="/vs/chatgpt.html">ChatGPT</a> for general work, <a href="/vs/jasper.html">Jasper</a> for long-form marketing copy, Heist for multi-platform social with brand memory.</li>
-<li><strong>Scheduling (if not using Heist):</strong> <a href="/vs/buffer.html">Buffer</a> for simple scheduling, <a href="/vs/later.html">Later</a> for Instagram-focused, <a href="/vs/hootsuite.html">Hootsuite</a> for enterprise.</li>
-<li><strong>SEO research:</strong> Ahrefs, SEMrush, or Ubersuggest for keyword research.</li>
-<li><strong>Analytics:</strong> Google Analytics 4 (free, industry standard), Plausible (privacy-friendly paid alternative).</li>
-<li><strong>Design:</strong> Figma for anything complex, Canva Pro for quick work.</li>
-<li><strong>Video editing:</strong> CapCut (free, good enough for 90% of creators), Descript for podcast-to-video, DaVinci Resolve for advanced work.</li>
-<li><strong>Email platforms:</strong> ConvertKit, Beehiiv, or Substack depending on your stage and goals.</li>
-<li><strong>Note-taking:</strong> Obsidian for long-term knowledge, Notion for team docs, Apple Notes for quick capture.</li>
-</ul>
+<!-- TEMPLATES & FRAMEWORKS -->
+<section class="hub-section">
+  <div class="hub-header">
+    <div>
+      <div class="hub-eyebrow">Copy-pasteable</div>
+      <h2>Templates &amp; <em>frameworks</em></h2>
+      <p class="lead">Ready-to-use structures for the content you write most — and the reference pages you'll keep open in a tab.</p>
+    </div>
+  </div>
+  <div class="hub-grid">
+    <a class="hub-card" href="/templates/">
+      <span class="tag">Templates</span>
+      <h3>Content templates</h3>
+      <p>Six proven frameworks — hook formulas, launch posts, case studies, carousel scripts, and more.</p>
+    </a>
+    <a class="hub-card" href="/glossary/">
+      <span class="tag">A–Z</span>
+      <h3>Content marketing glossary</h3>
+      <p>61 terms explained in plain English — from "algorithm decay" to "zero-click content".</p>
+    </a>
+    <a class="hub-card" href="/quiz/brand-voice.html">
+      <span class="tag">Quiz</span>
+      <h3>Brand voice quiz</h3>
+      <p>Ten questions to identify your brand archetype and get a ready-to-use tone profile.</p>
+    </a>
+  </div>
+</section>
 
-<h2>Free resources we recommend</h2>
-<ul>
-<li><strong>Heist's free tools:</strong> 15 free content tools including <a href="/tools/hooks.html">hook generator</a>, <a href="/tools/brand-voice-analyzer.html">brand voice analyzer</a>, <a href="/tools/best-time-to-post.html">best time to post calculator</a>. No signup.</li>
-<li><strong>Google Analytics Academy:</strong> free official training on GA4. Most content marketers still use GA4 badly.</li>
-<li><strong>HubSpot Academy:</strong> free courses on inbound marketing, content strategy, and email. Good foundations.</li>
-<li><strong>SparkToro's free tools:</strong> audience research without paid tools.</li>
-<li><strong>Ahrefs free tools:</strong> keyword difficulty checker, SERP checker, and backlink checker.</li>
-</ul>
+<!-- CONTENT HUBS (the long-tail SEO pages) -->
+<section class="hub-section">
+  <div class="hub-header">
+    <div>
+      <div class="hub-eyebrow">Platform-specific</div>
+      <h2>Content <em>hubs</em></h2>
+      <p class="lead">Platform-by-platform resources for when you know exactly what you're looking for.</p>
+    </div>
+  </div>
+  <div class="hub-list">
+    <a class="hub-chip" href="/best-time-to-post/"><strong>Best time to post</strong><span>6 platform breakdowns</span></a>
+    <a class="hub-chip" href="/hashtags/"><strong>Hashtag library</strong><span>30 niche packs</span></a>
+    <a class="hub-chip" href="/content-ideas/"><strong>Content ideas</strong><span>by platform</span></a>
+    <a class="hub-chip" href="/caption-examples/"><strong>Caption examples</strong><span>with swipe files</span></a>
+    <a class="hub-chip" href="/tools/"><strong>15 free tools</strong><span>no signup</span></a>
+    <a class="hub-chip" href="/blog"><strong>Blog</strong><span>short-form posts</span></a>
+  </div>
+</section>
 
-<h2>Our own best resources</h2>
-<p>Since you're here, these are the pieces of our own content we think are most useful:</p>
-<ul>
-<li><a href="/guides/content-marketing-2026.html">The Complete Guide to Content Marketing in 2026</a> — 4,500 words on what actually works</li>
-<li><a href="/guides/brand-voice-framework.html">The Brand Voice Framework</a> — the complete document structure</li>
-<li><a href="/guides/multi-platform-content-strategy.html">Multi-Platform Content Strategy</a> — how to avoid burnout across 3+ platforms</li>
-<li><a href="/blog/batch-a-week-in-30-minutes.html">Batch a Week in 30 Minutes</a> — the weekly workflow</li>
-<li><a href="/blog/the-brain-10-layers.html">The 10-Layer Brain</a> — why brand memory has to be structured</li>
-<li><a href="/benchmarks/content-roi.html">Content Marketing ROI Benchmarks</a> — honest timelines and numbers</li>
-</ul>
-
-<h2>Got a resource we missed?</h2>
-<p>Email us at <a href="mailto:support@heistbrain.com">support@heistbrain.com</a> with your recommendation. We update this page monthly and credit the person who suggested any additions.</p>
-</article>
+<!-- RECOMMENDED READING (the old curated external content) -->
+<section class="hub-section">
+  <div class="hub-header">
+    <div>
+      <div class="hub-eyebrow">Off-site</div>
+      <h2>Recommended <em>reading</em></h2>
+      <p class="lead">Books, creators, and newsletters we actually recommend. No affiliate links, no sponsored placements.</p>
+    </div>
+  </div>
+  <div class="reading-list">
+    <h3>Books that shaped how we think about content</h3>
+    <ul>
+      <li><strong>Building a StoryBrand</strong> by Donald Miller — the framework for making content about the customer, not you.</li>
+      <li><strong>Made to Stick</strong> by Chip &amp; Dan Heath — why some ideas compound and others don't.</li>
+      <li><strong>The Brain Audit</strong> by Sean D'Souza — the seven objections every buyer has and how content addresses them.</li>
+      <li><strong>Show Your Work</strong> by Austin Kleon — the case for building in public.</li>
+      <li><strong>Everybody Writes</strong> by Ann Handley — the practical manual for writing useful marketing content.</li>
+      <li><strong>The Copywriter's Handbook</strong> by Robert Bly — old but the fundamentals haven't aged.</li>
+    </ul>
+    <h3>Creators worth following in 2026</h3>
+    <ul>
+      <li><strong>Packy McCormick</strong> (Not Boring) — newsletter-driven B2B content done right.</li>
+      <li><strong>Rand Fishkin</strong> (SparkToro) — honest SEO and audience research.</li>
+      <li><strong>Justin Welsh</strong> — LinkedIn content at scale from a solopreneur.</li>
+      <li><strong>Amanda Natividad</strong> (SparkToro) — content strategy for the modern attention landscape.</li>
+      <li><strong>Katelyn Bourgoin</strong> — customer research and buyer psychology.</li>
+      <li><strong>Dickie Bush &amp; Nicolas Cole</strong> (Ship 30 for 30) — writing in public.</li>
+    </ul>
+    <h3>Newsletters we read</h3>
+    <ul>
+      <li><strong>Not Boring</strong> (Packy McCormick) — smart takes on tech + business.</li>
+      <li><strong>Every</strong> — bundle of business + tech + creator newsletters.</li>
+      <li><strong>The Marketing Millennials</strong> (Daniel Murray) — B2B marketing done well.</li>
+      <li><strong>Demand Curve</strong> — growth and content strategy.</li>
+      <li><strong>Stratechery</strong> (Ben Thompson) — tech strategy, the standard.</li>
+    </ul>
+    <p style="margin-top:24px;font-size:14px;color:var(--text3)">Got a resource we missed? Email <a href="mailto:support@heistbrain.com">support@heistbrain.com</a>.</p>
+  </div>
+</section>
 
 <div class="cta-box">
   <h3>Or skip the research phase</h3>
-  <p>Heist already implements the frameworks from these books and tools into one workflow — persistent brand memory, multi-platform generation, scheduling, and analytics.</p>
+  <p>Heist already implements the frameworks from these guides and books into one workflow — persistent brand memory, multi-platform generation, scheduling, and analytics.</p>
   <a href="https://app.heistbrain.com/#signup" class="btn-primary">Start Free Trial &rarr;</a>
 </div>
 
