@@ -1,0 +1,106 @@
+{
+  "version": "https://jsonfeed.org/version/1.1",
+  "title": "Heist Blog",
+  "home_page_url": "https://heistbrain.com/blog",
+  "feed_url": "https://heistbrain.com/feed.json",
+  "description": "Content marketing insights, AI tools, and the playbooks we use to run Heist.",
+  "language": "en-us",
+  "items": [
+    {
+      "id": "https://heistbrain.com/blog/10-hooks-that-stop-scroll.html",
+      "url": "https://heistbrain.com/blog/10-hooks-that-stop-scroll.html",
+      "title": "10 Hooks That Stop the Scroll (and How to Steal Them) — Heist",
+      "content_html": "",
+      "summary": "Ten proven first-line hook frameworks that stop people mid-scroll, with real examples and rules for when to use each one. Writing hooks is a skill — here's the playbook.",
+      "date_published": "2026-04-08T00:00:00Z"
+    },
+    {
+      "id": "https://heistbrain.com/blog/ai-tools-forget-you.html",
+      "url": "https://heistbrain.com/blog/ai-tools-forget-you.html",
+      "title": "Why Every AI Content Tool Forgets You — Heist Brain Blog",
+      "content_html": "",
+      "summary": "You explain your brand to AI. It generates content. It forgets everything. Here's why most AI content tools are broken — and what brand memory changes about content creation.",
+      "date_published": "2026-04-03T00:00:00Z"
+    },
+    {
+      "id": "https://heistbrain.com/blog/batch-a-week-in-30-minutes.html",
+      "url": "https://heistbrain.com/blog/batch-a-week-in-30-minutes.html",
+      "title": "How to Batch a Week of Social Content in 30 Minutes — Heist",
+      "content_html": "",
+      "summary": "A step-by-step workflow for planning and generating a full week of social posts in a single half-hour sitting. Batching is a skill. Here's how to do it without burning out.",
+      "date_published": "2026-04-05T00:00:00Z"
+    },
+    {
+      "id": "https://heistbrain.com/blog/brand-voice-ai-can-use.html",
+      "url": "https://heistbrain.com/blog/brand-voice-ai-can-use.html",
+      "title": "Brand Voice: How to Define It So AI Can Actually Use It — Heist",
+      "content_html": "",
+      "summary": "Most brand voice guides are useless for AI. They say things like 'friendly but professional.' Here's how to write a brand voice document that a generator can actually follow — with examples.",
+      "date_published": "2026-04-09T00:00:00Z"
+    },
+    {
+      "id": "https://heistbrain.com/blog/one-tool-vs-four.html",
+      "url": "https://heistbrain.com/blog/one-tool-vs-four.html",
+      "title": "One Tool vs. Four: The Real Cost of Your Content Stack — Heist",
+      "content_html": "",
+      "summary": "Jasper + Buffer + WordPress + analytics = roughly $150/mo and 5 hours lost to switching. Here's what happens when AI generation, scheduling, analytics, and blogging live in one tool.",
+      "date_published": "2026-03-28T00:00:00Z"
+    },
+    {
+      "id": "https://heistbrain.com/blog/the-brain-10-layers.html",
+      "url": "https://heistbrain.com/blog/the-brain-10-layers.html",
+      "title": "The Brain: 10 Layers of AI Memory That Change Everything — Heist",
+      "content_html": "",
+      "summary": "Most AI tools have one layer of context. The Brain has ten — from brand voice profiles to performance learning. Here's what each layer does and why it makes AI content actually sound like you.",
+      "date_published": "2026-04-01T00:00:00Z"
+    },
+    {
+      "id": "https://heistbrain.com/blog/writing-for-six-platforms.html",
+      "url": "https://heistbrain.com/blog/writing-for-six-platforms.html",
+      "title": "Writing for Six Platforms Without Losing Your Voice — Heist",
+      "content_html": "",
+      "summary": "LinkedIn, X, Instagram, Facebook, TikTok, YouTube — six algorithms, six formats, one voice. Here's how to adapt your content without sounding like six different people.",
+      "date_published": "2026-04-07T00:00:00Z"
+    },
+    {
+      "id": "https://heistbrain.com/guides/ai-content-tools-guide.html",
+      "url": "https://heistbrain.com/guides/ai-content-tools-guide.html",
+      "title": "AI Content Tools: The Honest Buyer's Guide (2026)",
+      "content_html": "",
+      "summary": "An honest, detailed buyer's guide to AI content tools in 2026. What actually differentiates them, what to look for, and how to avoid the common mistakes.",
+      "date_published": "2026-04-11T00:00:00Z"
+    },
+    {
+      "id": "https://heistbrain.com/guides/brand-voice-framework.html",
+      "url": "https://heistbrain.com/guides/brand-voice-framework.html",
+      "title": "Brand Voice Framework: The Complete Guide (2026)",
+      "content_html": "",
+      "summary": "The complete framework for defining a brand voice that AI tools can actually use. Real structure, real examples, no adjective soup.",
+      "date_published": "2026-04-11T00:00:00Z"
+    },
+    {
+      "id": "https://heistbrain.com/guides/content-marketing-2026.html",
+      "url": "https://heistbrain.com/guides/content-marketing-2026.html",
+      "title": "The Complete Guide to Content Marketing in 2026",
+      "content_html": "",
+      "summary": "A complete, honest guide to content marketing in 2026. How the algorithms actually work, what actually drives ROI, and the playbooks that work for real teams.",
+      "date_published": "2026-04-11T00:00:00Z"
+    },
+    {
+      "id": "https://heistbrain.com/guides/",
+      "url": "https://heistbrain.com/guides/",
+      "title": "Heist Guides — Long-Form Content Marketing Playbooks",
+      "content_html": "",
+      "summary": "In-depth guides for content marketing, brand voice, multi-platform strategy, and AI tools. 3,000+ word playbooks, not fluff.",
+      "date_published": "2026-04-11T00:00:00Z"
+    },
+    {
+      "id": "https://heistbrain.com/guides/multi-platform-content-strategy.html",
+      "url": "https://heistbrain.com/guides/multi-platform-content-strategy.html",
+      "title": "Multi-Platform Content Strategy: The Complete Framework (2026)",
+      "content_html": "",
+      "summary": "How to run a multi-platform content strategy without losing your voice or burning out. The complete framework with real playbooks.",
+      "date_published": "2026-04-11T00:00:00Z"
+    }
+  ]
+}

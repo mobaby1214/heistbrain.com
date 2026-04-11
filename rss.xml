@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Heist Blog</title>
+    <link>https://heistbrain.com/blog</link>
+    <atom:link href="https://heistbrain.com/rss.xml" rel="self" type="application/rss+xml" />
+    <description>Content marketing insights, AI tools, and the playbooks we use to run Heist.</description>
+    <language>en-us</language>
+    <lastBuildDate>Sat, 11 Apr 2026 05:49:36 GMT</lastBuildDate>
+    <item>
+      <title>10 Hooks That Stop the Scroll (and How to Steal Them) — Heist</title>
+      <link>https://heistbrain.com/blog/10-hooks-that-stop-scroll.html</link>
+      <guid isPermaLink="true">https://heistbrain.com/blog/10-hooks-that-stop-scroll.html</guid>
+      <pubDate>Wed, 08 Apr 2026 00:00:00 GMT</pubDate>
+      <description>Ten proven first-line hook frameworks that stop people mid-scroll, with real examples and rules for when to use each one. Writing hooks is a skill — here&apos;s the playbook.</description>
+    </item>
+    <item>
+      <title>Why Every AI Content Tool Forgets You — Heist Brain Blog</title>
+      <link>https://heistbrain.com/blog/ai-tools-forget-you.html</link>
+      <guid isPermaLink="true">https://heistbrain.com/blog/ai-tools-forget-you.html</guid>
+      <pubDate>Fri, 03 Apr 2026 00:00:00 GMT</pubDate>
+      <description>You explain your brand to AI. It generates content. It forgets everything. Here&apos;s why most AI content tools are broken — and what brand memory changes about content creation.</description>
+    </item>
+    <item>
+      <title>How to Batch a Week of Social Content in 30 Minutes — Heist</title>
+      <link>https://heistbrain.com/blog/batch-a-week-in-30-minutes.html</link>
+      <guid isPermaLink="true">https://heistbrain.com/blog/batch-a-week-in-30-minutes.html</guid>
+      <pubDate>Sun, 05 Apr 2026 00:00:00 GMT</pubDate>
+      <description>A step-by-step workflow for planning and generating a full week of social posts in a single half-hour sitting. Batching is a skill. Here&apos;s how to do it without burning out.</description>
+    </item>
+    <item>
+      <title>Brand Voice: How to Define It So AI Can Actually Use It — Heist</title>
+      <link>https://heistbrain.com/blog/brand-voice-ai-can-use.html</link>
+      <guid isPermaLink="true">https://heistbrain.com/blog/brand-voice-ai-can-use.html</guid>
+      <pubDate>Thu, 09 Apr 2026 00:00:00 GMT</pubDate>
+      <description>Most brand voice guides are useless for AI. They say things like &apos;friendly but professional.&apos; Here&apos;s how to write a brand voice document that a generator can actually follow — with examples.</description>
+    </item>
+    <item>
+      <title>One Tool vs. Four: The Real Cost of Your Content Stack — Heist</title>
+      <link>https://heistbrain.com/blog/one-tool-vs-four.html</link>
+      <guid isPermaLink="true">https://heistbrain.com/blog/one-tool-vs-four.html</guid>
+      <pubDate>Sat, 28 Mar 2026 00:00:00 GMT</pubDate>
+      <description>Jasper + Buffer + WordPress + analytics = roughly $150/mo and 5 hours lost to switching. Here&apos;s what happens when AI generation, scheduling, analytics, and blogging live in one tool.</description>
+    </item>
+    <item>
+      <title>The Brain: 10 Layers of AI Memory That Change Everything — Heist</title>
+      <link>https://heistbrain.com/blog/the-brain-10-layers.html</link>
+      <guid isPermaLink="true">https://heistbrain.com/blog/the-brain-10-layers.html</guid>
+      <pubDate>Wed, 01 Apr 2026 00:00:00 GMT</pubDate>
+      <description>Most AI tools have one layer of context. The Brain has ten — from brand voice profiles to performance learning. Here&apos;s what each layer does and why it makes AI content actually sound like you.</description>
+    </item>
+    <item>
+      <title>Writing for Six Platforms Without Losing Your Voice — Heist</title>
+      <link>https://heistbrain.com/blog/writing-for-six-platforms.html</link>
+      <guid isPermaLink="true">https://heistbrain.com/blog/writing-for-six-platforms.html</guid>
+      <pubDate>Tue, 07 Apr 2026 00:00:00 GMT</pubDate>
+      <description>LinkedIn, X, Instagram, Facebook, TikTok, YouTube — six algorithms, six formats, one voice. Here&apos;s how to adapt your content without sounding like six different people.</description>
+    </item>
+    <item>
+      <title>AI Content Tools: The Honest Buyer&apos;s Guide (2026)</title>
+      <link>https://heistbrain.com/guides/ai-content-tools-guide.html</link>
+      <guid isPermaLink="true">https://heistbrain.com/guides/ai-content-tools-guide.html</guid>
+      <pubDate>Sat, 11 Apr 2026 00:00:00 GMT</pubDate>
+      <description>An honest, detailed buyer&apos;s guide to AI content tools in 2026. What actually differentiates them, what to look for, and how to avoid the common mistakes.</description>
+    </item>
+    <item>
+      <title>Brand Voice Framework: The Complete Guide (2026)</title>
+      <link>https://heistbrain.com/guides/brand-voice-framework.html</link>
+      <guid isPermaLink="true">https://heistbrain.com/guides/brand-voice-framework.html</guid>
+      <pubDate>Sat, 11 Apr 2026 00:00:00 GMT</pubDate>
+      <description>The complete framework for defining a brand voice that AI tools can actually use. Real structure, real examples, no adjective soup.</description>
+    </item>
+    <item>
+      <title>The Complete Guide to Content Marketing in 2026</title>
+      <link>https://heistbrain.com/guides/content-marketing-2026.html</link>
+      <guid isPermaLink="true">https://heistbrain.com/guides/content-marketing-2026.html</guid>
+      <pubDate>Sat, 11 Apr 2026 00:00:00 GMT</pubDate>
+      <description>A complete, honest guide to content marketing in 2026. How the algorithms actually work, what actually drives ROI, and the playbooks that work for real teams.</description>
+    </item>
+    <item>
+      <title>Heist Guides — Long-Form Content Marketing Playbooks</title>
+      <link>https://heistbrain.com/guides/</link>
+      <guid isPermaLink="true">https://heistbrain.com/guides/</guid>
+      <pubDate>Sat, 11 Apr 2026 00:00:00 GMT</pubDate>
+      <description>In-depth guides for content marketing, brand voice, multi-platform strategy, and AI tools. 3,000+ word playbooks, not fluff.</description>
+    </item>
+    <item>
+      <title>Multi-Platform Content Strategy: The Complete Framework (2026)</title>
+      <link>https://heistbrain.com/guides/multi-platform-content-strategy.html</link>
+      <guid isPermaLink="true">https://heistbrain.com/guides/multi-platform-content-strategy.html</guid>
+      <pubDate>Sat, 11 Apr 2026 00:00:00 GMT</pubDate>
+      <description>How to run a multi-platform content strategy without losing your voice or burning out. The complete framework with real playbooks.</description>
+    </item>
+  </channel>
+</rss>
