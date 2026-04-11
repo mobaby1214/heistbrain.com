@@ -137,7 +137,7 @@ body::after {
 
 /* ═══════════ NAV ═══════════ */
 nav {
-  position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+  position: fixed; top: 0; left: 0; right: 0; z-index: 170;
   padding: 0 48px; height: 72px;
   display: flex; align-items: center; justify-content: space-between;
   background: rgba(6,5,12,0.5); backdrop-filter: blur(30px) saturate(1.5);
@@ -231,12 +231,15 @@ nav.scrolled { background: rgba(6,5,12,0.85); border-color: var(--border2); }
 
   /* All nav items */
   .nav-links > a, .nav-links > .nav-dropdown {
-    display: block !important; border-bottom: 1px solid var(--border);
+    display: block !important; width: 100%; border-bottom: 1px solid var(--border);
   }
   .nav-links > a:not(.nav-cta) {
-    display: block !important; font-size: 16px; font-weight: 500;
+    display: block !important; width: 100%; font-size: 16px; font-weight: 500;
     padding: 18px 28px !important; color: var(--text2); letter-spacing: 0.01em;
+    box-sizing: border-box;
   }
+  .nav-links a::after { display: none !important; }
+  .nav-dropdown > a.nav-dropdown-trigger { width: 100%; box-sizing: border-box; }
   .nav-links > a:not(.nav-cta):hover { color: var(--text); background: rgba(255,255,255,0.02); }
 
   /* Login */

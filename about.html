@@ -77,7 +77,7 @@ nav{position:fixed;top:0;left:0;right:0;z-index:100;padding:0 48px;height:72px;d
   .nav-hamburger{display:flex}
   .nav-links{position:fixed;top:0;right:-100%;width:280px;height:100vh;flex-direction:column;background:var(--bg2);padding:100px 32px 32px;border-left:1px solid var(--border2);transition:right 0.4s;gap:24px;z-index:105}
   .nav-links.open{right:0}
-  .nav-links a{display:block!important;font-size:18px}
+  .nav-links a{display:block!important;font-size:18px;width:100%;box-sizing:border-box;text-align:left}.nav-links a::after{display:none!important}
 }
 
 /* Page content */
