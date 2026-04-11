@@ -1,0 +1,299 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Inside the Generator: How One Idea Becomes 30 On-Brand Posts — Heist</title>
+<meta name="description" content="Behind the 'month of content in 10 minutes' claim: the six-stage pipeline that turns a single sentence into 30 platform-native posts without ever sounding like six different people wrote them.">
+<meta name="keywords" content="Heist generator, AI content pipeline, multi-platform content generation, one idea many posts, content repurposing AI, how Heist works">
+<meta name="author" content="Morgan Miles">
+<meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1">
+<meta name="theme-color" content="#8B5CF6">
+
+<meta property="og:type" content="article">
+<meta property="og:locale" content="en_US">
+<meta property="og:title" content="Inside the Generator: How One Idea Becomes 30 On-Brand Posts">
+<meta property="og:description" content="The six-stage pipeline that turns a single sentence into a month of platform-native content.">
+<meta property="og:url" content="https://heistbrain.com/blog/inside-the-generator.html">
+<meta property="og:site_name" content="Heist">
+<meta property="og:image" content="https://heistbrain.com/og-image.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="Inside the Heist Generator">
+<meta property="article:published_time" content="2026-04-11T00:00:00Z">
+<meta property="article:author" content="Morgan Miles">
+<meta property="article:section" content="Product Deep Dive">
+<meta property="article:tag" content="Generator, multi-platform, product, pipeline">
+
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:site" content="@heistbrain">
+<meta name="twitter:creator" content="@heistbrain">
+<meta name="twitter:title" content="Inside the Generator: How One Idea Becomes 30 On-Brand Posts">
+<meta name="twitter:description" content="The six-stage pipeline that turns a single sentence into a month of platform-native content.">
+<meta name="twitter:image" content="https://heistbrain.com/og-image.png">
+<meta name="twitter:label1" content="Written by">
+<meta name="twitter:data1" content="Morgan Miles">
+
+<link rel="canonical" href="https://heistbrain.com/blog/inside-the-generator.html">
+
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"BlogPosting","headline":"Inside the Generator: How One Idea Becomes 30 On-Brand Posts","description":"The six-stage pipeline that turns a single sentence into a month of platform-native content.","image":"https://heistbrain.com/og-image.png","author":{"@type":"Person","name":"Morgan Miles","url":"https://heistbrain.com/about"},"publisher":{"@type":"Organization","name":"Heist","logo":{"@type":"ImageObject","url":"https://heistbrain.com/og-image.png"}},"datePublished":"2026-04-11","dateModified":"2026-04-11","mainEntityOfPage":{"@type":"WebPage","@id":"https://heistbrain.com/blog/inside-the-generator.html"},"keywords":"Heist generator, content pipeline, multi-platform AI","articleSection":"Product Deep Dive","inLanguage":"en-US"}
+</script>
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://heistbrain.com/"},{"@type":"ListItem","position":2,"name":"Blog","item":"https://heistbrain.com/blog"},{"@type":"ListItem","position":3,"name":"Inside the Generator","item":"https://heistbrain.com/blog/inside-the-generator.html"}]}
+</script>
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"How long does it take to generate a month of content?","acceptedAnswer":{"@type":"Answer","text":"Generation for 30 posts across six platforms typically takes 6 to 9 minutes end-to-end. The pipeline runs stages in parallel where possible, so the longest single wait is the initial voice-layer injection."}},{"@type":"Question","name":"Can I edit what the generator produces?","acceptedAnswer":{"@type":"Answer","text":"Yes. Every generated post is a draft until you approve it. You can edit any field, regenerate a single post, swap a platform, or bulk-regenerate anything that doesn't feel right. The Brain remembers your edits and adjusts."}},{"@type":"Question","name":"Does the generator run all six platforms in one pass?","acceptedAnswer":{"@type":"Answer","text":"Yes. One idea goes in; the generator decomposes it per platform in parallel — LinkedIn long-form, X thread, Instagram carousel script, Facebook post, TikTok hook, YouTube community post — all from the same source idea, all in one run."}}]}
+</script>
+<link rel="icon" href="/favicon.svg" type="image/svg+xml">
+<link rel="apple-touch-icon" href="/apple-touch-icon.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=DM+Sans:ital,opsz,wght@0,9..40,300..800;1,9..40,300..800&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-C4JK66ZQ43"></script>
+<script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','G-C4JK66ZQ43');</script>
+
+<style>
+*,*::before,*::after{margin:0;padding:0;box-sizing:border-box}
+:root{--bg:#06050C;--bg2:#0C0A18;--surface:rgba(16,13,30,0.55);--accent:#8B5CF6;--accent-hi:#A78BFA;--accent-lo:#6D28D9;--text:#F1F0F5;--text2:#908CA1;--text3:#57536B;--border:rgba(255,255,255,0.06);--border2:rgba(255,255,255,0.12);--fd:'Instrument Serif',Georgia,serif;--fb:'DM Sans',system-ui,sans-serif;--fm:'JetBrains Mono',monospace}
+html{scroll-behavior:smooth;overflow-x:clip}
+body{font-family:var(--fb);background:var(--bg);color:var(--text);line-height:1.65;-webkit-font-smoothing:antialiased;overflow-x:clip}
+nav{position:fixed;top:0;left:0;right:0;z-index:100;padding:0 48px;height:72px;display:flex;align-items:center;justify-content:space-between;background:rgba(6,5,12,0.85);backdrop-filter:blur(30px) saturate(1.5);border-bottom:1px solid var(--border)}
+.nav-logo{font-family:var(--fd);font-size:30px;color:var(--text);text-decoration:none;letter-spacing:0.02em}.nav-logo span{color:var(--accent)}
+.nav-links{display:flex;gap:36px;align-items:center}.nav-links a{color:var(--text2);text-decoration:none;font-size:14px;font-weight:500;letter-spacing:0.02em;transition:color 0.3s}.nav-links a:hover{color:var(--text)}
+.nav-dropdown{position:relative}
+.nav-dropdown-trigger{display:flex!important;align-items:center;gap:6px;cursor:pointer}
+.nav-caret-tools{width:12px;height:12px;flex-shrink:0;opacity:0.7;transition:transform 0.2s}
+.nav-dropdown:hover .nav-caret-tools{transform:rotate(180deg)}
+.nav-dropdown-menu{position:absolute;top:100%;left:50%;transform:translateX(-50%);background:rgba(12,10,24,0.96);backdrop-filter:blur(20px);border:1px solid rgba(255,255,255,0.12);border-radius:12px;padding:6px;min-width:200px;opacity:0;visibility:hidden;transition:opacity 0.2s,visibility 0.2s;margin-top:10px;z-index:200;box-shadow:0 8px 32px rgba(0,0,0,0.4)}
+.nav-dropdown:hover .nav-dropdown-menu{opacity:1;visibility:visible}
+.nav-dropdown-menu a{display:block!important;padding:10px 14px!important;font-size:14px!important;color:var(--text2)!important;border-radius:8px;white-space:nowrap;font-weight:500}
+.nav-dropdown-menu a:hover{color:white!important;background:rgba(139,92,246,0.12)}
+.nav-dropdown-menu a.see-all{border-top:1px solid rgba(255,255,255,0.08);margin-top:4px;padding-top:12px!important;color:var(--accent-hi)!important;font-weight:600}
+@media(max-width:768px){.nav-dropdown{width:100%}.nav-dropdown-menu{position:static;transform:none;opacity:1!important;visibility:visible!important;background:transparent;border:none;padding:0;margin:6px 0 0 16px;box-shadow:none;min-width:0}.nav-dropdown-menu a{padding:10px 0!important;font-size:16px!important}.nav-caret-tools{display:none}.nav-dropdown-trigger{font-weight:600}}
+.nav-cta{background:linear-gradient(135deg,#8B5CF6,#6D28D9)!important;color:#fff!important;border:none!important;padding:10px 24px;border-radius:10px;font-weight:600;font-size:13px;letter-spacing:0.03em}
+.nav-login{color:var(--text2);text-decoration:none;font-size:14px;font-weight:500;transition:color 0.3s}
+.nav-hamburger{display:none;flex-direction:column;gap:5px;background:none;border:none;cursor:pointer;padding:8px}.nav-hamburger span{display:block;width:22px;height:2px;background:var(--text);border-radius:1px}
+@media(max-width:768px){nav{padding:0 24px}.nav-hamburger{display:flex}.nav-links{position:fixed;top:0;right:-100%;width:280px;height:100vh;flex-direction:column;background:var(--bg2);padding:100px 32px 32px;border-left:1px solid var(--border2);transition:right 0.4s;gap:24px;z-index:105}.nav-links.open{right:0}.nav-links a{display:block!important;font-size:18px}}
+.blog-post{max-width:720px;margin:0 auto;padding:120px 20px 80px}
+.blog-post-category{display:inline-block;padding:4px 12px;border-radius:20px;font-size:12px;font-weight:600;text-transform:uppercase;letter-spacing:0.05em;margin-bottom:16px}
+.cat-strategy{background:rgba(74,222,128,0.15);color:#4ade80}.cat-product{background:rgba(139,92,246,0.15);color:#8b5cf6}
+.blog-post h1{font-size:36px;font-weight:800;line-height:1.2;color:white;margin-bottom:16px}
+@media(max-width:600px){.blog-post h1{font-size:28px}}
+.blog-post-meta{font-size:14px;color:rgba(255,255,255,0.4);margin-bottom:40px;padding-bottom:24px;border-bottom:1px solid rgba(255,255,255,0.08)}
+.blog-post-body{font-size:17px;line-height:1.8;color:rgba(255,255,255,0.75)}
+.blog-post-body h2{font-size:24px;font-weight:700;color:white;margin:40px 0 16px}
+.blog-post-body p{margin-bottom:20px}
+.blog-post-body strong{color:white;font-weight:600}
+.blog-post-body em{color:rgba(255,255,255,0.85)}
+.related-section{margin-top:64px;padding-top:40px;border-top:1px solid rgba(255,255,255,0.08)}
+.related-section h3{font-family:var(--fb);font-size:13px;text-transform:uppercase;letter-spacing:0.1em;color:var(--text3);margin-bottom:20px}
+.related-grid{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+@media(max-width:600px){.related-grid{grid-template-columns:1fr}}
+.related-card{padding:20px;background:rgba(255,255,255,0.03);border:1px solid rgba(255,255,255,0.08);border-radius:12px;text-decoration:none;transition:border-color 0.2s,transform 0.2s;display:block}
+.related-card:hover{border-color:rgba(139,92,246,0.4);transform:translateY(-2px)}
+.related-card .cat{font-size:11px;font-weight:600;color:var(--accent-hi);text-transform:uppercase;letter-spacing:0.05em}
+.related-card h4{font-size:16px;font-weight:700;color:white;margin:8px 0 6px;line-height:1.35}
+.related-card p{font-size:13px;color:var(--text2);line-height:1.5}
+.faq-section-blog{margin-top:56px;padding-top:40px;border-top:1px solid rgba(255,255,255,0.08)}
+.faq-section-blog h3{font-family:var(--fb);font-size:13px;text-transform:uppercase;letter-spacing:0.1em;color:var(--text3);margin-bottom:20px}
+.faq-item-blog{border:1px solid rgba(255,255,255,0.08);border-radius:10px;margin-bottom:10px;overflow:hidden;background:rgba(255,255,255,0.02)}
+.faq-item-blog summary{padding:18px 22px;cursor:pointer;font-weight:600;font-size:15px;color:white;list-style:none;display:flex;justify-content:space-between;align-items:center;user-select:none}
+.faq-item-blog summary::-webkit-details-marker{display:none}
+.faq-item-blog summary::after{content:'+';font-size:22px;color:var(--accent-hi);transition:transform 0.2s;line-height:1}
+.faq-item-blog[open] summary::after{transform:rotate(45deg)}
+.faq-item-blog p{padding:0 22px 18px;color:var(--text2);font-size:14px;line-height:1.7}
+.blog-post-cta{margin-top:48px;padding:32px;text-align:center;background:rgba(124,58,237,0.1);border:1px solid rgba(124,58,237,0.25);border-radius:16px}
+.blog-post-cta h3{font-size:22px;font-weight:700;color:white;margin-bottom:12px}
+.blog-post-cta p{color:rgba(255,255,255,0.6);margin-bottom:20px;font-size:15px}
+.blog-back{display:inline-block;color:#a78bfa;font-size:14px;font-weight:600;text-decoration:none;margin-bottom:24px}.blog-back:hover{color:#c4b5fd}
+.btn-primary{display:inline-flex;align-items:center;gap:10px;padding:16px 32px;background:linear-gradient(135deg,var(--accent),var(--accent-lo));color:white;border:none;border-radius:14px;font-family:var(--fb);font-size:16px;font-weight:600;cursor:pointer;text-decoration:none;box-shadow:0 0 30px rgba(139,92,246,0.25);transition:all 0.3s}.btn-primary:hover{transform:translateY(-2px);box-shadow:0 0 50px rgba(139,92,246,0.4)}
+footer{padding:80px 48px 40px;border-top:1px solid var(--border)}
+.footer-inner{max-width:1200px;margin:0 auto;display:grid;grid-template-columns:2fr 1fr 1fr 1fr 1fr 1fr;gap:32px}
+.footer-brand .nav-logo{margin-bottom:12px;display:inline-block}.footer-tagline{font-size:14px;color:var(--text3)}
+.footer-col h4{font-family:var(--fm);font-size:11px;letter-spacing:0.15em;text-transform:uppercase;color:var(--text3);margin-bottom:16px}
+.footer-col a{display:block;padding:4px 0;font-size:14px;color:var(--text2);text-decoration:none;transition:color 0.2s}.footer-col a:hover{color:var(--text)}
+.footer-bottom{max-width:1200px;margin:48px auto 0;padding-top:24px;border-top:1px solid var(--border);display:flex;justify-content:space-between;align-items:center;font-size:13px;color:var(--text3)}
+@media(max-width:1024px){.footer-inner{grid-template-columns:1fr 1fr 1fr;gap:32px}}
+@media(max-width:768px){footer{padding:60px 24px 40px}.footer-inner{grid-template-columns:1fr 1fr}.footer-bottom{flex-direction:column;gap:12px;text-align:center}}
+</style>
+</head>
+<body>
+
+<nav id="nav">
+  <a href="/" class="nav-logo">Heist<span>.</span></a>
+  <div class="nav-links" id="nav-links">
+    <a href="/#how">How It Works</a>
+    <div class="nav-dropdown">
+      <a href="/tools/" class="nav-dropdown-trigger">Tools <svg class="nav-caret-tools" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg></a>
+      <div class="nav-dropdown-menu">
+        <a href="/tools/hooks.html">Hook Generator</a>
+        <a href="/tools/character-counter.html">Character Counter</a>
+        <a href="/tools/brand-voice-analyzer.html">Brand Voice Analyzer</a>
+        <a href="/tools/best-time-to-post.html">Best Time to Post</a>
+        <a href="/tools/hashtag-generator.html">Hashtag Generator</a>
+        <a href="/tools/" class="see-all">See all 15 tools &rarr;</a>
+      </div>
+    </div>
+    <div class="nav-dropdown">
+      <a href="/for/" class="nav-dropdown-trigger">Solutions <svg class="nav-caret-tools" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg></a>
+      <div class="nav-dropdown-menu">
+        <a href="/for/agencies.html">For Agencies</a>
+        <a href="/for/coaches.html">For Coaches</a>
+        <a href="/for/consultants.html">For Consultants</a>
+        <a href="/for/ecommerce.html">For Ecommerce</a>
+        <a href="/for/fitness-creators.html">For Fitness Creators</a>
+        <a href="/for/freelancers.html">For Freelancers</a>
+        <a href="/for/real-estate.html">For Real Estate</a>
+        <a href="/for/saas.html">For SaaS</a>
+        <a href="/for/nonprofits.html">For Nonprofits</a>
+        <a href="/for/authors.html">For Authors</a>
+        <a href="/for/" class="see-all">See all solutions &rarr;</a>
+      </div>
+    </div>
+    <div class="nav-dropdown">
+      <a href="/resources/" class="nav-dropdown-trigger">Resources <svg class="nav-caret-tools" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg></a>
+      <div class="nav-dropdown-menu">
+        <a href="/guides/">Guides</a>
+        <a href="/benchmarks/">Benchmarks</a>
+        <a href="/blog">Blog</a>
+        <a href="/templates/">Templates</a>
+        <a href="/glossary/">Glossary</a>
+        <a href="/quiz/brand-voice.html">Brand Voice Quiz</a>
+        <a href="/resources/" class="see-all">All resources &rarr;</a>
+      </div>
+    </div>
+    <a href="/#pricing">Pricing</a>
+    <a href="https://app.heistbrain.com/#login" class="nav-login">Login</a>
+    <a href="https://app.heistbrain.com/#signup" class="nav-cta">Get Your Time Back &rarr;</a>
+  </div><button class="nav-hamburger" id="nav-hamburger" aria-label="Menu"><span></span><span></span><span></span></button>
+</nav>
+
+<article class="blog-post">
+  <a href="/blog" class="blog-back">&larr; Back to Blog</a>
+  <span class="blog-post-category cat-product">Product Deep Dive</span>
+  <h1>Inside the Generator: How One Idea Becomes 30 On-Brand Posts</h1>
+  <div class="blog-post-meta">Morgan Miles &middot; April 11, 2026</div>
+
+  <div class="blog-post-body">
+    <p>The pitch on the homepage says <em>a month of content in ten minutes</em>. People ask me how that's even possible without the output being generic slop. The honest answer is that it's possible because the generator isn't one model doing one thing — it's a pipeline. Six stages. Each one narrow enough to do well, sequenced so the output compounds.</p>
+
+    <p>Here's what actually happens when you type an idea into Heist and hit generate.</p>
+
+    <h2>Stage 1: Idea decomposition</h2>
+
+    <p>You type something like "launch announcement for our new brand voice analyzer tool." That's the whole input. Before anything generates, the Brain decomposes that idea into its component claims, angles, and hooks. What's actually news here? What's the proof point? Who does this help? What's the tension — what problem does it solve? What's the before-state and the after-state?</p>
+
+    <p>This stage looks like prep work, and it is. But it's the most important stage of the six. A single sentence is ambiguous; a structured brief is not. The generator doesn't write from your sentence — it writes from the brief it built out of your sentence. This is why two people typing nearly the same idea into Heist get content that actually fits <em>them</em> rather than bland "launch announcement" filler.</p>
+
+    <h2>Stage 2: Platform decomposition</h2>
+
+    <p>Now the same brief gets split six ways. LinkedIn wants a long-form narrative — setup, tension, resolution, takeaway. X wants a punchy thread or a single high-density tweet. Instagram wants a carousel script with visual-first pacing. Facebook wants conversational length with a community tone. TikTok wants a hook line that loads in under two seconds. YouTube Community wants something that rewards scrolling.</p>
+
+    <p>Each platform gets a platform-specific brief that carries the same claims but with different constraints: character limits, format expectations, algorithmic quirks, hook conventions. This is why Heist content never feels copy-pasted across networks. The same idea is being <em>re-expressed</em>, not re-posted.</p>
+
+    <h2>Stage 3: Voice-layer injection</h2>
+
+    <p>This is the longest stage, because it's where the Brain actually earns its name. Every platform brief gets merged with the relevant layers of your Brain — the brand profile, voice fingerprint, terminology, examples of your past writing, your never-list, your audience persona. Ten layers of context get folded into the draft prompt before generation even starts.</p>
+
+    <p>Without this step, you'd be writing from a generic "content marketer voice" the base model absorbed from the internet. With this step, you're writing from <em>your</em> voice — the specific cadence, phrases, humor register, and point of view the Brain learned during onboarding and every session since.</p>
+
+    <h2>Stage 4: Parallel generation</h2>
+
+    <p>Once the voice-layered briefs are built, the actual writing happens. All six platform drafts generate in parallel. The pipeline fans out because there's no reason they should wait on each other — the LinkedIn post doesn't need to know what the TikTok hook is; they're expressing the same claims through different forms.</p>
+
+    <p>Parallelism is why a month of posts doesn't take a month to render. Six platforms × five posts each = 30 pieces of content generating in overlapping batches. End-to-end, the whole run finishes in roughly six to nine minutes depending on load.</p>
+
+    <h2>Stage 5: Cross-post deduplication</h2>
+
+    <p>Here's a failure mode that every multi-platform generator has except ones that deliberately prevent it: the same point shows up in three places. Your Tuesday LinkedIn hits the same angle as your Wednesday X thread. The reader who follows you on both platforms sees recycled material. They unfollow.</p>
+
+    <p>Stage five runs a deduplication pass across the full batch. The Brain looks at what's been said on each platform and checks that angles, opening hooks, and key claims aren't being reused across the week. If something repeats too closely, it gets regenerated with a different angle. This stage runs fast but it's the one that makes the output feel planned instead of produced.</p>
+
+    <h2>Stage 6: Brand alignment scoring</h2>
+
+    <p>Every generated draft gets scored before it lands in your queue. The score compares the draft against your voice profile — tone, vocabulary, rhythm, "sounds like me" fingerprints. Anything below the threshold loops back through stage three for a regeneration with stronger voice-layer injection. Anything above the threshold ships to your review pane.</p>
+
+    <p>You never see the drafts that failed alignment. They get silently regenerated until they pass. Which is why when the queue finally loads for you, the 30 posts in it don't feel like a mixed bag of "some good ones and some AI slop." They feel like 30 posts you would have written if you'd had the time.</p>
+
+    <h2>Why the pipeline matters more than the model</h2>
+
+    <p>People love to argue about which underlying model is "best" — this one writes better prose, that one handles longer context, the other hallucinates less. It's the wrong question for content tools. The model is one component. What determines whether the output is good is what you put around the model.</p>
+
+    <p>A better model with a worse pipeline will lose to a decent model with a great pipeline every time. Heist's edge isn't a secret model — it's six stages that each do one thing well and compound into output that doesn't feel generated. The idea you typed ten minutes ago is now a month of platform-native content sitting in your review queue, and every one of those posts has been through six filters before you see it.</p>
+
+    <p>That's how "a month in ten minutes" is real and not a marketing claim. Want to watch it happen? The trial is free.</p>
+  </div>
+
+  <div class="related-section">
+    <h3>Related reading</h3>
+    <div class="related-grid">
+      <a href="/blog/the-brain-10-layers.html" class="related-card">
+        <span class="cat">Product Deep Dive</span>
+        <h4>The Brain: 10 Layers of Memory That Change Everything</h4>
+        <p>The memory system the generator draws from at stage three — ten layers that make the output sound like you.</p>
+      </a>
+      <a href="/blog/the-feedback-loop.html" class="related-card">
+        <span class="cat">Product Deep Dive</span>
+        <h4>The Feedback Loop: How the Brain Learns From Engagement</h4>
+        <p>What happens after generation — how real engagement data improves the next month's output.</p>
+      </a>
+      <a href="/blog/writing-for-six-platforms.html" class="related-card">
+        <span class="cat">Strategy</span>
+        <h4>Writing for Six Platforms Without Losing Your Voice</h4>
+        <p>The principles behind stage two — why the same idea has to be re-expressed, not re-posted.</p>
+      </a>
+      <a href="/blog/batch-a-week-in-30-minutes.html" class="related-card">
+        <span class="cat">Workflow</span>
+        <h4>Batch a Week in 30 Minutes</h4>
+        <p>The weekly workflow on top of the generator — how creators actually use Heist in practice.</p>
+      </a>
+    </div>
+  </div>
+
+  <div class="faq-section-blog">
+    <h3>Frequently asked questions</h3>
+    <details class="faq-item-blog">
+      <summary>How long does it take to generate a month of content?</summary>
+      <p>Generation for 30 posts across six platforms typically takes 6 to 9 minutes end-to-end. The pipeline runs stages in parallel where possible, so the longest single wait is the initial voice-layer injection. You can walk away and come back to a ready-to-review queue.</p>
+    </details>
+    <details class="faq-item-blog">
+      <summary>Can I edit what the generator produces?</summary>
+      <p>Yes. Every generated post is a draft until you approve it. You can edit any field, regenerate a single post with a different angle, swap a platform, or bulk-regenerate anything that doesn't feel right. The Brain remembers your edits and adjusts its voice-layer injection on future runs.</p>
+    </details>
+    <details class="faq-item-blog">
+      <summary>Does the generator run all six platforms in one pass?</summary>
+      <p>Yes. One idea goes in; the generator decomposes it per platform in parallel — LinkedIn long-form, X thread, Instagram carousel script, Facebook post, TikTok hook, YouTube community post — all from the same source idea, all in one run. You can also toggle platforms off if you only care about three of them.</p>
+    </details>
+  </div>
+
+  <div class="blog-post-cta">
+    <h3>See the pipeline in action</h3>
+    <p>Type an idea. Watch six stages produce a month of content. The trial is free for 7 days.</p>
+    <a href="https://app.heistbrain.com" class="btn-primary">Try Heist Free for 7 Days</a>
+  </div>
+
+  <div style="margin-top:40px;">
+    <a href="/blog" class="blog-back">&larr; Back to Blog</a>
+  </div>
+</article>
+
+<footer>
+  <div class="footer-inner">
+    <div class="footer-brand"><a href="/" class="nav-logo">Heist<span>.</span></a><div class="footer-tagline">The brains behind the operation.</div></div>
+    <div class="footer-col"><h4>Product</h4><a href="/#features">Features</a><a href="/#pricing">Pricing</a><a href="/changelog">Changelog</a></div>
+    <div class="footer-col"><h4>Free Tools</h4><a href="/tools/hooks.html">Hook Generator</a><a href="/tools/character-counter.html">Character Counter</a><a href="/tools/brand-voice-analyzer.html">Brand Voice</a><a href="/tools/best-time-to-post.html">Best Time to Post</a><a href="/tools/" class="see-all-link">See all 15 &rarr;</a></div>
+    <div class="footer-col"><h4>Compare</h4><a href="/vs/jasper.html">vs Jasper</a><a href="/vs/buffer.html">vs Buffer</a><a href="/vs/hootsuite.html">vs Hootsuite</a></div>
+    <div class="footer-col"><h4>Company</h4><a href="/about">About</a><a href="/blog">Blog</a><a href="mailto:support@heistbrain.com">Contact</a></div>
+    <div class="footer-col"><h4>Legal</h4><a href="/privacy">Privacy</a><a href="/terms">Terms</a></div>
+  </div>
+  <div class="footer-bottom"><span>&copy; 2026 HeistBrain. All rights reserved.</span><span>Steal back your time.</span></div>
+</footer>
+
+<script>
+document.getElementById('nav-hamburger')?.addEventListener('click',()=>{document.getElementById('nav-links')?.classList.toggle('open')});
+document.querySelectorAll('#nav-links a').forEach(a=>{a.addEventListener('click',()=>{document.getElementById('nav-hamburger')?.classList.remove('active');document.getElementById('nav-links')?.classList.remove('open')})});
+</script>
+</body>
+</html>

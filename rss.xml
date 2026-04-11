@@ -6,7 +6,35 @@
     <atom:link href="https://heistbrain.com/rss.xml" rel="self" type="application/rss+xml" />
     <description>Content marketing insights, AI tools, and the playbooks we use to run Heist.</description>
     <language>en-us</language>
-    <lastBuildDate>Sat, 11 Apr 2026 05:49:36 GMT</lastBuildDate>
+    <lastBuildDate>Sat, 11 Apr 2026 08:00:00 GMT</lastBuildDate>
+    <item>
+      <title>Inside the Generator: How One Idea Becomes 30 On-Brand Posts — Heist</title>
+      <link>https://heistbrain.com/blog/inside-the-generator.html</link>
+      <guid isPermaLink="true">https://heistbrain.com/blog/inside-the-generator.html</guid>
+      <pubDate>Sat, 11 Apr 2026 00:00:00 GMT</pubDate>
+      <description>Behind the "month of content in 10 minutes" claim: the six-stage pipeline that turns a single sentence into 30 platform-native posts without ever sounding like six different people wrote them.</description>
+    </item>
+    <item>
+      <title>The Feedback Loop: How the Brain Learns From Your Engagement Data — Heist</title>
+      <link>https://heistbrain.com/blog/the-feedback-loop.html</link>
+      <guid isPermaLink="true">https://heistbrain.com/blog/the-feedback-loop.html</guid>
+      <pubDate>Sat, 11 Apr 2026 00:00:00 GMT</pubDate>
+      <description>Most AI tools ship content and forget about it. Heist's Brain watches what happens after publish — saves, shares, replies — and rewires its next generation.</description>
+    </item>
+    <item>
+      <title>Voice Drift Detection: The Guard Rail No Other AI Tool Has — Heist</title>
+      <link>https://heistbrain.com/blog/voice-drift-detection.html</link>
+      <guid isPermaLink="true">https://heistbrain.com/blog/voice-drift-detection.html</guid>
+      <pubDate>Sat, 11 Apr 2026 00:00:00 GMT</pubDate>
+      <description>AI-generated content gets blander over time. A phrase here, a tone shift there. Here's the layer-8 system that catches drift before your audience does.</description>
+    </item>
+    <item>
+      <title>The Scheduler: Why Heist's Calendar Isn't Just a Grid — Heist</title>
+      <link>https://heistbrain.com/blog/the-scheduler.html</link>
+      <guid isPermaLink="true">https://heistbrain.com/blog/the-scheduler.html</guid>
+      <pubDate>Sat, 11 Apr 2026 00:00:00 GMT</pubDate>
+      <description>Every scheduler looks the same from the outside. Heist's calendar uses temporal learning and brand rhythm detection to pick publish times the rest of the industry can't.</description>
+    </item>
     <item>
       <title>10 Hooks That Stop the Scroll (and How to Steal Them) — Heist</title>
       <link>https://heistbrain.com/blog/10-hooks-that-stop-scroll.html</link>

@@ -7,6 +7,38 @@
   "language": "en-us",
   "items": [
     {
+      "id": "https://heistbrain.com/blog/inside-the-generator.html",
+      "url": "https://heistbrain.com/blog/inside-the-generator.html",
+      "title": "Inside the Generator: How One Idea Becomes 30 On-Brand Posts — Heist",
+      "content_html": "",
+      "summary": "Behind the 'month of content in 10 minutes' claim: the six-stage pipeline that turns a single sentence into 30 platform-native posts without ever sounding like six different people wrote them.",
+      "date_published": "2026-04-11T00:00:00Z"
+    },
+    {
+      "id": "https://heistbrain.com/blog/the-feedback-loop.html",
+      "url": "https://heistbrain.com/blog/the-feedback-loop.html",
+      "title": "The Feedback Loop: How the Brain Learns From Your Engagement Data — Heist",
+      "content_html": "",
+      "summary": "Most AI tools ship content and forget about it. Heist's Brain watches what happens after publish — saves, shares, replies — and rewires its next generation.",
+      "date_published": "2026-04-11T00:00:00Z"
+    },
+    {
+      "id": "https://heistbrain.com/blog/voice-drift-detection.html",
+      "url": "https://heistbrain.com/blog/voice-drift-detection.html",
+      "title": "Voice Drift Detection: The Guard Rail No Other AI Tool Has — Heist",
+      "content_html": "",
+      "summary": "AI-generated content gets blander over time. A phrase here, a tone shift there. Here's the layer-8 system that catches drift before your audience does.",
+      "date_published": "2026-04-11T00:00:00Z"
+    },
+    {
+      "id": "https://heistbrain.com/blog/the-scheduler.html",
+      "url": "https://heistbrain.com/blog/the-scheduler.html",
+      "title": "The Scheduler: Why Heist's Calendar Isn't Just a Grid — Heist",
+      "content_html": "",
+      "summary": "Every scheduler looks the same from the outside. Heist's calendar uses temporal learning and brand rhythm detection to pick publish times the rest of the industry can't.",
+      "date_published": "2026-04-11T00:00:00Z"
+    },
+    {
       "id": "https://heistbrain.com/blog/10-hooks-that-stop-scroll.html",
       "url": "https://heistbrain.com/blog/10-hooks-that-stop-scroll.html",
       "title": "10 Hooks That Stop the Scroll (and How to Steal Them) — Heist",

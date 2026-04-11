@@ -1,0 +1,291 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>The Feedback Loop: How the Brain Learns From Your Engagement Data — Heist</title>
+<meta name="description" content="Most AI tools ship content and forget about it. Heist's Brain watches what happens after publish — saves, shares, replies, scroll-through — and rewires its next generation. Here's the self-improvement system the other tools don't have.">
+<meta name="keywords" content="AI content feedback loop, Heist Brain learning, engagement data AI, AI content self-improvement, performance learning AI, how Heist improves">
+<meta name="author" content="Morgan Miles">
+<meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1">
+<meta name="theme-color" content="#8B5CF6">
+
+<meta property="og:type" content="article">
+<meta property="og:locale" content="en_US">
+<meta property="og:title" content="The Feedback Loop: How the Brain Learns From Your Engagement Data">
+<meta property="og:description" content="Most AI tools ship and forget. The Brain watches what happens after publish and rewires.">
+<meta property="og:url" content="https://heistbrain.com/blog/the-feedback-loop.html">
+<meta property="og:site_name" content="Heist">
+<meta property="og:image" content="https://heistbrain.com/og-image.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="The Feedback Loop">
+<meta property="article:published_time" content="2026-04-11T00:00:00Z">
+<meta property="article:author" content="Morgan Miles">
+<meta property="article:section" content="Product Deep Dive">
+<meta property="article:tag" content="feedback loop, engagement, learning, product">
+
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:site" content="@heistbrain">
+<meta name="twitter:creator" content="@heistbrain">
+<meta name="twitter:title" content="The Feedback Loop: How the Brain Learns From Your Engagement">
+<meta name="twitter:description" content="Most AI tools ship and forget. The Brain watches what happens after publish.">
+<meta name="twitter:image" content="https://heistbrain.com/og-image.png">
+<meta name="twitter:label1" content="Written by">
+<meta name="twitter:data1" content="Morgan Miles">
+
+<link rel="canonical" href="https://heistbrain.com/blog/the-feedback-loop.html">
+
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"BlogPosting","headline":"The Feedback Loop: How the Brain Learns From Your Engagement Data","description":"Most AI tools ship and forget. The Brain watches what happens after publish and rewires its next generation.","image":"https://heistbrain.com/og-image.png","author":{"@type":"Person","name":"Morgan Miles","url":"https://heistbrain.com/about"},"publisher":{"@type":"Organization","name":"Heist","logo":{"@type":"ImageObject","url":"https://heistbrain.com/og-image.png"}},"datePublished":"2026-04-11","dateModified":"2026-04-11","mainEntityOfPage":{"@type":"WebPage","@id":"https://heistbrain.com/blog/the-feedback-loop.html"},"keywords":"Heist feedback loop, engagement learning AI, self-improving content","articleSection":"Product Deep Dive","inLanguage":"en-US"}
+</script>
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://heistbrain.com/"},{"@type":"ListItem","position":2,"name":"Blog","item":"https://heistbrain.com/blog"},{"@type":"ListItem","position":3,"name":"The Feedback Loop","item":"https://heistbrain.com/blog/the-feedback-loop.html"}]}
+</script>
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"What engagement data does Heist track?","acceptedAnswer":{"@type":"Answer","text":"Heist pulls likes, comments, shares, saves, impressions, and reach from the platforms you've connected. It also tracks which posts drove profile visits and follows, plus the relative performance of different hooks, lengths, and formats."}},{"@type":"Question","name":"How long until the Brain starts producing better output?","acceptedAnswer":{"@type":"Answer","text":"The Brain starts adjusting from the moment it has engagement data, but meaningful improvement typically shows up after 3 to 4 weeks of publishing. That's when the pattern recognition has enough signal to separate real trends from noise."}},{"@type":"Question","name":"Is my engagement data shared or used to train other brands?","acceptedAnswer":{"@type":"Answer","text":"No. Your engagement data lives in your Brain only. It's never used to train other users' Brains or a shared base model. Each Brain is siloed to the account that owns it."}}]}
+</script>
+<link rel="icon" href="/favicon.svg" type="image/svg+xml">
+<link rel="apple-touch-icon" href="/apple-touch-icon.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=DM+Sans:ital,opsz,wght@0,9..40,300..800;1,9..40,300..800&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-C4JK66ZQ43"></script>
+<script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','G-C4JK66ZQ43');</script>
+
+<style>
+*,*::before,*::after{margin:0;padding:0;box-sizing:border-box}
+:root{--bg:#06050C;--bg2:#0C0A18;--surface:rgba(16,13,30,0.55);--accent:#8B5CF6;--accent-hi:#A78BFA;--accent-lo:#6D28D9;--text:#F1F0F5;--text2:#908CA1;--text3:#57536B;--border:rgba(255,255,255,0.06);--border2:rgba(255,255,255,0.12);--fd:'Instrument Serif',Georgia,serif;--fb:'DM Sans',system-ui,sans-serif;--fm:'JetBrains Mono',monospace}
+html{scroll-behavior:smooth;overflow-x:clip}
+body{font-family:var(--fb);background:var(--bg);color:var(--text);line-height:1.65;-webkit-font-smoothing:antialiased;overflow-x:clip}
+nav{position:fixed;top:0;left:0;right:0;z-index:100;padding:0 48px;height:72px;display:flex;align-items:center;justify-content:space-between;background:rgba(6,5,12,0.85);backdrop-filter:blur(30px) saturate(1.5);border-bottom:1px solid var(--border)}
+.nav-logo{font-family:var(--fd);font-size:30px;color:var(--text);text-decoration:none;letter-spacing:0.02em}.nav-logo span{color:var(--accent)}
+.nav-links{display:flex;gap:36px;align-items:center}.nav-links a{color:var(--text2);text-decoration:none;font-size:14px;font-weight:500;letter-spacing:0.02em;transition:color 0.3s}.nav-links a:hover{color:var(--text)}
+.nav-dropdown{position:relative}
+.nav-dropdown-trigger{display:flex!important;align-items:center;gap:6px;cursor:pointer}
+.nav-caret-tools{width:12px;height:12px;flex-shrink:0;opacity:0.7;transition:transform 0.2s}
+.nav-dropdown:hover .nav-caret-tools{transform:rotate(180deg)}
+.nav-dropdown-menu{position:absolute;top:100%;left:50%;transform:translateX(-50%);background:rgba(12,10,24,0.96);backdrop-filter:blur(20px);border:1px solid rgba(255,255,255,0.12);border-radius:12px;padding:6px;min-width:200px;opacity:0;visibility:hidden;transition:opacity 0.2s,visibility 0.2s;margin-top:10px;z-index:200;box-shadow:0 8px 32px rgba(0,0,0,0.4)}
+.nav-dropdown:hover .nav-dropdown-menu{opacity:1;visibility:visible}
+.nav-dropdown-menu a{display:block!important;padding:10px 14px!important;font-size:14px!important;color:var(--text2)!important;border-radius:8px;white-space:nowrap;font-weight:500}
+.nav-dropdown-menu a:hover{color:white!important;background:rgba(139,92,246,0.12)}
+.nav-dropdown-menu a.see-all{border-top:1px solid rgba(255,255,255,0.08);margin-top:4px;padding-top:12px!important;color:var(--accent-hi)!important;font-weight:600}
+@media(max-width:768px){.nav-dropdown{width:100%}.nav-dropdown-menu{position:static;transform:none;opacity:1!important;visibility:visible!important;background:transparent;border:none;padding:0;margin:6px 0 0 16px;box-shadow:none;min-width:0}.nav-dropdown-menu a{padding:10px 0!important;font-size:16px!important}.nav-caret-tools{display:none}.nav-dropdown-trigger{font-weight:600}}
+.nav-cta{background:linear-gradient(135deg,#8B5CF6,#6D28D9)!important;color:#fff!important;border:none!important;padding:10px 24px;border-radius:10px;font-weight:600;font-size:13px;letter-spacing:0.03em}
+.nav-login{color:var(--text2);text-decoration:none;font-size:14px;font-weight:500;transition:color 0.3s}
+.nav-hamburger{display:none;flex-direction:column;gap:5px;background:none;border:none;cursor:pointer;padding:8px}.nav-hamburger span{display:block;width:22px;height:2px;background:var(--text);border-radius:1px}
+@media(max-width:768px){nav{padding:0 24px}.nav-hamburger{display:flex}.nav-links{position:fixed;top:0;right:-100%;width:280px;height:100vh;flex-direction:column;background:var(--bg2);padding:100px 32px 32px;border-left:1px solid var(--border2);transition:right 0.4s;gap:24px;z-index:105}.nav-links.open{right:0}.nav-links a{display:block!important;font-size:18px}}
+.blog-post{max-width:720px;margin:0 auto;padding:120px 20px 80px}
+.blog-post-category{display:inline-block;padding:4px 12px;border-radius:20px;font-size:12px;font-weight:600;text-transform:uppercase;letter-spacing:0.05em;margin-bottom:16px}
+.cat-strategy{background:rgba(74,222,128,0.15);color:#4ade80}.cat-product{background:rgba(139,92,246,0.15);color:#8b5cf6}
+.blog-post h1{font-size:36px;font-weight:800;line-height:1.2;color:white;margin-bottom:16px}
+@media(max-width:600px){.blog-post h1{font-size:28px}}
+.blog-post-meta{font-size:14px;color:rgba(255,255,255,0.4);margin-bottom:40px;padding-bottom:24px;border-bottom:1px solid rgba(255,255,255,0.08)}
+.blog-post-body{font-size:17px;line-height:1.8;color:rgba(255,255,255,0.75)}
+.blog-post-body h2{font-size:24px;font-weight:700;color:white;margin:40px 0 16px}
+.blog-post-body p{margin-bottom:20px}
+.blog-post-body strong{color:white;font-weight:600}
+.blog-post-body em{color:rgba(255,255,255,0.85)}
+.related-section{margin-top:64px;padding-top:40px;border-top:1px solid rgba(255,255,255,0.08)}
+.related-section h3{font-family:var(--fb);font-size:13px;text-transform:uppercase;letter-spacing:0.1em;color:var(--text3);margin-bottom:20px}
+.related-grid{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+@media(max-width:600px){.related-grid{grid-template-columns:1fr}}
+.related-card{padding:20px;background:rgba(255,255,255,0.03);border:1px solid rgba(255,255,255,0.08);border-radius:12px;text-decoration:none;transition:border-color 0.2s,transform 0.2s;display:block}
+.related-card:hover{border-color:rgba(139,92,246,0.4);transform:translateY(-2px)}
+.related-card .cat{font-size:11px;font-weight:600;color:var(--accent-hi);text-transform:uppercase;letter-spacing:0.05em}
+.related-card h4{font-size:16px;font-weight:700;color:white;margin:8px 0 6px;line-height:1.35}
+.related-card p{font-size:13px;color:var(--text2);line-height:1.5}
+.faq-section-blog{margin-top:56px;padding-top:40px;border-top:1px solid rgba(255,255,255,0.08)}
+.faq-section-blog h3{font-family:var(--fb);font-size:13px;text-transform:uppercase;letter-spacing:0.1em;color:var(--text3);margin-bottom:20px}
+.faq-item-blog{border:1px solid rgba(255,255,255,0.08);border-radius:10px;margin-bottom:10px;overflow:hidden;background:rgba(255,255,255,0.02)}
+.faq-item-blog summary{padding:18px 22px;cursor:pointer;font-weight:600;font-size:15px;color:white;list-style:none;display:flex;justify-content:space-between;align-items:center;user-select:none}
+.faq-item-blog summary::-webkit-details-marker{display:none}
+.faq-item-blog summary::after{content:'+';font-size:22px;color:var(--accent-hi);transition:transform 0.2s;line-height:1}
+.faq-item-blog[open] summary::after{transform:rotate(45deg)}
+.faq-item-blog p{padding:0 22px 18px;color:var(--text2);font-size:14px;line-height:1.7}
+.blog-post-cta{margin-top:48px;padding:32px;text-align:center;background:rgba(124,58,237,0.1);border:1px solid rgba(124,58,237,0.25);border-radius:16px}
+.blog-post-cta h3{font-size:22px;font-weight:700;color:white;margin-bottom:12px}
+.blog-post-cta p{color:rgba(255,255,255,0.6);margin-bottom:20px;font-size:15px}
+.blog-back{display:inline-block;color:#a78bfa;font-size:14px;font-weight:600;text-decoration:none;margin-bottom:24px}.blog-back:hover{color:#c4b5fd}
+.btn-primary{display:inline-flex;align-items:center;gap:10px;padding:16px 32px;background:linear-gradient(135deg,var(--accent),var(--accent-lo));color:white;border:none;border-radius:14px;font-family:var(--fb);font-size:16px;font-weight:600;cursor:pointer;text-decoration:none;box-shadow:0 0 30px rgba(139,92,246,0.25);transition:all 0.3s}.btn-primary:hover{transform:translateY(-2px);box-shadow:0 0 50px rgba(139,92,246,0.4)}
+footer{padding:80px 48px 40px;border-top:1px solid var(--border)}
+.footer-inner{max-width:1200px;margin:0 auto;display:grid;grid-template-columns:2fr 1fr 1fr 1fr 1fr 1fr;gap:32px}
+.footer-brand .nav-logo{margin-bottom:12px;display:inline-block}.footer-tagline{font-size:14px;color:var(--text3)}
+.footer-col h4{font-family:var(--fm);font-size:11px;letter-spacing:0.15em;text-transform:uppercase;color:var(--text3);margin-bottom:16px}
+.footer-col a{display:block;padding:4px 0;font-size:14px;color:var(--text2);text-decoration:none;transition:color 0.2s}.footer-col a:hover{color:var(--text)}
+.footer-bottom{max-width:1200px;margin:48px auto 0;padding-top:24px;border-top:1px solid var(--border);display:flex;justify-content:space-between;align-items:center;font-size:13px;color:var(--text3)}
+@media(max-width:1024px){.footer-inner{grid-template-columns:1fr 1fr 1fr;gap:32px}}
+@media(max-width:768px){footer{padding:60px 24px 40px}.footer-inner{grid-template-columns:1fr 1fr}.footer-bottom{flex-direction:column;gap:12px;text-align:center}}
+</style>
+</head>
+<body>
+
+<nav id="nav">
+  <a href="/" class="nav-logo">Heist<span>.</span></a>
+  <div class="nav-links" id="nav-links">
+    <a href="/#how">How It Works</a>
+    <div class="nav-dropdown">
+      <a href="/tools/" class="nav-dropdown-trigger">Tools <svg class="nav-caret-tools" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg></a>
+      <div class="nav-dropdown-menu">
+        <a href="/tools/hooks.html">Hook Generator</a>
+        <a href="/tools/character-counter.html">Character Counter</a>
+        <a href="/tools/brand-voice-analyzer.html">Brand Voice Analyzer</a>
+        <a href="/tools/best-time-to-post.html">Best Time to Post</a>
+        <a href="/tools/hashtag-generator.html">Hashtag Generator</a>
+        <a href="/tools/" class="see-all">See all 15 tools &rarr;</a>
+      </div>
+    </div>
+    <div class="nav-dropdown">
+      <a href="/for/" class="nav-dropdown-trigger">Solutions <svg class="nav-caret-tools" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg></a>
+      <div class="nav-dropdown-menu">
+        <a href="/for/agencies.html">For Agencies</a>
+        <a href="/for/coaches.html">For Coaches</a>
+        <a href="/for/consultants.html">For Consultants</a>
+        <a href="/for/ecommerce.html">For Ecommerce</a>
+        <a href="/for/fitness-creators.html">For Fitness Creators</a>
+        <a href="/for/freelancers.html">For Freelancers</a>
+        <a href="/for/real-estate.html">For Real Estate</a>
+        <a href="/for/saas.html">For SaaS</a>
+        <a href="/for/nonprofits.html">For Nonprofits</a>
+        <a href="/for/authors.html">For Authors</a>
+        <a href="/for/" class="see-all">See all solutions &rarr;</a>
+      </div>
+    </div>
+    <div class="nav-dropdown">
+      <a href="/resources/" class="nav-dropdown-trigger">Resources <svg class="nav-caret-tools" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg></a>
+      <div class="nav-dropdown-menu">
+        <a href="/guides/">Guides</a>
+        <a href="/benchmarks/">Benchmarks</a>
+        <a href="/blog">Blog</a>
+        <a href="/templates/">Templates</a>
+        <a href="/glossary/">Glossary</a>
+        <a href="/quiz/brand-voice.html">Brand Voice Quiz</a>
+        <a href="/resources/" class="see-all">All resources &rarr;</a>
+      </div>
+    </div>
+    <a href="/#pricing">Pricing</a>
+    <a href="https://app.heistbrain.com/#login" class="nav-login">Login</a>
+    <a href="https://app.heistbrain.com/#signup" class="nav-cta">Get Your Time Back &rarr;</a>
+  </div><button class="nav-hamburger" id="nav-hamburger" aria-label="Menu"><span></span><span></span><span></span></button>
+</nav>
+
+<article class="blog-post">
+  <a href="/blog" class="blog-back">&larr; Back to Blog</a>
+  <span class="blog-post-category cat-product">Product Deep Dive</span>
+  <h1>The Feedback Loop: How the Brain Learns From Your Engagement Data</h1>
+  <div class="blog-post-meta">Morgan Miles &middot; April 11, 2026</div>
+
+  <div class="blog-post-body">
+    <p>Most AI content tools are fire-and-forget. You type a prompt, you get output, you post it, the tool has no idea what happened next. It didn't see the comments. It didn't see the saves. It didn't see the single post that outperformed everything else by 8×. As far as the tool is concerned, every session starts from zero, because every session <em>does</em> start from zero.</p>
+
+    <p>Heist's Brain is the opposite. It watches what happens after you publish, and every week it gets a little sharper at writing the kind of content your audience actually responds to. This is the feedback loop. Here's what it actually does.</p>
+
+    <h2>What the Brain sees</h2>
+
+    <p>When you connect a platform (LinkedIn, X, Instagram, whatever), the Brain pulls engagement data on everything you've published through Heist. Likes, comments, shares, saves, impressions, reach, profile visits, follows — the standard set, but weighted differently than platform analytics weight them.</p>
+
+    <p>The signal the Brain cares most about isn't likes. Likes are cheap. The signals that matter are <em>saves</em> (intent), <em>replies</em> (conversation), <em>shares</em> (distribution), and <em>profile visits from a post</em> (conversion). Those are the behaviors that indicate a post actually moved someone. The Brain weights them accordingly when it ranks your content.</p>
+
+    <h2>Pattern recognition, not vibes</h2>
+
+    <p>Once there's enough data, the Brain starts identifying patterns. Not vague ones — specific ones. The opening pattern that drove 3× reply rate on your LinkedIn. The post length that consistently outperforms on Instagram. The day-of-week cadence where your X posts land. The hook style your audience saves more often than shares. The topics that always underperform no matter how well you write them.</p>
+
+    <p>These patterns aren't rules the Brain was programmed with. They're patterns specific to <em>you</em>. Nobody else's Brain has your patterns. Another creator in your exact niche has completely different ones because their audience reacts differently. This is the whole point: generic benchmarks tell you what "good" looks like on average; the feedback loop tells you what good looks like for your account.</p>
+
+    <h2>How it changes the next generation</h2>
+
+    <p>Patterns are inert until they change something. Here's what the feedback loop actually does with them.</p>
+
+    <p>Stage three of the generator (voice-layer injection — I wrote a <a href="/blog/inside-the-generator.html">separate post</a> about the pipeline) pulls from the Brain's pattern library when it's drafting. If your data shows that first-person stories outperform industry observations by 4× on LinkedIn, the generator will lean first-person on LinkedIn drafts. If your Instagram audience ignores anything over 1,200 characters but engages heavily with short punchy captions, the generator will cap Instagram captions tighter without being told to.</p>
+
+    <p>You didn't configure any of this. The Brain configured it by watching. The configuration updates every week as new posts get more engagement data attached. That's why the output at week six is noticeably better than the output at week one — not because the model got smarter, but because the feedback loop has more signal to work with.</p>
+
+    <h2>The compounding effect</h2>
+
+    <p>Most AI tools plateau. They're as good on day 100 as they were on day 1, because nothing's changing underneath. Heist compounds instead. Week one, the Brain is working from your brand voice doc and your past examples. Week four, it's also working from two dozen pieces of real performance data. Week twelve, it has enough signal to pick up patterns you didn't consciously know about. Week twenty, the output feels like it was written by someone who's been paying closer attention to your audience than you have.</p>
+
+    <p>That's not hyperbole. It's the math of a feedback loop with persistent memory. Every generation gets slightly better because every generation has slightly more signal to draw from. The curve isn't steep but it's one-way. You don't backslide.</p>
+
+    <h2>Why most tools can't do this</h2>
+
+    <p>There's a reason the feedback loop is rare in AI content tools, and it's not that the technology is hard. It's that most tools aren't architected to hold onto anything between sessions. They're prompt-in, output-out. There's no persistent data store per user, no per-brand model state, no place to park "this user's audience loves short hooks" for six months of future runs.</p>
+
+    <p>The Brain is that data store. It's the reason Heist can do pattern recognition at all. Building the feedback loop on top of a persistent memory system is straightforward; trying to retrofit it onto a stateless generator is a rebuild. Most tools won't do that rebuild because it changes what they fundamentally are.</p>
+
+    <p>We did it because we had to. The whole product falls apart without it. A generator that doesn't learn is just a prompt wrapper, and the world has plenty of those.</p>
+
+    <p>Want to watch the loop close? The free trial is seven days — enough to see the Brain pick up the first patterns from your first batch of posts.</p>
+  </div>
+
+  <div class="related-section">
+    <h3>Related reading</h3>
+    <div class="related-grid">
+      <a href="/blog/the-brain-10-layers.html" class="related-card">
+        <span class="cat">Product Deep Dive</span>
+        <h4>The Brain: 10 Layers of Memory That Change Everything</h4>
+        <p>The memory system the feedback loop lives inside. Layers 4 through 6 are the performance-learning layers.</p>
+      </a>
+      <a href="/blog/inside-the-generator.html" class="related-card">
+        <span class="cat">Product Deep Dive</span>
+        <h4>Inside the Generator: One Idea, 30 Posts</h4>
+        <p>The six-stage pipeline that pulls from the feedback loop on every generation.</p>
+      </a>
+      <a href="/blog/ai-tools-forget-you.html" class="related-card">
+        <span class="cat">Strategy</span>
+        <h4>Why Every AI Content Tool Forgets You</h4>
+        <p>The architectural reason most tools can't run a feedback loop — they can't hold state.</p>
+      </a>
+      <a href="/benchmarks/content-roi.html" class="related-card">
+        <span class="cat">Benchmarks</span>
+        <h4>Content Marketing ROI Benchmarks</h4>
+        <p>Honest numbers on how long it takes content to compound, with or without a feedback loop.</p>
+      </a>
+    </div>
+  </div>
+
+  <div class="faq-section-blog">
+    <h3>Frequently asked questions</h3>
+    <details class="faq-item-blog">
+      <summary>What engagement data does Heist track?</summary>
+      <p>Heist pulls likes, comments, shares, saves, impressions, and reach from the platforms you've connected. It also tracks which posts drove profile visits and follows, plus the relative performance of different hooks, lengths, and formats. The weighting is tuned so intent signals (saves, replies, shares) count more than low-effort signals (likes).</p>
+    </details>
+    <details class="faq-item-blog">
+      <summary>How long until the Brain starts producing better output?</summary>
+      <p>The Brain starts adjusting from the moment it has engagement data, but meaningful improvement typically shows up after 3 to 4 weeks of publishing. That's when the pattern recognition has enough signal to separate real trends from noise. By week 8-12, the improvement is obvious even to people outside your business.</p>
+    </details>
+    <details class="faq-item-blog">
+      <summary>Is my engagement data shared or used to train other brands?</summary>
+      <p>No. Your engagement data lives in your Brain only. It's never used to train other users' Brains or a shared base model. Each Brain is siloed to the account that owns it. This is structural, not a policy — the architecture literally doesn't allow cross-contamination.</p>
+    </details>
+  </div>
+
+  <div class="blog-post-cta">
+    <h3>Start the feedback loop</h3>
+    <p>Seven days free. Connect a platform, publish a few posts, watch the Brain pick up patterns.</p>
+    <a href="https://app.heistbrain.com" class="btn-primary">Try Heist Free for 7 Days</a>
+  </div>
+
+  <div style="margin-top:40px;">
+    <a href="/blog" class="blog-back">&larr; Back to Blog</a>
+  </div>
+</article>
+
+<footer>
+  <div class="footer-inner">
+    <div class="footer-brand"><a href="/" class="nav-logo">Heist<span>.</span></a><div class="footer-tagline">The brains behind the operation.</div></div>
+    <div class="footer-col"><h4>Product</h4><a href="/#features">Features</a><a href="/#pricing">Pricing</a><a href="/changelog">Changelog</a></div>
+    <div class="footer-col"><h4>Free Tools</h4><a href="/tools/hooks.html">Hook Generator</a><a href="/tools/character-counter.html">Character Counter</a><a href="/tools/brand-voice-analyzer.html">Brand Voice</a><a href="/tools/best-time-to-post.html">Best Time to Post</a><a href="/tools/" class="see-all-link">See all 15 &rarr;</a></div>
+    <div class="footer-col"><h4>Compare</h4><a href="/vs/jasper.html">vs Jasper</a><a href="/vs/buffer.html">vs Buffer</a><a href="/vs/hootsuite.html">vs Hootsuite</a></div>
+    <div class="footer-col"><h4>Company</h4><a href="/about">About</a><a href="/blog">Blog</a><a href="mailto:support@heistbrain.com">Contact</a></div>
+    <div class="footer-col"><h4>Legal</h4><a href="/privacy">Privacy</a><a href="/terms">Terms</a></div>
+  </div>
+  <div class="footer-bottom"><span>&copy; 2026 HeistBrain. All rights reserved.</span><span>Steal back your time.</span></div>
+</footer>
+
+<script>
+document.getElementById('nav-hamburger')?.addEventListener('click',()=>{document.getElementById('nav-links')?.classList.toggle('open')});
+document.querySelectorAll('#nav-links a').forEach(a=>{a.addEventListener('click',()=>{document.getElementById('nav-hamburger')?.classList.remove('active');document.getElementById('nav-links')?.classList.remove('open')})});
+</script>
+</body>
+</html>
