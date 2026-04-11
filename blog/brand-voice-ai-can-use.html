@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Brand Voice: How to Define It So an AI Can Actually Use It — Heist Brain</title>
+<meta name="description" content="Most brand voice guides are useless for AI. They say things like 'friendly but professional.' Here's how to write a brand voice document that a generator can follow — with examples.">
+
+<meta property="og:type" content="article">
+<meta property="og:title" content="Brand Voice: How to Define It So an AI Can Actually Use It">
+<meta property="og:description" content="Most brand voice guides are useless for AI. Here's how to write one that a generator can follow.">
+<meta property="og:url" content="https://heistbrain.com/blog/brand-voice-ai-can-use">
+<meta property="og:site_name" content="Heist">
+<meta property="og:image" content="https://heistbrain.com/og-image.png">
+
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Brand Voice: How to Define It So an AI Can Actually Use It">
+<meta name="twitter:description" content="Most brand voice guides are useless for AI. Here's how to write one that a generator can follow.">
+
+<link rel="canonical" href="https://heistbrain.com/blog/brand-voice-ai-can-use">
+<link rel="icon" href="/favicon.svg" type="image/svg+xml">
+<link rel="apple-touch-icon" href="/apple-touch-icon.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=DM+Sans:ital,opsz,wght@0,9..40,300..800;1,9..40,300..800&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-XXXXXXXXXX"></script>
+<script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','G-XXXXXXXXXX');</script>
+
+<style>
+*,*::before,*::after{margin:0;padding:0;box-sizing:border-box}
+:root{--bg:#06050C;--bg2:#0C0A18;--surface:rgba(16,13,30,0.55);--accent:#8B5CF6;--accent-hi:#A78BFA;--accent-lo:#6D28D9;--text:#F1F0F5;--text2:#908CA1;--text3:#57536B;--border:rgba(255,255,255,0.06);--border2:rgba(255,255,255,0.12);--fd:'Instrument Serif',Georgia,serif;--fb:'DM Sans',system-ui,sans-serif;--fm:'JetBrains Mono',monospace}
+html{scroll-behavior:smooth;overflow-x:clip}
+body{font-family:var(--fb);background:var(--bg);color:var(--text);line-height:1.65;-webkit-font-smoothing:antialiased;overflow-x:clip}
+nav{position:fixed;top:0;left:0;right:0;z-index:100;padding:0 48px;height:72px;display:flex;align-items:center;justify-content:space-between;background:rgba(6,5,12,0.85);backdrop-filter:blur(30px) saturate(1.5);border-bottom:1px solid var(--border)}
+.nav-logo{font-family:var(--fd);font-size:30px;color:var(--text);text-decoration:none;letter-spacing:0.02em}.nav-logo span{color:var(--accent)}
+.nav-links{display:flex;gap:36px;align-items:center}.nav-links a{color:var(--text2);text-decoration:none;font-size:14px;font-weight:500;letter-spacing:0.02em;transition:color 0.3s}.nav-links a:hover{color:var(--text)}
+.nav-cta{background:linear-gradient(135deg,#8B5CF6,#6D28D9)!important;color:#fff!important;border:none!important;padding:10px 24px;border-radius:10px;font-weight:600;font-size:13px;letter-spacing:0.03em}
+.nav-login{color:var(--text2);text-decoration:none;font-size:14px;font-weight:500;transition:color 0.3s}
+.nav-hamburger{display:none;flex-direction:column;gap:5px;background:none;border:none;cursor:pointer;padding:8px}.nav-hamburger span{display:block;width:22px;height:2px;background:var(--text);border-radius:1px}
+@media(max-width:768px){nav{padding:0 24px}.nav-hamburger{display:flex}.nav-links{position:fixed;top:0;right:-100%;width:280px;height:100vh;flex-direction:column;background:var(--bg2);padding:100px 32px 32px;border-left:1px solid var(--border2);transition:right 0.4s;gap:24px;z-index:105}.nav-links.open{right:0}.nav-links a{display:block!important;font-size:18px}}
+.blog-post{max-width:720px;margin:0 auto;padding:120px 20px 80px}
+.blog-post-category{display:inline-block;padding:4px 12px;border-radius:20px;font-size:12px;font-weight:600;text-transform:uppercase;letter-spacing:0.05em;margin-bottom:16px}
+.cat-strategy{background:rgba(74,222,128,0.15);color:#4ade80}.cat-product{background:rgba(139,92,246,0.15);color:#8b5cf6}
+.blog-post h1{font-size:36px;font-weight:800;line-height:1.2;color:white;margin-bottom:16px}
+@media(max-width:600px){.blog-post h1{font-size:28px}}
+.blog-post-meta{font-size:14px;color:rgba(255,255,255,0.4);margin-bottom:40px;padding-bottom:24px;border-bottom:1px solid rgba(255,255,255,0.08)}
+.blog-post-body{font-size:17px;line-height:1.8;color:rgba(255,255,255,0.75)}
+.blog-post-body h2{font-size:24px;font-weight:700;color:white;margin:40px 0 16px}
+.blog-post-body h3{font-size:19px;font-weight:700;color:white;margin:28px 0 12px}
+.blog-post-body p{margin-bottom:20px}
+.blog-post-body strong{color:white;font-weight:600}
+.blog-post-body em{color:rgba(255,255,255,0.85)}
+.blog-post-body ul,.blog-post-body ol{margin:0 0 24px 24px;padding:0}
+.blog-post-body li{margin-bottom:10px}
+.blog-post-body blockquote{margin:24px 0;padding:16px 20px;background:rgba(139,92,246,0.08);border-left:3px solid rgba(139,92,246,0.5);border-radius:4px;font-style:italic;color:rgba(255,255,255,0.85)}
+.blog-post-body code{background:rgba(255,255,255,0.06);padding:2px 8px;border-radius:4px;font-family:var(--fm);font-size:14px;color:#c4b5fd}
+.blog-post-cta{margin-top:48px;padding:32px;text-align:center;background:rgba(124,58,237,0.1);border:1px solid rgba(124,58,237,0.25);border-radius:16px}
+.blog-post-cta h3{font-size:22px;font-weight:700;color:white;margin-bottom:12px}
+.blog-post-cta p{color:rgba(255,255,255,0.6);margin-bottom:20px;font-size:15px}
+.blog-back{display:inline-block;color:#a78bfa;font-size:14px;font-weight:600;text-decoration:none;margin-bottom:24px}.blog-back:hover{color:#c4b5fd}
+.btn-primary{display:inline-flex;align-items:center;gap:10px;padding:16px 32px;background:linear-gradient(135deg,var(--accent),var(--accent-lo));color:white;border:none;border-radius:14px;font-family:var(--fb);font-size:16px;font-weight:600;cursor:pointer;text-decoration:none;box-shadow:0 0 30px rgba(139,92,246,0.25);transition:all 0.3s}.btn-primary:hover{transform:translateY(-2px);box-shadow:0 0 50px rgba(139,92,246,0.4)}
+footer{padding:80px 48px 40px;border-top:1px solid var(--border)}
+.footer-inner{max-width:1200px;margin:0 auto;display:grid;grid-template-columns:2fr 1fr 1fr 1fr;gap:48px}
+.footer-brand .nav-logo{margin-bottom:12px;display:inline-block}.footer-tagline{font-size:14px;color:var(--text3)}
+.footer-col h4{font-family:var(--fm);font-size:11px;letter-spacing:0.15em;text-transform:uppercase;color:var(--text3);margin-bottom:16px}
+.footer-col a{display:block;padding:4px 0;font-size:14px;color:var(--text2);text-decoration:none;transition:color 0.2s}.footer-col a:hover{color:var(--text)}
+.footer-bottom{max-width:1200px;margin:48px auto 0;padding-top:24px;border-top:1px solid var(--border);display:flex;justify-content:space-between;align-items:center;font-size:13px;color:var(--text3)}
+@media(max-width:1024px){.footer-inner{grid-template-columns:1fr 1fr 1fr;gap:32px}}
+@media(max-width:768px){footer{padding:60px 24px 40px}.footer-inner{grid-template-columns:1fr 1fr}.footer-bottom{flex-direction:column;gap:12px;text-align:center}}
+</style>
+</head>
+<body>
+
+<nav id="nav">
+  <a href="/" class="nav-logo">Heist<span>.</span></a>
+  <div class="nav-links" id="nav-links">
+    <a href="/#how">How It Works</a>
+    <a href="/#features">Features</a>
+    <a href="/#pricing">Pricing</a>
+    <a href="/#faq">FAQ</a>
+    <a href="https://app.heistbrain.com/#login" class="nav-login">Login</a>
+    <a href="https://app.heistbrain.com/#signup" class="nav-cta">Get Your Time Back &rarr;</a>
+  </div>
+  <button class="nav-hamburger" id="nav-hamburger" aria-label="Menu"><span></span><span></span><span></span></button>
+</nav>
+
+<article class="blog-post">
+  <a href="/blog" class="blog-back">&larr; Back to Blog</a>
+  <span class="blog-post-category cat-strategy">Content Strategy</span>
+  <h1>Brand Voice: How to Define It So an AI Can Actually Use It</h1>
+  <div class="blog-post-meta">Morgan Miles &middot; April 9, 2026</div>
+
+  <div class="blog-post-body">
+    <p>Most brand voice documents are useless for AI. They're written for humans &mdash; specifically, for junior designers and new copywriters on the marketing team &mdash; so they lean on phrases that feel meaningful but don't translate into instructions a model can follow.</p>
+
+    <p>You've seen these documents. They say things like:</p>
+
+    <blockquote>Our voice is friendly but professional. Confident but humble. Approachable but authoritative. Modern but timeless.</blockquote>
+
+    <p>Every word in that sentence cancels out the word next to it. A human reading it will nod and feel like they've absorbed something. An AI reading it will produce the blandest content imaginable because you've given it permission to be anything.</p>
+
+    <p>If you want an AI tool to generate content that sounds like you, your brand voice guide has to be written differently. Here's how.</p>
+
+    <h2>The three things an AI actually needs</h2>
+
+    <p>Forget the adjective soup. A model can use three specific things:</p>
+
+    <ol>
+      <li><strong>Examples of text that sounds like you.</strong> Real paragraphs. Not descriptions of paragraphs.</li>
+      <li><strong>Explicit rules about what you don't do.</strong> Specific words you avoid. Specific moves you never make.</li>
+      <li><strong>Comparisons to known references.</strong> "Closer to Wait But Why than to Harvard Business Review."</li>
+    </ol>
+
+    <p>Everything else is decoration. Let's go through each one.</p>
+
+    <h2>1. Examples: the most important thing</h2>
+
+    <p>An AI model trained on most of the internet already knows how to write in a hundred different voices. What it doesn't know is which one <em>you</em> sound like. The fastest way to tell it is to show it.</p>
+
+    <p>Give it three to five paragraphs of text that you've already written and already love. Not text someone else wrote for you. Not text you think you <em>should</em> sound like. Actual text that came out of your head, that you read and thought "yeah, that's me."</p>
+
+    <p>Label each one:</p>
+
+    <ul>
+      <li><code>VOICE_EXAMPLE_1</code> &mdash; a short caption in your casual mode</li>
+      <li><code>VOICE_EXAMPLE_2</code> &mdash; a longer post where you explained something</li>
+      <li><code>VOICE_EXAMPLE_3</code> &mdash; a personal story you told publicly</li>
+      <li><code>VOICE_EXAMPLE_4</code> &mdash; a direct sales pitch or CTA</li>
+      <li><code>VOICE_EXAMPLE_5</code> &mdash; your most technical or detailed explanation of something</li>
+    </ul>
+
+    <p>Those five cover the range. Casual, explanatory, personal, persuasive, technical. If you give a generator those five, it can triangulate. It can figure out which mode to use for a given prompt because it has a reference point for each one. Without examples, it's guessing.</p>
+
+    <h2>2. The "never list": what not to sound like</h2>
+
+    <p>Positive instructions are weak because "be friendly" describes 80% of the internet. Negative instructions are strong because "never use the word <em>journey</em>" is specific and enforceable.</p>
+
+    <p>Write a never list. Mine looks something like this:</p>
+
+    <ul>
+      <li>Never use the word <em>journey</em> unless describing actual travel</li>
+      <li>Never start a sentence with "In today's fast-paced world"</li>
+      <li>Never use "unlock" as a verb for abstract things</li>
+      <li>Never write "game-changer" or "paradigm shift"</li>
+      <li>Never use a question as a hook when a statement would work</li>
+      <li>Never cluster three adjectives together ("innovative, scalable, cutting-edge")</li>
+      <li>Never use an em-dash where a period would do the same job</li>
+      <li>Never write in the third person about yourself</li>
+    </ul>
+
+    <p>Your list will be different. The point is that each line is specific enough that a model (or a human copywriter) can actually check whether they violated it. "Be authentic" is not actionable. "Don't use the word <em>authentic</em>" is.</p>
+
+    <p>Ten to fifteen rules is plenty. More than that and you've just written a stylebook, which is a different kind of document.</p>
+
+    <h2>3. Comparisons: the fastest shortcut</h2>
+
+    <p>Models have read a lot. They know what specific writers and publications sound like. You can borrow that knowledge for free.</p>
+
+    <p>Write a paragraph like this:</p>
+
+    <blockquote>Our voice is closer to a personal newsletter from a smart friend than to a corporate blog. Think Packy McCormick more than McKinsey. Think the tone of a long Twitter thread, not the tone of a press release. We're more like Rand Fishkin's Whiteboard Friday than a white paper.</blockquote>
+
+    <p>That paragraph does more work than five pages of adjectives. The model understands the references. It can interpolate between them. It knows the difference between "Packy McCormick" and "press release" in a way that no amount of "approachable but authoritative" ever captures.</p>
+
+    <p>Pick three or four references. Mix positive ones (what you want to sound like) with negative ones (what you don't). Corporate blog vs newsletter. Academic paper vs rant. Whatever is closest to the actual gap you want to describe.</p>
+
+    <h2>What a finished brand voice doc looks like</h2>
+
+    <p>When you put it all together, a brand voice doc that works with AI is about two pages. Not twenty. Two. Here's the structure:</p>
+
+    <ol>
+      <li><strong>One sentence about what the brand is.</strong> Not what it does. What it is. "A content tool for people who are tired of re-explaining themselves to AI."</li>
+      <li><strong>Three to four comparisons.</strong> "Closer to X than to Y."</li>
+      <li><strong>Five voice examples.</strong> Actual paragraphs from your own work, labeled.</li>
+      <li><strong>A never list of ten to fifteen rules.</strong></li>
+      <li><strong>Three audience descriptions.</strong> Who you're talking to and what they care about.</li>
+      <li><strong>Three core beliefs or takes.</strong> The things you say often because you actually believe them.</li>
+    </ol>
+
+    <p>That's it. Two pages. A human can read it in three minutes and immediately write in the right voice. A model can ingest it and generate content that actually sounds like you.</p>
+
+    <h2>Why this matters more with AI than without</h2>
+
+    <p>When a human writes your content, they absorb your voice by osmosis over time. They read your past work. They edit their first drafts after getting feedback. They develop a feel for it. Your brand voice document is mostly a crutch &mdash; the real learning happens on the job.</p>
+
+    <p>AI doesn't work like that. An AI generator starts from scratch every session unless you give it persistent memory. It has no long-term relationship with your work. Whatever you put in the brand voice doc is <em>all it knows</em>. If you wrote fluff, it produces fluff. If you wrote specifics, it produces specifics.</p>
+
+    <p>This is one of the reasons Heist has a dedicated Brain for each brand &mdash; a structured profile plus memory facts plus example content plus a never list, all in one place. It's the form the brand voice document should have been all along. Once you have it set up, every generation after that is better than the one before because the Brain keeps learning from what works.</p>
+
+    <p>But the upgrade only happens if you do the work up front. Two pages. Specific examples. A never list with real rules. Three references. An audience. Your actual beliefs. If you give a tool those six things, it will sound like you. If you give it adjective soup, it'll sound like everyone else.</p>
+  </div>
+
+  <div class="blog-post-cta">
+    <h3>Set up a Brain that actually sounds like you.</h3>
+    <p>Heist turns your voice examples, never list, and audience into a persistent Brain the generator uses on every post.</p>
+    <a href="https://app.heistbrain.com/#signup" class="btn-primary">Start Free Trial</a>
+  </div>
+
+  <div style="margin-top:40px;">
+    <a href="/blog" class="blog-back">&larr; Back to Blog</a>
+  </div>
+</article>
+
+<footer>
+  <div class="footer-inner">
+    <div class="footer-brand"><a href="/" class="nav-logo">Heist<span>.</span></a><div class="footer-tagline">The brains behind the operation.</div></div>
+    <div class="footer-col"><h4>Product</h4><a href="/#features">Features</a><a href="/#pricing">Pricing</a><a href="/changelog">Changelog</a></div>
+    <div class="footer-col"><h4>Company</h4><a href="/about">About</a><a href="/blog">Blog</a><a href="mailto:support@heistbrain.com">Contact</a></div>
+    <div class="footer-col"><h4>Legal</h4><a href="/privacy">Privacy</a><a href="/terms">Terms</a></div>
+  </div>
+  <div class="footer-bottom"><span>&copy; 2026 HeistBrain. All rights reserved.</span><span>Steal back your time.</span></div>
+</footer>
+
+<script>
+document.getElementById('nav-hamburger')?.addEventListener('click',()=>{document.getElementById('nav-links')?.classList.toggle('open')});
+document.querySelectorAll('#nav-links a').forEach(a=>{a.addEventListener('click',()=>{document.getElementById('nav-hamburger')?.classList.remove('active');document.getElementById('nav-links')?.classList.remove('open')})});
+</script>
+</body>
+</html>
