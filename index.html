@@ -181,6 +181,7 @@ nav.scrolled { background: rgba(6,5,12,0.85); border-color: var(--border2); }
   color: var(--text2) !important; white-space: nowrap;
 }
 .nav-dropdown-menu a:hover { color: var(--text) !important; background: rgba(139,92,246,0.06); }
+.nav-dropdown-menu a.see-all { border-top: 1px solid rgba(255,255,255,0.08); margin-top: 4px; padding-top: 12px !important; color: var(--accent-hi) !important; font-weight: 600; }
 .nav-dropdown-menu a::after { display: none !important; }
 
 /* Hamburger */
@@ -795,10 +796,14 @@ footer { padding: 80px 48px 40px; border-top: 1px solid var(--border); }
     <a href="#pricing">Pricing</a>
     <a href="#faq">FAQ</a>
     <div class="nav-dropdown">
-      <a href="/tools/hooks.html" class="nav-dropdown-trigger">Tools <svg class="nav-caret-tools" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg></a>
+      <a href="/tools/" class="nav-dropdown-trigger">Tools <svg class="nav-caret-tools" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg></a>
       <div class="nav-dropdown-menu">
         <a href="/tools/hooks.html">Hook Generator</a>
         <a href="/tools/character-counter.html">Character Counter</a>
+        <a href="/tools/brand-voice-analyzer.html">Brand Voice Analyzer</a>
+        <a href="/tools/best-time-to-post.html">Best Time to Post</a>
+        <a href="/tools/hashtag-generator.html">Hashtag Generator</a>
+        <a href="/tools/" class="see-all">See all 15 tools &rarr;</a>
       </div>
     </div>
     <div class="nav-dropdown">
@@ -1465,7 +1470,7 @@ footer { padding: 80px 48px 40px; border-top: 1px solid var(--border); }
       <div class="footer-tagline">The brains behind the operation.</div>
     </div>
     <div class="footer-col"><h4>Product</h4><a href="#features">Features</a><a href="#pricing">Pricing</a><a href="/changelog">Changelog</a></div>
-    <div class="footer-col"><h4>Free Tools</h4><a href="/tools/hooks.html">Hook Generator</a><a href="/tools/character-counter.html">Character Counter</a></div>
+    <div class="footer-col"><h4>Free Tools</h4><a href="/tools/hooks.html">Hook Generator</a><a href="/tools/character-counter.html">Character Counter</a><a href="/tools/brand-voice-analyzer.html">Brand Voice</a><a href="/tools/best-time-to-post.html">Best Time to Post</a><a href="/tools/" class="see-all-link">See all 15 &rarr;</a></div>
     <div class="footer-col"><h4>Compare</h4><a href="/vs/jasper.html">vs Jasper</a><a href="/vs/buffer.html">vs Buffer</a><a href="/vs/hootsuite.html">vs Hootsuite</a></div>
     <div class="footer-col"><h4>For</h4><a href="/for/freelancers.html">Freelancers</a><a href="/for/agencies.html">Agencies</a></div>
     <div class="footer-col"><h4>Company</h4><a href="/about">About</a><a href="/blog">Blog</a><a href="mailto:support@heistbrain.com">Contact</a></div>

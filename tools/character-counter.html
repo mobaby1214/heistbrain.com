@@ -64,6 +64,7 @@ nav{position:fixed;top:0;left:0;right:0;z-index:100;padding:0 48px;height:72px;d
 .nav-dropdown:hover .nav-dropdown-menu{opacity:1;visibility:visible}
 .nav-dropdown-menu a{display:block!important;padding:10px 14px!important;font-size:14px!important;color:var(--text2)!important;border-radius:8px;white-space:nowrap;font-weight:500}
 .nav-dropdown-menu a:hover{color:white!important;background:rgba(139,92,246,0.12)}
+.nav-dropdown-menu a.see-all{border-top:1px solid rgba(255,255,255,0.08);margin-top:4px;padding-top:12px!important;color:var(--accent-hi)!important;font-weight:600}
 @media(max-width:768px){.nav-dropdown{width:100%}.nav-dropdown-menu{position:static;transform:none;opacity:1!important;visibility:visible!important;background:transparent;border:none;padding:0;margin:6px 0 0 16px;box-shadow:none;min-width:0}.nav-dropdown-menu a{padding:10px 0!important;font-size:16px!important}.nav-caret-tools{display:none}.nav-dropdown-trigger{font-weight:600}}
 .nav-cta{background:linear-gradient(135deg,#8B5CF6,#6D28D9)!important;color:#fff!important;border:none!important;padding:10px 24px;border-radius:10px;font-weight:600;font-size:13px}
 .nav-login{color:var(--text2);text-decoration:none;font-size:14px;font-weight:500}
@@ -135,10 +136,14 @@ footer{padding:80px 48px 40px;border-top:1px solid var(--border);margin-top:40px
     <a href="/#features">Features</a>
     <a href="/#pricing">Pricing</a>
     <div class="nav-dropdown">
-      <a href="/tools/hooks.html" class="nav-dropdown-trigger">Tools <svg class="nav-caret-tools" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg></a>
+      <a href="/tools/" class="nav-dropdown-trigger">Tools <svg class="nav-caret-tools" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg></a>
       <div class="nav-dropdown-menu">
         <a href="/tools/hooks.html">Hook Generator</a>
         <a href="/tools/character-counter.html">Character Counter</a>
+        <a href="/tools/brand-voice-analyzer.html">Brand Voice Analyzer</a>
+        <a href="/tools/best-time-to-post.html">Best Time to Post</a>
+        <a href="/tools/hashtag-generator.html">Hashtag Generator</a>
+        <a href="/tools/" class="see-all">See all 15 tools &rarr;</a>
       </div>
     </div>
     <div class="nav-dropdown">
@@ -214,9 +219,10 @@ footer{padding:80px 48px 40px;border-top:1px solid var(--border);margin-top:40px
   <div class="footer-inner">
     <div class="footer-brand"><a href="/" class="nav-logo">Heist<span>.</span></a><div class="footer-tagline">The brains behind the operation.</div></div>
     <div class="footer-col"><h4>Product</h4><a href="/#features">Features</a><a href="/#pricing">Pricing</a><a href="/changelog">Changelog</a></div>
-    <div class="footer-col"><h4>Free Tools</h4><a href="/tools/hooks.html">Hook Generator</a><a href="/tools/character-counter.html">Character Counter</a></div>
+    <div class="footer-col"><h4>Free Tools</h4><a href="/tools/hooks.html">Hook Generator</a><a href="/tools/character-counter.html">Character Counter</a><a href="/tools/brand-voice-analyzer.html">Brand Voice</a><a href="/tools/best-time-to-post.html">Best Time to Post</a><a href="/tools/" class="see-all-link">See all 15 &rarr;</a></div>
     <div class="footer-col"><h4>Compare</h4><a href="/vs/jasper.html">vs Jasper</a><a href="/vs/buffer.html">vs Buffer</a><a href="/vs/hootsuite.html">vs Hootsuite</a></div>
     <div class="footer-col"><h4>Company</h4><a href="/about">About</a><a href="/blog">Blog</a><a href="mailto:support@heistbrain.com">Contact</a></div>
+    <div class="footer-col"><h4>Legal</h4><a href="/privacy">Privacy</a><a href="/terms">Terms</a></div>
   </div>
   <div class="footer-bottom"><span>&copy; 2026 HeistBrain. All rights reserved.</span><span>Steal back your time.</span></div>
 </footer>
