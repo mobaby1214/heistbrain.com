@@ -1,4 +1,37 @@
+# Heist Brain — robots.txt
+# https://heistbrain.com
+
 User-agent: *
+Allow: /
+Disallow: /.claude/
+Disallow: /.git/
+
+# Allow major AI crawlers for citation / discovery
+User-agent: GPTBot
+Allow: /
+
+User-agent: ChatGPT-User
+Allow: /
+
+User-agent: OAI-SearchBot
+Allow: /
+
+User-agent: ClaudeBot
+Allow: /
+
+User-agent: Claude-Web
+Allow: /
+
+User-agent: PerplexityBot
+Allow: /
+
+User-agent: Google-Extended
+Allow: /
+
+User-agent: Applebot-Extended
+Allow: /
+
+User-agent: CCBot
 Allow: /
 
 Sitemap: https://heistbrain.com/sitemap.xml
