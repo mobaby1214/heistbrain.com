@@ -87,7 +87,8 @@ nav{position:fixed;top:0;left:0;right:0;z-index:100;padding:0 48px;height:72px;d
 .pain-grid{display:grid;grid-template-columns:1fr 1fr 1fr;gap:20px;margin:32px 0 40px}
 @media(max-width:768px){.pain-grid{grid-template-columns:1fr}}
 .pain-card{padding:24px;background:rgba(255,255,255,0.03);border:1px solid rgba(255,255,255,0.08);border-radius:14px}
-.pain-card .icon{font-size:28px;margin-bottom:10px;display:block}
+.pain-card .icon{display:inline-flex;align-items:center;justify-content:center;width:44px;height:44px;border-radius:12px;background:linear-gradient(135deg,rgba(139,92,246,0.15),rgba(139,92,246,0.05));border:1px solid rgba(139,92,246,0.25);color:var(--accent-hi);margin-bottom:14px}
+.pain-card .icon svg{width:22px;height:22px}
 .pain-card h3{font-size:16px;color:white;margin-bottom:8px}
 .pain-card p{font-size:14px;color:var(--text2);line-height:1.6}
 
@@ -171,17 +172,17 @@ footer{padding:80px 48px 40px;border-top:1px solid var(--border)}
     <h2>Three agency pains, three fixes</h2>
     <div class="pain-grid">
       <div class="pain-card">
-        <span class="icon">🧠</span>
+        <span class="icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2a4.5 4.5 0 0 0-4.5 4.5A4.5 4.5 0 0 0 3 11a4.5 4.5 0 0 0 4.5 4.5A4.5 4.5 0 0 0 12 20a4.5 4.5 0 0 0 4.5-4.5A4.5 4.5 0 0 0 21 11a4.5 4.5 0 0 0-4.5-4.5A4.5 4.5 0 0 0 12 2Z"/><path d="M12 2v18"/></svg></span>
         <h3>Pain: Brand voice chaos</h3>
         <p>12 clients means 12 different voices. New team members spend weeks learning each one. Voice drift is constant.</p>
       </div>
       <div class="pain-card">
-        <span class="icon">📊</span>
+        <span class="icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="20" x2="18" y2="10"/><line x1="12" y1="20" x2="12" y2="4"/><line x1="6" y1="20" x2="6" y2="14"/><line x1="3" y1="20" x2="21" y2="20"/></svg></span>
         <h3>Pain: Fragmented reporting</h3>
         <p>Every client needs a monthly report. You pull metrics from 4 different tools per client. 48 manual pulls a month.</p>
       </div>
       <div class="pain-card">
-        <span class="icon">💸</span>
+        <span class="icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="1" x2="12" y2="23"/><path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></svg></span>
         <h3>Pain: Stack cost per client</h3>
         <p>Scheduler + generator + analytics = $50-120 per client per month. At 12 clients that's $600-1440 in tool costs alone.</p>
       </div>
