@@ -145,6 +145,18 @@
     <priority>0.8</priority>
   </url>
   <url>
+    <loc>https://heistbrain.com/blog/heist-brain-setup-guide.html</loc>
+    <lastmod>2026-04-14</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://heistbrain.com/blog/closed-loop.html</loc>
+    <lastmod>2026-04-14</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
     <loc>https://heistbrain.com/blog/ai-tools-forget-you.html</loc>
     <lastmod>2026-04-11</lastmod>
     <changefreq>weekly</changefreq>
