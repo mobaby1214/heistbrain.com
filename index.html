@@ -820,6 +820,49 @@ footer { padding: 80px 48px 40px; border-top: 1px solid var(--border); }
 @media (max-width: 1024px) and (min-width: 769px) {
   .seo-grid { grid-template-columns: repeat(2, 1fr); }
 }
+
+/* ═══════════ CONNECTOR (MCP) SECTION ═══════════ */
+.connector { padding: 100px 0; }
+.connector-header { text-align: center; margin-bottom: 60px; }
+.connector-stat {
+  display: inline-flex; align-items: center; gap: 8px;
+  padding: 8px 16px; border-radius: 20px; font-size: 13px; font-weight: 600;
+  background: rgba(139,92,246,0.08); border: 1px solid rgba(139,92,246,0.18); color: var(--accent-hi);
+  margin-bottom: 20px;
+}
+.connector-stat span { font-size: 18px; }
+.connector-grid {
+  display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; margin-top: 40px;
+}
+.connector-card {
+  padding: 28px; border-radius: 16px; background: var(--surface);
+  border: 1px solid var(--border); transition: all 0.3s var(--ease);
+}
+.connector-card:hover { border-color: rgba(139,92,246,0.25); transform: translateY(-3px); }
+.connector-card-client {
+  font-family: var(--fm); font-size: 11px; letter-spacing: 0.1em;
+  color: var(--text3); margin-bottom: 10px; text-transform: uppercase;
+}
+.connector-card h4 { font-family: var(--fd); font-size: 18px; margin-bottom: 8px; font-weight: 400; }
+.connector-card p { font-size: 13px; color: var(--text2); line-height: 1.7; }
+.connector-card code {
+  font-family: var(--fm); font-size: 12px; padding: 2px 6px;
+  background: rgba(139,92,246,0.08); border-radius: 4px; color: var(--accent-hi);
+}
+.connector-bottom {
+  text-align: center; margin-top: 48px; padding: 32px;
+  border-radius: 16px; background: rgba(139,92,246,0.04);
+  border: 1px solid rgba(139,92,246,0.1);
+}
+.connector-bottom p { font-size: 15px; color: var(--text2); max-width: 640px; margin: 0 auto; line-height: 1.7; }
+.connector-bottom strong { color: var(--text); }
+
+@media (max-width: 768px) {
+  .connector-grid { grid-template-columns: 1fr; }
+}
+@media (max-width: 1024px) and (min-width: 769px) {
+  .connector-grid { grid-template-columns: repeat(2, 1fr); }
+}
 </style>
 </head>
 <body>
@@ -1265,6 +1308,56 @@ footer { padding: 80px 48px 40px; border-top: 1px solid var(--border); }
 
 <div class="divider"></div>
 
+<!-- ═══════════ CONNECTOR (MCP + Any-LLM) ═══════════ -->
+<section class="connector" id="connector">
+  <div class="container">
+    <div class="connector-header">
+      <div class="connector-stat r"><span>🔌</span> Any LLM. Any direction. One Brain.</div>
+      <h2 class="r" style="font-family:var(--fd);font-size:36px;font-weight:400;">The <em>Connector</em></h2>
+      <p class="r" style="max-width:640px;margin:12px auto 0;font-size:15px;color:var(--text2);line-height:1.7;">Plug Heist into Claude and ChatGPT via MCP, or pipe Anthropic, OpenAI, and Gemini into Heist as your generation engine. Every draft — inbound or outbound — is grounded in your Brand Brain and lands in the Agent Inbox for one-click approval.</p>
+    </div>
+
+    <div class="connector-grid">
+      <div class="connector-card r">
+        <div class="connector-card-client">Claude.ai · MCP</div>
+        <h4>Plan Inside Claude</h4>
+        <p>Paste your Heist MCP URL into Claude's Connectors settings, approve once, and Claude can draft posts grounded in your Brand Brain — without leaving the chat.</p>
+      </div>
+      <div class="connector-card r">
+        <div class="connector-card-client">ChatGPT · MCP</div>
+        <h4>Plan Inside ChatGPT</h4>
+        <p>Add Heist as a custom connector in ChatGPT. Ask for a month of content, a variation of a winner, or a campaign — drafts flow straight to your Agent Inbox.</p>
+      </div>
+      <div class="connector-card r">
+        <div class="connector-card-client">Desktop &amp; IDEs</div>
+        <h4>Claude Desktop, Cursor, Windsurf</h4>
+        <p>Run <code>npx heist-mcp connect</code> and your desktop chat or editor gains 19 Heist tools: brand context, drafts, scheduling, performance signals, and the full library.</p>
+      </div>
+      <div class="connector-card r">
+        <div class="connector-card-client">Any LLM · Input</div>
+        <h4>Bring Your Own Model</h4>
+        <p>Plug Anthropic, OpenAI, or Google Gemini directly into Heist as your generation engine. Swap models per brand, per campaign, or per post — the Brain grounds every one the same way.</p>
+      </div>
+      <div class="connector-card r">
+        <div class="connector-card-client">LLM Output · Import</div>
+        <h4>Paste From Anywhere</h4>
+        <p>Already drafted in Gemini, Perplexity, or another tool? Paste the output into Heist and the Brain rewrites it to your voice, adds platform formatting, and files it for approval.</p>
+      </div>
+      <div class="connector-card r">
+        <div class="connector-card-client">Agent Inbox</div>
+        <h4>Always Grounded, Always Reviewed</h4>
+        <p>Every draft — inbound, outbound, pasted, or API — lands in one inbox. Edit inline, bulk-approve, or reject with a reason. Rejections teach the Brain what not to write. Approvals teach it what works.</p>
+      </div>
+    </div>
+
+    <div class="connector-bottom r">
+      <p><strong>One Brain. Every LLM. Every chat.</strong> Your voice, audience, and winning patterns travel with you into Claude, ChatGPT, Gemini, Cursor, and anywhere else you already work — no prompt engineering, no copy-paste chaos, no drift.</p>
+    </div>
+  </div>
+</section>
+
+<div class="divider"></div>
+
 <!-- ═══════════ TRUST & SECURITY ═══════════ -->
 <section style="padding:80px 0">
   <div class="container">
@@ -1385,6 +1478,7 @@ footer { padding: 80px 48px 40px; border-top: 1px solid var(--border); }
           <tr><td>Full-fidelity previews</td><td class="comp-heist comp-yes">✓</td><td class="comp-no">✕</td><td class="comp-partial">Partial</td><td class="comp-partial">Partial</td></tr>
           <tr><td>Multi-platform scheduling</td><td class="comp-heist comp-yes">✓ (6 platforms)</td><td class="comp-no">✕</td><td class="comp-yes">✓</td><td class="comp-yes">✓</td></tr>
           <tr><td>TikTok + YouTube video</td><td class="comp-heist comp-yes">✓</td><td class="comp-no">✕</td><td class="comp-partial">Partial</td><td class="comp-yes">✓</td></tr>
+          <tr><td>AI chat + LLM connector</td><td class="comp-heist comp-yes">✓ (MCP + any model)</td><td class="comp-no">✕</td><td class="comp-no">✕</td><td class="comp-no">✕</td></tr>
           <tr><td>Social SEO optimization</td><td class="comp-heist comp-yes">✓ (per-platform)</td><td class="comp-no">✕</td><td class="comp-no">✕</td><td class="comp-no">✕</td></tr>
           <tr><td>Campaign organization</td><td class="comp-heist comp-yes">✓</td><td class="comp-no">✕</td><td class="comp-no">✕</td><td class="comp-partial">Partial</td></tr>
           <tr><td>Content calendar</td><td class="comp-heist comp-yes">✓</td><td class="comp-no">✕</td><td class="comp-yes">✓</td><td class="comp-yes">✓</td></tr>
