@@ -1011,12 +1011,9 @@ footer { padding: 80px 48px 40px; border-top: 1px solid var(--border); }
       </div>
       <!-- TRUST STRIP -->
       <div class="trust-strip">
-        <div class="trust-avatars">
-          <span>J</span><span>A</span><span>M</span><span>K</span><span>S</span>
-        </div>
-        <div>
-          <div class="trust-stars">★★★★★</div>
-          <div class="trust-text"><strong>Trusted</strong> by creators and small businesses in early access <span style="margin-left:12px;font-size:13px;color:rgba(241,240,245,.6)">Rated highly by early access users</span></div>
+        <div class="trust-text" style="font-size:14px;color:var(--text2);">
+          <strong style="color:var(--text);">Early access — open now.</strong>
+          <span style="margin-left:8px;">Set up your Brain in 10 minutes.</span>
         </div>
       </div>
       <div class="hero-stats">
@@ -1142,6 +1139,7 @@ footer { padding: 80px 48px 40px; border-top: 1px solid var(--border); }
       <div class="testimonial"><div class="testimonial-stars">★★★★★</div><div class="testimonial-text">"Everyone asks how I post so consistently across 6 platforms. I tell them it's classified."</div><div class="testimonial-author"><span class="testimonial-avatar">CL</span><span>Casey L., Social Media Manager</span></div></div>
     </div>
   </div>
+  <p style="text-align:center;margin:20px auto 0;font-size:12px;color:var(--text3);max-width:600px;letter-spacing:0.02em;">Select feedback from early access users. Names shortened for privacy.</p>
 </section>
 
 <div class="divider"></div>
@@ -1241,6 +1239,39 @@ footer { padding: 80px 48px 40px; border-top: 1px solid var(--border); }
       <div class="loop-step loop-step--highlight"><span class="loop-icon"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#A78BFA" stroke-width="1.75"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg></span><span class="loop-label">Improve</span></div>
       <div class="loop-arrow">&hookleftarrow;</div>
     </div>
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<!-- ═══════════ HOW THE BRAIN LEARNS (Depth Section) ═══════════ -->
+<section class="brain-learns" id="how-brain-learns" style="padding:100px 0;">
+  <div class="container" style="max-width:760px;">
+    <div class="section-label r">Under the Hood</div>
+    <h2 class="r" style="font-family:var(--fd);font-size:clamp(32px,4vw,48px);line-height:1.15;margin-bottom:20px;font-weight:400;">
+      How the Brain <em>actually</em> learns.
+    </h2>
+    <p class="r" style="font-size:17px;color:var(--text2);line-height:1.8;margin-bottom:24px;">
+      Most AI content tools run stateless. Every new chat starts from zero. You re-explain your brand, your audience, your last campaign, your voice — every single time. By week four, you're spending more time prompting than writing.
+    </p>
+    <p class="r" style="font-size:17px;color:var(--text2);line-height:1.8;margin-bottom:24px;">
+      Heist's Brain works differently. During onboarding, you define seven fields that describe your brand: mission, audience, voice attributes, offer, CTA style, keywords, and tone examples. Those fields get embedded into every generation prompt Heist sends — not pasted on top, embedded. The model sees your voice profile the way it sees the user's current request: as context it must respect.
+    </p>
+    <h3 class="r" style="font-family:var(--fd);font-size:24px;font-weight:400;margin:40px 0 16px;">The feedback loop</h3>
+    <p class="r" style="font-size:17px;color:var(--text2);line-height:1.8;margin-bottom:24px;">
+      Every six hours, Heist pulls engagement data from your connected platforms — likes, comments, shares, click-through rates. Posts that outperform your baseline by a meaningful margin get flagged and the patterns that made them work (hook style, post length, topic angle, emoji use, CTA placement) get saved to your Brain as insight facts. Your next generation sees those facts. Your content gets more signal and less noise over time — not because the AI got smarter, but because your Brain got richer.
+    </p>
+    <h3 class="r" style="font-family:var(--fd);font-size:24px;font-weight:400;margin:40px 0 16px;">Drift detection</h3>
+    <p class="r" style="font-size:17px;color:var(--text2);line-height:1.8;margin-bottom:24px;">
+      Every tenth generation, the Brain runs a drift check. It compares the last ten outputs to your baseline across four dimensions: vocabulary similarity, tonal match, signature-phrase frequency, and structural rhythm. When drift creeps above threshold — usually because the base model's strong prior toward generic prose starts leaking in — the system re-injects your voice anchors and, if drift persists, surfaces it to you directly: "your recent posts are sliding generic, here's what changed."
+    </p>
+    <h3 class="r" style="font-family:var(--fd);font-size:24px;font-weight:400;margin:40px 0 16px;">Why this matters</h3>
+    <p class="r" style="font-size:17px;color:var(--text2);line-height:1.8;margin-bottom:24px;">
+      The promise of AI content is leverage: one hour of thinking turns into a month of posts. That promise breaks the moment your content starts sounding like everyone else's content. A persistent Brain with real engagement data and drift detection is what makes the leverage hold. Without it, you're just renting a very expensive word-shuffler.
+    </p>
+    <p class="r" style="font-size:15px;color:var(--text3);line-height:1.7;font-style:italic;">
+      The Brain has ten layers total. This section covers the three most important for day-to-day output quality. <a href="/blog/the-brain-10-layers.html" style="color:var(--accent-hi);text-decoration:none;">See all ten →</a>
+    </p>
   </div>
 </section>
 
@@ -1586,7 +1617,6 @@ footer { padding: 80px 48px 40px; border-top: 1px solid var(--border); }
         </ul>
         <a href="https://app.heistbrain.com/#signup" class="p-cta p-cta-ghost">Start Free Trial</a>
         <div class="per-post-cost">~$0.19/post</div>
-        <span class="p-cta-micro">No credit card required</span>
       </div>
       <!-- Pro -->
       <div class="p-card p-card-pro r">
@@ -1605,7 +1635,6 @@ footer { padding: 80px 48px 40px; border-top: 1px solid var(--border); }
         </ul>
         <a href="https://app.heistbrain.com/#signup" class="p-cta p-cta-primary">Start Free Trial</a>
         <div class="per-post-cost">~$0.10/post</div>
-        <span class="p-cta-micro">No credit card required</span>
       </div>
       <!-- Founder -->
       <div class="p-card r">
@@ -1623,7 +1652,6 @@ footer { padding: 80px 48px 40px; border-top: 1px solid var(--border); }
         </ul>
         <a href="https://app.heistbrain.com/#signup" class="p-cta p-cta-ghost">Start Free Trial</a>
         <div class="per-post-cost">Unlimited</div>
-        <span class="p-cta-micro">No credit card required</span>
       </div>
       <!-- Agency -->
       <div class="p-card r">
@@ -1643,7 +1671,6 @@ footer { padding: 80px 48px 40px; border-top: 1px solid var(--border); }
         </ul>
         <a href="https://app.heistbrain.com/#signup" class="p-cta p-cta-ghost">Start Free Trial</a>
         <div class="per-post-cost">Best for teams</div>
-        <span class="p-cta-micro">No credit card required</span>
       </div>
     </div>
     <!-- Strategic testimonial in pricing -->
@@ -1654,7 +1681,7 @@ footer { padding: 80px 48px 40px; border-top: 1px solid var(--border); }
     </div>
     <div style="text-align:center;margin-top:20px;font-size:13px;color:rgba(241,240,245,.5);display:flex;align-items:center;justify-content:center;gap:8px">
       <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
-      7-day free trial. No credit card. Cancel anytime.
+      7-day free trial · Cancel anytime
     </div>
     <p style="text-align:center;margin-top:16px;font-size:13px;color:rgba(241,240,245,.4)">Need more? <a href="mailto:support@heistbrain.com" style="color:#8B5CF6">Contact us for custom plans</a></p>
     <div class="pricing-note r">All plans include a 7-day free trial of Pro. No credit card required. Cancel anytime.</div>
@@ -1709,7 +1736,7 @@ footer { padding: 80px 48px 40px; border-top: 1px solid var(--border); }
   <div class="container">
     <div class="section-label r">Ready?</div>
     <h2 class="r">Schedule your month of content<br><span class="gradient-text">in 10 minutes</span></h2>
-    <p class="sub r">A month of on-brand content. Ten minutes. No credit card required. Your evenings and weekends are about to be yours again.</p>
+    <p class="sub r">A month of on-brand content. Ten minutes. Your evenings and weekends are about to be yours again.</p>
     <div class="r" id="cta-form-wrap">
       <a href="https://app.heistbrain.com/#signup" class="btn-primary" style="font-size:18px;padding:20px 44px;">
         Get Started Free
@@ -1749,7 +1776,7 @@ footer { padding: 80px 48px 40px; border-top: 1px solid var(--border); }
 <div class="exit-popup" id="exit-popup">
   <button class="exit-popup-close" id="exit-close">✕</button>
   <h4>Wait — want to see Heist in action?</h4>
-  <p>Start your 7-day free trial of Pro. No credit card required.</p>
+  <p>Start your 7-day free trial of Pro.</p>
   <a href="https://app.heistbrain.com/#signup" class="btn-primary" style="width:100%;justify-content:center;padding:14px 20px;font-size:14px;border-radius:10px;">Get Started Free</a>
   <div style="text-align:center;margin-top:10px;font-size:12px;color:var(--text3);">
     Already have an account? <a href="https://app.heistbrain.com/#login" style="color:var(--accent-hi);text-decoration:none;">Log in</a>
@@ -1759,7 +1786,7 @@ footer { padding: 80px 48px 40px; border-top: 1px solid var(--border); }
 <!-- ═══════════ MOBILE STICKY CTA ═══════════ -->
 <div class="mobile-sticky" id="mobile-sticky">
   <a href="https://app.heistbrain.com/#signup" class="btn-primary">Try Heist Free</a>
-  <span class="cta-micro">7-day free trial · No credit card</span>
+  <span class="cta-micro">7-day free trial</span>
 </div>
 
 <script>
