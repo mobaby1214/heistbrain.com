@@ -117,6 +117,15 @@ footer{padding:80px 48px 40px;border-top:1px solid var(--border)}
 .footer-bottom{max-width:1200px;margin:48px auto 0;padding-top:24px;border-top:1px solid var(--border);display:flex;justify-content:space-between;align-items:center;font-size:13px;color:var(--text3)}
 @media(max-width:1024px){.footer-inner{grid-template-columns:1fr 1fr 1fr;gap:32px}}
 @media(max-width:768px){footer{padding:60px 24px 40px}.footer-inner{grid-template-columns:1fr 1fr}.footer-bottom{flex-direction:column;gap:12px;text-align:center}}
+
+/* === Mid-post CTA === */
+.blog-post-cta-mid{display:flex;gap:18px;align-items:center;justify-content:space-between;padding:20px 22px;margin:36px 0;border-radius:14px;background:linear-gradient(135deg,rgba(139,92,246,0.08),rgba(109,40,217,0.08));border:1px solid rgba(139,92,246,0.25)}
+.blog-post-cta-mid-copy{display:flex;flex-direction:column;gap:3px;flex:1;min-width:0}
+.blog-post-cta-mid-copy strong{font-size:16px;font-weight:700;color:white;line-height:1.3}
+.blog-post-cta-mid-copy span{font-size:14px;color:rgba(255,255,255,0.7);line-height:1.5}
+.blog-post-cta-mid-btn{flex-shrink:0;display:inline-flex;align-items:center;padding:10px 18px;border-radius:10px;background:linear-gradient(135deg,var(--accent),var(--accent-lo));color:white;font-size:14px;font-weight:700;text-decoration:none;white-space:nowrap;transition:transform 0.2s}
+.blog-post-cta-mid-btn:hover{transform:translateY(-1px)}
+@media(max-width:600px){.blog-post-cta-mid{flex-direction:column;align-items:stretch;text-align:center}.blog-post-cta-mid-btn{justify-content:center}}
 </style>
 </head>
 <body>
@@ -203,7 +212,15 @@ footer{padding:80px 48px 40px;border-top:1px solid var(--border)}
 
     <p>You never have to think about any of this. The scores happen in the background. The only time you see drift detection is when it's either warning you ("your recent posts are getting generic — here's what changed") or correcting itself ("regenerating with reinforced voice anchors").</p>
 
-    <h2>What happens when drift is caught</h2>
+      <div class="blog-post-cta-mid">
+    <div class="blog-post-cta-mid-copy">
+      <strong>Stop your voice from drifting.</strong>
+      <span>Heist's layer 8 catches drift before your audience does. Seven days free.</span>
+    </div>
+    <a href="https://app.heistbrain.com/#signup" class="btn-primary blog-post-cta-mid-btn">Start free →</a>
+  </div>
+
+<h2>What happens when drift is caught</h2>
 
     <p>The fix depends on what kind of drift it is. Vocabulary drift gets corrected by re-injecting your term library into the next few generations with higher weight. Tonal drift triggers a voice recalibration pass where the Brain re-reads your baseline examples before the next batch. Signature phrase loss triggers a reminder to the generator — "user leans on these three phrases, use them when natural" — that bumps their frequency back toward baseline.</p>
 
@@ -307,6 +324,32 @@ document.querySelectorAll('.nav-dropdown-trigger').forEach(trigger => {
     }
   });
 });
+</script>
+<script>
+// Heist conversion tracking — app CTA clicks
+(function(){
+  if (!window.gtag) return;
+  document.addEventListener('click', function(e) {
+    var link = e.target.closest('a');
+    if (!link) return;
+    var href = link.getAttribute('href') || '';
+    if (href.indexOf('app.heistbrain.com') === -1) return;
+    var ctaText = (link.textContent || '').trim().slice(0, 60);
+    var ctaLocation = 'other';
+    if (link.closest('.nav-cta, nav')) ctaLocation = 'nav';
+    else if (link.closest('.blog-post-cta')) ctaLocation = 'blog-post-end';
+    else if (link.closest('.blog-post-cta-mid')) ctaLocation = 'blog-post-mid';
+    else if (link.closest('.upsell')) ctaLocation = 'tool-upsell';
+    else if (link.closest('footer')) ctaLocation = 'footer';
+    else if (link.closest('.page-hero, .hero')) ctaLocation = 'hero';
+    gtag('event', 'sign_up_started', {
+      cta_text: ctaText,
+      cta_location: ctaLocation,
+      page_path: window.location.pathname,
+      destination: href.indexOf('#signup') !== -1 ? 'signup' : (href.indexOf('#login') !== -1 ? 'login' : 'app_root')
+    });
+  }, true);
+})();
 </script>
 </body>
 </html>

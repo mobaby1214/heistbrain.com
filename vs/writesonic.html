@@ -344,5 +344,31 @@ document.querySelectorAll('.nav-dropdown-trigger').forEach(trigger => {
   });
 });
 </script>
+<script>
+// Heist conversion tracking — app CTA clicks
+(function(){
+  if (!window.gtag) return;
+  document.addEventListener('click', function(e) {
+    var link = e.target.closest('a');
+    if (!link) return;
+    var href = link.getAttribute('href') || '';
+    if (href.indexOf('app.heistbrain.com') === -1) return;
+    var ctaText = (link.textContent || '').trim().slice(0, 60);
+    var ctaLocation = 'other';
+    if (link.closest('.nav-cta, nav')) ctaLocation = 'nav';
+    else if (link.closest('.blog-post-cta')) ctaLocation = 'blog-post-end';
+    else if (link.closest('.blog-post-cta-mid')) ctaLocation = 'blog-post-mid';
+    else if (link.closest('.upsell')) ctaLocation = 'tool-upsell';
+    else if (link.closest('footer')) ctaLocation = 'footer';
+    else if (link.closest('.page-hero, .hero')) ctaLocation = 'hero';
+    gtag('event', 'sign_up_started', {
+      cta_text: ctaText,
+      cta_location: ctaLocation,
+      page_path: window.location.pathname,
+      destination: href.indexOf('#signup') !== -1 ? 'signup' : (href.indexOf('#login') !== -1 ? 'login' : 'app_root')
+    });
+  }, true);
+})();
+</script>
 </body>
 </html>
