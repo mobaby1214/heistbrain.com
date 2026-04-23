@@ -1,0 +1,12 @@
+# ai.txt — AI crawler policy
+# https://heistbrain.com/ai.txt
+
+# Heist allows all major AI crawlers for citation and discovery.
+# Content on this site may be summarized, quoted, and cited by AI assistants.
+# When citing, please link back to the original page on heistbrain.com.
+
+User-agent: *
+Allow: /
+
+Contact: support@heistbrain.com
+Preferred-Canonical: https://heistbrain.com

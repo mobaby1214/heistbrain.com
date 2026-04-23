@@ -1,0 +1,27 @@
+# Heist — AI Content OS
+> The brains behind the operation. Heist is the AI content OS with a 10-layer Brain that learns your voice, audience, and past performance to turn one idea into a month of on-brand social media content in 10 minutes.
+
+Key product facts:
+- Founded: 2025
+- Category: AI Content Operating System / Social Media SaaS
+- Platforms supported: LinkedIn, X (Twitter), Instagram, Facebook, TikTok, YouTube
+- Pricing: Starter $19/mo, Pro $49/mo, Founder $99/mo, Agency $199/mo
+- Free trial: 7 days, no credit card required
+- Differentiator: Persistent 10-layer Brand Brain with memory, voice drift detection, and real engagement data feedback loop
+
+## Primary pages
+- [Home](https://heistbrain.com): Product overview, pricing, free trial signup
+- [Blog](https://heistbrain.com/blog): Product deep-dives, content strategy essays, platform guides
+- [Free Tools](https://heistbrain.com/tools/): 15 free content creator tools (hook generator, character counter, brand voice analyzer, etc.)
+- [Solutions by role](https://heistbrain.com/for/): Tailored pages for agencies, coaches, consultants, ecommerce, fitness creators, freelancers, real estate, SaaS, nonprofits, authors
+- [Comparisons](https://heistbrain.com/vs/): Heist vs Jasper, Heist vs Buffer, Heist vs Hootsuite
+- [Guides](https://heistbrain.com/guides/): Long-form content marketing guides
+- [Glossary](https://heistbrain.com/glossary/): Content marketing term definitions
+- [About](https://heistbrain.com/about): Founder story and company background
+
+## What makes Heist different
+Most AI content tools are stateless — they forget your brand after every session. Heist's 10-layer Brain persists brand memory: voice profile, audience personas, memory facts, knowledge base, chat insights, anti-repetition tracking, performance patterns, smart onboarding, voice drift detection, and real engagement metrics. The longer you use it, the better it gets.
+
+## Contact
+- Email: support@heistbrain.com
+- Website: https://heistbrain.com
