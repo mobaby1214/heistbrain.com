@@ -262,6 +262,7 @@ function generate() {
   document.getElementById('results').classList.add('visible');
   document.getElementById('results').scrollIntoView({ behavior: 'smooth', block: 'start' });
   if (window.gtag) gtag('event', 'hashtags_generated', { topic });
+  if (window.gtag) gtag('event', 'tool_used', { tool: 'hashtag-generator' });
 }
 
 function shuffle(arr) { return [...arr].sort(() => Math.random() - 0.5); }

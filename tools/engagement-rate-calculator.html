@@ -216,6 +216,7 @@ function calc() {
   document.getElementById('er-grade').textContent = grade;
   document.getElementById('interpretation').textContent = message;
   if (window.gtag) gtag('event', 'er_calculated', { platform: p });
+  if (window.gtag) gtag('event', 'tool_used', { tool: 'engagement-rate-calculator' });
 }
 ['followers','likes','comments','shares','platform'].forEach(id => document.getElementById(id).addEventListener('input', calc));
 calc();

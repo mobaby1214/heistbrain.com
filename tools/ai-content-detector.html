@@ -242,6 +242,7 @@ function detect() {
   document.getElementById('results').style.display = 'block';
   document.getElementById('results').scrollIntoView({ behavior: 'smooth', block: 'start' });
   if (window.gtag) gtag('event', 'ai_detected', { score });
+  if (window.gtag) gtag('event', 'tool_used', { tool: 'ai-content-detector' });
 }
 document.getElementById('detect-btn').addEventListener('click', detect);
 document.getElementById('nav-hamburger')?.addEventListener('click', () => document.getElementById('nav-links')?.classList.toggle('open'));

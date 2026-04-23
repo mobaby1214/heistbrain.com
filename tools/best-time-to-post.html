@@ -349,6 +349,7 @@ function render() {
     container.innerHTML += html;
   });
   if (window.gtag) gtag('event', 'times_calculated', { industry, tz });
+  if (window.gtag) gtag('event', 'tool_used', { tool: 'best-time-to-post' });
 }
 
 document.getElementById('tz-select').addEventListener('change', render);

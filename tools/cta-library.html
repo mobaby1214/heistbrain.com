@@ -262,6 +262,7 @@ const CTAS = [
   { cat: 'follow', text: "Not following yet? Fix that." },
   { cat: 'follow', text: "More where this came from — follow." },
 ];
+let toolUsedFired = false;
 function render(cat) {
   const list = document.getElementById('cta-list');
   const items = cat === 'all' ? CTAS : CTAS.filter(c => c.cat === cat);
@@ -275,6 +276,10 @@ function render(cat) {
         el.textContent = '✓ Copied';
         setTimeout(() => { el.textContent = orig; el.classList.remove('copied'); }, 1500);
       } catch {}
+      if (!toolUsedFired) {
+        toolUsedFired = true;
+        if (window.gtag) gtag('event', 'tool_used', { tool: 'cta-library' });
+      }
     });
   });
 }

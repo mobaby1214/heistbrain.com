@@ -233,6 +233,7 @@ function convert() {
   container.classList.add('visible');
   container.scrollIntoView({ behavior: 'smooth', block: 'start' });
   if (window.gtag) gtag('event', 'format_converted');
+  if (window.gtag) gtag('event', 'tool_used', { tool: 'post-format-converter' });
 }
 
 document.getElementById('convert-btn').addEventListener('click', convert);

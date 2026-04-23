@@ -277,7 +277,14 @@ document.querySelectorAll('.tool-check').forEach(el => {
     calc();
   });
 });
-['posts','platforms','mins','rate'].forEach(id => document.getElementById(id).addEventListener('input', calc));
+let toolUsedFired = false;
+function fireToolUsed() {
+  if (toolUsedFired) return;
+  toolUsedFired = true;
+  if (window.gtag) gtag('event', 'tool_used', { tool: 'content-cost-calculator' });
+}
+['posts','platforms','mins','rate'].forEach(id => document.getElementById(id).addEventListener('input', () => { calc(); fireToolUsed(); }));
+document.querySelectorAll('.tool-check').forEach(el => el.addEventListener('click', fireToolUsed));
 calc();
 document.getElementById('nav-hamburger')?.addEventListener('click', () => document.getElementById('nav-links')?.classList.toggle('open'));
 document.querySelectorAll('#nav-links a').forEach(a => {

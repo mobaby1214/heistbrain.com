@@ -423,6 +423,7 @@ function generate() {
   document.getElementById('results').scrollIntoView({ behavior: 'smooth', block: 'center' });
 
   if (window.gtag) gtag('event', 'hook_generated', { framework, platform: document.getElementById('platform-select').value });
+  if (window.gtag) gtag('event', 'tool_used', { tool: 'hook-generator' });
 }
 
 document.getElementById('generate-btn').addEventListener('click', generate);

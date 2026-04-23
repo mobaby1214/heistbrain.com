@@ -340,6 +340,7 @@ function analyzeVoice() {
   document.getElementById('results').scrollIntoView({ behavior: 'smooth', block: 'start' });
 
   if (window.gtag) gtag('event', 'voice_analyzed', { word_count: wordCount });
+  if (window.gtag) gtag('event', 'tool_used', { tool: 'brand-voice-analyzer' });
 }
 
 document.getElementById('analyze-btn').addEventListener('click', analyzeVoice);

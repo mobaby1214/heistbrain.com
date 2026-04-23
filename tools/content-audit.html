@@ -258,6 +258,7 @@ function runAudit() {
   document.getElementById('results').style.display = 'block';
   document.getElementById('results').scrollIntoView({ behavior: 'smooth', block: 'start' });
   if (window.gtag) gtag('event', 'audit_run', { platform, score: total });
+  if (window.gtag) gtag('event', 'tool_used', { tool: 'content-audit' });
 }
 document.getElementById('audit-btn').addEventListener('click', runAudit);
 document.getElementById('nav-hamburger')?.addEventListener('click', () => document.getElementById('nav-links')?.classList.toggle('open'));

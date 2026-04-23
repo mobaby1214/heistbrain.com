@@ -300,7 +300,14 @@ function update() {
   });
 }
 
-input.addEventListener('input', update);
+let toolUsedFired = false;
+input.addEventListener('input', () => {
+  update();
+  if (!toolUsedFired && input.value.trim().length > 0) {
+    toolUsedFired = true;
+    if (window.gtag) gtag('event', 'tool_used', { tool: 'character-counter' });
+  }
+});
 update();
 
 // Mobile menu

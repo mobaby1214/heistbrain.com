@@ -260,6 +260,7 @@ function test() {
   document.getElementById('results').style.display = 'block';
   document.getElementById('results').scrollIntoView({ behavior: 'smooth', block: 'start' });
   if (window.gtag) gtag('event', 'subject_tested', { score });
+  if (window.gtag) gtag('event', 'tool_used', { tool: 'subject-line-tester' });
 }
 document.getElementById('test-btn').addEventListener('click', test);
 document.getElementById('input').addEventListener('keydown', (e) => { if (e.key === 'Enter') test(); });

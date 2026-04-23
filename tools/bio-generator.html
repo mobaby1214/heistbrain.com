@@ -295,6 +295,7 @@ function generate() {
   container.classList.add('visible');
   container.scrollIntoView({ behavior: 'smooth', block: 'start' });
   if (window.gtag) gtag('event', 'bio_generated', { platform });
+  if (window.gtag) gtag('event', 'tool_used', { tool: 'bio-generator' });
 }
 
 document.getElementById('gen-btn').addEventListener('click', generate);

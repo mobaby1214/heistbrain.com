@@ -212,6 +212,7 @@ document.getElementById('gen').addEventListener('click', () => {
   results.style.display = 'block';
   results.scrollIntoView({ behavior: 'smooth', block: 'start' });
   if (window.gtag) gtag('event', 'pillars_generated');
+  if (window.gtag) gtag('event', 'tool_used', { tool: 'content-pillar-planner' });
 });
 document.getElementById('nav-hamburger')?.addEventListener('click', () => document.getElementById('nav-links')?.classList.toggle('open'));
 document.querySelectorAll('#nav-links a').forEach(a => {

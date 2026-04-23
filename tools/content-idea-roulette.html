@@ -271,6 +271,7 @@ function spin() {
     document.getElementById('cat-label').textContent = CAT_LABELS[pick.cat];
   }, 150);
   if (window.gtag) gtag('event', 'idea_spun', { platform, cat });
+  if (window.gtag) gtag('event', 'tool_used', { tool: 'content-idea-roulette' });
 }
 document.getElementById('spin-btn').addEventListener('click', spin);
 document.getElementById('nav-hamburger')?.addEventListener('click', () => document.getElementById('nav-links')?.classList.toggle('open'));
