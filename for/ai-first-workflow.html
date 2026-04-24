@@ -1,0 +1,365 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Heist for the AI-first workflow — Never learn a dashboard</title>
+<meta name="description" content="If you run your day in Claude or ChatGPT, Heist extends that habit to your content. No new UI. No context switching. Just one more tool in the AI you already use.">
+<meta name="keywords" content="AI-first workflow, Claude content tool, ChatGPT content tool, MCP content, content OS from chat, AI content automation">
+<meta name="author" content="Heist Brain">
+<meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1">
+<meta name="theme-color" content="#8B5CF6">
+<meta property="og:type" content="article">
+<meta property="og:locale" content="en_US">
+<meta property="og:title" content="Heist for the AI-first workflow — Never learn a dashboard">
+<meta property="og:description" content="If you run your day in Claude or ChatGPT, Heist extends that habit to your content. No new UI. No context switching.">
+<meta property="og:url" content="https://heistbrain.com/for/ai-first-workflow.html">
+<meta property="og:site_name" content="Heist">
+<meta property="og:image" content="https://heistbrain.com/og-image.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:site" content="@heistbrain">
+<meta name="twitter:title" content="Heist for the AI-first workflow — Never learn a dashboard">
+<meta name="twitter:description" content="If you already live in Claude or ChatGPT, your content tool should too. Heist is the AI content OS designed to be operated from chat.">
+<meta name="twitter:image" content="https://heistbrain.com/og-image.png">
+<link rel="canonical" href="https://heistbrain.com/for/ai-first-workflow.html">
+<link rel="icon" href="/favicon.svg" type="image/svg+xml">
+<link rel="apple-touch-icon" href="/apple-touch-icon.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=DM+Sans:ital,opsz,wght@0,9..40,300..800;1,9..40,300..800&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"WebPage","name":"Heist for the AI-first workflow — Never learn a dashboard","url":"https://heistbrain.com/for/ai-first-workflow.html","description":"If you run your day in Claude or ChatGPT, Heist extends that habit to your content. No new UI. No context switching. Just one more tool in the AI you already use.","about":{"@type":"Audience","audienceType":"AI-first workflow users"},"isPartOf":{"@type":"WebSite","url":"https://heistbrain.com"}}</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://heistbrain.com/"},{"@type":"ListItem","position":2,"name":"For","item":"https://heistbrain.com/for/"},{"@type":"ListItem","position":3,"name":"AI-First Workflow","item":"https://heistbrain.com/for/ai-first-workflow.html"}]}</script>
+
+<!-- GA4 — deferred until interactive to protect mobile TBT -->
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){ dataLayer.push(arguments); }
+  gtag('js', new Date());
+  gtag('config', 'G-C4JK66ZQ43', { transport_type: 'beacon' });
+  (function loadGA() {
+    var loaded = false;
+    function load() {
+      if (loaded) return;
+      loaded = true;
+      var s = document.createElement('script');
+      s.async = true;
+      s.src = 'https://www.googletagmanager.com/gtag/js?id=G-C4JK66ZQ43';
+      document.head.appendChild(s);
+    }
+    ['scroll','mousemove','touchstart','keydown','click'].forEach(function(ev){
+      window.addEventListener(ev, load, { once: true, passive: true });
+    });
+    setTimeout(load, 3000);
+  })();
+</script>
+
+<style>
+*,*::before,*::after{margin:0;padding:0;box-sizing:border-box}
+:root{--bg:#06050C;--bg2:#0C0A18;--surface:rgba(16,13,30,0.55);--accent:#8B5CF6;--accent-hi:#A78BFA;--accent-lo:#6D28D9;--text:#F1F0F5;--text2:#908CA1;--text3:#57536B;--border:rgba(255,255,255,0.06);--border2:rgba(255,255,255,0.12);--fd:'Instrument Serif',Georgia,serif;--fb:'DM Sans',system-ui,sans-serif;--fm:'JetBrains Mono',monospace}
+@media (prefers-reduced-motion: reduce){*,*::before,*::after{animation-duration:0.01ms !important;animation-iteration-count:1 !important;transition-duration:0.01ms !important;scroll-behavior:auto !important}}
+html{scroll-behavior:smooth;overflow-x:clip}
+body{font-family:var(--fb);background:var(--bg);color:var(--text);line-height:1.65;-webkit-font-smoothing:antialiased;overflow-x:clip}
+
+/* Skip link */
+.skip-link{position:absolute;top:-40px;left:0;background:var(--accent);color:#fff;padding:8px 16px;z-index:1000;text-decoration:none;border-radius:0 0 8px 0}
+.skip-link:focus{top:0}
+
+/* Nav — matches other /for/ pages */
+nav{position:fixed;top:0;left:0;right:0;z-index:100;padding:0 48px;height:72px;display:flex;align-items:center;justify-content:space-between;background:rgba(6,5,12,0.85);backdrop-filter:blur(30px) saturate(1.5);border-bottom:1px solid var(--border)}
+.nav-logo{font-family:var(--fd);font-size:30px;color:var(--text);text-decoration:none}
+.nav-logo span{color:var(--accent)}
+.nav-links{display:flex;gap:32px;align-items:center}
+.nav-links>a{color:var(--text2);text-decoration:none;font-size:14px;font-weight:500;transition:color 0.3s}
+.nav-links>a:hover{color:var(--text)}
+.nav-cta{background:linear-gradient(135deg,#8B5CF6,#6D28D9) !important;color:#fff !important;border:none !important;padding:10px 24px;border-radius:10px;font-weight:600;font-size:13px}
+.nav-login{color:var(--text2) !important;text-decoration:none;font-size:14px;font-weight:500}
+.nav-hamburger{display:none;flex-direction:column;gap:5px;background:none;border:none;cursor:pointer;padding:8px}
+.nav-hamburger span{display:block;width:22px;height:2px;background:var(--text);border-radius:1px}
+.nav-dropdown{position:relative}
+.nav-dropdown-trigger{display:flex !important;align-items:center;gap:6px;cursor:pointer}
+.nav-caret-tools{width:12px;height:12px;flex-shrink:0;opacity:0.7;transition:transform 0.2s}
+.nav-dropdown:hover .nav-caret-tools{transform:rotate(180deg)}
+.nav-dropdown-menu{position:absolute;top:100%;left:50%;transform:translateX(-50%);background:rgba(12,10,24,0.96);backdrop-filter:blur(20px);border:1px solid rgba(255,255,255,0.12);border-radius:12px;padding:6px;min-width:240px;opacity:0;visibility:hidden;transition:opacity 0.2s,visibility 0.2s;margin-top:10px;z-index:200;box-shadow:0 8px 32px rgba(0,0,0,0.4)}
+.nav-dropdown:hover .nav-dropdown-menu{opacity:1;visibility:visible}
+.nav-dropdown-menu a{display:block !important;padding:10px 14px !important;font-size:14px !important;color:var(--text2) !important;border-radius:8px;white-space:nowrap;font-weight:500;text-decoration:none}
+.nav-dropdown-menu a:hover{color:white !important;background:rgba(139,92,246,0.12)}
+.nav-dropdown-menu a.see-all{border-top:1px solid rgba(255,255,255,0.08);margin-top:4px;padding-top:12px !important;color:var(--accent-hi) !important;font-weight:600}
+@media(max-width:768px){nav{padding:0 24px}.nav-hamburger{display:flex}.nav-links{position:fixed;top:0;right:-100%;width:300px;height:100vh;flex-direction:column;background:var(--bg2);padding:100px 32px 32px;border-left:1px solid var(--border2);transition:right 0.4s;gap:20px;z-index:160;overflow-y:auto}.nav-links.open{right:0}.nav-links>a{display:block !important;font-size:18px;width:100%;box-sizing:border-box;text-align:left}.nav-dropdown{width:100%}.nav-dropdown-menu{position:static;transform:none;background:transparent;border:none;padding:0;margin:6px 0 0 16px;box-shadow:none;min-width:0;display:none;opacity:1;visibility:visible}.nav-dropdown.open .nav-dropdown-menu{display:block}.nav-dropdown-menu a{padding:10px 0 !important;font-size:16px !important}.nav-caret-tools{display:none}.nav-dropdown-trigger{font-weight:600}}
+
+.container{max-width:900px;margin:0 auto;padding:0 24px}
+.page-hero{padding:140px 0 30px;text-align:center}
+.breadcrumb{font-size:13px;color:var(--text3);margin-bottom:20px}
+.breadcrumb a{color:var(--text2);text-decoration:none}
+.breadcrumb a:hover{color:var(--text)}
+.trust-badge{display:inline-block;padding:6px 16px;border-radius:20px;background:rgba(74,222,128,0.1);border:1px solid rgba(74,222,128,0.3);color:#4ade80;font-size:13px;font-weight:600;margin-bottom:20px;text-transform:uppercase;letter-spacing:0.05em}
+.page-hero h1{font-family:var(--fd);font-size:clamp(36px,5vw,56px);line-height:1.15;margin-bottom:20px;font-weight:400}
+.page-hero h1 .highlight{color:var(--accent-hi);font-style:italic}
+.page-hero .lede{font-size:18px;color:var(--text2);max-width:720px;margin:0 auto;line-height:1.75}
+
+.hero-cta-row{margin-top:28px;display:flex;gap:14px;justify-content:center;flex-wrap:wrap;align-items:center}
+.btn-primary{display:inline-flex;align-items:center;gap:10px;padding:14px 28px;background:linear-gradient(135deg,var(--accent),var(--accent-lo));color:#fff;border:none;border-radius:12px;font-family:var(--fb);font-size:15px;font-weight:600;cursor:pointer;text-decoration:none;box-shadow:0 0 30px rgba(139,92,246,0.25);transition:all 0.3s}
+.btn-primary:hover{transform:translateY(-2px);box-shadow:0 0 50px rgba(139,92,246,0.4)}
+.btn-ghost{display:inline-flex;align-items:center;gap:8px;padding:14px 22px;background:transparent;color:var(--text);border:1px solid var(--border2);border-radius:12px;font-family:var(--fb);font-size:15px;font-weight:500;cursor:pointer;text-decoration:none;transition:all 0.3s}
+.btn-ghost:hover{border-color:var(--accent-hi);color:var(--accent-hi)}
+.fine-print{font-size:13px;color:var(--text3);margin-top:12px}
+
+.article-body{font-size:17px;line-height:1.85;color:rgba(255,255,255,0.82);padding:40px 0}
+.article-body h2{font-family:var(--fd);font-size:clamp(28px,3.5vw,40px);font-weight:400;color:white;margin:48px 0 18px;line-height:1.2}
+.article-body p{margin-bottom:20px}
+.article-body em{color:rgba(255,255,255,0.92)}
+.article-body strong{color:white}
+.article-body a{color:var(--accent-hi);text-decoration:underline}
+
+.compare-table{margin:40px 0;background:rgba(255,255,255,0.03);border:1px solid rgba(255,255,255,0.08);border-radius:16px;overflow:hidden;overflow-x:auto}
+.compare-table table{width:100%;border-collapse:collapse;min-width:560px}
+.compare-table th,.compare-table td{padding:16px 20px;text-align:left;border-bottom:1px solid rgba(255,255,255,0.05);font-size:15px;vertical-align:top}
+.compare-table th{background:rgba(139,92,246,0.08);font-size:13px;text-transform:uppercase;letter-spacing:0.05em;color:var(--text2);font-weight:700}
+.compare-table tr:last-child td{border-bottom:none}
+.compare-table .without{color:var(--text2)}
+.compare-table .with{color:var(--accent-hi);font-style:italic}
+
+.callout{margin:32px 0;padding:22px 26px;background:rgba(139,92,246,0.06);border-left:3px solid rgba(139,92,246,0.5);border-radius:6px;color:rgba(255,255,255,0.88);font-size:16.5px;line-height:1.7}
+
+.cross-link-block{margin:48px 0;padding:28px 32px;background:linear-gradient(135deg,rgba(139,92,246,0.08),rgba(109,40,217,0.04));border:1px solid rgba(139,92,246,0.25);border-radius:16px;display:flex;align-items:center;justify-content:space-between;gap:24px;flex-wrap:wrap}
+.cross-link-block h3{font-family:var(--fd);font-size:22px;font-weight:400;color:white;margin-bottom:6px}
+.cross-link-block p{font-size:14.5px;color:var(--text2);margin:0;line-height:1.6}
+.cross-link-block a{flex-shrink:0;color:var(--accent-hi);font-weight:600;text-decoration:none;font-size:14px}
+.cross-link-block a:hover{text-decoration:underline}
+
+.final-cta{margin:64px 0 32px;padding:48px 32px;background:linear-gradient(135deg,rgba(139,92,246,0.08),transparent);border:1px solid rgba(139,92,246,0.2);border-radius:20px;text-align:center}
+.final-cta h2{font-family:var(--fd);font-size:clamp(28px,3.5vw,40px);font-weight:400;color:white;margin-bottom:12px}
+.final-cta p{font-size:16px;color:var(--text2);margin-bottom:24px;max-width:540px;margin-left:auto;margin-right:auto}
+
+/* Footer: keep in sync with index.html */
+footer{padding:80px 48px 40px;border-top:1px solid var(--border);background:var(--bg2)}
+.footer-inner{max-width:1280px;margin:0 auto;display:grid;grid-template-columns:1.3fr 1fr 1fr 1fr 1fr 1fr 1fr;gap:48px}
+.footer-brand .nav-logo{font-size:28px}
+.footer-tagline{font-size:13px;color:var(--text3);margin-top:6px;font-style:italic}
+.footer-col{display:flex;flex-direction:column;gap:8px}
+.footer-col h4{font-family:var(--fm);font-size:11px;letter-spacing:0.16em;text-transform:uppercase;color:var(--text3);margin-bottom:10px;font-weight:600}
+.footer-col a{color:var(--text2);text-decoration:none;font-size:13.5px;transition:color 0.2s}
+.footer-col a:hover{color:var(--text)}
+.see-all-link{color:var(--accent-hi) !important;font-weight:500}
+.footer-social a:hover{color:var(--accent-hi)}
+.footer-bottom{max-width:1280px;margin:48px auto 0;padding-top:24px;border-top:1px solid var(--border);display:flex;justify-content:space-between;align-items:center;font-size:13px;color:var(--text3)}
+@media(max-width:960px){.footer-inner{grid-template-columns:1fr 1fr 1fr;gap:32px}.footer-brand{grid-column:1/-1}}
+@media(max-width:768px){footer{padding:60px 24px 40px}.footer-inner{grid-template-columns:1fr 1fr}.footer-social{flex-wrap:wrap;gap:16px !important;padding:20px 24px !important}.footer-bottom{flex-direction:column;gap:12px;text-align:center}}
+</style>
+</head>
+<body>
+<a href="#main-content" class="skip-link">Skip to main content</a>
+
+<nav id="nav">
+  <a href="/" class="nav-logo">Heist<span>.</span></a>
+  <div class="nav-links" id="nav-links">
+    <a href="/#how">How It Works</a>
+    <div class="nav-dropdown">
+      <a href="/tools/" class="nav-dropdown-trigger">Tools <svg class="nav-caret-tools" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg></a>
+      <div class="nav-dropdown-menu">
+        <a href="/tools/hooks.html">Hook Generator</a>
+        <a href="/tools/character-counter.html">Character Counter</a>
+        <a href="/tools/brand-voice-analyzer.html">Brand Voice Analyzer</a>
+        <a href="/tools/best-time-to-post.html">Best Time to Post</a>
+        <a href="/tools/hashtag-generator.html">Hashtag Generator</a>
+        <a href="/tools/" class="see-all">See all 15 tools &rarr;</a>
+      </div>
+    </div>
+    <div class="nav-dropdown">
+      <a href="/for/" class="nav-dropdown-trigger">Solutions <svg class="nav-caret-tools" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg></a>
+      <div class="nav-dropdown-menu">
+        <a href="/for/agencies.html">For Agencies</a>
+        <a href="/for/coaches.html">For Coaches</a>
+        <a href="/for/consultants.html">For Consultants</a>
+        <a href="/for/ecommerce.html">For Ecommerce</a>
+        <a href="/for/fitness-creators.html">For Fitness Creators</a>
+        <a href="/for/freelancers.html">For Freelancers</a>
+        <a href="/for/real-estate.html">For Real Estate</a>
+        <a href="/for/saas.html">For SaaS</a>
+        <a href="/for/nonprofits.html">For Nonprofits</a>
+        <a href="/for/authors.html">For Authors</a>
+        <a href="/for/ai-first-workflow.html">AI-First Workflow</a>
+        <a href="/for/" class="see-all">See all solutions &rarr;</a>
+      </div>
+    </div>
+    <div class="nav-dropdown">
+      <a href="/resources/" class="nav-dropdown-trigger">Resources <svg class="nav-caret-tools" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg></a>
+      <div class="nav-dropdown-menu">
+        <a href="/guides/">Guides</a>
+        <a href="/benchmarks/">Benchmarks</a>
+        <a href="/blog">Blog</a>
+        <a href="/templates/">Templates</a>
+        <a href="/glossary/">Glossary</a>
+        <a href="/quiz/brand-voice.html">Brand Voice Quiz</a>
+        <a href="/resources/" class="see-all">All resources &rarr;</a>
+      </div>
+    </div>
+    <a href="/#pricing">Pricing</a>
+    <a href="https://app.heistbrain.com/#login" class="nav-login">Login</a>
+    <a href="https://app.heistbrain.com/#signup" class="nav-cta">Get Your Time Back &rarr;</a>
+  </div>
+  <button class="nav-hamburger" id="nav-hamburger" aria-label="Menu">
+    <span></span><span></span><span></span>
+  </button>
+</nav>
+
+<main id="main-content">
+
+<div class="page-hero">
+  <div class="container">
+    <div class="breadcrumb"><a href="/">Home</a> &rsaquo; <a href="/for/">For</a> &rsaquo; AI-First Workflow</div>
+    <span class="trust-badge">For chat-first operators</span>
+    <h1>Your content tool, in the <span class="highlight">AI you already use</span>.</h1>
+    <p class="lede">You already spend hours in Claude or ChatGPT. You already built your own prompts and workflows. You don't need another dashboard — you need your content OS where you already work. Heist is the only AI content platform designed to be operated entirely from chat.</p>
+    <div class="hero-cta-row">
+      <a href="https://app.heistbrain.com/#signup" class="btn-primary">
+        Start free
+        <svg width="14" height="14" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      </a>
+      <a href="/agent-inbox.html" class="btn-ghost">See every prompt &rarr;</a>
+    </div>
+  </div>
+</div>
+
+<div class="container">
+<article class="article-body">
+
+  <h2>You already know this feeling.</h2>
+  <p>You've got 8 tabs open. Notion for the calendar. Google Docs for the draft. The social tool. The analytics dashboard. A prompt library somewhere. And somehow it takes you two hours to ship one post.</p>
+  <p>Meanwhile, you've been in Claude since 9am. You've drafted five emails, refactored a script, and had three conversations that felt smarter than most meetings. You keep thinking: <em>Why can't my content live here too?</em></p>
+  <p>With Heist, it can.</p>
+
+  <h2>What changes when you connect it</h2>
+  <div class="compare-table">
+    <table>
+      <thead>
+        <tr><th>Without Heist</th><th>With Heist in Claude</th></tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td class="without">Switch to dashboard, find the right campaign, click draft, paste from Docs, edit, schedule, switch back</td>
+          <td class="with">"Schedule that post for Wednesday at 9am"</td>
+        </tr>
+        <tr>
+          <td class="without">Open analytics, pull last month's top performers, copy insights, go to docs, write new post modeled on them</td>
+          <td class="with">"Plan this week based on what performed last month"</td>
+        </tr>
+        <tr>
+          <td class="without">Manually update brand voice after finding a phrase that works</td>
+          <td class="with">"The tone in yesterday's LinkedIn post landed. Update my voice profile to lean into that."</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <h2>It's not magic — it's MCP</h2>
+  <div class="callout">
+    MCP stands for Model Context Protocol. It's the standard that lets AI assistants connect to outside tools safely — with permissions you control and an audit log of everything the AI does. Heist is one of the most complete MCP integrations in content marketing: 56+ tools your AI can call, covering everything from drafting a single post to auditing your entire brand brain. Every action requires a reason. Every write creates a log entry. You're in control — your AI just types faster than you do.
+  </div>
+
+  <div class="cross-link-block">
+    <div>
+      <h3>Want to see every prompt you can say?</h3>
+      <p>The Agent Inbox page has six example prompts, the 30-second setup guide, and the full tool inventory.</p>
+    </div>
+    <a href="/agent-inbox.html">See the Agent Inbox &rarr;</a>
+  </div>
+
+  <div class="final-cta">
+    <h2>Keep your workflow. Add the superpower.</h2>
+    <p>7-day free trial. No credit card. Connect to your AI in 30 seconds.</p>
+    <a class="btn-primary" href="https://app.heistbrain.com/#signup">
+      Start free
+      <svg width="14" height="14" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+    </a>
+  </div>
+
+</article>
+</div>
+
+</main>
+
+<!-- Footer: keep in sync with index.html -->
+<footer>
+  <div class="footer-inner">
+    <div class="footer-brand">
+      <a href="/" class="nav-logo">Heist<span>.</span></a>
+      <div class="footer-tagline">The brains behind the operation.</div>
+    </div>
+    <div class="footer-col"><h4>Product</h4><a href="/#features">Features</a><a href="/#pricing">Pricing</a><a href="/changelog">Changelog</a></div>
+    <div class="footer-col"><h4>Free Tools</h4><a href="/tools/hooks.html">Hook Generator</a><a href="/tools/character-counter.html">Character Counter</a><a href="/tools/brand-voice-analyzer.html">Brand Voice</a><a href="/tools/best-time-to-post.html">Best Time to Post</a><a href="/tools/" class="see-all-link">See all 15 &rarr;</a></div>
+    <div class="footer-col"><h4>Compare</h4><a href="/vs/jasper.html">vs Jasper</a><a href="/vs/buffer.html">vs Buffer</a><a href="/vs/hootsuite.html">vs Hootsuite</a></div>
+    <div class="footer-col"><h4>For</h4><a href="/for/freelancers.html">Freelancers</a><a href="/for/agencies.html">Agencies</a></div>
+    <div class="footer-col"><h4>Company</h4><a href="/about">About</a><a href="/blog">Blog</a><a href="mailto:support@heistbrain.com">Contact</a></div>
+    <div class="footer-col"><h4>Legal</h4><a href="/privacy">Privacy</a><a href="/terms">Terms</a></div>
+  </div>
+  <div class="footer-social" style="max-width:1200px;margin:48px auto 0;padding-top:24px;border-top:1px solid var(--border);display:flex;justify-content:center;gap:20px;align-items:center;">
+    <a href="https://x.com/PulledtheHeist" target="_blank" rel="noopener" aria-label="Follow Heist on X" style="color:var(--text2);transition:color 0.3s;">
+      <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
+    </a>
+    <a href="https://www.facebook.com/profile.php?id=61575467894427" target="_blank" rel="noopener" aria-label="Follow Heist on Facebook" style="color:var(--text2);transition:color 0.3s;">
+      <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg>
+    </a>
+    <a href="https://www.instagram.com/pulledtheheist/" target="_blank" rel="noopener" aria-label="Follow Heist on Instagram" style="color:var(--text2);transition:color 0.3s;">
+      <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.052.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98C8.333 23.986 8.741 24 12 24c3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 100 12.324 6.162 6.162 0 000-12.324zM12 16a4 4 0 110-8 4 4 0 010 8zm6.406-11.845a1.44 1.44 0 100 2.881 1.44 1.44 0 000-2.881z"/></svg>
+    </a>
+    <a href="https://www.linkedin.com/company/113328310" target="_blank" rel="noopener" aria-label="Follow Heist on LinkedIn" style="color:var(--text2);transition:color 0.3s;">
+      <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 01-2.063-2.065 2.063 2.063 0 112.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
+    </a>
+    <a href="https://wordpress.heistbrain.com" target="_blank" rel="noopener" aria-label="Read the Heist WordPress blog" style="color:var(--text2);transition:color 0.3s;">
+      <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M12.158 12.786l-2.698 7.84c.806.236 1.657.365 2.54.365 1.047 0 2.051-.181 2.986-.51-.024-.038-.046-.079-.065-.124l-2.763-7.571zM3.009 12c0 3.559 2.068 6.634 5.067 8.092L3.788 8.341C3.298 9.459 3.009 10.696 3.009 12zm15.07-.454c0-1.112-.399-1.881-.741-2.48-.456-.741-.883-1.368-.883-2.109 0-.826.627-1.596 1.51-1.596.04 0 .078.005.116.007C16.472 3.904 14.34 3 12 3 8.859 3 6.098 4.623 4.499 7.068c.206.007.402.012.568.012.943 0 2.404-.114 2.404-.114.486-.029.544.685.057.742 0 0-.488.057-1.031.086l3.281 9.762 1.974-5.914-1.404-3.848c-.486-.029-.946-.086-.946-.086-.487-.029-.43-.771.057-.742 0 0 1.489.114 2.375.114.943 0 2.405-.114 2.405-.114.487-.029.544.685.057.742 0 0-.488.057-1.031.086l3.255 9.689 0.898-3.004.72-2.304zm1.378-2.901c.039.288.06.597.06.93 0 .919-.171 1.953-.689 3.241l-2.77 8.012c2.696-1.572 4.512-4.493 4.512-7.838.002-1.576-.4-3.056-1.113-4.345zM12 22C6.486 22 2 17.514 2 12S6.486 2 12 2s10 4.486 10 10-4.486 10-10 10z"/></svg>
+    </a>
+    <a href="/blog" aria-label="Read the Heist blog" style="color:var(--text2);transition:color 0.3s;font-size:13px;font-weight:500;text-decoration:none;padding-left:8px;border-left:1px solid var(--border);">Blog</a>
+  </div>
+  <div class="footer-bottom">
+    <span>&copy; 2026 HeistBrain. All rights reserved.</span>
+    <span>Steal back your time.</span>
+  </div>
+</footer>
+
+<script>
+// Nav hamburger + dropdown toggle (mobile)
+document.getElementById('nav-hamburger')?.addEventListener('click', () => {
+  document.getElementById('nav-links')?.classList.toggle('open');
+});
+document.querySelectorAll('#nav-links a:not(.nav-dropdown-trigger)').forEach(a => {
+  a.addEventListener('click', () => document.getElementById('nav-links')?.classList.remove('open'));
+});
+document.querySelectorAll('.nav-dropdown-trigger').forEach(trigger => {
+  trigger.addEventListener('click', e => {
+    if (window.innerWidth > 768) return;
+    e.preventDefault();
+    trigger.parentElement?.classList.toggle('open');
+  });
+});
+</script>
+<script>
+// Heist conversion tracking — app CTA clicks
+(function(){
+  if (!window.gtag) return;
+  document.addEventListener('click', function(e) {
+    var link = e.target.closest('a');
+    if (!link) return;
+    var href = link.getAttribute('href') || '';
+    if (href.indexOf('app.heistbrain.com') === -1) return;
+    var ctaText = (link.textContent || '').trim().slice(0, 60);
+    var ctaLocation = 'other';
+    if (link.closest('.nav-cta, nav')) ctaLocation = 'nav';
+    else if (link.closest('.blog-post-cta')) ctaLocation = 'blog-post-end';
+    else if (link.closest('.blog-post-cta-mid')) ctaLocation = 'blog-post-mid';
+    else if (link.closest('.upsell')) ctaLocation = 'tool-upsell';
+    else if (link.closest('footer')) ctaLocation = 'footer';
+    else if (link.closest('.page-hero, .hero')) ctaLocation = 'hero';
+    else if (link.closest('.final-cta')) ctaLocation = 'final-cta';
+    gtag('event', 'sign_up_started', {
+      cta_text: ctaText,
+      cta_location: ctaLocation,
+      page_path: window.location.pathname,
+      destination: href.indexOf('#signup') !== -1 ? 'signup' : (href.indexOf('#login') !== -1 ? 'login' : 'app_root')
+    });
+  }, true);
+})();
+</script>
+</body>
+</html>
