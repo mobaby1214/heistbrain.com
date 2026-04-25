@@ -443,8 +443,6 @@ section { position: relative; z-index: 1; }
 .dash-line:nth-child(4) { width: 85%; }
 .float-card { position: absolute; z-index: 10; background: var(--surface-solid); border: 1px solid var(--border2); border-radius: 14px; padding: 16px 20px; box-shadow: 0 20px 60px rgba(0,0,0,0.5), 0 0 30px rgba(139,92,246,0.06); backdrop-filter: blur(20px); }
 .float-card-score { bottom: -20px; left: -30px; animation: float-delay 5s ease-in-out infinite; }
-.float-card-brain { top: 40px; right: 0px; animation: float 7s ease-in-out infinite; text-align: center; }
-.float-brain-icon { width: 42px; height: 42px; border-radius: 50%; margin: 0 auto 8px; background: linear-gradient(135deg, var(--accent), var(--accent-lo)); display: flex; align-items: center; justify-content: center; font-size: 20px; box-shadow: 0 0 20px var(--accent-glow); }
 .float-card-label { font-family: var(--fm); font-size: 10px; color: var(--text3); letter-spacing: 0.1em; text-transform: uppercase; }
 .float-card-val { font-family: var(--fd); font-size: 24px; color: var(--accent-hi); margin-top: 4px; }
 .scan-line { position: absolute; left: 0; right: 0; height: 2px; top: -2px; background: linear-gradient(90deg, transparent, var(--accent-hi), transparent); opacity: 0; animation: scan-line 4s ease-in-out infinite; pointer-events: none; z-index: 5; }
@@ -739,7 +737,6 @@ footer { padding: 80px 48px 40px; border-top: 1px solid var(--border); }
   .mockup-wrapper { transform: none; }
   .mockup-wrapper:hover { transform: none; }
   .float-card-score { left: 10px; bottom: -10px; }
-  .float-card-brain { right: 10px; top: 20px; }
   .bento { grid-template-columns: 1fr 1fr; }
   .bento-card:nth-child(1), .bento-card:nth-child(4) { grid-column: span 1; }
   .versus-grid { grid-template-columns: 1fr; gap: 24px; }
@@ -1036,6 +1033,7 @@ footer { padding: 80px 48px 40px; border-top: 1px solid var(--border); }
           <div class="browser-bar">
             <div class="browser-dots"><span></span><span></span><span></span></div>
             <div class="browser-url">app.heistbrain.com/create</div>
+            <span style="display:inline-flex;align-items:center;gap:4px;padding:3px 8px;border-radius:6px;background:rgba(139,92,246,0.15);border:1px solid rgba(139,92,246,0.3);color:var(--accent-hi);font-size:8px;font-weight:600;letter-spacing:0.04em;white-space:nowrap;flex-shrink:0;" aria-label="Connected via Model Context Protocol to Claude"><span style="width:5px;height:5px;border-radius:50%;background:var(--emerald);box-shadow:0 0 6px rgba(52,211,153,0.5);"></span>MCP &middot; Claude</span>
           </div>
           <div class="dash" style="position:relative; display:flex; gap:12px; padding:16px; min-height:340px;">
             <div class="scan-line"></div>
@@ -1050,8 +1048,8 @@ footer { padding: 80px 48px 40px; border-top: 1px solid var(--border); }
                 <span style="display:inline-flex;align-items:center;gap:3px;padding:3px 8px;border-radius:20px;font-size:8px;font-weight:600;background:rgba(228,64,95,0.15);border:1px solid rgba(228,64,95,0.3);color:#f472b6;"><span style="width:5px;height:5px;border-radius:50%;background:#E4405F;"></span>IG</span>
                 <span style="display:inline-flex;align-items:center;gap:3px;padding:3px 8px;border-radius:20px;font-size:8px;font-weight:600;background:rgba(148,163,184,0.1);border:1px solid rgba(148,163,184,0.2);color:#94a3b8;"><span style="width:5px;height:5px;border-radius:50%;background:#94A3B8;"></span>X</span>
                 <span style="display:inline-flex;align-items:center;gap:3px;padding:3px 8px;border-radius:20px;font-size:8px;font-weight:600;background:rgba(10,102,194,0.15);border:1px solid rgba(10,102,194,0.3);color:#60a5fa;"><span style="width:5px;height:5px;border-radius:50%;background:#0A66C2;"></span>LI</span>
-                <span style="display:inline-flex;align-items:center;gap:3px;padding:3px 8px;border-radius:20px;font-size:8px;font-weight:600;background:rgba(238,29,82,0.12);border:1px solid rgba(238,29,82,0.25);color:#f87171;"><span style="width:5px;height:5px;border-radius:50%;background:#EE1D52;"></span>TT</span>
-                <span style="display:inline-flex;align-items:center;gap:3px;padding:3px 8px;border-radius:20px;font-size:8px;font-weight:600;background:rgba(255,0,0,0.1);border:1px solid rgba(255,0,0,0.2);color:#f87171;"><span style="width:5px;height:5px;border-radius:50%;background:#FF0000;"></span>YT</span>
+                <span style="display:inline-flex;align-items:center;gap:3px;padding:3px 8px;border-radius:20px;font-size:8px;font-weight:600;background:rgba(255,255,255,0.04);border:1px solid var(--border);color:var(--text3);opacity:0.6;"><span style="width:5px;height:5px;border-radius:50%;background:var(--text3);"></span>TT<span style="margin-left:4px;font-size:7px;font-weight:500;letter-spacing:0.04em;text-transform:uppercase;">Soon</span></span>
+                <span style="display:inline-flex;align-items:center;gap:3px;padding:3px 8px;border-radius:20px;font-size:8px;font-weight:600;background:rgba(255,255,255,0.04);border:1px solid var(--border);color:var(--text3);opacity:0.6;"><span style="width:5px;height:5px;border-radius:50%;background:var(--text3);"></span>YT<span style="margin-left:4px;font-size:7px;font-weight:500;letter-spacing:0.04em;text-transform:uppercase;">Soon</span></span>
               </div>
               <div style="flex:1; padding:12px; background:rgba(255,255,255,0.015); border:1px solid var(--border); border-radius:10px;">
                 <div style="font-size:9px; color:var(--text3); margin-bottom:6px; font-family:var(--fm); letter-spacing:0.05em;">EDITOR</div>
@@ -1100,11 +1098,6 @@ footer { padding: 80px 48px 40px; border-top: 1px solid var(--border); }
         <div class="float-card float-card-score">
           <div class="float-card-label">Brand Score</div>
           <div class="float-card-val" style="color:var(--emerald);">92%</div>
-        </div>
-        <div class="float-card float-card-brain">
-          <div class="float-brain-icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="1.75"><path d="M12 2a7 7 0 0 1 7 7c0 2.38-1.19 4.47-3 5.74V17a2 2 0 0 1-2 2h-4a2 2 0 0 1-2-2v-2.26C6.19 13.47 5 11.38 5 9a7 7 0 0 1 7-7z"/><path d="M9 22h6"/></svg></div>
-          <div class="float-card-label">Brain Active</div>
-          <div style="font-size:9px;color:var(--text3);margin-top:2px;">10 layers</div>
         </div>
       </div>
     </div>
