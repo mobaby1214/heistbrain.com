@@ -31,7 +31,7 @@
 <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=DM+Sans:ital,opsz,wght@0,9..40,300..800;1,9..40,300..800&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
 <script type="application/ld+json">{"@context":"https://schema.org","@type":"WebPage","name":"Heist Agent Inbox — Run Heist from Claude or ChatGPT","url":"https://heistbrain.com/agent-inbox.html","description":"Heist connects to Claude, ChatGPT, Cursor, and Copilot. Plan, draft, schedule, and publish a month of content from a chat window. Never open the app.","isPartOf":{"@type":"WebSite","url":"https://heistbrain.com"}}</script>
 <script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://heistbrain.com/"},{"@type":"ListItem","position":2,"name":"Agent Inbox","item":"https://heistbrain.com/agent-inbox.html"}]}</script>
-<script type="application/ld+json">{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"What AI tools does Heist work with?","acceptedAnswer":{"@type":"Answer","text":"Heist works with any AI assistant that supports MCP. Today that's Claude (desktop and web), ChatGPT, Cursor, Copilot, and Windsurf. More clients support MCP every month."}},{"@type":"Question","name":"Do I still need the web app?","acceptedAnswer":{"@type":"Answer","text":"No. Everything you can do in the Heist web app — plan, draft, schedule, publish, edit your Brain — you can do from your AI assistant. The web app is there when you want it, not because you need it."}},{"@type":"Question","name":"Can the AI mess up my brand?","acceptedAnswer":{"@type":"Answer","text":"No. Every AI action lands in an audit log. You can set a preference so nothing applies until you approve it. All writes require a source or reason — the AI can't save a fact without citing where it came from."}},{"@type":"Question","name":"What's the learning curve?","acceptedAnswer":{"@type":"Answer","text":"If you can have a conversation, you can use it. You chat naturally — ask anything you'd ask Claude, in your own words. We also publish named shortcut prompts (daily briefing, weekly plan, brand audit, voice refresh) that AI clients surface in their prompt picker, but they're optional — the agent figures out which Heist tools to call either way."}},{"@type":"Question","name":"Do I have to use specific prompts?","acceptedAnswer":{"@type":"Answer","text":"No. The chat works exactly like talking to Claude. Ask anything, in any phrasing — the AI picks the right Heist tools automatically based on what you're asking for. The prompts on the agent-inbox page are examples, not requirements. Steal them, paraphrase them, or ignore them and just talk."}},{"@type":"Question","name":"Is it safe to give an AI write access to my brand?","acceptedAnswer":{"@type":"Answer","text":"Yes — by design. When you connect via the OAuth URL flow, Heist's consent screen lets you pick exactly which brands the AI can access and what it can do (read brand context, create drafts, schedule, publish, edit your brain). You grant only what you need; the AI can't escalate. Every write lands in an audit log and can be reverted by ID."}},{"@type":"Question","name":"What happens if I cancel?","acceptedAnswer":{"@type":"Answer","text":"Your data is yours. Your posts stay published on their platforms. Your Brain content can be exported. Cancel from Settings — no fees, no questions."}}]}</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"What AI tools does Heist work with?","acceptedAnswer":{"@type":"Answer","text":"Heist works with any AI assistant that supports MCP. Today that's Claude (desktop and web), ChatGPT, Cursor, Copilot, and Windsurf. More clients support MCP every month."}},{"@type":"Question","name":"Do I still need the web app?","acceptedAnswer":{"@type":"Answer","text":"No. Everything you can do in the Heist web app — plan, draft, schedule, publish, edit your Brain — you can do from your AI assistant. The web app is there when you want it, not because you need it."}},{"@type":"Question","name":"Can the AI mess up my brand?","acceptedAnswer":{"@type":"Answer","text":"No. Every AI action lands in an audit log. You can set a preference so nothing applies until you approve it. All writes require a source or reason — the AI can't save a fact without citing where it came from."}},{"@type":"Question","name":"What's the learning curve?","acceptedAnswer":{"@type":"Answer","text":"If you can have a conversation, you can use it. You chat naturally — ask anything you'd ask Claude, in your own words. We also publish named shortcut prompts (daily briefing, weekly plan, brand audit, voice refresh) that AI clients surface in their prompt picker, but they're optional — the agent figures out which Heist tools to call either way."}},{"@type":"Question","name":"Do I have to use specific prompts?","acceptedAnswer":{"@type":"Answer","text":"No. The chat works exactly like talking to Claude. Ask anything, in any phrasing — the AI picks the right Heist tools automatically based on what you're asking for. The prompts on the agent-inbox page are examples, not requirements. Steal them, paraphrase them, or ignore them and just talk."}},{"@type":"Question","name":"Is it safe to give an AI write access to my brand?","acceptedAnswer":{"@type":"Answer","text":"Yes — by design. When you connect via the OAuth URL flow, Heist's consent screen lets you pick exactly which brands the AI can access and what it can do (read brand context, create drafts, schedule, publish, edit your brain). You grant only what you need; the AI can't escalate. Every write lands in an audit log and can be reversed by asking the agent to undo it."}},{"@type":"Question","name":"What happens if I cancel?","acceptedAnswer":{"@type":"Answer","text":"Your data is yours. Your posts stay published on their platforms. Your Brain content can be exported. Cancel from Settings — no fees, no questions."}}]}</script>
 
 <!-- GA4 — deferred until interactive to protect mobile TBT -->
 <script>
@@ -332,7 +332,7 @@ footer{padding:80px 48px 40px;border-top:1px solid var(--border);background:var(
         <div class="example-quote">"Using Heist, give me my daily content briefing."</div>
         <div class="example-result-label">Get this</div>
         <p class="example-result">A 200-word rundown of what's scheduled today, yesterday's top and bottom performers, and one concrete recommendation for what to do now.</p>
-        <div class="example-why">Uses the <code>daily_content_review</code> operational prompt — 4 Heist tools fire behind the scenes.</div>
+        <div class="example-why">Heist reads your calendar and analytics, then summarizes — you get the takeaway, not the spreadsheet.</div>
       </div>
 
       <div class="example-card">
@@ -340,7 +340,7 @@ footer{padding:80px 48px 40px;border-top:1px solid var(--border);background:var(
         <div class="example-quote">"Plan my next week. 5 LinkedIn posts and 3 Instagram posts, across my main offer and one story post per platform."</div>
         <div class="example-result-label">Get this</div>
         <p class="example-result">8 drafts in your Agent Inbox, each grounded in your brand voice, tagged with why it's likely to land.</p>
-        <div class="example-why">Claude calls <code>get_brand_context</code>, <code>get_performance_signal</code>, and <code>bulk_create_drafts</code> — then hands you the review.</div>
+        <div class="example-why">Heist pulls your brand voice and your top performers, writes the drafts, and hands you the review — all in one conversation.</div>
       </div>
 
       <div class="example-card">
@@ -348,7 +348,7 @@ footer{padding:80px 48px 40px;border-top:1px solid var(--border);background:var(
         <div class="example-quote">"Audit my brand brain. What's missing? What's contradicting?"</div>
         <div class="example-result-label">Get this</div>
         <p class="example-result">Gaps, contradictions, and stale facts — with specific proposals to fix each.</p>
-        <div class="example-why">The <code>brain_audit</code> prompt cross-checks your profile, memory facts, and recent posts.</div>
+        <div class="example-why">Heist cross-checks your profile against your memory facts and recent posts — surfaces the gaps you've missed.</div>
       </div>
 
       <div class="example-card">
@@ -364,7 +364,7 @@ footer{padding:80px 48px 40px;border-top:1px solid var(--border);background:var(
         <div class="example-quote">"Write a 1200-word blog post on why solopreneurs need a content OS. Source: our conversation today."</div>
         <div class="example-result-label">Get this</div>
         <p class="example-result">A full draft in your blog editor, styled to match your site, ready to publish to WordPress.</p>
-        <div class="example-why"><code>generate_blog_post</code> uses your Brain's voice, audience, and top performers.</div>
+        <div class="example-why">Heist's blog generator pulls your voice, audience, and top performers — comes out sounding like you, not a template.</div>
       </div>
 
       <div class="example-card">
@@ -549,7 +549,7 @@ footer{padding:80px 48px 40px;border-top:1px solid var(--border);background:var(
         <div class="example-label">Try something like</div>
         <div class="example-quote">"Find all my draft blog posts older than 30 days and add a CTA paragraph to each promoting our newsletter signup."</div>
         <div class="example-result-label">Get this</div>
-        <p class="example-result">Bulk update with a dryRun preview before committing. Reversible by action ID.</p>
+        <p class="example-result">Preview the batch before it commits — and if you change your mind after, ask the agent to undo it.</p>
       </div>
       <div class="example-card">
         <div class="example-label">Try something like</div>
@@ -587,7 +587,7 @@ footer{padding:80px 48px 40px;border-top:1px solid var(--border);background:var(
         <div class="example-label">Try something like</div>
         <div class="example-quote">"I just bulk-deleted 14 drafts I shouldn't have. Find the action and revert it."</div>
         <div class="example-result-label">Get this</div>
-        <p class="example-result">Heist's audit log makes most writes revertible by action ID. Drafts come back.</p>
+        <p class="example-result">Heist's audit log makes most writes reversible. Just ask the agent to undo it — drafts come back.</p>
       </div>
       <div class="example-card">
         <div class="example-label">Try something like</div>
@@ -617,7 +617,7 @@ footer{padding:80px 48px 40px;border-top:1px solid var(--border);background:var(
       <div class="example-card">
         <div class="example-label">Tip 01</div>
         <div class="example-quote" style="font-size:18px;">Start with "what can you do?"</div>
-        <p class="example-result">On a fresh chat, this prompts the agent to call <code>describe_session</code> and lay out every tool it has access to, your scopes, and the suggested boot sequence. 30-second orientation that saves a lot of trial and error.</p>
+        <p class="example-result">On a fresh chat, this prompts the agent to lay out everything it can do for you — what tools it has, what permissions, where to start. 30-second orientation that saves a lot of trial and error.</p>
       </div>
       <div class="example-card">
         <div class="example-label">Tip 02</div>
@@ -642,12 +642,12 @@ footer{padding:80px 48px 40px;border-top:1px solid var(--border);background:var(
       <div class="example-card">
         <div class="example-label">Tip 06</div>
         <div class="example-quote" style="font-size:18px;">When in doubt, dryRun first.</div>
-        <p class="example-result">Bulk operations like <code>bulk_create_drafts</code> and <code>bulk_update_blog_posts</code> support <code>dryRun: true</code>. Ask the agent to "preview the batch first" — it validates everything (brand access, content limits, rules, sanitization) and reports per-item results before committing.</p>
+        <p class="example-result">Bulk operations support a preview mode. Ask the agent to "preview the batch first" before it actually writes anything — it validates each item (brand access, content limits, your rules) and reports back without committing. You decide whether to ship it.</p>
       </div>
       <div class="example-card">
         <div class="example-label">Tip 07</div>
         <div class="example-quote" style="font-size:18px;">Mistakes are reversible.</div>
-        <p class="example-result">Every write tool returns an <code>agentActionId</code>. If you said "delete those 14 drafts" and regretted it, ask the agent to revert that action ID. Most action types are revertible (creates, deletes, updates, fact writes). Publishes hit the public internet — fix those by republishing instead.</p>
+        <p class="example-result">Every action Heist takes is logged. If you said "delete those 14 drafts" and regretted it, ask the agent to revert it — Heist brings them back. Most actions are reversible (creates, deletes, updates, fact writes). Publishes already hit the public internet, so for those, ask the agent to republish with the correction.</p>
       </div>
     </div>
   </div>
@@ -666,9 +666,9 @@ footer{padding:80px 48px 40px;border-top:1px solid var(--border);background:var(
       <div class="faq-item"><div class="faq-q">Can the AI mess up my brand? <span class="faq-toggle" aria-hidden="true">+</span></div><div class="faq-a">No. Every AI action lands in an audit log. You can set a preference so nothing applies until you approve it. All writes require a source or reason — the AI can't save a fact without citing where it came from.</div></div>
       <div class="faq-item"><div class="faq-q">What's the learning curve? <span class="faq-toggle" aria-hidden="true">+</span></div><div class="faq-a">If you can have a conversation, you can use it. You chat naturally — ask anything you'd ask Claude, in your own words. We also publish named shortcut prompts (daily briefing, weekly plan, brand audit, voice refresh) that AI clients surface in their prompt picker, but they're optional — the agent figures out which Heist tools to call either way.</div></div>
       <div class="faq-item"><div class="faq-q">Do I have to use specific prompts? <span class="faq-toggle" aria-hidden="true">+</span></div><div class="faq-a">No. The chat works exactly like talking to Claude. Ask anything, in any phrasing — the AI picks the right Heist tools automatically based on what you're asking for. The prompts on this page are examples, not requirements. Steal them, paraphrase them, or ignore them and just talk.</div></div>
-      <div class="faq-item"><div class="faq-q">Is it safe to give an AI write access to my brand? <span class="faq-toggle" aria-hidden="true">+</span></div><div class="faq-a">Yes — by design. When you connect via the OAuth URL flow, Heist's consent screen lets you pick exactly which brands the AI can access and what it can do (read brand context, create drafts, schedule, publish, edit your Brain). You grant only what you need; the AI can't escalate. Every write lands in an audit log and can be reverted by action ID.</div></div>
+      <div class="faq-item"><div class="faq-q">Is it safe to give an AI write access to my brand? <span class="faq-toggle" aria-hidden="true">+</span></div><div class="faq-a">Yes — by design. When you connect via the OAuth URL flow, Heist's consent screen lets you pick exactly which brands the AI can access and what it can do (read brand context, create drafts, schedule, publish, edit your Brain). You grant only what you need; the AI can't escalate. Every write lands in an audit log and can be reversed by asking the agent to undo it.</div></div>
       <div class="faq-item"><div class="faq-q">Do I need an API key? <span class="faq-toggle" aria-hidden="true">+</span></div><div class="faq-a">Not for Claude.ai or ChatGPT — those use the OAuth URL paste flow described above. API keys are only needed for stdio clients like Claude Desktop, Cursor, or Windsurf, which don't speak the web OAuth flow. The API-key path is hidden under Advanced Settings on purpose; most users never touch it.</div></div>
-      <div class="faq-item"><div class="faq-q">What if the AI makes a mistake? <span class="faq-toggle" aria-hidden="true">+</span></div><div class="faq-a">Most writes are reversible. Every action stamps an <code>agent_actions</code> row in your audit log; ask the AI to revert by action ID and Heist restores the previous state. Brand-Brain writes (facts, rules) queue for approval by default, so they need your sign-off before they take effect.</div></div>
+      <div class="faq-item"><div class="faq-q">What if the AI makes a mistake? <span class="faq-toggle" aria-hidden="true">+</span></div><div class="faq-a">Most writes are reversible. Every action lands in your audit log; ask the AI to revert it and Heist restores the previous state. Brand-Brain writes (facts, rules) queue for approval by default, so they need your sign-off before they take effect.</div></div>
       <div class="faq-item"><div class="faq-q">Can I revoke access? <span class="faq-toggle" aria-hidden="true">+</span></div><div class="faq-a">Yes. Heist &rarr; Settings &rarr; Connections &rarr; Connectors lists every active session. Click Revoke and the AI immediately loses access. Or revoke from inside Claude.ai / ChatGPT in their connector list.</div></div>
       <div class="faq-item"><div class="faq-q">What happens if I cancel? <span class="faq-toggle" aria-hidden="true">+</span></div><div class="faq-a">Your data is yours. Your posts stay published on their platforms. Your Brain content can be exported. Cancel from Settings — no fees, no questions.</div></div>
     </div>
