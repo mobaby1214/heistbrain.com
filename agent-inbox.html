@@ -31,7 +31,7 @@
 <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=DM+Sans:ital,opsz,wght@0,9..40,300..800;1,9..40,300..800&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
 <script type="application/ld+json">{"@context":"https://schema.org","@type":"WebPage","name":"Heist Agent Inbox — Run Heist from Claude or ChatGPT","url":"https://heistbrain.com/agent-inbox.html","description":"Heist connects to Claude, ChatGPT, Cursor, and Copilot. Plan, draft, schedule, and publish a month of content from a chat window. Never open the app.","isPartOf":{"@type":"WebSite","url":"https://heistbrain.com"}}</script>
 <script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://heistbrain.com/"},{"@type":"ListItem","position":2,"name":"Agent Inbox","item":"https://heistbrain.com/agent-inbox.html"}]}</script>
-<script type="application/ld+json">{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"What AI tools does Heist work with?","acceptedAnswer":{"@type":"Answer","text":"Heist works with any AI assistant that supports MCP. Today that's Claude (desktop and web), ChatGPT, Cursor, Copilot, and Windsurf. More clients support MCP every month."}},{"@type":"Question","name":"Do I still need the web app?","acceptedAnswer":{"@type":"Answer","text":"No. Everything you can do in the Heist web app — plan, draft, schedule, publish, edit your Brain — you can do from your AI assistant. The web app is there when you want it, not because you need it."}},{"@type":"Question","name":"Can the AI mess up my brand?","acceptedAnswer":{"@type":"Answer","text":"No. Every AI action lands in an audit log. You can set a preference so nothing applies until you approve it. All writes require a source or reason — the AI can't save a fact without citing where it came from."}},{"@type":"Question","name":"What's the learning curve?","acceptedAnswer":{"@type":"Answer","text":"If you can have a conversation, you can use it. We provide prompt templates (daily briefing, weekly plan, brand audit, voice refresh) that the AI already knows by name — just type 'Using Heist, give me my daily briefing' and it works."}},{"@type":"Question","name":"Is it safe to give an AI write access to my brand?","acceptedAnswer":{"@type":"Answer","text":"Yes — by design. When you connect via the OAuth URL flow, Heist's consent screen lets you pick exactly which brands the AI can access and what it can do (read brand context, create drafts, schedule, publish, edit your brain). You grant only what you need; the AI can't escalate. Every write lands in an audit log and can be reverted by ID."}},{"@type":"Question","name":"What happens if I cancel?","acceptedAnswer":{"@type":"Answer","text":"Your data is yours. Your posts stay published on their platforms. Your Brain content can be exported. Cancel from Settings — no fees, no questions."}}]}</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"What AI tools does Heist work with?","acceptedAnswer":{"@type":"Answer","text":"Heist works with any AI assistant that supports MCP. Today that's Claude (desktop and web), ChatGPT, Cursor, Copilot, and Windsurf. More clients support MCP every month."}},{"@type":"Question","name":"Do I still need the web app?","acceptedAnswer":{"@type":"Answer","text":"No. Everything you can do in the Heist web app — plan, draft, schedule, publish, edit your Brain — you can do from your AI assistant. The web app is there when you want it, not because you need it."}},{"@type":"Question","name":"Can the AI mess up my brand?","acceptedAnswer":{"@type":"Answer","text":"No. Every AI action lands in an audit log. You can set a preference so nothing applies until you approve it. All writes require a source or reason — the AI can't save a fact without citing where it came from."}},{"@type":"Question","name":"What's the learning curve?","acceptedAnswer":{"@type":"Answer","text":"If you can have a conversation, you can use it. You chat naturally — ask anything you'd ask Claude, in your own words. We also publish named shortcut prompts (daily briefing, weekly plan, brand audit, voice refresh) that AI clients surface in their prompt picker, but they're optional — the agent figures out which Heist tools to call either way."}},{"@type":"Question","name":"Do I have to use specific prompts?","acceptedAnswer":{"@type":"Answer","text":"No. The chat works exactly like talking to Claude. Ask anything, in any phrasing — the AI picks the right Heist tools automatically based on what you're asking for. The prompts on the agent-inbox page are examples, not requirements. Steal them, paraphrase them, or ignore them and just talk."}},{"@type":"Question","name":"Is it safe to give an AI write access to my brand?","acceptedAnswer":{"@type":"Answer","text":"Yes — by design. When you connect via the OAuth URL flow, Heist's consent screen lets you pick exactly which brands the AI can access and what it can do (read brand context, create drafts, schedule, publish, edit your brain). You grant only what you need; the AI can't escalate. Every write lands in an audit log and can be reverted by ID."}},{"@type":"Question","name":"What happens if I cancel?","acceptedAnswer":{"@type":"Answer","text":"Your data is yours. Your posts stay published on their platforms. Your Brain content can be exported. Cancel from Settings — no fees, no questions."}}]}</script>
 
 <!-- GA4 — deferred until interactive to protect mobile TBT -->
 <script>
@@ -311,15 +311,24 @@ footer{padding:80px 48px 40px;border-top:1px solid var(--border);background:var(
 <!-- See it happen — 6 example prompts -->
 <section class="examples">
   <div class="container">
+
+    <!-- Phase 7.B — flexibility callout. Frames the prompts as starters, not requirements. -->
+    <div style="max-width:760px;margin:0 auto 48px;background:rgba(139,92,246,0.05);border:1px solid rgba(139,92,246,0.30);border-left:4px solid var(--accent);border-radius:10px;padding:18px 22px;text-align:left;">
+      <div style="font-family:var(--fd);font-size:18px;font-weight:500;color:var(--text);margin-bottom:6px;">You don't have to use these prompts.</div>
+      <div style="font-size:14px;color:var(--text2);line-height:1.65;">
+        The Heist connector works like any Claude or ChatGPT conversation — ask in your own words, change your mind mid-thread, follow up. The 85 tools fire automatically based on what you're asking for. Everything below is just here to spark ideas.
+      </div>
+    </div>
+
     <div class="examples-header">
       <div class="section-label" style="justify-content:center">See it happen</div>
-      <h2>Six prompts. Six outcomes.</h2>
-      <p>Every prompt here runs against the same 85 Heist tools your AI has access to. Copy the line, say it to your AI, get the result.</p>
+      <h2>Six examples to spark ideas.</h2>
+      <p>These are examples — copy them verbatim, paraphrase them, or invent your own. The AI talks to your 85 Heist tools the same way Claude already talks to you. The conversation is flexible; this page is just here to show you what kinds of work it can do.</p>
     </div>
     <div class="examples-grid">
 
       <div class="example-card">
-        <div class="example-label">Say this</div>
+        <div class="example-label">Try something like</div>
         <div class="example-quote">"Using Heist, give me my daily content briefing."</div>
         <div class="example-result-label">Get this</div>
         <p class="example-result">A 200-word rundown of what's scheduled today, yesterday's top and bottom performers, and one concrete recommendation for what to do now.</p>
@@ -327,7 +336,7 @@ footer{padding:80px 48px 40px;border-top:1px solid var(--border);background:var(
       </div>
 
       <div class="example-card">
-        <div class="example-label">Say this</div>
+        <div class="example-label">Try something like</div>
         <div class="example-quote">"Plan my next week. 5 LinkedIn posts and 3 Instagram posts, across my main offer and one story post per platform."</div>
         <div class="example-result-label">Get this</div>
         <p class="example-result">8 drafts in your Agent Inbox, each grounded in your brand voice, tagged with why it's likely to land.</p>
@@ -335,7 +344,7 @@ footer{padding:80px 48px 40px;border-top:1px solid var(--border);background:var(
       </div>
 
       <div class="example-card">
-        <div class="example-label">Say this</div>
+        <div class="example-label">Try something like</div>
         <div class="example-quote">"Audit my brand brain. What's missing? What's contradicting?"</div>
         <div class="example-result-label">Get this</div>
         <p class="example-result">Gaps, contradictions, and stale facts — with specific proposals to fix each.</p>
@@ -343,7 +352,7 @@ footer{padding:80px 48px 40px;border-top:1px solid var(--border);background:var(
       </div>
 
       <div class="example-card">
-        <div class="example-label">Say this</div>
+        <div class="example-label">Try something like</div>
         <div class="example-quote">"Look at my last 20 posts. Update my voice profile based on what performed."</div>
         <div class="example-result-label">Get this</div>
         <p class="example-result">A proposed patch to your brand profile, grounded in your actual winners.</p>
@@ -351,7 +360,7 @@ footer{padding:80px 48px 40px;border-top:1px solid var(--border);background:var(
       </div>
 
       <div class="example-card">
-        <div class="example-label">Say this</div>
+        <div class="example-label">Try something like</div>
         <div class="example-quote">"Write a 1200-word blog post on why solopreneurs need a content OS. Source: our conversation today."</div>
         <div class="example-result-label">Get this</div>
         <p class="example-result">A full draft in your blog editor, styled to match your site, ready to publish to WordPress.</p>
@@ -359,7 +368,7 @@ footer{padding:80px 48px 40px;border-top:1px solid var(--border);background:var(
       </div>
 
       <div class="example-card">
-        <div class="example-label">Say this</div>
+        <div class="example-label">Try something like</div>
         <div class="example-quote">"The LinkedIn post from Tuesday did 3x my average engagement. Mark it as a high performer."</div>
         <div class="example-result-label">Get this</div>
         <p class="example-result">The post is flagged, your Brain learns what about it worked, next week's drafts lean into that pattern.</p>
@@ -479,27 +488,27 @@ footer{padding:80px 48px 40px;border-top:1px solid var(--border);background:var(
 <section class="examples" style="padding-top:60px;">
   <div class="container">
     <div class="examples-header">
-      <div class="section-label" style="justify-content:center">More prompts</div>
-      <h2>Drop-in lines for the work you actually do.</h2>
-      <p>Copy any prompt below into Claude.ai, ChatGPT, Cursor, or Windsurf after you've connected. Each one runs through the right Heist tools automatically.</p>
+      <div class="section-label" style="justify-content:center">More examples</div>
+      <h2>More example prompts to steal or remix.</h2>
+      <p>None of these are required. Steal them word-for-word, paraphrase them, or just talk to the AI the way you'd talk to Claude — the agent figures out which Heist tools to call either way. These are organized by job-to-be-done so you can find one that matches what you're trying to do.</p>
     </div>
 
     <h3 style="font-family:var(--fd);font-size:24px;font-weight:400;margin:48px 0 20px;color:var(--text);">Plan a campaign</h3>
     <div class="examples-grid">
       <div class="example-card">
-        <div class="example-label">Say this</div>
+        <div class="example-label">Try something like</div>
         <div class="example-quote">"Plan a 2-week LinkedIn + X launch campaign for [my product]. 3 posts per week per platform, mix of educational and promotional. Schedule weekday mornings."</div>
         <div class="example-result-label">Get this</div>
         <p class="example-result">12 drafts grouped under one campaign in one tool call. Auto-scheduled.</p>
       </div>
       <div class="example-card">
-        <div class="example-label">Say this</div>
+        <div class="example-label">Try something like</div>
         <div class="example-quote">"Plan a holiday content calendar from Black Friday through New Year. Daily Instagram + 3x weekly LinkedIn. Mix promotional, behind-the-scenes, customer stories."</div>
         <div class="example-result-label">Get this</div>
         <p class="example-result">35 drafts across two platforms, scheduled across the holiday window.</p>
       </div>
       <div class="example-card">
-        <div class="example-label">Say this</div>
+        <div class="example-label">Try something like</div>
         <div class="example-quote">"Plan next week of LinkedIn — 5 thought-leadership pieces, no product pitch. Pull the tone from my last high performer."</div>
         <div class="example-result-label">Get this</div>
         <p class="example-result">5 voice-matched drafts. Heist reads your top performer and matches its tone automatically.</p>
@@ -509,19 +518,19 @@ footer{padding:80px 48px 40px;border-top:1px solid var(--border);background:var(
     <h3 style="font-family:var(--fd);font-size:24px;font-weight:400;margin:48px 0 20px;color:var(--text);">Repurpose a winner</h3>
     <div class="examples-grid">
       <div class="example-card">
-        <div class="example-label">Say this</div>
+        <div class="example-label">Try something like</div>
         <div class="example-quote">"Take my best LinkedIn post from the last 60 days and create 5 platform-tailored versions for IG, X, FB, TikTok, and a newsletter intro."</div>
         <div class="example-result-label">Get this</div>
         <p class="example-result">Same idea, five formats, each with the right length and structure for that platform.</p>
       </div>
       <div class="example-card">
-        <div class="example-label">Say this</div>
+        <div class="example-label">Try something like</div>
         <div class="example-quote">"Find my most recent blog post and turn it into 8 social posts: 3 LinkedIn, 3 X, 2 Instagram. Tease the blog and link to it."</div>
         <div class="example-result-label">Get this</div>
         <p class="example-result">8 promotion drafts that each link back to the blog. No manual coordination.</p>
       </div>
       <div class="example-card">
-        <div class="example-label">Say this</div>
+        <div class="example-label">Try something like</div>
         <div class="example-quote">"Generate 5 variations of my best-performing post from the last 90 days — different hooks, same core message. I want to A/B test next month."</div>
         <div class="example-result-label">Get this</div>
         <p class="example-result">5 hook-tested variations grounded in your actual winner. Heist tracks which ones perform.</p>
@@ -531,19 +540,19 @@ footer{padding:80px 48px 40px;border-top:1px solid var(--border);background:var(
     <h3 style="font-family:var(--fd);font-size:24px;font-weight:400;margin:48px 0 20px;color:var(--text);">Edit + republish</h3>
     <div class="examples-grid">
       <div class="example-card">
-        <div class="example-label">Say this</div>
+        <div class="example-label">Try something like</div>
         <div class="example-quote">"Find my pricing blog post, add an FAQ section at the bottom answering common pricing questions, and republish to WordPress."</div>
         <div class="example-result-label">Get this</div>
         <p class="example-result">Edits land in WordPress without you opening the WP editor.</p>
       </div>
       <div class="example-card">
-        <div class="example-label">Say this</div>
+        <div class="example-label">Try something like</div>
         <div class="example-quote">"Find all my draft blog posts older than 30 days and add a CTA paragraph to each promoting our newsletter signup."</div>
         <div class="example-result-label">Get this</div>
         <p class="example-result">Bulk update with a dryRun preview before committing. Reversible by action ID.</p>
       </div>
       <div class="example-card">
-        <div class="example-label">Say this</div>
+        <div class="example-label">Try something like</div>
         <div class="example-quote">"Pull up my 'How to Use Heist' blog. Update the tool count to 85 and republish."</div>
         <div class="example-result-label">Get this</div>
         <p class="example-result">Specific, surgical edits with a single instruction.</p>
@@ -553,19 +562,19 @@ footer{padding:80px 48px 40px;border-top:1px solid var(--border);background:var(
     <h3 style="font-family:var(--fd);font-size:24px;font-weight:400;margin:48px 0 20px;color:var(--text);">Brand brain + voice</h3>
     <div class="examples-grid">
       <div class="example-card">
-        <div class="example-label">Say this</div>
+        <div class="example-label">Try something like</div>
         <div class="example-quote">"Read my last 10 posts and tell me where my voice drifts. Are there any 'AI-flavored' sentences I should rewrite?"</div>
         <div class="example-result-label">Get this</div>
         <p class="example-result">A drift report citing exact lines. Heist scores every post against your brand voice.</p>
       </div>
       <div class="example-card">
-        <div class="example-label">Say this</div>
+        <div class="example-label">Try something like</div>
         <div class="example-quote">"Remember this for future content: my company won the 2026 SaaS Innovation Award in March. Add it as a memory fact."</div>
         <div class="example-result-label">Get this</div>
         <p class="example-result">Fact persists forever. Every future draft can reference it.</p>
       </div>
       <div class="example-card">
-        <div class="example-label">Say this</div>
+        <div class="example-label">Try something like</div>
         <div class="example-quote">"Add a rule to my Brain: never use the word 'leverage' in my posts. It sounds corporate."</div>
         <div class="example-result-label">Get this</div>
         <p class="example-result">Server-side guardrail. Heist refuses to ship a draft that violates it.</p>
@@ -575,19 +584,19 @@ footer{padding:80px 48px 40px;border-top:1px solid var(--border);background:var(
     <h3 style="font-family:var(--fd);font-size:24px;font-weight:400;margin:48px 0 20px;color:var(--text);">Walk back mistakes</h3>
     <div class="examples-grid">
       <div class="example-card">
-        <div class="example-label">Say this</div>
+        <div class="example-label">Try something like</div>
         <div class="example-quote">"I just bulk-deleted 14 drafts I shouldn't have. Find the action and revert it."</div>
         <div class="example-result-label">Get this</div>
         <p class="example-result">Heist's audit log makes most writes revertible by action ID. Drafts come back.</p>
       </div>
       <div class="example-card">
-        <div class="example-label">Say this</div>
+        <div class="example-label">Try something like</div>
         <div class="example-quote">"Yesterday I edited my pricing blog post and I want to roll it back to the version before that edit."</div>
         <div class="example-result-label">Get this</div>
         <p class="example-result">The agent finds the agent_action and restores the before-snapshot.</p>
       </div>
       <div class="example-card">
-        <div class="example-label">Say this</div>
+        <div class="example-label">Try something like</div>
         <div class="example-quote">"I added a memory fact about a discount code that's no longer valid. Find it and remove it."</div>
         <div class="example-result-label">Get this</div>
         <p class="example-result">Brain stays accurate over time without manual cleanup sessions.</p>
@@ -655,7 +664,8 @@ footer{padding:80px 48px 40px;border-top:1px solid var(--border);background:var(
       <div class="faq-item"><div class="faq-q">What AI tools does Heist work with? <span class="faq-toggle" aria-hidden="true">+</span></div><div class="faq-a">Heist works with any AI assistant that supports MCP. Today that's Claude (desktop and web), ChatGPT, Cursor, Copilot, and Windsurf. More clients support MCP every month.</div></div>
       <div class="faq-item"><div class="faq-q">Do I still need the web app? <span class="faq-toggle" aria-hidden="true">+</span></div><div class="faq-a">No. Everything you can do in the Heist web app — plan, draft, schedule, publish, edit your Brain — you can do from your AI assistant. The web app is there when you want it, not because you need it.</div></div>
       <div class="faq-item"><div class="faq-q">Can the AI mess up my brand? <span class="faq-toggle" aria-hidden="true">+</span></div><div class="faq-a">No. Every AI action lands in an audit log. You can set a preference so nothing applies until you approve it. All writes require a source or reason — the AI can't save a fact without citing where it came from.</div></div>
-      <div class="faq-item"><div class="faq-q">What's the learning curve? <span class="faq-toggle" aria-hidden="true">+</span></div><div class="faq-a">If you can have a conversation, you can use it. We provide prompt templates (daily briefing, weekly plan, brand audit, voice refresh) that the AI already knows by name — just type "Using Heist, give me my daily briefing" and it works.</div></div>
+      <div class="faq-item"><div class="faq-q">What's the learning curve? <span class="faq-toggle" aria-hidden="true">+</span></div><div class="faq-a">If you can have a conversation, you can use it. You chat naturally — ask anything you'd ask Claude, in your own words. We also publish named shortcut prompts (daily briefing, weekly plan, brand audit, voice refresh) that AI clients surface in their prompt picker, but they're optional — the agent figures out which Heist tools to call either way.</div></div>
+      <div class="faq-item"><div class="faq-q">Do I have to use specific prompts? <span class="faq-toggle" aria-hidden="true">+</span></div><div class="faq-a">No. The chat works exactly like talking to Claude. Ask anything, in any phrasing — the AI picks the right Heist tools automatically based on what you're asking for. The prompts on this page are examples, not requirements. Steal them, paraphrase them, or ignore them and just talk.</div></div>
       <div class="faq-item"><div class="faq-q">Is it safe to give an AI write access to my brand? <span class="faq-toggle" aria-hidden="true">+</span></div><div class="faq-a">Yes — by design. When you connect via the OAuth URL flow, Heist's consent screen lets you pick exactly which brands the AI can access and what it can do (read brand context, create drafts, schedule, publish, edit your Brain). You grant only what you need; the AI can't escalate. Every write lands in an audit log and can be reverted by action ID.</div></div>
       <div class="faq-item"><div class="faq-q">Do I need an API key? <span class="faq-toggle" aria-hidden="true">+</span></div><div class="faq-a">Not for Claude.ai or ChatGPT — those use the OAuth URL paste flow described above. API keys are only needed for stdio clients like Claude Desktop, Cursor, or Windsurf, which don't speak the web OAuth flow. The API-key path is hidden under Advanced Settings on purpose; most users never touch it.</div></div>
       <div class="faq-item"><div class="faq-q">What if the AI makes a mistake? <span class="faq-toggle" aria-hidden="true">+</span></div><div class="faq-a">Most writes are reversible. Every action stamps an <code>agent_actions</code> row in your audit log; ask the AI to revert by action ID and Heist restores the previous state. Brand-Brain writes (facts, rules) queue for approval by default, so they need your sign-off before they take effect.</div></div>
