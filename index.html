@@ -908,6 +908,39 @@ footer { padding: 80px 48px 40px; border-top: 1px solid var(--border); }
 @media (max-width: 640px) {
   .agent-inbox-home { padding: 80px 0 !important; }
 }
+
+/* ═══════════ FACELESS VIDEO SPOTLIGHT ═══════════ */
+.faceless { position: relative; overflow: hidden; background: linear-gradient(180deg, transparent, rgba(236,72,153,0.035)); }
+.faceless::before { content:''; position:absolute; top:-12%; right:-10%; width:720px; height:720px; background: radial-gradient(circle, rgba(236,72,153,0.07), transparent 60%); pointer-events:none; z-index:0; }
+.faceless .container { position: relative; z-index: 1; }
+.faceless h2 { font-family: var(--fd); font-size: clamp(36px,4.5vw,56px); line-height:1.1; font-weight:400; margin-bottom:20px; max-width:880px; }
+.faceless h2 em { font-style: italic; }
+.faceless-sub { font-size:19px; color:var(--text2); line-height:1.6; max-width:720px; margin-bottom:56px; }
+
+.fv-pipeline { display:flex; align-items:stretch; gap:10px; margin-bottom:60px; flex-wrap:wrap; }
+.fv-step { flex:1; min-width:190px; padding:24px; border-radius:16px; background:var(--surface); border:1px solid var(--border); transition:border-color 0.3s var(--ease), transform 0.3s var(--ease); }
+.fv-step:hover { border-color:rgba(236,72,153,0.25); transform:translateY(-3px); }
+.fv-step-num { font-family:var(--fm); font-size:11px; letter-spacing:0.12em; color:var(--pink); }
+.fv-step h4 { font-family:var(--fd); font-size:20px; font-weight:400; margin:10px 0 8px; }
+.fv-step p { font-size:13px; color:var(--text2); line-height:1.6; }
+.fv-arrow { align-self:center; color:var(--text3); flex:0 0 auto; }
+@media (max-width:820px) { .fv-arrow { transform:rotate(90deg); margin:0 auto; } }
+
+.fv-modes { display:grid; grid-template-columns:1fr 1fr; gap:24px; margin-bottom:44px; }
+@media (max-width:760px) { .fv-modes { grid-template-columns:1fr; } }
+.fv-mode { padding:32px; border-radius:20px; background:var(--surface); border:1px solid var(--border); position:relative; overflow:hidden; }
+.fv-mode::before { content:''; position:absolute; top:0; left:0; right:0; height:1px; background:linear-gradient(90deg, transparent, rgba(255,255,255,0.08), transparent); }
+.fv-mode-primary { border-color:rgba(139,92,246,0.32); background:linear-gradient(180deg, rgba(139,92,246,0.07), transparent 55%); }
+.fv-mode-badge { display:inline-block; font-family:var(--fm); font-size:11px; letter-spacing:0.12em; text-transform:uppercase; padding:5px 12px; border-radius:20px; margin-bottom:16px; background:rgba(139,92,246,0.12); color:var(--accent-hi); border:1px solid rgba(139,92,246,0.22); }
+.fv-mode-badge-alt { background:rgba(236,72,153,0.1); color:var(--pink); border-color:rgba(236,72,153,0.22); }
+.fv-mode h3 { font-family:var(--fd); font-size:25px; font-weight:400; margin-bottom:10px; }
+.fv-mode > p { font-size:14px; color:var(--text2); line-height:1.7; margin-bottom:16px; }
+.fv-prompt { font-family:var(--fd); font-style:italic; font-size:17px; color:var(--text); line-height:1.5; padding:16px 18px; border-radius:12px; background:rgba(255,255,255,0.03); border:1px solid var(--border); border-left:3px solid var(--accent); margin-bottom:16px; }
+.fv-feature-list { list-style:none; margin:0; padding:0; }
+.fv-feature-list li { display:flex; align-items:flex-start; gap:10px; font-size:14px; color:var(--text2); line-height:1.6; padding:6px 0; }
+.fv-feature-list li svg { flex-shrink:0; margin-top:4px; color:var(--pink); }
+.fv-cta-row { display:flex; gap:16px; flex-wrap:wrap; align-items:center; }
+@media (max-width:640px) { .faceless { padding:80px 0 !important; } .fv-mode { padding:24px; } }
 </style>
 </head>
 <body>
@@ -1358,6 +1391,77 @@ footer { padding: 80px 48px 40px; border-top: 1px solid var(--border); }
       <div class="step r"><div class="step-num">02</div><div class="step-icon"><svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="var(--accent-hi)" stroke-width="1.75"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10"/></svg></div><h3>Pull the Heist</h3><p>Enter one idea. Heist generates a full month of content across LinkedIn, X, Instagram, Facebook, TikTok, and YouTube — captions, blogs, AI images, and faceless videos with AI voiceover, built right from your script.</p></div>
       <div class="step r"><div class="step-num">03</div><div class="step-icon"><svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="var(--accent-hi)" stroke-width="1.75"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/><circle cx="12" cy="12" r="3"/></svg></div><h3>Preview Everything</h3><p>See exactly how each post looks on every platform. Pixel-accurate. No surprises when it goes live.</p></div>
       <div class="step r"><div class="step-num">04</div><div class="step-icon"><svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="var(--accent-hi)" stroke-width="1.75"><path d="M22 2L11 13"/><path d="M22 2L15 22l-4-9-9-4z"/></svg></div><h3>Schedule &amp; Go</h3><p>Drag posts to your calendar, hit schedule, walk away clean. Your content runs on autopilot.</p></div>
+    </div>
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<!-- ═══════════ FACELESS VIDEO SPOTLIGHT ═══════════ -->
+<section class="faceless" id="faceless-video" style="padding:120px 0;">
+  <div class="container">
+    <div class="section-label r">Faceless Video · New</div>
+    <h2 class="r">Turn a script into a <em>scroll-stopping</em> video.</h2>
+    <p class="faceless-sub r">
+      One script in, a finished video out — AI voiceover, stock or AI-generated visuals, and burned-in captions, sized for TikTok, Instagram Reels, Facebook Reels, and YouTube Shorts. No camera. No editor. No face required.
+    </p>
+
+    <!-- Pipeline -->
+    <div class="fv-pipeline r">
+      <div class="fv-step">
+        <div class="fv-step-num">01 · SCRIPT</div>
+        <h4>Start with words</h4>
+        <p>Paste your script, or let the Brain write one on your topic in your voice.</p>
+      </div>
+      <svg class="fv-arrow" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+      <div class="fv-step">
+        <div class="fv-step-num">02 · VOICE</div>
+        <h4>Add a voice</h4>
+        <p>Pick an ElevenLabs voice and Heist narrates the script — natural, on-brand audio.</p>
+      </div>
+      <svg class="fv-arrow" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+      <div class="fv-step">
+        <div class="fv-step-num">03 · VISUALS</div>
+        <h4>Layer the visuals</h4>
+        <p>Stock footage or AI-generated, on-brand images — assembled into a captioned slideshow.</p>
+      </div>
+      <svg class="fv-arrow" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+      <div class="fv-step">
+        <div class="fv-step-num">04 · POST</div>
+        <h4>Ship it</h4>
+        <p>The finished video auto-drafts to your calendar with Brain-written caption, ready to schedule.</p>
+      </div>
+    </div>
+
+    <!-- Two ways -->
+    <div class="fv-modes">
+      <div class="fv-mode fv-mode-primary r">
+        <span class="fv-mode-badge">MCP-first</span>
+        <h3>Make it from your chat</h3>
+        <p>Connect Heist to Claude, ChatGPT, Cursor, or Copilot and just ask. The whole pipeline runs in one message — no dashboard required.</p>
+        <div class="fv-prompt">"Using Heist, make a 60-second faceless video about our spring launch and schedule it for Tuesday."</div>
+        <ul class="fv-feature-list">
+          <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg>Voiceover, visuals, captions, and a scheduled draft — done in one call</li>
+          <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg>Import clips from Runway, Pika, or any tool straight into a draft</li>
+        </ul>
+      </div>
+      <div class="fv-mode r">
+        <span class="fv-mode-badge fv-mode-badge-alt">In the platform</span>
+        <h3>Or build it in Studio</h3>
+        <p>Prefer clicks? Open Content Studio, drop in your script, choose a voice and visual style, and hit Generate. Preview, tweak, and schedule — all in the dashboard.</p>
+        <ul class="fv-feature-list">
+          <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg>Choose your voice and stock-vs-AI visuals, 3&ndash;12 scenes</li>
+          <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg>Lands in your library and as a draft, ready to schedule</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="fv-cta-row r">
+      <a href="https://app.heistbrain.com/#signup" class="agent-inbox-cta">
+        Make your first video free
+        <svg width="14" height="14" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      </a>
+      <span style="font-size:14px;color:var(--text3);">Faceless video uses your own ElevenLabs &amp; Creatomate keys. <a href="/changelog" style="color:var(--accent-hi);text-decoration:none;border-bottom:1px solid rgba(167,139,250,0.4);">See what shipped &rarr;</a></span>
     </div>
   </div>
 </section>
