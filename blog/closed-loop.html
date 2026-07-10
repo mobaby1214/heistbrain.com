@@ -3,6 +3,29 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<!-- GA4 — deferred until interactive to protect mobile TBT -->
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){ dataLayer.push(arguments); }
+  gtag('js', new Date());
+  gtag('config', 'G-C4JK66ZQ43', { transport_type: 'beacon' });
+  (function loadGA() {
+    var loaded = false;
+    function load() {
+      if (loaded) return;
+      loaded = true;
+      var s = document.createElement('script');
+      s.async = true;
+      s.src = 'https://www.googletagmanager.com/gtag/js?id=G-C4JK66ZQ43';
+      document.head.appendChild(s);
+    }
+    ['scroll','mousemove','touchstart','keydown','click'].forEach(function(ev){
+      window.addEventListener(ev, load, { once: true, passive: true });
+    });
+    setTimeout(load, 3000);
+  })();
+</script>
 <title>The Closed Loop: How Heist Learns What Works — Heist Brain Blog</title>
 <meta name="description" content="Most AI content tools generate and forget. Heist's closed loop tracks what worked, learns from it, and gets sharper every six hours. Here's how it works.">
 
