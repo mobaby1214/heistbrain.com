@@ -1,17 +1,17 @@
 {
-  "generated_at": "2026-09-07T04:00:54.811Z",
+  "generated_at": "2026-09-07T04:15:39.702Z",
   "pages": [
     {
       "url": "https://heistbrain.com/",
-      "lastmod": "2026-07-10"
+      "lastmod": "2026-09-06"
     },
     {
       "url": "https://heistbrain.com/about",
-      "lastmod": "2026-04-25"
+      "lastmod": "2026-09-06"
     },
     {
       "url": "https://heistbrain.com/agent-inbox.html",
-      "lastmod": "2026-04-26"
+      "lastmod": "2026-09-06"
     },
     {
       "url": "https://heistbrain.com/benchmarks/blog-post-length.html",
@@ -127,7 +127,7 @@
     },
     {
       "url": "https://heistbrain.com/changelog",
-      "lastmod": "2026-05-29"
+      "lastmod": "2026-09-06"
     },
     {
       "url": "https://heistbrain.com/content-ideas/facebook.html",
@@ -158,8 +158,8 @@
       "lastmod": "2026-04-25"
     },
     {
-      "url": "https://heistbrain.com/data-deletion.html",
-      "lastmod": "2026-07-10"
+      "url": "https://heistbrain.com/data-deletion",
+      "lastmod": "2026-09-06"
     },
     {
       "url": "https://heistbrain.com/for/agencies.html",
@@ -167,7 +167,7 @@
     },
     {
       "url": "https://heistbrain.com/for/ai-first-workflow.html",
-      "lastmod": "2026-04-26"
+      "lastmod": "2026-09-06"
     },
     {
       "url": "https://heistbrain.com/for/authors.html",
@@ -358,24 +358,32 @@
       "lastmod": "2026-04-25"
     },
     {
-      "url": "https://heistbrain.com/privacy.html",
-      "lastmod": "2026-07-10"
+      "url": "https://heistbrain.com/privacy",
+      "lastmod": "2026-09-06"
     },
     {
       "url": "https://heistbrain.com/quiz/brand-voice.html",
       "lastmod": "2026-04-25"
     },
     {
+      "url": "https://heistbrain.com/refunds",
+      "lastmod": "2026-09-06"
+    },
+    {
       "url": "https://heistbrain.com/resources/index.html",
       "lastmod": "2026-04-25"
+    },
+    {
+      "url": "https://heistbrain.com/security",
+      "lastmod": "2026-09-06"
     },
     {
       "url": "https://heistbrain.com/templates/index.html",
       "lastmod": "2026-04-25"
     },
     {
-      "url": "https://heistbrain.com/terms.html",
-      "lastmod": "2026-07-10"
+      "url": "https://heistbrain.com/terms",
+      "lastmod": "2026-09-06"
     },
     {
       "url": "https://heistbrain.com/tools/",
