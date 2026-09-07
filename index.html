@@ -1139,33 +1139,9 @@ footer { padding: 80px 48px 40px; border-top: 1px solid var(--border); }
   </div>
 </section>
 
-<!-- ═══════════ SOCIAL PROOF — MARQUEE ═══════════ -->
-<section class="social-proof">
-  <div class="marquee-controls">
-    <button class="marquee-btn" id="marquee-pause" title="Pause/Play"><svg width="12" height="12" viewBox="0 0 24 24" fill="currentColor"><rect x="6" y="4" width="4" height="16"/><rect x="14" y="4" width="4" height="16"/></svg> Pause</button>
-    <span class="speed-label">Speed:</span>
-    <button class="marquee-btn active" data-speed="40">Normal</button>
-    <button class="marquee-btn" data-speed="80">Slow</button>
-  </div>
-  <div class="marquee-wrap" id="marquee-wrap">
-    <div class="marquee-track" id="marquee">
-      <div class="testimonial"><div class="testimonial-stars">★★★★★</div><div class="testimonial-text">"I used to spend every Sunday night in content panic mode. Heist gave me my weekends back. That alone is worth 10x the price."</div><div class="testimonial-author"><span class="testimonial-avatar">JM</span><span>Jordan M., Content Creator</span></div></div>
-      <div class="testimonial"><div class="testimonial-stars">★★★★★</div><div class="testimonial-text">"Heist replaced Jasper, Buffer, and my Google Docs chaos. One tool, one Brain, done."</div><div class="testimonial-author"><span class="testimonial-avatar">AR</span><span>Alex R., Founder at TechCo</span></div></div>
-      <div class="testimonial"><div class="testimonial-stars">★★★★★</div><div class="testimonial-text">"The previews alone sold me. I finally know what my posts look like before they go live."</div><div class="testimonial-author"><span class="testimonial-avatar">SK</span><span>Sam K., Marketing Consultant</span></div></div>
-      <div class="testimonial"><div class="testimonial-stars">★★★★★</div><div class="testimonial-text">"My followers think I have a content team. I have a Brain."</div><div class="testimonial-author"><span class="testimonial-avatar">DW</span><span>Dana W., Content Manager</span></div></div>
-      <div class="testimonial"><div class="testimonial-stars">★★★★★</div><div class="testimonial-text">"I got 8 hours a week back. My mornings are mine again. My weekends are mine again. Never going back."</div><div class="testimonial-author"><span class="testimonial-avatar">RT</span><span>Riley T., Solopreneur</span></div></div>
-      <div class="testimonial"><div class="testimonial-stars">★★★★★</div><div class="testimonial-text">"Everyone asks how I post so consistently across 6 platforms. I tell them it's classified."</div><div class="testimonial-author"><span class="testimonial-avatar">CL</span><span>Casey L., Social Media Manager</span></div></div>
-      <!-- Duplicate for seamless loop -->
-      <div class="testimonial"><div class="testimonial-stars">★★★★★</div><div class="testimonial-text">"I used to spend every Sunday night in content panic mode. Heist gave me my weekends back. That alone is worth 10x the price."</div><div class="testimonial-author"><span class="testimonial-avatar">JM</span><span>Jordan M., Content Creator</span></div></div>
-      <div class="testimonial"><div class="testimonial-stars">★★★★★</div><div class="testimonial-text">"Heist replaced Jasper, Buffer, and my Google Docs chaos. One tool, one Brain, done."</div><div class="testimonial-author"><span class="testimonial-avatar">AR</span><span>Alex R., Founder at TechCo</span></div></div>
-      <div class="testimonial"><div class="testimonial-stars">★★★★★</div><div class="testimonial-text">"The previews alone sold me. I finally know what my posts look like before they go live."</div><div class="testimonial-author"><span class="testimonial-avatar">SK</span><span>Sam K., Marketing Consultant</span></div></div>
-      <div class="testimonial"><div class="testimonial-stars">★★★★★</div><div class="testimonial-text">"My followers think I have a content team. I have a Brain."</div><div class="testimonial-author"><span class="testimonial-avatar">DW</span><span>Dana W., Content Manager</span></div></div>
-      <div class="testimonial"><div class="testimonial-stars">★★★★★</div><div class="testimonial-text">"I got 8 hours a week back. My mornings are mine again. My weekends are mine again. Never going back."</div><div class="testimonial-author"><span class="testimonial-avatar">RT</span><span>Riley T., Solopreneur</span></div></div>
-      <div class="testimonial"><div class="testimonial-stars">★★★★★</div><div class="testimonial-text">"Everyone asks how I post so consistently across 6 platforms. I tell them it's classified."</div><div class="testimonial-author"><span class="testimonial-avatar">CL</span><span>Casey L., Social Media Manager</span></div></div>
-    </div>
-  </div>
-  <p style="text-align:center;margin:20px auto 0;font-size:12px;color:var(--text3);max-width:600px;letter-spacing:0.02em;">Select feedback from early access users. Names shortened for privacy.</p>
-</section>
+<!-- T-10: testimonial marquee removed — quotes were initials-only and
+     unverifiable (audit C-2). Re-add as static cards once there are real,
+     consented, named quotes with a link. -->
 
 <div class="divider"></div>
 
@@ -1496,12 +1472,6 @@ footer { padding: 80px 48px 40px; border-top: 1px solid var(--border); }
         <div class="versus-item"><span class="versus-icon">✓</span><span>Schedule everything. Walk away clean.</span></div>
       </div>
     </div>
-    <!-- Strategic testimonial after versus -->
-    <div class="inline-quote r">
-      <div class="inline-quote-stars">★★★★★</div>
-      <div class="inline-quote-text">"Heist replaced Jasper, Buffer, and my Google Docs chaos. One tool, one Brain, done."</div>
-      <div class="inline-quote-author">— Alex R., Founder at TechCo</div>
-    </div>
   </div>
 </section>
 
@@ -1566,7 +1536,7 @@ footer { padding: 80px 48px 40px; border-top: 1px solid var(--border); }
         <div class="r" style="padding:24px;background:var(--surface);border:1px solid var(--border);border-radius:16px;">
           <div style="margin-bottom:12px;"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="var(--accent-hi)" stroke-width="1.75"><polyline points="23 4 23 10 17 10"/><path d="M20.49 15a9 9 0 1 1-2.12-9.36L23 10"/></svg></div>
           <h3 style="font-family:var(--fd);font-size:18px;margin-bottom:6px;">Automated backups</h3>
-          <p style="font-size:13px;color:var(--text2);line-height:1.6;">Database backed up every 6 hours with integrity verification. 28 rolling backups always available.</p>
+          <p style="font-size:13px;color:var(--text2);line-height:1.6;">Database backed up daily with integrity verification before anything is replaced, on a 30-day rolling window — plus a health check on the live database every 6 hours.</p>
         </div>
       </div>
     </div>
@@ -1763,12 +1733,6 @@ footer { padding: 80px 48px 40px; border-top: 1px solid var(--border); }
         <div class="per-post-cost">Best for teams</div>
       </div>
     </div>
-    <!-- Strategic testimonial in pricing -->
-    <div class="inline-quote r" style="margin-top:48px;">
-      <div class="inline-quote-stars">★★★★★</div>
-      <div class="inline-quote-text">"I used to spend every Sunday night in content panic mode. Heist gave me my weekends back. That alone is worth 10x the price."</div>
-      <div class="inline-quote-author">— Jordan M., Content Creator</div>
-    </div>
     <div style="text-align:center;margin-top:20px;font-size:13px;color:rgba(241,240,245,.5);display:flex;align-items:center;justify-content:center;gap:8px">
       <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
       7-day free trial · Cancel anytime
@@ -1855,7 +1819,7 @@ footer { padding: 80px 48px 40px; border-top: 1px solid var(--border); }
     <div class="footer-col"><h4>Compare</h4><a href="/vs/jasper.html">vs Jasper</a><a href="/vs/buffer.html">vs Buffer</a><a href="/vs/hootsuite.html">vs Hootsuite</a></div>
     <div class="footer-col"><h4>For</h4><a href="/for/freelancers.html">Freelancers</a><a href="/for/agencies.html">Agencies</a></div>
     <div class="footer-col"><h4>Company</h4><a href="/about">About</a><a href="/blog">Blog</a><a href="mailto:support@heistbrain.com">Contact</a></div>
-    <div class="footer-col"><h4>Legal</h4><a href="/privacy">Privacy</a><a href="/terms">Terms</a></div>
+    <div class="footer-col"><h4>Legal</h4><a href="/privacy">Privacy</a><a href="/terms">Terms</a><a href="/security">Security</a><a href="/refunds">Refunds</a></div>
   </div>
   <div class="footer-social" style="max-width:1200px;margin:48px auto 0;padding-top:24px;border-top:1px solid var(--border);display:flex;justify-content:center;gap:20px;align-items:center;">
     <a href="https://x.com/PulledtheHeist" target="_blank" rel="noopener" aria-label="Follow Heist on X" style="color:var(--text2);transition:color 0.3s;">
@@ -1873,7 +1837,7 @@ footer { padding: 80px 48px 40px; border-top: 1px solid var(--border); }
     <a href="/blog" aria-label="Read the Heist blog" style="color:var(--text2);transition:color 0.3s;font-size:13px;font-weight:500;text-decoration:none;padding-left:8px;border-left:1px solid var(--border);">Blog</a>
   </div>
   <div class="footer-bottom">
-    <span>© 2026 HeistBrain. All rights reserved.</span>
+    <span>© 2026 HeistBrain · a product of Keystone Trading Enterprises LLC, Seattle, WA. All rights reserved.</span>
     <span>Steal back your time.</span>
   </div>
 </footer>
@@ -2007,39 +1971,6 @@ pSwitch.addEventListener('click', () => {
 // Click labels too
 lblM.addEventListener('click', () => { if (isAnnual) pSwitch.click(); });
 lblA.addEventListener('click', () => { if (!isAnnual) pSwitch.click(); });
-
-// ─── MARQUEE CONTROLS ───
-const marqueeTrack = document.getElementById('marquee');
-const pauseBtn = document.getElementById('marquee-pause');
-let isPaused = false;
-
-// Pause marquee when off-screen (perf optimization)
-if ('IntersectionObserver' in window && marqueeTrack) {
-  var marqueeWrap = document.getElementById('marquee-wrap');
-  var marqueeIO = new IntersectionObserver(function(entries) {
-    entries.forEach(function(entry) {
-      if (!isPaused) {
-        marqueeTrack.style.animationPlayState = entry.isIntersecting ? 'running' : 'paused';
-      }
-    });
-  }, { threshold: 0 });
-  if (marqueeWrap) marqueeIO.observe(marqueeWrap);
-}
-
-pauseBtn.addEventListener('click', () => {
-  isPaused = !isPaused;
-  marqueeTrack.classList.toggle('paused', isPaused);
-  pauseBtn.innerHTML = isPaused ? '<svg width="12" height="12" viewBox="0 0 24 24" fill="currentColor"><polygon points="5 3 19 12 5 21"/></svg> Play' : '<svg width="12" height="12" viewBox="0 0 24 24" fill="currentColor"><rect x="6" y="4" width="4" height="16"/><rect x="14" y="4" width="4" height="16"/></svg> Pause';
-  pauseBtn.classList.toggle('active', isPaused);
-});
-
-document.querySelectorAll('[data-speed]').forEach(btn => {
-  btn.addEventListener('click', () => {
-    document.querySelectorAll('[data-speed]').forEach(b => b.classList.remove('active'));
-    btn.classList.add('active');
-    marqueeTrack.style.animationDuration = btn.dataset.speed + 's';
-  });
-});
 
 // ─── EXIT INTENT (desktop only, after scroll) ───
 let exitShown = false;
