@@ -39,7 +39,7 @@
 <link rel="apple-touch-icon" href="/apple-touch-icon.png">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=DM+Sans:ital,opsz,wght@0,9..40,300..800;1,9..40,300..800&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=DM+Sans:ital,opsz,wght@0,9..40,300..800;1,9..40,300..800&display=swap" rel="stylesheet">
 
 <!-- JSON-LD Structured Data -->
 <script type="application/ld+json">
@@ -50,7 +50,7 @@
 {"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://heistbrain.com/"}]}
 </script>
 <script type="application/ld+json">
-{"@context":"https://schema.org","@type":"Organization","name":"Heist","alternateName":"Heist Brain","url":"https://heistbrain.com","logo":"https://heistbrain.com/img/heist-mark.svg","description":"Heist is the AI content OS with a 10-layer Brain that learns from your brand and engagement data to generate a month of social content in 10 minutes.","foundingDate":"2025","contactPoint":{"@type":"ContactPoint","email":"support@heistbrain.com","contactType":"customer service","availableLanguage":["en"]},"sameAs":["https://twitter.com/heistbrain","https://www.linkedin.com/company/heistbrain"]}
+{"@context":"https://schema.org","@type":"Organization","name":"Heist","alternateName":"Heist Brain","url":"https://heistbrain.com","logo":"https://heistbrain.com/img/heist-mark.webp","description":"Heist is the AI content OS with a 10-layer Brain that learns from your brand and engagement data to generate a month of social content in 10 minutes.","foundingDate":"2025","contactPoint":{"@type":"ContactPoint","email":"support@heistbrain.com","contactType":"customer service","availableLanguage":["en"]},"sameAs":["https://twitter.com/heistbrain","https://www.linkedin.com/company/heistbrain"]}
 </script>
 <script type="application/ld+json">
 {"@context":"https://schema.org","@type":"WebSite","name":"Heist","url":"https://heistbrain.com/","potentialAction":{"@type":"SearchAction","target":{"@type":"EntryPoint","urlTemplate":"https://heistbrain.com/blog?q={search_term_string}"},"query-input":"required name=search_term_string"}}
@@ -923,6 +923,16 @@ footer { padding: 80px 48px 40px; border-top: 1px solid var(--border); }
 .fv-feature-list li svg { flex-shrink:0; margin-top:4px; color:var(--pink); }
 .fv-cta-row { display:flex; gap:16px; flex-wrap:wrap; align-items:center; }
 @media (max-width:640px) { .faceless { padding:80px 0 !important; } .fv-mode { padding:24px; } }
+
+/* ═══════════ T-21 — TAP TARGETS (audit B-8) ═══════════
+   44px-min hit areas on mobile via padding; text size unchanged. */
+@media (max-width: 768px) {
+  .footer-col a { padding: 12px 0; }
+  .footer-social a { display: inline-flex; align-items: center; justify-content: center; min-width: 44px; min-height: 44px; }
+  .footer-bottom { line-height: 2; }
+  section p a, section span a, .footer-bottom a { display: inline-block; padding: 12px 2px; margin: -12px -2px; }
+  .nav-links a { padding: 12px 8px; }
+}
 </style>
 </head>
 <body>
@@ -936,7 +946,7 @@ footer { padding: 80px 48px 40px; border-top: 1px solid var(--border); }
 <!-- ═══════════ HEADER + NAV ═══════════ -->
 <header role="banner">
 <nav id="nav">
-  <a href="/" class="nav-logo"><img class="nav-logo__mark" src="/img/heist-mark.svg" alt="" />Heist<span>.</span></a>
+  <a href="/" class="nav-logo"><img class="nav-logo__mark" src="/img/heist-mark.webp" alt="" />Heist<span>.</span></a>
   <div class="nav-links" id="nav-links">
     <a href="/how-it-works">How It Works</a>
     <div class="nav-dropdown">
@@ -1268,7 +1278,7 @@ footer { padding: 80px 48px 40px; border-top: 1px solid var(--border); }
 <footer>
   <div class="footer-inner">
     <div class="footer-brand">
-      <a href="/" class="nav-logo"><img class="nav-logo__mark" src="/img/heist-mark.svg" alt="" />Heist<span>.</span></a>
+      <a href="/" class="nav-logo"><img class="nav-logo__mark" src="/img/heist-mark.webp" alt="" />Heist<span>.</span></a>
       <div class="footer-tagline">The brains behind the operation.</div>
     </div>
     <div class="footer-col"><h4>Product</h4><a href="/how-it-works#features">Features</a><a href="/how-it-works">How it works</a><a href="/pricing">Pricing</a><a href="/changelog">Changelog</a></div>
