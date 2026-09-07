@@ -4,7 +4,7 @@
 Key product facts:
 - Founded: 2025
 - Category: AI Content Operating System / Social Media SaaS
-- Platforms supported: LinkedIn, X (Twitter), Instagram, Facebook, TikTok, YouTube
+- Platforms supported: LinkedIn, X (Twitter — via your own X developer app keys on a paid X API tier), Instagram, Facebook, YouTube, WordPress, plus a hosted website blog. TikTok, Pinterest, and Reddit coming soon.
 - Pricing: Starter $19/mo, Pro $49/mo, Founder $99/mo, Agency $199/mo
 - Free trial: 7 days, no credit card required
 - Differentiator: Persistent 10-layer Brand Brain with memory, voice drift detection, and real engagement data feedback loop
