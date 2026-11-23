@@ -245,9 +245,9 @@ footer{padding:80px 48px 40px;border-top:1px solid var(--border);margin-top:60px
 </article>
 
 <div class="cta-box">
-  <h3>Turn your archetype into a Brand</h3>
-  <p>Heist's Brain uses your voice archetype, audience, and examples as a starting point for every generation. Skip the manual configuration.</p>
-  <a href="https://app.heistbrain.com/#signup" class="btn-primary">Start Free Trial &rarr;</a>
+  <h3>Take your archetype into Heist</h3>
+  <p id="quiz-cta-copy">Finish the quiz, then start your trial from this button: Heist's setup opens with your voice already picked. Only your archetype travels, never your answers.</p>
+  <a id="quiz-cta-link" href="https://app.heistbrain.com/?utm_source=quiz&amp;utm_medium=tool&amp;utm_content=brand-voice-quiz#signup" class="btn-primary">Start Free Trial &rarr;</a>
 </div>
 
 
@@ -389,6 +389,14 @@ function showResult() {
   document.getElementById('archetype-strengths').innerHTML = archetype.strengths.map(s => `<li>${s}</li>`).join('');
   document.getElementById('archetype-warnings').innerHTML = archetype.warnings.map(s => `<li>${s}</li>`).join('');
   document.getElementById('archetype-examples').textContent = archetype.examples;
+  // Hand the result to Heist's setup wizard. Only the archetype id travels;
+  // the app checks it against its own list (QUIZ_ARCHETYPES in the app's
+  // app/src/utils/attribution.js) and ignores anything else. Keep in sync.
+  const VOICE_FOR = { teacher: 'Educational', rebel: 'Bold + provocative', hero: 'Storytelling', sage: 'Reflective + thoughtful', poet: 'Lyrical + observational', friend: 'Friendly + approachable', expert: 'Professional + authoritative', jester: 'Witty + clever' };
+  const ctaLink = document.getElementById('quiz-cta-link');
+  const ctaCopy = document.getElementById('quiz-cta-copy');
+  if (ctaLink) ctaLink.href = 'https://app.heistbrain.com/?utm_source=quiz&utm_medium=tool&utm_content=archetype-' + winner + '&archetype=' + winner + '#signup';
+  if (ctaCopy && VOICE_FOR[winner]) ctaCopy.textContent = 'Start your trial from this button and Heist\u2019s setup opens with your voice set to \u201C' + VOICE_FOR[winner] + '\u201D (change it if it doesn\u2019t fit). Add your mission, and every draft starts from there. Only your archetype travels, never your answers.';
   result.scrollIntoView({ behavior: 'smooth', block: 'start' });
   if (window.gtag) gtag('event', 'quiz_completed', { archetype: winner });
 }

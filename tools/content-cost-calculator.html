@@ -158,7 +158,7 @@ footer{padding:80px 48px 40px;border-top:1px solid var(--border);margin-top:60px
   <div class="container">
     <span class="trust-badge">✦ Free · No Signup</span>
     <h1>Content <span class="highlight">Cost Calculator</span></h1>
-    <p>Real numbers, not marketing math. See what your current stack costs — money AND hours — and how it compares to one tool.</p>
+    <p>Plug in your own numbers to see what your current stack costs in money and hours, next to one tool.</p>
   </div>
 </div>
 
@@ -199,26 +199,26 @@ footer{padding:80px 48px 40px;border-top:1px solid var(--border);margin-top:60px
         <div class="compare-card">
           <h4>Your current stack</h4>
           <div class="big-num" id="current-total">$0</div>
-          <div class="unit">per month (tools + time)</div>
+          <div class="unit">per month in tools</div>
         </div>
         <div class="compare-card heist">
           <h4>With Heist Pro</h4>
-          <div class="big-num">$49</div>
-          <div class="unit">per month, everything included</div>
+          <div class="big-num" id="heist-total">$49</div>
+          <div class="unit">per month: Heist Pro ($49) plus the tools you keep, like your AI plan (Claude/ChatGPT or an API key), Canva or Grammarly</div>
         </div>
       </div>
       <div class="savings">
         <div class="label">Monthly savings</div>
         <div class="amount" id="savings-amount">$0</div>
-        <div class="detail" id="savings-detail">That's <span id="yearly">$0</span> per year, and <span id="hours">0</span> hours back every month.</div>
+        <div class="detail" id="savings-detail">That's <span id="yearly">$0</span> per year, counting only the tools Heist replaces. Not counted: your posting time, about <span id="hours">0 hours a month</span>.</div>
       </div>
     </div>
   </div>
 
   <div class="upsell">
     <h3>Ready to collapse the stack?</h3>
-    <p>Heist replaces most of these tools in one workflow. Start the free trial and see the savings in practice.</p>
-    <a href="https://app.heistbrain.com/#signup" class="btn-primary">Start Free Trial &rarr;</a>
+    <p>Heist replaces most of these tools in one workflow; you keep your own AI plan or key. Start the free trial and check the math on your own stack.</p>
+    <a href="https://app.heistbrain.com/?utm_source=tools&amp;utm_medium=upsell&amp;utm_content=content-cost-calculator#signup" class="btn-primary">Start Free Trial &rarr;</a>
   </div>
 </div>
 
@@ -254,18 +254,18 @@ function calc() {
   const postsPerMonth = posts * 4 * platforms;
   const hoursPerMonth = (postsPerMonth * mins) / 60;
   const timeCost = hoursPerMonth * rate;
-  const currentTotal = toolCost + timeCost;
+  const currentTotal = toolCost;
 
-  const heistHours = hoursPerMonth * 0.2; // 80% time savings
-  const heistTimeCost = heistHours * rate;
-  const heistTotal = 49 + heistTimeCost;
+  // Heist does not replace your AI plan, design tool or grammar checker, so those stay in the Heist total.
+  const kept = [...document.querySelectorAll('.tool-check.active')].filter(el => /ChatGPT|Canva|Grammarly/.test(el.textContent)).reduce((s, el) => s + +el.dataset.price, 0);
+  const heistTotal = 49 + kept;
   const savings = Math.max(0, currentTotal - heistTotal);
-  const hoursBack = Math.max(0, hoursPerMonth - heistHours);
 
   document.getElementById('current-total').textContent = fmt(currentTotal);
+  document.getElementById('heist-total').textContent = fmt(heistTotal);
   document.getElementById('savings-amount').textContent = fmt(savings);
   document.getElementById('yearly').textContent = fmt(savings * 12);
-  document.getElementById('hours').textContent = Math.round(hoursBack);
+  document.getElementById('hours').textContent = Math.round(hoursPerMonth) + ' hours a month (' + fmt(timeCost) + ' at your rate)';
 }
 
 document.querySelectorAll('.tool-check').forEach(el => {
