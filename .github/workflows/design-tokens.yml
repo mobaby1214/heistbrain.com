@@ -1,0 +1,21 @@
+name: Design tokens
+
+# css/tokens.css is generated from the app's app/styles/tokens.css
+# (content-generator-v3). This fails a push that hand-edits the copy.
+# Sync it with: node scripts/sync-tokens.js
+
+on:
+  push:
+    paths: ['css/tokens.css', 'scripts/sync-tokens.js']
+  pull_request:
+    paths: ['css/tokens.css', 'scripts/sync-tokens.js']
+
+jobs:
+  check:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 20
+      - run: node scripts/sync-tokens.js --check

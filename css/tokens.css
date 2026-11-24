@@ -1,0 +1,462 @@
+/* GENERATED from content-generator-v3/app/styles/tokens.css by scripts/sync-tokens.js. Do not edit. sha256:edd73a70bb9f4923 */
+/* ==========================================================================
+   HEIST DESIGN TOKENS: app/styles/tokens.css
+   --------------------------------------------------------------------------
+   The single source of truth for the look of the app AND heistbrain.com:
+   colour, type, space, radius, border, shadow, motion and layering.
+
+   - Rules: docs/DESIGN-CONTRACT.md. Read them before adding a token.
+   - Every token is named for its ROLE (--surface-raised), never its value
+     (--gray-100). If you can't name the role, you don't need the token.
+   - Light and dark are both complete: every colour role is defined in
+     both theme blocks. scripts/check-design-contract.js enforces it.
+   - heistbrain.com/css/tokens.css is a generated copy of this file
+     (scripts/sync-tokens.js in that repo). Never edit the copy.
+   - Grown from app/styles/theme.css (Phase 31, THEME-AUDIT, AUDIT-A).
+     Values that already passed review there are kept as they were.
+
+   Theme selection: html.light / html.dark (the app's boot script) or
+   [data-theme="light|dark"] on any element, which scopes a whole subtree
+   (the primitives page shows both themes side by side this way).
+   Following the OS preference is a script's job: set the class or the
+   attribute from matchMedia('(prefers-color-scheme: dark)').
+   ========================================================================== */
+
+@layer tokens, components;
+
+@layer tokens {
+
+/* --------------------------------------------------------------------------
+   1. INVARIANT TOKENS: the same in light and dark
+   -------------------------------------------------------------------------- */
+:root {
+    /* ---- Type families ------------------------------------------------- */
+    --font-sans: 'DM Sans', system-ui, -apple-system, 'Segoe UI', sans-serif;
+    --font-display: var(--font-sans);          /* headings: same family, tighter tracking */
+    --font-mono: 'JetBrains Mono', ui-monospace, 'SFMono-Regular', Consolas, monospace;
+    --font-wordmark: 'Instrument Serif', Georgia, serif;  /* the "Heist." logo lockup ONLY */
+
+    /* ---- Type sizes, by role. 11px is the floor: nothing smaller. ------ */
+    --font-size-eyebrow: 11px;    /* mono uppercase section eyebrows only */
+    --font-size-caption: 12px;    /* hints, meta, table headers, badges */
+    --font-size-body-sm: 13px;    /* dense UI: small buttons, chips, nav */
+    --font-size-body: 14px;       /* default UI and body copy */
+    --font-size-body-lg: 16px;    /* lede paragraphs, marketing body, mobile inputs */
+    --font-size-h3: 18px;         /* modal, drawer and empty-state titles */
+    --font-size-h2: 22px;         /* section titles */
+    --font-size-h1: 28px;         /* page titles */
+    --font-size-display: clamp(32px, 3vw + 8px, 48px);  /* marketing heroes, big numbers */
+
+    /* ---- Weights (DM Sans is variable 300-800) ------------------------- */
+    --font-weight-regular: 400;
+    --font-weight-medium: 500;
+    --font-weight-semibold: 600;
+    --font-weight-bold: 700;
+
+    /* ---- Line heights --------------------------------------------------- */
+    --line-height-tight: 1.15;    /* display, h1 */
+    --line-height-title: 1.3;     /* h2, h3 */
+    --line-height-body: 1.55;     /* paragraphs */
+    --line-height-control: 1.25;  /* single-line labels inside controls */
+
+    /* ---- Tracking -------------------------------------------------------- */
+    --tracking-display: -0.03em;
+    --tracking-title: -0.02em;
+    --tracking-body: 0em;
+    --tracking-eyebrow: 0.1em;
+
+    /* ---- Space, by step (4px grid) -------------------------------------- */
+    --space-3xs: 2px;
+    --space-2xs: 4px;
+    --space-xs: 8px;
+    --space-sm: 12px;
+    --space-md: 16px;
+    --space-lg: 20px;
+    --space-xl: 24px;
+    --space-2xl: 32px;
+    --space-3xl: 40px;
+    --space-4xl: 48px;
+    --space-5xl: 64px;
+
+    /* ---- Control geometry ----------------------------------------------- */
+    --control-height-sm: 32px;
+    --control-height-md: 40px;
+    --control-height-lg: 48px;
+    --control-padding-x-sm: var(--space-sm);
+    --control-padding-x-md: var(--space-md);
+    --control-padding-x-lg: var(--space-lg);
+    --control-gap: var(--space-xs);           /* icon-to-label inside a control */
+    --tap-target-min: 44px;                    /* coarse pointers (PR #21 rule) */
+    --icon-size-sm: 14px;
+    --icon-size-md: 16px;
+    --icon-size-lg: 20px;
+    --icon-size-xl: 32px;                      /* empty-state illustrations */
+    --choice-size: 18px;                       /* checkbox and radio box */
+    --switch-width: 36px;
+    --switch-height: 20px;
+
+    /* ---- Layout ----------------------------------------------------------- */
+    --card-padding: var(--space-lg);
+    --overlay-padding: var(--space-xl);        /* modal and drawer bodies */
+    --page-gutter: var(--space-2xl);
+    --page-gutter-mobile: var(--space-md);
+    --page-max-width: 1280px;
+    --sidebar-width: 232px;                    /* the app's current sidebar */
+    --sidebar-width-collapsed: 64px;
+    --drawer-width: 480px;
+    --drawer-width-wide: 960px;                /* editors: library and calendar post drawers */
+    --modal-width-sm: 400px;
+    --modal-width-md: 560px;
+    --modal-width-lg: 760px;
+    --toast-width: 380px;
+    --popover-width: 280px;
+    --measure: 68ch;                           /* longest comfortable line of prose */
+    --measure-narrow: 44ch;                    /* centred helper copy: empty states */
+    --table-label-min: 16ch;                   /* a table's first column never squeezes below this */
+    --table-max-height: 480px;                 /* .table-wrap--scroll: sticky header inside */
+    /* Breakpoints can't be custom properties inside @media, so these are the
+       only literals components.css may repeat: 480px (phone: sheets, full-
+       width toasts) and 640px (small tablet: full-width drawers). */
+
+    /* ---- Radius, by role -------------------------------------------------- */
+    --radius-choice: 4px;         /* checkboxes */
+    --radius-badge: 6px;          /* badges, small tags, kbd */
+    --radius-control: 8px;        /* buttons, inputs, selects, tabs, nav items */
+    --radius-card: 12px;          /* cards, popovers, toasts, table frames */
+    --radius-modal: 16px;         /* modals; a drawer's leading corners */
+    --radius-pill: 9999px;        /* chips, switches, segmented tracks, avatars */
+
+    /* ---- Border widths ------------------------------------------------------ */
+    --border-width: 1px;
+    --border-width-strong: 2px;   /* selected cards, active tab underline, rails */
+
+    /* ---- Focus ring geometry (colour is per theme) ------------------------- */
+    --focus-ring-width: 2px;
+    --focus-ring-offset: 2px;
+
+    /* ---- Opacity ------------------------------------------------------------ */
+    --opacity-disabled: 0.5;      /* natively disabled controls (not focusable) and media.
+                                     Never on aria-disabled: it would dim the focus ring. */
+
+    /* ---- Motion --------------------------------------------------------------
+       The only durations and curves a transition or animation may use.
+       Section 5 below zeroes them for prefers-reduced-motion.               */
+    --duration-instant: 100ms;    /* colour and opacity on press */
+    --duration-fast: 150ms;       /* hover, focus */
+    --duration-base: 200ms;       /* small reveals: menus, tooltips, toasts */
+    --duration-slow: 300ms;       /* drawers, modals */
+    --duration-spin: 800ms;       /* one spinner revolution */
+    --duration-shimmer: 1400ms;   /* one skeleton sweep */
+    --duration-indeterminate: 1400ms;  /* one indeterminate progress sweep */
+    --ease-standard: cubic-bezier(0.2, 0, 0, 1);
+    --ease-enter: cubic-bezier(0.16, 1, 0.3, 1);
+    --ease-exit: cubic-bezier(0.4, 0, 1, 1);
+
+    /* ---- Layering ------------------------------------------------------------
+       One scale for the whole app. The audit found 45 distinct z-index values;
+       toasts sat under 18 modal and drawer layers, and confirms opened under
+       drawers. Bottom to top: content < sticky < menus < header < sidebar <
+       banners < help launcher < drawer < modal < confirm < body-mounted
+       popover < tour < toast < tooltip. Nothing may sit between two steps.  */
+    --z-raised: 1;                /* local lift inside a component */
+    --z-sticky: 50;               /* sticky table headers, editor toolbars */
+    --z-dropdown: 100;            /* menus anchored inside page content */
+    --z-header: 200;              /* top bar */
+    --z-sidebar: 210;             /* sidebar, incl. the mobile off-canvas one */
+    --z-banner: 220;              /* impersonation / verify-email bars */
+    --z-launcher: 300;            /* floating help launcher */
+    --z-drawer: 1000;
+    --z-modal: 2000;
+    --z-confirm: 2100;            /* a confirm opened from a modal or drawer */
+    --z-popover: 3000;            /* body-mounted popovers and menus */
+    --z-tour: 3500;               /* coachmark tour overlay */
+    --z-toast: 4000;              /* toasts are always readable */
+    --z-tooltip: 4500;
+
+    /* ---- Brand constants -----------------------------------------------------
+       The violet stays (owner decision, prompt pack Phase 1). #8B5CF6 is the
+       brand: fills without text, focus rings, icons, highlights. Text-bearing
+       fills use the gradient or --accent-fill (AA with white).              */
+    --accent: #8B5CF6;
+    --on-accent: #FFFFFF;          /* label and icon colour on any accent fill */
+    /* Signature gradient (owner decision A1, THEME-AUDIT-C10). White labels
+       measure 4.58:1 or better wherever a label can sit: the 4.23:1 stop is
+       the top-left corner, under padding, never under text. */
+    --accent-gradient: linear-gradient(135deg, #8B5CF6, #6D28D9);
+    --accent-gradient-hover: linear-gradient(135deg, #7C3AED, #5B21B6);
+    --accent-gradient-pressed: linear-gradient(135deg, #6D28D9, #4C1D95);
+
+    /* Platform marks (logo colours). Use for icons and dots, never behind
+       body-size white text: several fail AA as fills. */
+    --platform-facebook: #1877F2;
+    --platform-instagram: #E4405F;
+    --platform-linkedin: #0A66C2;
+    --platform-pinterest: #E60023;
+    --platform-reddit: #FF4500;
+    --platform-blog: #FF5722;
+
+    /* Charts (categorical order) */
+    --chart-1: #8B5CF6;
+    --chart-2: #22C55E;
+    --chart-3: #F59E0B;
+    --chart-4: #3B82F6;
+    --chart-5: #EF4444;
+
+    /* ---- Icons (Lucide strokes) --------------------------------------------
+       Masks: the stroke colour in the SVG is irrelevant. Paint an icon with
+       background-color (the .glyph primitive uses currentColor), so it
+       follows the theme and the state. One icon system: emoji are not icons
+       (audit A8). Phase 2 moves theme.css's other --icon-* masks here. */
+    --icon-check: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='black' stroke-width='3' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M20 6 9 17l-5-5'/%3E%3C/svg%3E");
+    --icon-minus: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='black' stroke-width='3' stroke-linecap='round'%3E%3Cpath d='M5 12h14'/%3E%3C/svg%3E");
+    --icon-x: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='black' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M18 6 6 18'/%3E%3Cpath d='m6 6 12 12'/%3E%3C/svg%3E");
+    --icon-sort: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='black' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='m7 15 5 5 5-5'/%3E%3Cpath d='m7 9 5-5 5 5'/%3E%3C/svg%3E");
+    --icon-sort-asc: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='black' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='m7 14 5-5 5 5'/%3E%3C/svg%3E");
+    --icon-sort-desc: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='black' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='m7 10 5 5 5-5'/%3E%3C/svg%3E");
+    --icon-status-success: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='black' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Ccircle cx='12' cy='12' r='10'/%3E%3Cpath d='m9 12 2 2 4-4'/%3E%3C/svg%3E");
+    --icon-status-info: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='black' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Ccircle cx='12' cy='12' r='10'/%3E%3Cpath d='M12 16v-4'/%3E%3Cpath d='M12 8h.01'/%3E%3C/svg%3E");
+    --icon-status-warning: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='black' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='m21.73 18-8-14a2 2 0 0 0-3.48 0l-8 14A2 2 0 0 0 4 21h16a2 2 0 0 0 1.73-3'/%3E%3Cpath d='M12 9v4'/%3E%3Cpath d='M12 17h.01'/%3E%3C/svg%3E");
+    --icon-status-error: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='black' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Ccircle cx='12' cy='12' r='10'/%3E%3Cpath d='m15 9-6 6'/%3E%3Cpath d='m9 9 6 6'/%3E%3C/svg%3E");
+    --icon-inbox: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='black' stroke-width='1.5' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M22 12h-6l-2 3h-4l-2-3H2'/%3E%3Cpath d='M5.45 5.11 2 12v6a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2v-6l-3.45-6.89A2 2 0 0 0 16.76 4H7.24a2 2 0 0 0-1.79 1.11z'/%3E%3C/svg%3E");
+    --icon-search: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='black' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Ccircle cx='11' cy='11' r='8'/%3E%3Cpath d='m21 21-4.3-4.3'/%3E%3C/svg%3E");
+    --icon-plus: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='black' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M5 12h14'/%3E%3Cpath d='M12 5v14'/%3E%3C/svg%3E");
+    --icon-home: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='black' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z'/%3E%3Cpolyline points='9 22 9 12 15 12 15 22'/%3E%3C/svg%3E");
+    --icon-sparkle: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='black' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z'/%3E%3C/svg%3E");
+    --icon-calendar: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='black' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Crect width='18' height='18' x='3' y='4' rx='2'/%3E%3Cpath d='M16 2v4'/%3E%3Cpath d='M8 2v4'/%3E%3Cpath d='M3 10h18'/%3E%3C/svg%3E");
+    --icon-library: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='black' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Crect width='7' height='7' x='3' y='3' rx='1'/%3E%3Crect width='7' height='7' x='14' y='3' rx='1'/%3E%3Crect width='7' height='7' x='14' y='14' rx='1'/%3E%3Crect width='7' height='7' x='3' y='14' rx='1'/%3E%3C/svg%3E");
+    --icon-settings: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='black' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M20 7h-9'/%3E%3Cpath d='M14 17H5'/%3E%3Ccircle cx='17' cy='17' r='3'/%3E%3Ccircle cx='7' cy='7' r='3'/%3E%3C/svg%3E");
+}
+
+/* --------------------------------------------------------------------------
+   2. LIGHT THEME: every colour role
+   -------------------------------------------------------------------------- */
+:root,
+html.light,
+[data-theme="light"] {
+    color-scheme: light;
+
+    /* Surfaces: page canvas < raised cards < overlays (modals, drawers,
+       popovers, toasts). Inset = inside a control (fields, tracks, wells). */
+    --surface-page: #EAEEF7;
+    --surface-raised: #FFFFFF;
+    --surface-overlay: #FFFFFF;
+    --surface-inset: #F3F5FB;
+    --surface-muted: #E3E9F3;                  /* table header band, code, kbd */
+    --surface-hover: rgba(15, 23, 42, 0.04);   /* layered over any surface */
+    --surface-pressed: rgba(15, 23, 42, 0.08);
+    --surface-selected: rgba(139, 92, 246, 0.10);
+    --surface-thumb: #FFFFFF;                  /* the selected segment, a switch knob */
+    --surface-header: rgba(255, 255, 255, 0.95);  /* sticky top bar */
+    --scrim: rgba(15, 23, 42, 0.40);           /* behind modals and drawers */
+
+    /* Text: AA on page, raised, inset and overlay (ratios in the contract) */
+    --text-primary: #0B1126;
+    --text-secondary: #3D4E7A;
+    --text-muted: #5A6885;                     /* 4.81:1 on the page canvas */
+    --text-disabled: #9AA7C6;                  /* exempt from contrast (WCAG 1.4.3) */
+    --text-link: #6D28D9;
+    --text-inverse: #FFFFFF;
+
+    /* Borders. Control borders meet 3:1 against the page canvas and white,
+       because they are what tells you a field is there. Decorative borders
+       (cards, dividers) don't need to, and stay soft. */
+    --border-subtle: #DDE3F0;                  /* dividers inside a surface */
+    --border-default: #C3CDE4;                 /* card and panel edges */
+    --border-strong: #9FAECE;                  /* emphasis, table frame */
+    --border-control: #7A87A6;                 /* 3.09:1 on page, 3.59:1 on white */
+    --border-control-hover: #5A6885;
+
+    /* Accent roles */
+    --accent-text: #6D28D9;                    /* violet copy: 7.10:1 on white */
+    --accent-fill: #7C3AED;                    /* flat fill behind white text: 5.70:1 */
+    --accent-fill-hover: #6D28D9;
+    --accent-subtle: rgba(139, 92, 246, 0.10);
+    --accent-border: rgba(139, 92, 246, 0.45);
+    --focus-ring-color: #8B5CF6;               /* 3.64:1 on page, 4.23:1 on white */
+
+    /* Status: -text for words and lone icons (AA); -solid for fills and dots
+       that sit next to text; -subtle for tinted backgrounds. */
+    --success-solid: #10B981;
+    --success-text: #046C4E;                   /* was #047857: 4.35:1 on its tint over the page */
+    --success-subtle: rgba(16, 185, 129, 0.10);
+    --success-border: rgba(16, 185, 129, 0.35);
+    --warning-solid: #F59E0B;
+    --warning-text: #9A4A08;                   /* was #B45309: 4.05:1 on its tint over the page */
+    --warning-subtle: rgba(245, 158, 11, 0.10);
+    --warning-border: rgba(245, 158, 11, 0.40);
+    --danger-solid: #EF4444;
+    --danger-text: #B91C1C;
+    --danger-subtle: rgba(239, 68, 68, 0.10);
+    --danger-border: rgba(239, 68, 68, 0.35);
+    --danger-fill: #DC2626;                    /* destructive buttons: 4.83:1 with white */
+    --danger-fill-hover: #B91C1C;
+    --danger-fill-pressed: #991B1B;
+    --info-solid: #3B82F6;
+    --info-text: #1D4ED8;
+    --info-subtle: rgba(59, 130, 246, 0.10);
+    --info-border: rgba(59, 130, 246, 0.35);
+    --neutral-solid: #64748B;
+    --neutral-text: #3D4E7A;
+    --neutral-subtle: rgba(100, 116, 139, 0.10);
+    --neutral-border: rgba(100, 116, 139, 0.30);
+
+    /* Navigation. Light sidebar in light mode (owner decision A7,
+       2026-11-23). It sits on the canvas tone, so the chrome never looks
+       brighter than the workspace; white cards float above both. */
+    --nav-bg: #EAEEF7;
+    --nav-border: #C3CDE4;
+    --nav-text: #3D4E7A;
+    --nav-text-muted: #5A6885;                 /* group labels */
+    --nav-hover-bg: rgba(15, 23, 42, 0.05);
+    --nav-active-bg: rgba(139, 92, 246, 0.12);
+    --nav-active-text: #6D28D9;                /* 5.67:1 on the active fill */
+    --nav-active-rail: #8B5CF6;
+
+    /* Loading */
+    --skeleton-base: #E3E9F3;
+    --skeleton-highlight: #F3F5FB;
+
+    /* Elevation. Light is border-first: quiet shadows (AUDIT-A #12). */
+    --shadow-raised: 0 1px 3px rgba(15, 23, 42, 0.07), 0 1px 2px rgba(15, 23, 42, 0.05);
+    --shadow-overlay: 0 4px 16px rgba(15, 23, 42, 0.12), 0 2px 6px rgba(15, 23, 42, 0.06);
+    --shadow-modal: 0 20px 60px rgba(15, 23, 42, 0.20), 0 8px 24px rgba(15, 23, 42, 0.12);
+    --shadow-accent-glow: none;                /* light: the gradient alone marks the primary */
+
+    /* Scrollbars stay neutral (owner decision, PR #23) */
+    --scrollbar-thumb: rgba(15, 23, 42, 0.16);
+    --scrollbar-thumb-hover: rgba(15, 23, 42, 0.30);
+
+    /* Select chevron. A background image can't read currentColor, so the
+       stroke colour is baked per theme (it matches --text-secondary). */
+    --select-chevron: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' viewBox='0 0 24 24' fill='none' stroke='%233D4E7A' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='m6 9 6 6 6-6'/%3E%3C/svg%3E");
+    --select-chevron-disabled: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' viewBox='0 0 24 24' fill='none' stroke='%239AA7C6' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='m6 9 6 6 6-6'/%3E%3C/svg%3E");
+
+    --platform-tiktok: #000000;                /* the mark is black on light, white on dark */
+}
+
+/* --------------------------------------------------------------------------
+   3. DARK THEME: every colour role (same names, same count as light)
+   -------------------------------------------------------------------------- */
+html.dark,
+[data-theme="dark"] {
+    color-scheme: dark;
+
+    --surface-page: #06050C;
+    --surface-raised: #0C0A18;
+    --surface-overlay: #131024;                /* lighter = closer, as dark elevation should be */
+    --surface-inset: #08070F;                  /* sunken below raised, as in light */
+    --surface-muted: #1A1530;
+    --surface-hover: rgba(255, 255, 255, 0.05);
+    --surface-pressed: rgba(255, 255, 255, 0.09);
+    --surface-selected: rgba(139, 92, 246, 0.14);
+    --surface-thumb: #2A2346;                  /* lighter than the inset track it rides on */
+    --surface-header: rgba(6, 5, 12, 0.92);
+    --scrim: rgba(0, 0, 0, 0.70);
+
+    --text-primary: #F0F4FF;
+    --text-secondary: #B8C4E0;
+    --text-muted: #8290B4;                     /* 5.85:1 on overlay, 5.53:1 on muted */
+    --text-disabled: #4A5675;
+    --text-link: #A78BFA;
+    --text-inverse: #0B1126;
+
+    --border-subtle: rgba(255, 255, 255, 0.05);
+    --border-default: rgba(255, 255, 255, 0.08);
+    --border-strong: rgba(255, 255, 255, 0.14);
+    --border-control: #5B6585;                 /* 3.40:1 on raised, 3.23:1 on overlay */
+    --border-control-hover: #7A86A8;
+
+    --accent-text: #A78BFA;                    /* 6.85:1 on overlay */
+    --accent-fill: #7C3AED;
+    --accent-fill-hover: #8550F4;              /* brighter on dark, still 4.72:1 with white */
+    --accent-subtle: rgba(139, 92, 246, 0.16);
+    --accent-border: rgba(167, 139, 250, 0.50);
+    --focus-ring-color: #A78BFA;               /* 7.46:1 on the page */
+
+    --success-solid: #10B981;
+    --success-text: #34D399;
+    --success-subtle: rgba(16, 185, 129, 0.12);
+    --success-border: rgba(52, 211, 153, 0.35);
+    --warning-solid: #F59E0B;
+    --warning-text: #FBBF24;
+    --warning-subtle: rgba(245, 158, 11, 0.12);
+    --warning-border: rgba(251, 191, 36, 0.35);
+    --danger-solid: #EF4444;
+    --danger-text: #F87171;
+    --danger-subtle: rgba(239, 68, 68, 0.12);
+    --danger-border: rgba(248, 113, 113, 0.35);
+    --danger-fill: #DC2626;
+    --danger-fill-hover: #B91C1C;
+    --danger-fill-pressed: #991B1B;
+    --info-solid: #3B82F6;
+    --info-text: #60A5FA;
+    --info-subtle: rgba(59, 130, 246, 0.12);
+    --info-border: rgba(96, 165, 250, 0.35);
+    --neutral-solid: #64748B;
+    --neutral-text: #B8C4E0;
+    --neutral-subtle: rgba(148, 163, 184, 0.12);
+    --neutral-border: rgba(148, 163, 184, 0.30);
+
+    --nav-bg: #04030A;
+    --nav-border: rgba(255, 255, 255, 0.05);
+    --nav-text: rgba(176, 188, 220, 0.90);
+    --nav-text-muted: rgba(150, 162, 194, 0.95);
+    --nav-hover-bg: rgba(255, 255, 255, 0.05);
+    --nav-active-bg: rgba(139, 92, 246, 0.16);
+    --nav-active-text: #C4B5FD;
+    --nav-active-rail: #8B5CF6;
+
+    --skeleton-base: #1A1530;
+    --skeleton-highlight: #251E40;
+
+    /* Dark keeps its 1px light rings on floating layers (owner decision
+       2026-11-23: keep the dark-mode rings). */
+    --shadow-raised: 0 1px 3px rgba(0, 0, 0, 0.40), 0 8px 24px rgba(0, 0, 0, 0.30), inset 0 1px 0 rgba(255, 255, 255, 0.04);
+    --shadow-overlay: 0 4px 12px rgba(0, 0, 0, 0.50), 0 16px 40px rgba(0, 0, 0, 0.40), 0 0 0 1px rgba(255, 255, 255, 0.06);
+    --shadow-modal: 0 12px 32px rgba(0, 0, 0, 0.60), 0 32px 72px rgba(0, 0, 0, 0.50), 0 0 0 1px rgba(255, 255, 255, 0.08);
+    --shadow-accent-glow: 0 0 18px rgba(139, 92, 246, 0.35);
+
+    --scrollbar-thumb: rgba(255, 255, 255, 0.14);
+    --scrollbar-thumb-hover: rgba(255, 255, 255, 0.26);
+
+    --select-chevron: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' viewBox='0 0 24 24' fill='none' stroke='%23B8C4E0' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='m6 9 6 6 6-6'/%3E%3C/svg%3E");
+    --select-chevron-disabled: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' viewBox='0 0 24 24' fill='none' stroke='%234A5675' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='m6 9 6 6 6-6'/%3E%3C/svg%3E");
+
+    --platform-tiktok: #FFFFFF;
+}
+
+/* --------------------------------------------------------------------------
+   4. DERIVED TOKENS: built from theme roles. Declared on every themed scope
+   so a [data-theme] subtree recomputes them with its own colours (a custom
+   property's var() is resolved on the element that declares it).
+   -------------------------------------------------------------------------- */
+:root,
+[data-theme] {
+    --focus-shadow: 0 0 0 var(--focus-ring-width) var(--focus-ring-color);   /* ring as a box-shadow, where an outline can't be used */
+    --focus-outline: var(--focus-ring-width) solid var(--focus-ring-color);
+    --transition-control:
+        color var(--duration-fast) var(--ease-standard),
+        background-color var(--duration-fast) var(--ease-standard),
+        border-color var(--duration-fast) var(--ease-standard),
+        box-shadow var(--duration-fast) var(--ease-standard),
+        opacity var(--duration-fast) var(--ease-standard);
+}
+
+/* --------------------------------------------------------------------------
+   5. REDUCED MOTION: movement stops; state changes stay instant and visible.
+   The spinner keeps turning (it is the only signal that work is happening),
+   at a slower, calmer speed. Skeletons stop shimmering.
+   -------------------------------------------------------------------------- */
+@media (prefers-reduced-motion: reduce) {
+    :root {
+        --duration-instant: 0ms;
+        --duration-fast: 0ms;
+        --duration-base: 0ms;
+        --duration-slow: 0ms;
+        --duration-spin: 2400ms;
+        --duration-shimmer: 0ms;
+        --duration-indeterminate: 2400ms;
+    }
+}
+
+} /* @layer tokens */
