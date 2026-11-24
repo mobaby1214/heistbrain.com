@@ -1,0 +1,461 @@
+/* GENERATED from content-generator-v3/app/styles/tokens.css by scripts/sync-tokens.js. Do not edit. sha256:0ff93e482698d10d */
+/* ==========================================================================
+   HEIST DESIGN TOKENS: app/styles/tokens.css
+   --------------------------------------------------------------------------
+   The single source of truth for the look of the app AND heistbrain.com:
+   colour, type, space, radius, border, shadow, motion and layering.
+
+   The look (owner decision, 2026-11-23): "The Case File". Parchment, ink
+   and burgundy in light; "The Night Job" (near-black burgundy, parchment
+   type, soft rose) in dark. One type family: Schibsted Grotesk. The violet
+   is retired: research found 18 of 30 AI writing tools in the blue-violet
+   band and #8B5CF6 is Tailwind's default violet; no AI writer leads with
+   burgundy (docs/DESIGN-CONTRACT.md, Decisions).
+
+   - Rules: docs/DESIGN-CONTRACT.md. Read them before adding a token.
+   - Every token is named for its ROLE (--surface-raised), never its value
+     (--gray-100). If you can't name the role, you don't need the token.
+   - Light and dark are both complete: every colour role is defined in
+     both theme blocks. scripts/check-design-contract.js enforces it.
+   - heistbrain.com/css/tokens.css is a generated copy of this file
+     (scripts/sync-tokens.js in that repo). Never edit the copy.
+
+   Theme selection: html.light / html.dark (the app's boot script) or
+   [data-theme="light|dark"] on any element, which scopes a whole subtree
+   (the primitives page shows both themes side by side this way).
+   Following the OS preference is a script's job: set the class or the
+   attribute from matchMedia('(prefers-color-scheme: dark)').
+   ========================================================================== */
+
+@layer tokens, components;
+
+@layer tokens {
+
+/* --------------------------------------------------------------------------
+   1. INVARIANT TOKENS: the same in light and dark
+   -------------------------------------------------------------------------- */
+:root {
+    /* ---- Type: one family for everything you read ---------------------- */
+    --font-sans: 'Schibsted Grotesk', system-ui, -apple-system, 'Segoe UI', sans-serif;
+    --font-display: var(--font-sans);          /* headings: same family, heavier, tighter */
+    --font-wordmark: var(--font-sans);         /* the "Heist." lockup: weight 900, burgundy full stop */
+    --font-mono: 'JetBrains Mono', ui-monospace, 'SFMono-Regular', Consolas, monospace;  /* code and keys only */
+
+    /* ---- Type sizes, by role. 11px is the floor: nothing smaller. ------ */
+    --font-size-eyebrow: 12px;    /* the one uppercase label, tracked wide */
+    --font-size-caption: 12px;    /* hints, meta, table headers, badges */
+    --font-size-body-sm: 13px;    /* dense UI: small buttons, chips, nav */
+    --font-size-body: 14px;       /* default UI and body copy */
+    --font-size-body-lg: 16px;    /* lede paragraphs, marketing body, mobile inputs */
+    --font-size-h3: 18px;         /* modal, drawer and empty-state titles */
+    --font-size-h2: 22px;         /* section titles */
+    --font-size-h1: 28px;         /* page titles */
+    --font-size-display: clamp(36px, 3.9vw, 56px);  /* marketing heroes */
+
+    /* ---- Weights (Schibsted Grotesk is variable 400-900) ---------------- */
+    --font-weight-regular: 400;
+    --font-weight-medium: 500;
+    --font-weight-semibold: 600;
+    --font-weight-bold: 750;
+    --font-weight-heavy: 850;     /* headlines and the wordmark's family weight */
+
+    /* ---- Line heights --------------------------------------------------- */
+    --line-height-tight: 1.02;    /* display, h1 */
+    --line-height-title: 1.3;     /* h2, h3 */
+    --line-height-body: 1.55;     /* paragraphs */
+    --line-height-control: 1.25;  /* single-line labels inside controls */
+
+    /* ---- Tracking -------------------------------------------------------- */
+    --tracking-display: -0.045em;
+    --tracking-title: -0.02em;
+    --tracking-body: 0em;
+    --tracking-eyebrow: 0.14em;
+    --tracking-wordmark: -0.05em;
+
+    /* ---- Space, by step (4px grid) -------------------------------------- */
+    --space-3xs: 2px;
+    --space-2xs: 4px;
+    --space-xs: 8px;
+    --space-sm: 12px;
+    --space-md: 16px;
+    --space-lg: 20px;
+    --space-xl: 24px;
+    --space-2xl: 32px;
+    --space-3xl: 40px;
+    --space-4xl: 48px;
+    --space-5xl: 64px;
+
+    /* ---- Control geometry ----------------------------------------------- */
+    --control-height-sm: 32px;
+    --control-height-md: 40px;
+    --control-height-lg: 48px;
+    --control-padding-x-sm: var(--space-sm);
+    --control-padding-x-md: var(--space-md);
+    --control-padding-x-lg: var(--space-lg);
+    --control-gap: var(--space-xs);           /* icon-to-label inside a control */
+    --tap-target-min: 44px;                    /* coarse pointers (PR #21 rule) */
+    --icon-size-sm: 14px;
+    --icon-size-md: 16px;
+    --icon-size-lg: 20px;
+    --icon-size-xl: 32px;                      /* empty-state illustrations */
+    --choice-size: 18px;                       /* checkbox and radio box */
+    --switch-width: 36px;
+    --switch-height: 20px;
+
+    /* ---- Layout ----------------------------------------------------------- */
+    --card-padding: var(--space-lg);
+    --overlay-padding: var(--space-xl);        /* modal and drawer bodies */
+    --page-gutter: var(--space-2xl);
+    --page-gutter-mobile: var(--space-md);
+    --page-max-width: 1280px;
+    --sidebar-width: 232px;                    /* the app's current sidebar */
+    --sidebar-width-collapsed: 64px;
+    --drawer-width: 480px;
+    --drawer-width-wide: 960px;                /* editors: library and calendar post drawers */
+    --modal-width-sm: 400px;
+    --modal-width-md: 560px;
+    --modal-width-lg: 760px;
+    --toast-width: 380px;
+    --popover-width: 280px;
+    --measure: 68ch;                           /* longest comfortable line of prose */
+    --measure-narrow: 44ch;                    /* centred helper copy: empty states */
+    --table-label-min: 16ch;                   /* a table's first column never squeezes below this */
+    --table-max-height: 480px;                 /* .table-wrap--scroll: sticky header inside */
+    /* Breakpoints can't be custom properties inside @media, so these are the
+       only literals components.css may repeat: 480px (phone: sheets, full-
+       width toasts) and 640px (small tablet: full-width drawers). */
+
+    /* ---- Radius, by role (the Case File is crisp: paper, not pills) ------- */
+    --radius-choice: 4px;         /* checkboxes */
+    --radius-badge: 4px;          /* badges, small tags, kbd */
+    --radius-control: 6px;        /* buttons, inputs, selects, tabs, nav items */
+    --radius-card: 10px;          /* cards, popovers, toasts, table frames */
+    --radius-modal: 16px;         /* modals; a drawer's leading corners; the folder */
+    --radius-pill: 9999px;        /* chips, switches, avatars */
+
+    /* ---- Border widths ------------------------------------------------------ */
+    --border-width: 1px;
+    --border-width-strong: 2px;   /* selected cards, active tab underline, stamps */
+
+    /* ---- Focus ring geometry (colour is per theme) ------------------------- */
+    --focus-ring-width: 2px;
+    --focus-ring-offset: 2px;
+
+    /* ---- Opacity ------------------------------------------------------------ */
+    --opacity-disabled: 0.5;      /* natively disabled controls (not focusable) and media.
+                                     Never on aria-disabled: it would dim the focus ring. */
+
+    /* ---- Motion --------------------------------------------------------------
+       The only durations and curves a transition or animation may use.
+       Section 5 below zeroes them for prefers-reduced-motion.               */
+    --duration-instant: 100ms;    /* colour and opacity on press */
+    --duration-fast: 150ms;       /* hover, focus */
+    --duration-base: 200ms;       /* small reveals: menus, tooltips, toasts */
+    --duration-slow: 300ms;       /* drawers, modals */
+    --duration-spin: 800ms;       /* one spinner revolution */
+    --duration-shimmer: 1400ms;   /* one skeleton sweep */
+    --duration-indeterminate: 1400ms;  /* one indeterminate progress sweep */
+    --ease-standard: cubic-bezier(0.2, 0, 0, 1);
+    --ease-enter: cubic-bezier(0.16, 1, 0.3, 1);
+    --ease-exit: cubic-bezier(0.4, 0, 1, 1);
+
+    /* ---- Layering ------------------------------------------------------------
+       One scale for the whole app. The audit found 45 distinct z-index values;
+       toasts sat under 18 modal and drawer layers, and confirms opened under
+       drawers. Bottom to top: content < sticky < menus < header < sidebar <
+       banners < help launcher < drawer < modal < confirm < body-mounted
+       popover < tour < toast < tooltip. Nothing may sit between two steps.  */
+    --z-raised: 1;                /* local lift inside a component */
+    --z-sticky: 50;               /* sticky table headers, editor toolbars */
+    --z-dropdown: 100;            /* menus anchored inside page content */
+    --z-header: 200;              /* top bar */
+    --z-sidebar: 210;             /* sidebar, incl. the mobile off-canvas one */
+    --z-banner: 220;              /* impersonation / verify-email bars */
+    --z-launcher: 300;            /* floating help launcher */
+    --z-drawer: 1000;
+    --z-modal: 2000;
+    --z-confirm: 2100;            /* a confirm opened from a modal or drawer */
+    --z-popover: 3000;            /* body-mounted popovers and menus */
+    --z-tour: 3500;               /* coachmark tour overlay */
+    --z-toast: 4000;              /* toasts are always readable */
+    --z-tooltip: 4500;
+
+    --on-danger: #FFFFFF;          /* label on any --danger-fill, both themes */
+
+    /* Platform marks (logo colours). Use for icons and dots, never behind
+       body-size white text: several fail AA as fills. */
+    --platform-facebook: #1877F2;
+    --platform-instagram: #E4405F;
+    --platform-linkedin: #0A66C2;
+    --platform-pinterest: #E60023;
+    --platform-reddit: #FF4500;
+    --platform-blog: #FF5722;
+
+    /* Charts (categorical order, warm-paper friendly) */
+    --chart-1: #7A1F1F;
+    --chart-2: #3A7BBF;
+    --chart-3: #C98A1E;
+    --chart-4: #3E8A55;
+    --chart-5: #8A806E;
+
+    /* ---- Icons (Lucide strokes) --------------------------------------------
+       Masks: the stroke colour in the SVG is irrelevant. Paint an icon with
+       background-color (the .glyph primitive uses currentColor), so it
+       follows the theme and the state. One icon system: emoji are not icons
+       (audit A8). Phase 2 moves theme.css's other --icon-* masks here. */
+    --icon-check: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='black' stroke-width='3' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M20 6 9 17l-5-5'/%3E%3C/svg%3E");
+    --icon-minus: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='black' stroke-width='3' stroke-linecap='round'%3E%3Cpath d='M5 12h14'/%3E%3C/svg%3E");
+    --icon-x: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='black' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M18 6 6 18'/%3E%3Cpath d='m6 6 12 12'/%3E%3C/svg%3E");
+    --icon-sort: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='black' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='m7 15 5 5 5-5'/%3E%3Cpath d='m7 9 5-5 5 5'/%3E%3C/svg%3E");
+    --icon-sort-asc: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='black' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='m7 14 5-5 5 5'/%3E%3C/svg%3E");
+    --icon-sort-desc: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='black' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='m7 10 5 5 5-5'/%3E%3C/svg%3E");
+    --icon-status-success: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='black' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Ccircle cx='12' cy='12' r='10'/%3E%3Cpath d='m9 12 2 2 4-4'/%3E%3C/svg%3E");
+    --icon-status-info: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='black' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Ccircle cx='12' cy='12' r='10'/%3E%3Cpath d='M12 16v-4'/%3E%3Cpath d='M12 8h.01'/%3E%3C/svg%3E");
+    --icon-status-warning: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='black' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='m21.73 18-8-14a2 2 0 0 0-3.48 0l-8 14A2 2 0 0 0 4 21h16a2 2 0 0 0 1.73-3'/%3E%3Cpath d='M12 9v4'/%3E%3Cpath d='M12 17h.01'/%3E%3C/svg%3E");
+    --icon-status-error: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='black' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Ccircle cx='12' cy='12' r='10'/%3E%3Cpath d='m15 9-6 6'/%3E%3Cpath d='m9 9 6 6'/%3E%3C/svg%3E");
+    --icon-inbox: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='black' stroke-width='1.5' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M22 12h-6l-2 3h-4l-2-3H2'/%3E%3Cpath d='M5.45 5.11 2 12v6a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2v-6l-3.45-6.89A2 2 0 0 0 16.76 4H7.24a2 2 0 0 0-1.79 1.11z'/%3E%3C/svg%3E");
+    --icon-search: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='black' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Ccircle cx='11' cy='11' r='8'/%3E%3Cpath d='m21 21-4.3-4.3'/%3E%3C/svg%3E");
+    --icon-plus: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='black' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M5 12h14'/%3E%3Cpath d='M12 5v14'/%3E%3C/svg%3E");
+    --icon-home: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='black' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z'/%3E%3Cpolyline points='9 22 9 12 15 12 15 22'/%3E%3C/svg%3E");
+    --icon-sparkle: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='black' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z'/%3E%3C/svg%3E");
+    --icon-calendar: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='black' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Crect width='18' height='18' x='3' y='4' rx='2'/%3E%3Cpath d='M16 2v4'/%3E%3Cpath d='M8 2v4'/%3E%3Cpath d='M3 10h18'/%3E%3C/svg%3E");
+    --icon-library: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='black' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Crect width='7' height='7' x='3' y='3' rx='1'/%3E%3Crect width='7' height='7' x='14' y='3' rx='1'/%3E%3Crect width='7' height='7' x='14' y='14' rx='1'/%3E%3Crect width='7' height='7' x='3' y='14' rx='1'/%3E%3C/svg%3E");
+    --icon-settings: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='black' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M20 7h-9'/%3E%3Cpath d='M14 17H5'/%3E%3Ccircle cx='17' cy='17' r='3'/%3E%3Ccircle cx='7' cy='7' r='3'/%3E%3C/svg%3E");
+}
+
+/* --------------------------------------------------------------------------
+   2. LIGHT THEME: The Case File
+   -------------------------------------------------------------------------- */
+:root,
+html.light,
+[data-theme="light"] {
+    color-scheme: light;
+
+    /* Surfaces: parchment page < paper cards < overlays. Inset = inside a
+       control (tracks, wells); muted = header bands. */
+    --surface-page: #F3EEE3;                   /* parchment */
+    --surface-raised: #FBF8F1;                 /* the paper sheet */
+    --surface-overlay: #FFFDF9;
+    --surface-inset: #EAE3D4;
+    --surface-muted: #E3DACA;                  /* table header band, code, kbd */
+    --surface-thumb: #FFFDF9;                  /* the selected segment, a switch knob */
+    --surface-hover: rgba(20, 20, 20, 0.04);   /* layered over any surface */
+    --surface-pressed: rgba(20, 20, 20, 0.08);
+    --surface-selected: rgba(122, 31, 31, 0.08);
+    --surface-header: rgba(243, 238, 227, 0.95);  /* sticky top bar */
+    --scrim: rgba(20, 20, 20, 0.40);           /* behind modals and drawers */
+
+    /* Text: AA on every surface above */
+    --text-primary: #141414;                   /* ink */
+    --text-secondary: #3B372F;
+    --text-muted: #655D4E;                     /* 4.69:1 on the muted band, 5.62:1 on the page */
+    --text-disabled: #A69D8C;                  /* exempt from contrast (WCAG 1.4.3) */
+    --text-link: #7A1F1F;
+    --text-inverse: #F3EEE3;
+
+    /* Borders. Control borders meet 3:1 (they tell you a field is there);
+       decorative borders (cards, dividers) stay soft. */
+    --border-subtle: #E2DACB;
+    --border-default: #D3C9B6;
+    --border-strong: #B9B1A1;
+    --border-control: #857B69;                 /* 3.26:1 on inset, 3.61:1 on the page */
+    --border-control-hover: #655D4E;
+
+    /* Accent: burgundy */
+    --accent: #7A1F1F;                         /* the brand: 8.88:1 on parchment */
+    --accent-text: #7A1F1F;
+    --accent-fill: #7A1F1F;                    /* primary buttons: white label 10.28:1 */
+    --accent-fill-hover: #5E1616;
+    --accent-fill-pressed: #451111;
+    --on-accent: #FFFFFF;                      /* label and icon colour on --accent-fill */
+    --accent-subtle: rgba(122, 31, 31, 0.08);
+    --accent-border: rgba(122, 31, 31, 0.45);
+    --focus-ring-color: #7A1F1F;               /* 8.04:1 on inset, 8.88:1 on the page */
+
+    /* Status: -text for words and lone icons (AA); -solid for fills and dots
+       that sit next to text; -subtle for tinted backgrounds. Danger is a
+       brighter red than the brand burgundy and always carries an icon. */
+    --success-solid: #3E8A55;
+    --success-text: #2F6B3B;
+    --success-subtle: rgba(62, 138, 85, 0.12);
+    --success-border: rgba(62, 138, 85, 0.35);
+    --warning-solid: #C98A1E;
+    --warning-text: #7A5008;
+    --warning-subtle: rgba(201, 138, 30, 0.14);
+    --warning-border: rgba(201, 138, 30, 0.40);
+    --danger-solid: #C42B1C;
+    --danger-text: #A3221A;
+    --danger-subtle: rgba(196, 43, 28, 0.10);
+    --danger-border: rgba(196, 43, 28, 0.35);
+    --danger-fill: #B42318;                    /* destructive buttons: 6.57:1 with white */
+    --danger-fill-hover: #9B1F17;
+    --danger-fill-pressed: #7F1912;
+    --info-solid: #3A7BBF;
+    --info-text: #1F4F7A;
+    --info-subtle: rgba(58, 123, 191, 0.10);
+    --info-border: rgba(58, 123, 191, 0.35);
+    --neutral-solid: #8A806E;
+    --neutral-text: #4A4438;
+    --neutral-subtle: rgba(110, 102, 86, 0.12);
+    --neutral-border: rgba(110, 102, 86, 0.30);
+
+    /* Navigation: the sidebar sits a shade under the parchment page */
+    --nav-bg: #EDE6D8;
+    --nav-border: #D3C9B6;
+    --nav-text: #3B372F;
+    --nav-text-muted: #655D4E;
+    --nav-hover-bg: rgba(20, 20, 20, 0.05);
+    --nav-active-bg: rgba(122, 31, 31, 0.10);
+    --nav-active-text: #7A1F1F;                /* 6.98:1 on the active fill */
+
+    /* Loading */
+    --skeleton-base: #E6DECF;
+    --skeleton-highlight: #F3EEE3;
+
+    /* Elevation: warm, paper-on-desk shadows */
+    --shadow-raised: 0 1px 2px rgba(60, 40, 20, 0.08), 0 2px 6px rgba(60, 40, 20, 0.06);
+    --shadow-overlay: 0 8px 24px rgba(60, 40, 20, 0.14), 0 2px 6px rgba(60, 40, 20, 0.08);
+    --shadow-modal: 0 24px 48px rgba(69, 17, 17, 0.22), 0 6px 14px rgba(69, 17, 17, 0.14);
+    --shadow-button: 0 1px 0 rgba(255, 255, 255, 0.12) inset, 0 3px 8px rgba(90, 22, 22, 0.25);
+
+    --scrollbar-thumb: rgba(20, 20, 20, 0.18);
+    --scrollbar-thumb-hover: rgba(20, 20, 20, 0.32);
+
+    /* Select chevron (stroke baked per theme: a background image can't read
+       currentColor). Matches --text-secondary / --text-disabled. */
+    --select-chevron: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' viewBox='0 0 24 24' fill='none' stroke='%233B372F' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='m6 9 6 6 6-6'/%3E%3C/svg%3E");
+    --select-chevron-disabled: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' viewBox='0 0 24 24' fill='none' stroke='%23A69D8C' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='m6 9 6 6 6-6'/%3E%3C/svg%3E");
+
+    --platform-tiktok: #000000;                /* the mark is black on light, white on dark */
+}
+
+/* --------------------------------------------------------------------------
+   3. DARK THEME: The Night Job (same names, same count as light)
+   -------------------------------------------------------------------------- */
+html.dark,
+[data-theme="dark"] {
+    color-scheme: dark;
+
+    --surface-page: #170C0D;                   /* near-black with a burgundy cast */
+    --surface-raised: #221214;
+    --surface-overlay: #2A1618;                /* lighter = closer */
+    --surface-inset: #120909;                  /* sunken below raised */
+    --surface-muted: #331B1D;
+    --surface-thumb: #3A1C1E;
+    --surface-hover: rgba(243, 238, 227, 0.05);
+    --surface-pressed: rgba(243, 238, 227, 0.09);
+    --surface-selected: rgba(217, 123, 114, 0.14);
+    --surface-header: rgba(23, 12, 13, 0.92);
+    --scrim: rgba(0, 0, 0, 0.70);
+
+    --text-primary: #F3EEE3;                   /* parchment type */
+    --text-secondary: #C9BFB1;
+    --text-muted: #ADA294;                     /* 6.37:1 on the muted band */
+    --text-disabled: #6B5A57;
+    --text-link: #E8A39B;
+    --text-inverse: #141414;
+
+    --border-subtle: rgba(243, 238, 227, 0.06);
+    --border-default: rgba(243, 238, 227, 0.10);
+    --border-strong: rgba(243, 238, 227, 0.18);
+    --border-control: #8A706A;                 /* 3.76:1 on overlay */
+    --border-control-hover: #A88E87;
+
+    /* Accent: primary actions invert to parchment with burgundy labels;
+       burgundy text and rings become soft rose so they read on near-black. */
+    --accent: #D97B72;
+    --accent-text: #E8A39B;
+    --accent-fill: #F3EEE3;
+    --accent-fill-hover: #FFFFFF;
+    --accent-fill-pressed: #E3DACA;
+    --on-accent: #5E1616;                      /* 11.33:1 on the parchment fill */
+    --accent-subtle: rgba(217, 123, 114, 0.14);
+    --accent-border: rgba(232, 163, 155, 0.50);
+    --focus-ring-color: #D97B72;               /* 5.73:1 on overlay */
+
+    --success-solid: #5DB37E;
+    --success-text: #7FC49A;
+    --success-subtle: rgba(93, 179, 126, 0.14);
+    --success-border: rgba(127, 196, 154, 0.35);
+    --warning-solid: #D9A441;
+    --warning-text: #E3B75E;
+    --warning-subtle: rgba(217, 164, 65, 0.14);
+    --warning-border: rgba(227, 183, 94, 0.35);
+    --danger-solid: #E0574A;
+    --danger-text: #FF8370;
+    --danger-subtle: rgba(224, 87, 74, 0.14);
+    --danger-border: rgba(255, 131, 112, 0.40);
+    --danger-fill: #C42B1C;                    /* 5.66:1 with white */
+    --danger-fill-hover: #A3221A;
+    --danger-fill-pressed: #8A1C15;
+    --info-solid: #6FA0D6;
+    --info-text: #8DB4DD;
+    --info-subtle: rgba(111, 160, 214, 0.14);
+    --info-border: rgba(141, 180, 221, 0.35);
+    --neutral-solid: #A59A8C;
+    --neutral-text: #C9BFB1;
+    --neutral-subtle: rgba(201, 191, 177, 0.12);
+    --neutral-border: rgba(201, 191, 177, 0.30);
+
+    --nav-bg: #120909;
+    --nav-border: rgba(243, 238, 227, 0.06);
+    --nav-text: #C9BFB1;
+    --nav-text-muted: #ADA294;
+    --nav-hover-bg: rgba(243, 238, 227, 0.05);
+    --nav-active-bg: rgba(217, 123, 114, 0.16);
+    --nav-active-text: #E8A39B;
+
+    --skeleton-base: #331B1D;
+    --skeleton-highlight: #3F2224;
+
+    /* Dark keeps its 1px light rings on floating layers (owner decision
+       2026-11-23). */
+    --shadow-raised: 0 1px 3px rgba(0, 0, 0, 0.45), 0 8px 24px rgba(0, 0, 0, 0.35), inset 0 1px 0 rgba(243, 238, 227, 0.04);
+    --shadow-overlay: 0 4px 12px rgba(0, 0, 0, 0.50), 0 16px 40px rgba(0, 0, 0, 0.40), 0 0 0 1px rgba(243, 238, 227, 0.06);
+    --shadow-modal: 0 12px 32px rgba(0, 0, 0, 0.60), 0 32px 72px rgba(0, 0, 0, 0.50), 0 0 0 1px rgba(243, 238, 227, 0.08);
+    --shadow-button: 0 3px 10px rgba(0, 0, 0, 0.45);
+
+    --scrollbar-thumb: rgba(243, 238, 227, 0.14);
+    --scrollbar-thumb-hover: rgba(243, 238, 227, 0.26);
+
+    --select-chevron: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' viewBox='0 0 24 24' fill='none' stroke='%23C9BFB1' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='m6 9 6 6 6-6'/%3E%3C/svg%3E");
+    --select-chevron-disabled: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' viewBox='0 0 24 24' fill='none' stroke='%236B5A57' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='m6 9 6 6 6-6'/%3E%3C/svg%3E");
+
+    --platform-tiktok: #FFFFFF;
+}
+
+/* --------------------------------------------------------------------------
+   4. DERIVED TOKENS: built from theme roles. Declared on every themed scope
+   so a [data-theme] subtree recomputes them with its own colours (a custom
+   property's var() is resolved on the element that declares it).
+   -------------------------------------------------------------------------- */
+:root,
+[data-theme] {
+    --focus-shadow: 0 0 0 var(--focus-ring-width) var(--focus-ring-color);   /* ring as a box-shadow, where an outline can't be used */
+    --focus-outline: var(--focus-ring-width) solid var(--focus-ring-color);
+    --transition-control:
+        color var(--duration-fast) var(--ease-standard),
+        background-color var(--duration-fast) var(--ease-standard),
+        border-color var(--duration-fast) var(--ease-standard),
+        box-shadow var(--duration-fast) var(--ease-standard),
+        opacity var(--duration-fast) var(--ease-standard);
+}
+
+/* --------------------------------------------------------------------------
+   5. REDUCED MOTION: movement stops; state changes stay instant and visible.
+   The spinner and indeterminate bars keep moving (they are the only signal
+   that work is happening), slower and calmer. Skeletons stop shimmering.
+   -------------------------------------------------------------------------- */
+@media (prefers-reduced-motion: reduce) {
+    :root {
+        --duration-instant: 0ms;
+        --duration-fast: 0ms;
+        --duration-base: 0ms;
+        --duration-slow: 0ms;
+        --duration-spin: 2400ms;
+        --duration-shimmer: 0ms;
+        --duration-indeterminate: 2400ms;
+    }
+}
+
+} /* @layer tokens */

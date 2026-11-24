@@ -187,3 +187,11 @@ deploy/
 ├── _redirects        # Remove redirect lines as you add real pages
 └── _headers
 ```
+
+## Design tokens (css/tokens.css)
+
+`css/tokens.css` is the site's copy of the app's design tokens (`content-generator-v3/app/styles/tokens.css`), the one source of truth for colour, type, space, radius, shadow, motion and layering on both the app and this site. The rules are in `content-generator-v3/docs/DESIGN-CONTRACT.md`.
+
+- **Never edit `css/tokens.css` by hand.** Change the app's tokens.css, then run `node scripts/sync-tokens.js` here. It looks for the app at `../content-generator-v3`, or wherever `HEIST_APP_DIR` points.
+- `node scripts/sync-tokens.js --check` fails if the copy was hand-edited, or if it is behind the app (when the app checkout is present). The "Design tokens" GitHub Action runs this check on every push that touches either file.
+- No page links the file yet. The redesign's Phase 4 step 1 renders the pages from shared partials and links it there. Because the site is dark only, `<html>` must carry `data-theme="dark"` once it does; without it the light theme's values apply.
