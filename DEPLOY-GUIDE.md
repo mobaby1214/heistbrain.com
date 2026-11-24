@@ -188,6 +188,12 @@ deploy/
 └── _headers
 ```
 
+## Design system
+
+The permanent design, brand-voice and product-truth standard for every public
+page is `docs/design-system.md`. Read it before styling or writing copy for
+any page; `docs/site-refinement-audit.md` tracks the refinement backlog.
+
 ## Design tokens (css/tokens.css)
 
 `css/tokens.css` is the site's copy of the app's design tokens (`content-generator-v3/app/styles/tokens.css`), the one source of truth for colour, type, space, radius, shadow, motion and layering on both the app and this site. The rules are in `content-generator-v3/docs/DESIGN-CONTRACT.md`.
