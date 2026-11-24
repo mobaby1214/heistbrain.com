@@ -315,8 +315,8 @@ section { position: relative; z-index: 1; }
 .step:hover { border-color: color-mix(in srgb, var(--accent) 20%, transparent); box-shadow: 0 0 40px color-mix(in srgb, var(--accent) 6%, transparent); transform: translateY(-4px); }
 .step::after { content:''; position:absolute; width:300px; height:300px; border-radius:50%; background: radial-gradient(circle, color-mix(in srgb, var(--accent) 7%, transparent), transparent 70%); top: var(--my, 50%); left: var(--mx, 50%); transform: translate(-50%,-50%); pointer-events:none; opacity:0; transition: opacity 0.4s; }
 .step:hover::after { opacity:1; }
-.step-num { font-family: var(--fm); font-size: 48px; font-weight: 800; color: color-mix(in srgb, var(--accent) 15%, transparent); margin-bottom: 16px; display: flex; align-items: center; gap: 10px; line-height: 1; }
-.step-num::after { content:''; flex:1; height:1px; background: linear-gradient(90deg, color-mix(in srgb, var(--accent) 20%, transparent), transparent); }
+.step-num { font-family: var(--fm); font-size: 48px; font-weight: 800; color: color-mix(in srgb, var(--accent) 45%, transparent); margin-bottom: 16px; display: flex; align-items: center; gap: 10px; line-height: 1; }
+.step-num::after { content:''; flex:1; height:1px; background: linear-gradient(90deg, color-mix(in srgb, var(--accent) 35%, transparent), transparent); }
 .step-icon { font-size: 32px; margin-bottom: 16px; }
 .step h3 { font-family: var(--fd); font-size: 24px; margin-bottom: 10px; font-weight: 400; }
 .step p { font-size: 14px; color: var(--text2); line-height: 1.7; }
@@ -477,7 +477,7 @@ footer { padding: 80px 48px 40px; border-top: 1px solid var(--border); }
 .brain-card h3 { font-family: var(--fd); font-size: 18px; font-weight: 400; color: var(--text); margin-bottom: 6px; }
 .brain-card p { font-size: 13px; color: var(--text2); line-height: 1.55; }
 .brain-card--highlight { border-color: color-mix(in srgb, var(--success-text) 20%, transparent); background: color-mix(in srgb, var(--success-text) 3%, transparent); }
-.brain-card--highlight .brain-card-num { color: color-mix(in srgb, var(--success-text) 15%, transparent); }
+.brain-card--highlight .brain-card-num { color: color-mix(in srgb, var(--success-text) 45%, transparent); }
 @media (max-width: 768px) { .brain-grid { grid-template-columns: 1fr; } }
 
 /* ═══════════ LEARNING LOOP ═══════════ */
