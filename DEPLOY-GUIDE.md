@@ -210,3 +210,17 @@ node scripts/check-homepage.js
 ```
 
 It serves this checkout and drives Chromium at 1440, 1024, 768 and 375px. It needs Playwright, which it takes from the app repo (`HEIST_APP_DIR`, or `../content-generator-v3`). Every check must pass.
+
+### Dossier analytics (GA4)
+
+The dossier sends these events through the page's `gtag` queue. The check script asserts them.
+
+| Event | When | Parameters |
+|---|---|---|
+| `dossier_open` | A visitor opens a panel: the sheet, a card, or "Next" | `panel`: brief, voice, month, rules or time. `source`: sheet, card or next. `panels_seen`: distinct panels opened so far, 1 to 5 |
+| `dossier_mode` | The approval demo's switch changes | `mode`: approve or auto |
+| `dossier_edit` | "Edit" is pressed in the approval demo | none |
+| `dossier_approve` | "Approve" is pressed in the approval demo | none |
+| `sign_up_started` | The trial button at the end of the dossier (the site-wide CTA tracker) | `cta_id`: hero-dossier |
+
+To report on `panel`, `source`, `panels_seen` and `mode`, register each one in GA4 once: Admin → Custom definitions → event-scoped custom dimension. Until they're registered, the events appear only in DebugView.

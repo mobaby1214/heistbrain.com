@@ -202,6 +202,37 @@ async function overflow(p) {
     await ctx.close();
   }
 
+  // ── Analytics: the dossier reports what visitors explore ──
+  {
+    const { ctx, p, errors } = await page(browser, { viewport: { width: 1440, height: 900 } });
+    await sleep(2400);
+    const events = () => p.evaluate(() => (window.dataLayer || [])
+      .filter((a) => a && a[0] === 'event' && String(a[1]).indexOf('dossier_') === 0)
+      .map((a) => [a[1], a[2] || {}]));
+    await p.click('[data-open="voice"]');
+    await sleep(500);
+    await p.click('#cf-panel-voice [data-next]');
+    await sleep(400);
+    await p.click('#cf-panel-month [data-next]');
+    await sleep(400);
+    await p.click('.cf-mode label:nth-child(3)');
+    await p.click('[data-edit]');
+    await p.click('[data-edit]');
+    await p.click('[data-approve]');
+    await sleep(300);
+    await p.keyboard.press('Escape');
+    await sleep(500);
+    await p.click('[data-open="voice"]');                // a panel seen before: panels_seen stays 3
+    await sleep(500);
+    const ev = await events();
+    const opens = ev.filter((e) => e[0] === 'dossier_open').map((e) => `${e[1].panel}/${e[1].source}/${e[1].panels_seen}`);
+    log(opens.join(',') === 'voice/card/1,month/next/2,rules/next/3,voice/card/3', `dossier_open events carry panel, source and depth (${opens.join(' ')})`);
+    const rest = ev.filter((e) => e[0] !== 'dossier_open').map((e) => e[0] + (e[1].mode ? ':' + e[1].mode : ''));
+    log(rest.join(',') === 'dossier_mode:auto,dossier_edit,dossier_approve', `approval demo events (${rest.join(' ')})`);
+    log(errors.length === 0, 'analytics: console clean ' + errors.join(' | '));
+    await ctx.close();
+  }
+
   // ── Reduced motion ──
   {
     const { ctx, p, errors } = await page(browser, { viewport: { width: 1440, height: 900 }, reducedMotion: 'reduce' });

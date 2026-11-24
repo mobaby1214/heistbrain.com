@@ -1730,6 +1730,20 @@ document.querySelectorAll('.nav-dropdown-trigger').forEach(trigger => {
 
   function reduced() { return mqReduce.matches; }
 
+  // ── Analytics: which parts of the story visitors explore ──
+  // GA4 events through the page's gtag queue (it holds them until GA loads).
+  // The trial CTA at the end is tracked separately, as sign_up_started
+  // with cta_id "hero-dossier". Event list: DEPLOY-GUIDE.md, "Homepage copy
+  // and the dossier".
+  var seenPanels = {};
+  function track(name, params) {
+    try { if (typeof window.gtag === 'function') window.gtag('event', name, params || {}); } catch (_) { /* never break the page */ }
+  }
+  function trackOpen(name, source) {
+    seenPanels[name] = true;
+    track('dossier_open', { panel: name, source: source, panels_seen: Object.keys(seenPanels).length });
+  }
+
   // ── Tilt: ±4° toward a mouse pointer, eased by the CSS transition ──
   var raf = 0, nx = 0, ny = 0;
   function tilt(x, y) {
@@ -1856,9 +1870,14 @@ document.querySelectorAll('.nav-dropdown-trigger').forEach(trigger => {
   d.addEventListener('click', function (e) {
     var t = e.target.closest('[data-open],[data-close],[data-next],[data-approve],[data-undo],[data-edit]');
     if (!t || !d.contains(t)) return;
-    if (t.hasAttribute('data-open')) { open(t.getAttribute('data-open')); return; }
+    if (t.hasAttribute('data-open')) {
+      var name = t.getAttribute('data-open');
+      if (openPanel !== document.getElementById('cf-panel-' + name)) trackOpen(name, name === 'brief' ? 'sheet' : 'card');
+      open(name);
+      return;
+    }
     if (t.hasAttribute('data-close')) { close(true); return; }
-    if (t.hasAttribute('data-next')) { open(t.getAttribute('data-next')); return; }
+    if (t.hasAttribute('data-next')) { trackOpen(t.getAttribute('data-next'), 'next'); open(t.getAttribute('data-next')); return; }
     var draft = t.closest('.cf-draft');
     if (draft) draftAction(draft, t);
   });
@@ -1895,9 +1914,11 @@ document.querySelectorAll('.nav-dropdown-trigger').forEach(trigger => {
       edit.textContent = 'Done';
       edit.setAttribute('aria-pressed', 'true');
       text.focus();
+      track('dossier_edit');
       return;
     }
     if (btn.hasAttribute('data-approve')) {
+      track('dossier_approve');
       stopEditing();
       draft.classList.remove('is-approved');
       void draft.offsetWidth;                    // restart the stamp
@@ -1919,6 +1940,7 @@ document.querySelectorAll('.nav-dropdown-trigger').forEach(trigger => {
   if (rules) {
     rules.addEventListener('change', function (e) {
       if (e.target.name !== 'cf-mode') return;
+      track('dossier_mode', { mode: e.target.value });
       rules.querySelectorAll('.cf-mode-note').forEach(function (n) { n.hidden = n.getAttribute('data-mode') !== e.target.value; });
     });
   }
