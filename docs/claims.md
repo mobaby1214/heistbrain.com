@@ -113,3 +113,18 @@ Not changed: Canva Pro $15/mo (vs/buffer.html) — Canva is not in the ticket's 
 3. **Canva Pro $15/mo** figure in vs/buffer.html (outside ticket's competitor list).
 4. ~~**Hero mockup YT chip says "Soon"** although YouTube is live~~ — resolved 2026-11-22: YT chip now shown live.
 5. **Buffer/Hootsuite table cells** in index.html:1624 (YouTube-upload row "Partial"/"✓") describe competitor capabilities carried over from the old TikTok+YouTube row; not independently verified.
+
+## 6. The Case File homepage (2026-11-23)
+
+The hero was rebuilt with approved copy (`content-generator-v3/docs/brand-messaging.md`). Claims it adds, keeps or drops:
+
+| Claim | Where | Backing | Action |
+|---|---|---|---|
+| "7 days free. No credit card required." | Hero | Trial row above (app `server/routes/auth.js`: a 7-day trial on signup; trial emails say "7 days, no card") | Kept, reworded from "Free for 7 days. No card." |
+| "Works with Claude (any plan) or a paid ChatGPT plan." | Hero | Connector row above: the trial is Pro, and Pro has the connector. Starter needs its own AI key | Kept as a separate line. The pricing teaser still carries the Starter caveat |
+| "Approve posts every time, or set it to Autopilot. Your choice." | Dossier card "Your rules." | App `server/db.js` Autopilot defaults: `social_approval_required` 0; a topic-veto email goes out 14h ahead (`topic_veto_hours_before`); with no reply the plan goes ahead (`auto_default_on_no_response`). Blogs need approval by default | TRUE. It replaces the handoff's "before anything goes live", which is false for Autopilot accounts (owner's wording) |
+| "scheduled across your channels" | Hero lede | The live platforms at the top of this file | Kept generic. The dossier's sample week schedules only LinkedIn, Instagram and Facebook; the blog appears only as planned content |
+| "A full month of content … in one sitting" | Hero lede, meta description | Same promise as the 2026-11-22 "one sitting" wording | Kept |
+| Dossier demo panels (brief, sample post, sample month, approval demo, sample week) | Hero | Static sample content. It calls no API and names no customer. "42 posts, 4 channels" is the sample calendar's own count | Every panel is labelled "Sample" or "Try it". The approval demo says "Nothing here posts anywhere." |
+| "100+ tools your AI can call" and "6 platforms, one workflow" hero stats; the illustrative Agent Inbox mockup and its caption | Old hero | n/a | Removed with the old hero. "100+ tools" still appears in the Agent Inbox section |
+| og/twitter description "AI content OS with a 10-layer Brain … six platforms" | Head | n/a | Replaced with the approved description, which has no counts |

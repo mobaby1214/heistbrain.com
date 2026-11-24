@@ -12,9 +12,10 @@
  * Source: $HEIST_APP_DIR, else ../content-generator-v3 next to this repo.
  * No dependencies. css/tokens.css is generated: never edit it by hand.
  *
- * Not linked by any page yet: Phase 4 step 1 renders the pages from shared
- * partials and links it there, with data-theme="dark" on <html> (the site is
- * dark only; without it the light theme's values apply).
+ * Linked by index.html. Its header, hero and how-it-works strip carry
+ * data-theme="light". Phase 4 step 1 links it on the other pages, which
+ * render from shared partials. A dark page needs data-theme="dark" on
+ * <html>; without it the light theme's values apply.
  */
 'use strict';
 
