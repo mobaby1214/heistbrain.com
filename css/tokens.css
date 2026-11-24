@@ -1,9 +1,16 @@
-/* GENERATED from content-generator-v3/app/styles/tokens.css by scripts/sync-tokens.js. Do not edit. sha256:edd73a70bb9f4923 */
+/* GENERATED from content-generator-v3/app/styles/tokens.css by scripts/sync-tokens.js. Do not edit. sha256:0ff93e482698d10d */
 /* ==========================================================================
    HEIST DESIGN TOKENS: app/styles/tokens.css
    --------------------------------------------------------------------------
    The single source of truth for the look of the app AND heistbrain.com:
    colour, type, space, radius, border, shadow, motion and layering.
+
+   The look (owner decision, 2026-11-23): "The Case File". Parchment, ink
+   and burgundy in light; "The Night Job" (near-black burgundy, parchment
+   type, soft rose) in dark. One type family: Schibsted Grotesk. The violet
+   is retired: research found 18 of 30 AI writing tools in the blue-violet
+   band and #8B5CF6 is Tailwind's default violet; no AI writer leads with
+   burgundy (docs/DESIGN-CONTRACT.md, Decisions).
 
    - Rules: docs/DESIGN-CONTRACT.md. Read them before adding a token.
    - Every token is named for its ROLE (--surface-raised), never its value
@@ -12,8 +19,6 @@
      both theme blocks. scripts/check-design-contract.js enforces it.
    - heistbrain.com/css/tokens.css is a generated copy of this file
      (scripts/sync-tokens.js in that repo). Never edit the copy.
-   - Grown from app/styles/theme.css (Phase 31, THEME-AUDIT, AUDIT-A).
-     Values that already passed review there are kept as they were.
 
    Theme selection: html.light / html.dark (the app's boot script) or
    [data-theme="light|dark"] on any element, which scopes a whole subtree
@@ -30,14 +35,14 @@
    1. INVARIANT TOKENS: the same in light and dark
    -------------------------------------------------------------------------- */
 :root {
-    /* ---- Type families ------------------------------------------------- */
-    --font-sans: 'DM Sans', system-ui, -apple-system, 'Segoe UI', sans-serif;
-    --font-display: var(--font-sans);          /* headings: same family, tighter tracking */
-    --font-mono: 'JetBrains Mono', ui-monospace, 'SFMono-Regular', Consolas, monospace;
-    --font-wordmark: 'Instrument Serif', Georgia, serif;  /* the "Heist." logo lockup ONLY */
+    /* ---- Type: one family for everything you read ---------------------- */
+    --font-sans: 'Schibsted Grotesk', system-ui, -apple-system, 'Segoe UI', sans-serif;
+    --font-display: var(--font-sans);          /* headings: same family, heavier, tighter */
+    --font-wordmark: var(--font-sans);         /* the "Heist." lockup: weight 900, burgundy full stop */
+    --font-mono: 'JetBrains Mono', ui-monospace, 'SFMono-Regular', Consolas, monospace;  /* code and keys only */
 
     /* ---- Type sizes, by role. 11px is the floor: nothing smaller. ------ */
-    --font-size-eyebrow: 11px;    /* mono uppercase section eyebrows only */
+    --font-size-eyebrow: 12px;    /* the one uppercase label, tracked wide */
     --font-size-caption: 12px;    /* hints, meta, table headers, badges */
     --font-size-body-sm: 13px;    /* dense UI: small buttons, chips, nav */
     --font-size-body: 14px;       /* default UI and body copy */
@@ -45,25 +50,27 @@
     --font-size-h3: 18px;         /* modal, drawer and empty-state titles */
     --font-size-h2: 22px;         /* section titles */
     --font-size-h1: 28px;         /* page titles */
-    --font-size-display: clamp(32px, 3vw + 8px, 48px);  /* marketing heroes, big numbers */
+    --font-size-display: clamp(36px, 3.9vw, 56px);  /* marketing heroes */
 
-    /* ---- Weights (DM Sans is variable 300-800) ------------------------- */
+    /* ---- Weights (Schibsted Grotesk is variable 400-900) ---------------- */
     --font-weight-regular: 400;
     --font-weight-medium: 500;
     --font-weight-semibold: 600;
-    --font-weight-bold: 700;
+    --font-weight-bold: 750;
+    --font-weight-heavy: 850;     /* headlines and the wordmark's family weight */
 
     /* ---- Line heights --------------------------------------------------- */
-    --line-height-tight: 1.15;    /* display, h1 */
+    --line-height-tight: 1.02;    /* display, h1 */
     --line-height-title: 1.3;     /* h2, h3 */
     --line-height-body: 1.55;     /* paragraphs */
     --line-height-control: 1.25;  /* single-line labels inside controls */
 
     /* ---- Tracking -------------------------------------------------------- */
-    --tracking-display: -0.03em;
+    --tracking-display: -0.045em;
     --tracking-title: -0.02em;
     --tracking-body: 0em;
-    --tracking-eyebrow: 0.1em;
+    --tracking-eyebrow: 0.14em;
+    --tracking-wordmark: -0.05em;
 
     /* ---- Space, by step (4px grid) -------------------------------------- */
     --space-3xs: 2px;
@@ -118,17 +125,17 @@
        only literals components.css may repeat: 480px (phone: sheets, full-
        width toasts) and 640px (small tablet: full-width drawers). */
 
-    /* ---- Radius, by role -------------------------------------------------- */
+    /* ---- Radius, by role (the Case File is crisp: paper, not pills) ------- */
     --radius-choice: 4px;         /* checkboxes */
-    --radius-badge: 6px;          /* badges, small tags, kbd */
-    --radius-control: 8px;        /* buttons, inputs, selects, tabs, nav items */
-    --radius-card: 12px;          /* cards, popovers, toasts, table frames */
-    --radius-modal: 16px;         /* modals; a drawer's leading corners */
-    --radius-pill: 9999px;        /* chips, switches, segmented tracks, avatars */
+    --radius-badge: 4px;          /* badges, small tags, kbd */
+    --radius-control: 6px;        /* buttons, inputs, selects, tabs, nav items */
+    --radius-card: 10px;          /* cards, popovers, toasts, table frames */
+    --radius-modal: 16px;         /* modals; a drawer's leading corners; the folder */
+    --radius-pill: 9999px;        /* chips, switches, avatars */
 
     /* ---- Border widths ------------------------------------------------------ */
     --border-width: 1px;
-    --border-width-strong: 2px;   /* selected cards, active tab underline, rails */
+    --border-width-strong: 2px;   /* selected cards, active tab underline, stamps */
 
     /* ---- Focus ring geometry (colour is per theme) ------------------------- */
     --focus-ring-width: 2px;
@@ -173,18 +180,7 @@
     --z-toast: 4000;              /* toasts are always readable */
     --z-tooltip: 4500;
 
-    /* ---- Brand constants -----------------------------------------------------
-       The violet stays (owner decision, prompt pack Phase 1). #8B5CF6 is the
-       brand: fills without text, focus rings, icons, highlights. Text-bearing
-       fills use the gradient or --accent-fill (AA with white).              */
-    --accent: #8B5CF6;
-    --on-accent: #FFFFFF;          /* label and icon colour on any accent fill */
-    /* Signature gradient (owner decision A1, THEME-AUDIT-C10). White labels
-       measure 4.58:1 or better wherever a label can sit: the 4.23:1 stop is
-       the top-left corner, under padding, never under text. */
-    --accent-gradient: linear-gradient(135deg, #8B5CF6, #6D28D9);
-    --accent-gradient-hover: linear-gradient(135deg, #7C3AED, #5B21B6);
-    --accent-gradient-pressed: linear-gradient(135deg, #6D28D9, #4C1D95);
+    --on-danger: #FFFFFF;          /* label on any --danger-fill, both themes */
 
     /* Platform marks (logo colours). Use for icons and dots, never behind
        body-size white text: several fail AA as fills. */
@@ -195,12 +191,12 @@
     --platform-reddit: #FF4500;
     --platform-blog: #FF5722;
 
-    /* Charts (categorical order) */
-    --chart-1: #8B5CF6;
-    --chart-2: #22C55E;
-    --chart-3: #F59E0B;
-    --chart-4: #3B82F6;
-    --chart-5: #EF4444;
+    /* Charts (categorical order, warm-paper friendly) */
+    --chart-1: #7A1F1F;
+    --chart-2: #3A7BBF;
+    --chart-3: #C98A1E;
+    --chart-4: #3E8A55;
+    --chart-5: #8A806E;
 
     /* ---- Icons (Lucide strokes) --------------------------------------------
        Masks: the stroke colour in the SVG is irrelevant. Paint an icon with
@@ -228,199 +224,202 @@
 }
 
 /* --------------------------------------------------------------------------
-   2. LIGHT THEME: every colour role
+   2. LIGHT THEME: The Case File
    -------------------------------------------------------------------------- */
 :root,
 html.light,
 [data-theme="light"] {
     color-scheme: light;
 
-    /* Surfaces: page canvas < raised cards < overlays (modals, drawers,
-       popovers, toasts). Inset = inside a control (fields, tracks, wells). */
-    --surface-page: #EAEEF7;
-    --surface-raised: #FFFFFF;
-    --surface-overlay: #FFFFFF;
-    --surface-inset: #F3F5FB;
-    --surface-muted: #E3E9F3;                  /* table header band, code, kbd */
-    --surface-hover: rgba(15, 23, 42, 0.04);   /* layered over any surface */
-    --surface-pressed: rgba(15, 23, 42, 0.08);
-    --surface-selected: rgba(139, 92, 246, 0.10);
-    --surface-thumb: #FFFFFF;                  /* the selected segment, a switch knob */
-    --surface-header: rgba(255, 255, 255, 0.95);  /* sticky top bar */
-    --scrim: rgba(15, 23, 42, 0.40);           /* behind modals and drawers */
+    /* Surfaces: parchment page < paper cards < overlays. Inset = inside a
+       control (tracks, wells); muted = header bands. */
+    --surface-page: #F3EEE3;                   /* parchment */
+    --surface-raised: #FBF8F1;                 /* the paper sheet */
+    --surface-overlay: #FFFDF9;
+    --surface-inset: #EAE3D4;
+    --surface-muted: #E3DACA;                  /* table header band, code, kbd */
+    --surface-thumb: #FFFDF9;                  /* the selected segment, a switch knob */
+    --surface-hover: rgba(20, 20, 20, 0.04);   /* layered over any surface */
+    --surface-pressed: rgba(20, 20, 20, 0.08);
+    --surface-selected: rgba(122, 31, 31, 0.08);
+    --surface-header: rgba(243, 238, 227, 0.95);  /* sticky top bar */
+    --scrim: rgba(20, 20, 20, 0.40);           /* behind modals and drawers */
 
-    /* Text: AA on page, raised, inset and overlay (ratios in the contract) */
-    --text-primary: #0B1126;
-    --text-secondary: #3D4E7A;
-    --text-muted: #5A6885;                     /* 4.81:1 on the page canvas */
-    --text-disabled: #9AA7C6;                  /* exempt from contrast (WCAG 1.4.3) */
-    --text-link: #6D28D9;
-    --text-inverse: #FFFFFF;
+    /* Text: AA on every surface above */
+    --text-primary: #141414;                   /* ink */
+    --text-secondary: #3B372F;
+    --text-muted: #655D4E;                     /* 4.69:1 on the muted band, 5.62:1 on the page */
+    --text-disabled: #A69D8C;                  /* exempt from contrast (WCAG 1.4.3) */
+    --text-link: #7A1F1F;
+    --text-inverse: #F3EEE3;
 
-    /* Borders. Control borders meet 3:1 against the page canvas and white,
-       because they are what tells you a field is there. Decorative borders
-       (cards, dividers) don't need to, and stay soft. */
-    --border-subtle: #DDE3F0;                  /* dividers inside a surface */
-    --border-default: #C3CDE4;                 /* card and panel edges */
-    --border-strong: #9FAECE;                  /* emphasis, table frame */
-    --border-control: #7A87A6;                 /* 3.09:1 on page, 3.59:1 on white */
-    --border-control-hover: #5A6885;
+    /* Borders. Control borders meet 3:1 (they tell you a field is there);
+       decorative borders (cards, dividers) stay soft. */
+    --border-subtle: #E2DACB;
+    --border-default: #D3C9B6;
+    --border-strong: #B9B1A1;
+    --border-control: #857B69;                 /* 3.26:1 on inset, 3.61:1 on the page */
+    --border-control-hover: #655D4E;
 
-    /* Accent roles */
-    --accent-text: #6D28D9;                    /* violet copy: 7.10:1 on white */
-    --accent-fill: #7C3AED;                    /* flat fill behind white text: 5.70:1 */
-    --accent-fill-hover: #6D28D9;
-    --accent-subtle: rgba(139, 92, 246, 0.10);
-    --accent-border: rgba(139, 92, 246, 0.45);
-    --focus-ring-color: #8B5CF6;               /* 3.64:1 on page, 4.23:1 on white */
+    /* Accent: burgundy */
+    --accent: #7A1F1F;                         /* the brand: 8.88:1 on parchment */
+    --accent-text: #7A1F1F;
+    --accent-fill: #7A1F1F;                    /* primary buttons: white label 10.28:1 */
+    --accent-fill-hover: #5E1616;
+    --accent-fill-pressed: #451111;
+    --on-accent: #FFFFFF;                      /* label and icon colour on --accent-fill */
+    --accent-subtle: rgba(122, 31, 31, 0.08);
+    --accent-border: rgba(122, 31, 31, 0.45);
+    --focus-ring-color: #7A1F1F;               /* 8.04:1 on inset, 8.88:1 on the page */
 
     /* Status: -text for words and lone icons (AA); -solid for fills and dots
-       that sit next to text; -subtle for tinted backgrounds. */
-    --success-solid: #10B981;
-    --success-text: #046C4E;                   /* was #047857: 4.35:1 on its tint over the page */
-    --success-subtle: rgba(16, 185, 129, 0.10);
-    --success-border: rgba(16, 185, 129, 0.35);
-    --warning-solid: #F59E0B;
-    --warning-text: #9A4A08;                   /* was #B45309: 4.05:1 on its tint over the page */
-    --warning-subtle: rgba(245, 158, 11, 0.10);
-    --warning-border: rgba(245, 158, 11, 0.40);
-    --danger-solid: #EF4444;
-    --danger-text: #B91C1C;
-    --danger-subtle: rgba(239, 68, 68, 0.10);
-    --danger-border: rgba(239, 68, 68, 0.35);
-    --danger-fill: #DC2626;                    /* destructive buttons: 4.83:1 with white */
-    --danger-fill-hover: #B91C1C;
-    --danger-fill-pressed: #991B1B;
-    --info-solid: #3B82F6;
-    --info-text: #1D4ED8;
-    --info-subtle: rgba(59, 130, 246, 0.10);
-    --info-border: rgba(59, 130, 246, 0.35);
-    --neutral-solid: #64748B;
-    --neutral-text: #3D4E7A;
-    --neutral-subtle: rgba(100, 116, 139, 0.10);
-    --neutral-border: rgba(100, 116, 139, 0.30);
+       that sit next to text; -subtle for tinted backgrounds. Danger is a
+       brighter red than the brand burgundy and always carries an icon. */
+    --success-solid: #3E8A55;
+    --success-text: #2F6B3B;
+    --success-subtle: rgba(62, 138, 85, 0.12);
+    --success-border: rgba(62, 138, 85, 0.35);
+    --warning-solid: #C98A1E;
+    --warning-text: #7A5008;
+    --warning-subtle: rgba(201, 138, 30, 0.14);
+    --warning-border: rgba(201, 138, 30, 0.40);
+    --danger-solid: #C42B1C;
+    --danger-text: #A3221A;
+    --danger-subtle: rgba(196, 43, 28, 0.10);
+    --danger-border: rgba(196, 43, 28, 0.35);
+    --danger-fill: #B42318;                    /* destructive buttons: 6.57:1 with white */
+    --danger-fill-hover: #9B1F17;
+    --danger-fill-pressed: #7F1912;
+    --info-solid: #3A7BBF;
+    --info-text: #1F4F7A;
+    --info-subtle: rgba(58, 123, 191, 0.10);
+    --info-border: rgba(58, 123, 191, 0.35);
+    --neutral-solid: #8A806E;
+    --neutral-text: #4A4438;
+    --neutral-subtle: rgba(110, 102, 86, 0.12);
+    --neutral-border: rgba(110, 102, 86, 0.30);
 
-    /* Navigation. Light sidebar in light mode (owner decision A7,
-       2026-11-23). It sits on the canvas tone, so the chrome never looks
-       brighter than the workspace; white cards float above both. */
-    --nav-bg: #EAEEF7;
-    --nav-border: #C3CDE4;
-    --nav-text: #3D4E7A;
-    --nav-text-muted: #5A6885;                 /* group labels */
-    --nav-hover-bg: rgba(15, 23, 42, 0.05);
-    --nav-active-bg: rgba(139, 92, 246, 0.12);
-    --nav-active-text: #6D28D9;                /* 5.67:1 on the active fill */
-    --nav-active-rail: #8B5CF6;
+    /* Navigation: the sidebar sits a shade under the parchment page */
+    --nav-bg: #EDE6D8;
+    --nav-border: #D3C9B6;
+    --nav-text: #3B372F;
+    --nav-text-muted: #655D4E;
+    --nav-hover-bg: rgba(20, 20, 20, 0.05);
+    --nav-active-bg: rgba(122, 31, 31, 0.10);
+    --nav-active-text: #7A1F1F;                /* 6.98:1 on the active fill */
 
     /* Loading */
-    --skeleton-base: #E3E9F3;
-    --skeleton-highlight: #F3F5FB;
+    --skeleton-base: #E6DECF;
+    --skeleton-highlight: #F3EEE3;
 
-    /* Elevation. Light is border-first: quiet shadows (AUDIT-A #12). */
-    --shadow-raised: 0 1px 3px rgba(15, 23, 42, 0.07), 0 1px 2px rgba(15, 23, 42, 0.05);
-    --shadow-overlay: 0 4px 16px rgba(15, 23, 42, 0.12), 0 2px 6px rgba(15, 23, 42, 0.06);
-    --shadow-modal: 0 20px 60px rgba(15, 23, 42, 0.20), 0 8px 24px rgba(15, 23, 42, 0.12);
-    --shadow-accent-glow: none;                /* light: the gradient alone marks the primary */
+    /* Elevation: warm, paper-on-desk shadows */
+    --shadow-raised: 0 1px 2px rgba(60, 40, 20, 0.08), 0 2px 6px rgba(60, 40, 20, 0.06);
+    --shadow-overlay: 0 8px 24px rgba(60, 40, 20, 0.14), 0 2px 6px rgba(60, 40, 20, 0.08);
+    --shadow-modal: 0 24px 48px rgba(69, 17, 17, 0.22), 0 6px 14px rgba(69, 17, 17, 0.14);
+    --shadow-button: 0 1px 0 rgba(255, 255, 255, 0.12) inset, 0 3px 8px rgba(90, 22, 22, 0.25);
 
-    /* Scrollbars stay neutral (owner decision, PR #23) */
-    --scrollbar-thumb: rgba(15, 23, 42, 0.16);
-    --scrollbar-thumb-hover: rgba(15, 23, 42, 0.30);
+    --scrollbar-thumb: rgba(20, 20, 20, 0.18);
+    --scrollbar-thumb-hover: rgba(20, 20, 20, 0.32);
 
-    /* Select chevron. A background image can't read currentColor, so the
-       stroke colour is baked per theme (it matches --text-secondary). */
-    --select-chevron: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' viewBox='0 0 24 24' fill='none' stroke='%233D4E7A' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='m6 9 6 6 6-6'/%3E%3C/svg%3E");
-    --select-chevron-disabled: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' viewBox='0 0 24 24' fill='none' stroke='%239AA7C6' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='m6 9 6 6 6-6'/%3E%3C/svg%3E");
+    /* Select chevron (stroke baked per theme: a background image can't read
+       currentColor). Matches --text-secondary / --text-disabled. */
+    --select-chevron: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' viewBox='0 0 24 24' fill='none' stroke='%233B372F' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='m6 9 6 6 6-6'/%3E%3C/svg%3E");
+    --select-chevron-disabled: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' viewBox='0 0 24 24' fill='none' stroke='%23A69D8C' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='m6 9 6 6 6-6'/%3E%3C/svg%3E");
 
     --platform-tiktok: #000000;                /* the mark is black on light, white on dark */
 }
 
 /* --------------------------------------------------------------------------
-   3. DARK THEME: every colour role (same names, same count as light)
+   3. DARK THEME: The Night Job (same names, same count as light)
    -------------------------------------------------------------------------- */
 html.dark,
 [data-theme="dark"] {
     color-scheme: dark;
 
-    --surface-page: #06050C;
-    --surface-raised: #0C0A18;
-    --surface-overlay: #131024;                /* lighter = closer, as dark elevation should be */
-    --surface-inset: #08070F;                  /* sunken below raised, as in light */
-    --surface-muted: #1A1530;
-    --surface-hover: rgba(255, 255, 255, 0.05);
-    --surface-pressed: rgba(255, 255, 255, 0.09);
-    --surface-selected: rgba(139, 92, 246, 0.14);
-    --surface-thumb: #2A2346;                  /* lighter than the inset track it rides on */
-    --surface-header: rgba(6, 5, 12, 0.92);
+    --surface-page: #170C0D;                   /* near-black with a burgundy cast */
+    --surface-raised: #221214;
+    --surface-overlay: #2A1618;                /* lighter = closer */
+    --surface-inset: #120909;                  /* sunken below raised */
+    --surface-muted: #331B1D;
+    --surface-thumb: #3A1C1E;
+    --surface-hover: rgba(243, 238, 227, 0.05);
+    --surface-pressed: rgba(243, 238, 227, 0.09);
+    --surface-selected: rgba(217, 123, 114, 0.14);
+    --surface-header: rgba(23, 12, 13, 0.92);
     --scrim: rgba(0, 0, 0, 0.70);
 
-    --text-primary: #F0F4FF;
-    --text-secondary: #B8C4E0;
-    --text-muted: #8290B4;                     /* 5.85:1 on overlay, 5.53:1 on muted */
-    --text-disabled: #4A5675;
-    --text-link: #A78BFA;
-    --text-inverse: #0B1126;
+    --text-primary: #F3EEE3;                   /* parchment type */
+    --text-secondary: #C9BFB1;
+    --text-muted: #ADA294;                     /* 6.37:1 on the muted band */
+    --text-disabled: #6B5A57;
+    --text-link: #E8A39B;
+    --text-inverse: #141414;
 
-    --border-subtle: rgba(255, 255, 255, 0.05);
-    --border-default: rgba(255, 255, 255, 0.08);
-    --border-strong: rgba(255, 255, 255, 0.14);
-    --border-control: #5B6585;                 /* 3.40:1 on raised, 3.23:1 on overlay */
-    --border-control-hover: #7A86A8;
+    --border-subtle: rgba(243, 238, 227, 0.06);
+    --border-default: rgba(243, 238, 227, 0.10);
+    --border-strong: rgba(243, 238, 227, 0.18);
+    --border-control: #8A706A;                 /* 3.76:1 on overlay */
+    --border-control-hover: #A88E87;
 
-    --accent-text: #A78BFA;                    /* 6.85:1 on overlay */
-    --accent-fill: #7C3AED;
-    --accent-fill-hover: #8550F4;              /* brighter on dark, still 4.72:1 with white */
-    --accent-subtle: rgba(139, 92, 246, 0.16);
-    --accent-border: rgba(167, 139, 250, 0.50);
-    --focus-ring-color: #A78BFA;               /* 7.46:1 on the page */
+    /* Accent: primary actions invert to parchment with burgundy labels;
+       burgundy text and rings become soft rose so they read on near-black. */
+    --accent: #D97B72;
+    --accent-text: #E8A39B;
+    --accent-fill: #F3EEE3;
+    --accent-fill-hover: #FFFFFF;
+    --accent-fill-pressed: #E3DACA;
+    --on-accent: #5E1616;                      /* 11.33:1 on the parchment fill */
+    --accent-subtle: rgba(217, 123, 114, 0.14);
+    --accent-border: rgba(232, 163, 155, 0.50);
+    --focus-ring-color: #D97B72;               /* 5.73:1 on overlay */
 
-    --success-solid: #10B981;
-    --success-text: #34D399;
-    --success-subtle: rgba(16, 185, 129, 0.12);
-    --success-border: rgba(52, 211, 153, 0.35);
-    --warning-solid: #F59E0B;
-    --warning-text: #FBBF24;
-    --warning-subtle: rgba(245, 158, 11, 0.12);
-    --warning-border: rgba(251, 191, 36, 0.35);
-    --danger-solid: #EF4444;
-    --danger-text: #F87171;
-    --danger-subtle: rgba(239, 68, 68, 0.12);
-    --danger-border: rgba(248, 113, 113, 0.35);
-    --danger-fill: #DC2626;
-    --danger-fill-hover: #B91C1C;
-    --danger-fill-pressed: #991B1B;
-    --info-solid: #3B82F6;
-    --info-text: #60A5FA;
-    --info-subtle: rgba(59, 130, 246, 0.12);
-    --info-border: rgba(96, 165, 250, 0.35);
-    --neutral-solid: #64748B;
-    --neutral-text: #B8C4E0;
-    --neutral-subtle: rgba(148, 163, 184, 0.12);
-    --neutral-border: rgba(148, 163, 184, 0.30);
+    --success-solid: #5DB37E;
+    --success-text: #7FC49A;
+    --success-subtle: rgba(93, 179, 126, 0.14);
+    --success-border: rgba(127, 196, 154, 0.35);
+    --warning-solid: #D9A441;
+    --warning-text: #E3B75E;
+    --warning-subtle: rgba(217, 164, 65, 0.14);
+    --warning-border: rgba(227, 183, 94, 0.35);
+    --danger-solid: #E0574A;
+    --danger-text: #FF8370;
+    --danger-subtle: rgba(224, 87, 74, 0.14);
+    --danger-border: rgba(255, 131, 112, 0.40);
+    --danger-fill: #C42B1C;                    /* 5.66:1 with white */
+    --danger-fill-hover: #A3221A;
+    --danger-fill-pressed: #8A1C15;
+    --info-solid: #6FA0D6;
+    --info-text: #8DB4DD;
+    --info-subtle: rgba(111, 160, 214, 0.14);
+    --info-border: rgba(141, 180, 221, 0.35);
+    --neutral-solid: #A59A8C;
+    --neutral-text: #C9BFB1;
+    --neutral-subtle: rgba(201, 191, 177, 0.12);
+    --neutral-border: rgba(201, 191, 177, 0.30);
 
-    --nav-bg: #04030A;
-    --nav-border: rgba(255, 255, 255, 0.05);
-    --nav-text: rgba(176, 188, 220, 0.90);
-    --nav-text-muted: rgba(150, 162, 194, 0.95);
-    --nav-hover-bg: rgba(255, 255, 255, 0.05);
-    --nav-active-bg: rgba(139, 92, 246, 0.16);
-    --nav-active-text: #C4B5FD;
-    --nav-active-rail: #8B5CF6;
+    --nav-bg: #120909;
+    --nav-border: rgba(243, 238, 227, 0.06);
+    --nav-text: #C9BFB1;
+    --nav-text-muted: #ADA294;
+    --nav-hover-bg: rgba(243, 238, 227, 0.05);
+    --nav-active-bg: rgba(217, 123, 114, 0.16);
+    --nav-active-text: #E8A39B;
 
-    --skeleton-base: #1A1530;
-    --skeleton-highlight: #251E40;
+    --skeleton-base: #331B1D;
+    --skeleton-highlight: #3F2224;
 
     /* Dark keeps its 1px light rings on floating layers (owner decision
-       2026-11-23: keep the dark-mode rings). */
-    --shadow-raised: 0 1px 3px rgba(0, 0, 0, 0.40), 0 8px 24px rgba(0, 0, 0, 0.30), inset 0 1px 0 rgba(255, 255, 255, 0.04);
-    --shadow-overlay: 0 4px 12px rgba(0, 0, 0, 0.50), 0 16px 40px rgba(0, 0, 0, 0.40), 0 0 0 1px rgba(255, 255, 255, 0.06);
-    --shadow-modal: 0 12px 32px rgba(0, 0, 0, 0.60), 0 32px 72px rgba(0, 0, 0, 0.50), 0 0 0 1px rgba(255, 255, 255, 0.08);
-    --shadow-accent-glow: 0 0 18px rgba(139, 92, 246, 0.35);
+       2026-11-23). */
+    --shadow-raised: 0 1px 3px rgba(0, 0, 0, 0.45), 0 8px 24px rgba(0, 0, 0, 0.35), inset 0 1px 0 rgba(243, 238, 227, 0.04);
+    --shadow-overlay: 0 4px 12px rgba(0, 0, 0, 0.50), 0 16px 40px rgba(0, 0, 0, 0.40), 0 0 0 1px rgba(243, 238, 227, 0.06);
+    --shadow-modal: 0 12px 32px rgba(0, 0, 0, 0.60), 0 32px 72px rgba(0, 0, 0, 0.50), 0 0 0 1px rgba(243, 238, 227, 0.08);
+    --shadow-button: 0 3px 10px rgba(0, 0, 0, 0.45);
 
-    --scrollbar-thumb: rgba(255, 255, 255, 0.14);
-    --scrollbar-thumb-hover: rgba(255, 255, 255, 0.26);
+    --scrollbar-thumb: rgba(243, 238, 227, 0.14);
+    --scrollbar-thumb-hover: rgba(243, 238, 227, 0.26);
 
-    --select-chevron: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' viewBox='0 0 24 24' fill='none' stroke='%23B8C4E0' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='m6 9 6 6 6-6'/%3E%3C/svg%3E");
-    --select-chevron-disabled: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' viewBox='0 0 24 24' fill='none' stroke='%234A5675' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='m6 9 6 6 6-6'/%3E%3C/svg%3E");
+    --select-chevron: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' viewBox='0 0 24 24' fill='none' stroke='%23C9BFB1' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='m6 9 6 6 6-6'/%3E%3C/svg%3E");
+    --select-chevron-disabled: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' viewBox='0 0 24 24' fill='none' stroke='%236B5A57' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='m6 9 6 6 6-6'/%3E%3C/svg%3E");
 
     --platform-tiktok: #FFFFFF;
 }
@@ -444,8 +443,8 @@ html.dark,
 
 /* --------------------------------------------------------------------------
    5. REDUCED MOTION: movement stops; state changes stay instant and visible.
-   The spinner keeps turning (it is the only signal that work is happening),
-   at a slower, calmer speed. Skeletons stop shimmering.
+   The spinner and indeterminate bars keep moving (they are the only signal
+   that work is happening), slower and calmer. Skeletons stop shimmering.
    -------------------------------------------------------------------------- */
 @media (prefers-reduced-motion: reduce) {
     :root {
