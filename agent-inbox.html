@@ -339,6 +339,8 @@ footer{padding:80px 48px 40px;border-top:1px solid var(--border);background:var(
 </style>
 <link rel="stylesheet" href="/css/tokens.css">
 <link rel="stylesheet" href="/css/case-file.css">
+<link rel="stylesheet" href="/css/demos.css">
+<script src="/js/demos.js" defer></script>
 </head>
 <body data-theme="dark">
 <a href="#main-content" class="skip-nav">Skip to content</a>
@@ -426,6 +428,98 @@ footer{padding:80px 48px 40px;border-top:1px solid var(--border);background:var(
     <h2>What is Heist + your AI, actually?</h2>
     <p>MCP — Model Context Protocol — is how AI assistants like Claude and ChatGPT connect to outside tools. When you connect Heist through MCP, your AI gets a set of powers: it can read your brand voice, check what's scheduled, draft posts that match your style, queue them in your calendar, and publish them when you say go.</p>
     <p>Heist's review queue (the Agent Inbox inside the app) is where those actions land. When Claude drafts ten Instagram posts for you, they show up in the inbox. You review them in the web app or from the AI itself — approve, reject, or tweak — and they're live. No context switching. No re-explaining your brand. No dashboard to learn.</p>
+  </div>
+</section>
+
+<!-- ═══ See it run — conversation → calendar (demo, fixture content) ═══ -->
+<section class="examples" id="see-it-run" style="padding:90px 0 80px;">
+  <div class="container">
+    <div class="examples-header">
+      <div class="section-label" style="justify-content:center">See it run</div>
+      <h2>Watch a conversation become a calendar.</h2>
+      <p>Pick a prompt. The exchange below is a staged replay of what the connector does: your words on the left, your week filling up on the right. Everything lands as a draft — nothing publishes without your approval.</p>
+    </div>
+
+    <div class="a2c" data-demo="chat">
+      <div class="a2c-chips" aria-label="Pick a sample conversation">
+        <button class="a2c-chip" type="button">Plan my week</button>
+        <button class="a2c-chip" type="button">Note &rarr; posts</button>
+        <button class="a2c-chip" type="button">Daily briefing</button>
+      </div>
+
+      <!-- Scene 1: plan my week -->
+      <div class="a2c-scene">
+        <div class="a2c-stage">
+          <div class="a2c-thread">
+            <div class="a2c-msg a2c-msg--you a2c-step">Using Heist, plan next week: one pillar post on LinkedIn, two Instagram posts, and an X thread cut from the pillar.</div>
+            <div class="a2c-tool a2c-step">Heist &middot; reading your Brain &middot; checking the calendar</div>
+            <div class="a2c-msg a2c-msg--ai a2c-step"><strong>Done &mdash; four drafts are in your review queue.</strong> Monday&rsquo;s pillar anchors the week; the Instagram pair and Thursday&rsquo;s thread are cut from it. Nothing posts until you approve.</div>
+          </div>
+          <div class="a2c-week paper" data-theme="light">
+            <div class="paper-head"><span>Next week &middot; The Blueprint</span></div>
+            <div class="paper-body">
+              <div class="a2c-days">
+                <div class="a2c-day"><span class="dow">Mon</span><span class="a2c-slot filled" style="--d:0.9s"><span class="tg">LinkedIn</span>Pillar: the pricing story</span></div>
+                <div class="a2c-day"><span class="dow">Tue</span><span class="a2c-slot filled" style="--d:1.05s"><span class="tg">Insta</span>Pull-quote card from the pillar</span></div>
+                <div class="a2c-day"><span class="dow">Wed</span><span class="a2c-slot">open</span></div>
+                <div class="a2c-day"><span class="dow">Thu</span><span class="a2c-slot filled" style="--d:1.2s"><span class="tg">X</span>Thread &middot; 5 posts</span></div>
+                <div class="a2c-day"><span class="dow">Fri</span><span class="a2c-slot filled" style="--d:1.35s"><span class="tg">Insta</span>Behind the scenes</span></div>
+              </div>
+              <div class="a2c-queue"><span class="lbl">4 drafts &rarr; review queue</span><span class="stamp">Awaiting approval</span></div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Scene 2: note → posts -->
+      <div class="a2c-scene">
+        <div class="a2c-stage">
+          <div class="a2c-thread">
+            <div class="a2c-msg a2c-msg--you a2c-step">Here&rsquo;s my voice memo from the car: clients keep asking how long a project really takes, and I always give the same honest answer. Turn that into this week&rsquo;s content.</div>
+            <div class="a2c-tool a2c-step">Heist &middot; matching your voice &middot; drafting 4 posts</div>
+            <div class="a2c-msg a2c-msg--ai a2c-step"><strong>Four drafts, all from the memo.</strong> Your timeline answer became Monday&rsquo;s LinkedIn post; the rest are angles on the same question. They&rsquo;re in the queue, in your voice.</div>
+          </div>
+          <div class="a2c-week paper" data-theme="light">
+            <div class="paper-head"><span>This week &middot; The Blueprint</span></div>
+            <div class="paper-body">
+              <div class="a2c-days">
+                <div class="a2c-day"><span class="dow">Mon</span><span class="a2c-slot filled" style="--d:0.9s"><span class="tg">LinkedIn</span>The timeline question, answered</span></div>
+                <div class="a2c-day"><span class="dow">Tue</span><span class="a2c-slot filled" style="--d:1.05s"><span class="tg">X</span>The short version</span></div>
+                <div class="a2c-day"><span class="dow">Wed</span><span class="a2c-slot filled" style="--d:1.2s"><span class="tg">Insta</span>Carousel: what moves a deadline</span></div>
+                <div class="a2c-day"><span class="dow">Thu</span><span class="a2c-slot">open</span></div>
+                <div class="a2c-day"><span class="dow">Fri</span><span class="a2c-slot filled" style="--d:1.35s"><span class="tg">FB</span>Friday recap</span></div>
+              </div>
+              <div class="a2c-queue"><span class="lbl">4 drafts &rarr; review queue</span><span class="stamp">Awaiting approval</span></div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Scene 3: daily briefing -->
+      <div class="a2c-scene">
+        <div class="a2c-stage">
+          <div class="a2c-thread">
+            <div class="a2c-msg a2c-msg--you a2c-step">Using Heist, give me my daily content briefing.</div>
+            <div class="a2c-tool a2c-step">Heist &middot; reading calendar + analytics</div>
+            <div class="a2c-msg a2c-msg--ai a2c-step"><strong>Two posts go out today; yesterday&rsquo;s pricing post was your top performer.</strong> Wednesday&rsquo;s slot is still open &mdash; want a follow-up to the pricing post drafted for it?</div>
+          </div>
+          <div class="a2c-week paper" data-theme="light">
+            <div class="paper-head"><span>Today &middot; The Blueprint</span></div>
+            <div class="paper-body">
+              <div class="a2c-days">
+                <div class="a2c-day"><span class="dow">Yday</span><span class="a2c-slot filled" style="--d:0.9s"><span class="tg">LinkedIn</span>Pricing post &middot; went out, top performer</span></div>
+                <div class="a2c-day"><span class="dow">Today</span><span class="a2c-slot filled" style="--d:1.05s"><span class="tg">Insta</span>Case note &middot; 9:00</span></div>
+                <div class="a2c-day"><span class="dow">Today</span><span class="a2c-slot filled" style="--d:1.2s"><span class="tg">X</span>Thread &middot; 4:30</span></div>
+                <div class="a2c-day"><span class="dow">Tmrw</span><span class="a2c-slot">open &mdash; follow-up suggested</span></div>
+              </div>
+              <div class="a2c-queue"><span class="lbl">Briefing only &mdash; nothing to approve</span></div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <p class="demo-note" style="justify-content:center;">Simulated replay with sample content &mdash; in the real connector, your AI answers and every draft waits for your review</p>
+    </div>
   </div>
 </section>
 

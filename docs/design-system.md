@@ -90,6 +90,33 @@ scroll-jacking, no loops, and everything rests under
   exclamation marks, headings ≤8 words, buttons ≤4 words, no fake urgency or
   invented numbers. Heist language sparingly; never imply compromised accounts.
 
+## Interactive demos (`css/demos.css` + `js/demos.js`)
+
+Five fixture-only demo components share one stylesheet and one deferred
+script; no demo touches the network or the app.
+
+- **Components:** `data-demo="explorer"` (how-it-works four-stage case-file
+  tabs), `data-demo="brain"` (voice notebook, side-by-side captions),
+  `.swk` (static sample-week calendar on `for/*`), `data-demo="chat"`
+  (conversation → calendar on agent-inbox), `data-demo="plan-finder"`
+  (pricing; its plan data mirrors the page's plan cards — change both).
+- **Paper surfaces** are `data-theme="light"` islands (`.paper`, `.swk-card`),
+  so token roles recompute to parchment/ink; the active explorer tab gets
+  `data-theme="light"` from JS — the "pulled file". Active chips use
+  `--accent-fill`/`--on-accent`, which resolve parchment in the dark scope:
+  active = parchment is the demos' state language.
+- **Progressive enhancement:** `js/demos.js` adds `class="js"` on `<html>`.
+  Without it, the explorer renders all four stages stacked, notebooks and
+  chat show their first scene, and the plan finder (a JS aid) stays hidden.
+  Tabs are keyboard-operable (arrow keys, Home/End); switchers are
+  `aria-pressed` buttons; results use `aria-live`.
+- **Honesty:** every demo carries a `.demo-note` naming it simulated with
+  sample content; chat scenes always end in the review queue ("Awaiting
+  approval"), never auto-publishing; the time calculator states the cost of
+  the visitor's own numbers and claims no savings figure.
+- **Motion:** staged entrances only (`--ease-enter`, ≤0.5s, small
+  translations), all killed under `prefers-reduced-motion`.
+
 ## Product-truth rules
 
 - Competitor claims carry a checked date and must match current vendor
