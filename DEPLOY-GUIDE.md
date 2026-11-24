@@ -194,4 +194,19 @@ deploy/
 
 - **Never edit `css/tokens.css` by hand.** Change the app's tokens.css, then run `node scripts/sync-tokens.js` here. It looks for the app at `../content-generator-v3`, or wherever `HEIST_APP_DIR` points.
 - `node scripts/sync-tokens.js --check` fails if the copy was hand-edited, or if it is behind the app (when the app checkout is present). The "Design tokens" GitHub Action runs this check on every push that touches either file.
-- No page links the file yet. The redesign's Phase 4 step 1 renders the pages from shared partials and links it there. Because the site is dark only, `<html>` must carry `data-theme="dark"` once it does; without it the light theme's values apply.
+- **The homepage links it.**
+  - Its header, hero and "How the job goes down" strip carry `data-theme="light"`: that's "The Case File" look.
+  - The dark sections below use the page's own variables, remapped to "The Night Job" values.
+- **The other pages link it in the redesign's Phase 4 step 1,** which renders them from shared partials. A dark page needs `data-theme="dark"` on `<html>`; without it the light theme's values apply.
+
+## Homepage copy and the dossier
+
+The homepage copy is approved. The hero's interactive folder ("the dossier") follows fixed motion and accessibility rules. Both are in `content-generator-v3/docs/brand-messaging.md`: read it before changing the hero.
+
+Before shipping any change to the hero, the dossier or the nav, run:
+
+```
+node scripts/check-homepage.js
+```
+
+It serves this checkout and drives Chromium at 1440, 1024, 768 and 375px. It needs Playwright, which it takes from the app repo (`HEIST_APP_DIR`, or `../content-generator-v3`). Every check must pass.
