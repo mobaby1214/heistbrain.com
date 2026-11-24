@@ -1,0 +1,227 @@
+/* ==========================================================================
+   CASE FILE BRIDGE: css/case-file.css
+   --------------------------------------------------------------------------
+   Shared chrome for every page EXCEPT index.html (the homepage carries its
+   own copy of these rules inline; see "CASE FILE" in index.html's <style>).
+
+   The subpages were built on a legacy variable vocabulary (--bg, --accent,
+   --text2, ...). This file maps those names onto the Case File design
+   tokens in /css/tokens.css, so every colour still has one source of truth
+   and nothing here forks a token value. Pages load tokens.css, then their
+   own <style>, then this file, in that order.
+
+   The look matches the homepage: a parchment, light nav (the header carries
+   data-theme="light") over a Night Job dark page (the body carries
+   data-theme="dark"). The aliases below are declared on every themed scope,
+   so a [data-theme] subtree recomputes them with its own colours — the same
+   pattern tokens.css uses for its derived tokens.
+   ========================================================================== */
+
+:root,
+[data-theme] {
+  /* Surfaces */
+  --bg: var(--surface-page);
+  --bg2: var(--surface-raised);
+  --bg3: var(--surface-overlay);
+  --surface: var(--surface-raised);
+  --surface-solid: var(--surface-raised);
+
+  /* Accent (tokens.css owns --accent itself: burgundy in light, soft rose
+     in the Night Job). --accent-lo is the deep burgundy both themes share —
+     the value of light --accent-fill-hover — kept for gradient tails and
+     pressed states the legacy pages reference. */
+  --accent-hi: var(--accent-text);
+  --accent-lo: #5E1616;
+  --accent-glow: color-mix(in srgb, var(--accent) 30%, transparent);
+
+  /* Text */
+  --text: var(--text-primary);
+  --text2: var(--text-secondary);
+  --text3: var(--text-muted);
+
+  /* Borders */
+  --border: var(--border-default);
+  --border2: var(--border-strong);
+
+  /* Occasional palette names (how-it-works, pricing) */
+  --pink: var(--accent);
+  --cyan: var(--info-text);
+  --emerald: var(--success-text);
+  --amber: var(--warning-text);
+
+  /* Type: one family for everything you read (tokens.css). The legacy
+     display/body/mono split collapses into Schibsted Grotesk, as on the
+     homepage; JetBrains Mono stays for real code via --font-mono. */
+  --fd: var(--font-sans);
+  --fb: var(--font-sans);
+  --fm: var(--font-sans);
+
+  --ease: var(--ease-enter);
+}
+
+/* --------------------------------------------------------------------------
+   Page ground. The body is the Night Job; the header re-scopes itself light.
+   -------------------------------------------------------------------------- */
+body {
+  background: var(--bg);
+  color: var(--text);
+  font-family: var(--fb);
+}
+
+/* Headlines: the Case File voice is one family, set heavy and tight (the
+   legacy pages set their serif headings at weight 400). */
+h1, h2, h3 { font-weight: 800; letter-spacing: -0.03em; }
+h1, h2 { text-wrap: balance; }
+
+/* The legacy pages set their display headings at the serif's weight 400;
+   these selectors mirror theirs (same specificity, later file wins). */
+.page-hero h1, .faq-section h2, .page-cta h2, .section h2, .final-cta h2,
+.newsletter-section h2, .hub-section h2, .how-section h2, .how-header h2,
+.frameworks-section h2, .cta-box h2, .cross-link-block h3, .article-body h2,
+.versus-header h2, .versus-col h3, .step h3, .seo-card h3, .persona-card h3,
+.pricing-header h2, .fv-step h4 {
+  font-weight: 800;
+  letter-spacing: -0.035em;
+  line-height: 1.12;
+  text-wrap: balance;
+}
+.data-card .num, .stat-value, .p-price, .savings .amount, .how-step .num {
+  font-weight: 750;
+  letter-spacing: -0.02em;
+  font-variant-numeric: tabular-nums;
+}
+
+/* Code and keys only: the one place that is not Schibsted (tokens.css). */
+pre, code, kbd, samp { font-family: var(--font-mono); }
+
+/* Browser surfaces follow the theme. */
+::selection { background: var(--accent); color: var(--surface-page); }
+* { scrollbar-color: var(--scrollbar-thumb) transparent; }
+
+a:focus-visible,
+button:focus-visible,
+input:focus-visible,
+select:focus-visible,
+textarea:focus-visible,
+[tabindex]:focus-visible {
+  outline: var(--focus-ring-width) solid var(--focus-ring-color);
+  outline-offset: 3px;
+}
+
+/* --------------------------------------------------------------------------
+   The light nav (every page wraps its nav in
+   <header role="banner" data-theme="light">, like the homepage).
+   -------------------------------------------------------------------------- */
+header[data-theme="light"] nav {
+  background: var(--surface-header);
+  border-bottom: 1px solid var(--border-default);
+  backdrop-filter: blur(12px) saturate(1.2);
+  -webkit-backdrop-filter: blur(12px) saturate(1.2);
+}
+header[data-theme="light"] .nav-logo {
+  font-family: var(--font-wordmark);
+  font-weight: 900;
+  letter-spacing: var(--tracking-wordmark);
+  line-height: 1;
+  color: var(--text-primary);
+}
+header[data-theme="light"] .nav-logo span { color: var(--accent-text); }
+header[data-theme="light"] .nav-links a { color: var(--text-secondary); }
+header[data-theme="light"] .nav-links a:hover { color: var(--text-primary); }
+header[data-theme="light"] .nav-links a:not(.nav-cta)::after { background: var(--accent); }
+header[data-theme="light"] .nav-cta {
+  background: var(--accent-fill) !important;
+  color: var(--on-accent) !important;
+  border: none !important;
+  border-radius: var(--radius-control);
+  font-weight: 700;
+  box-shadow: var(--shadow-button);
+}
+header[data-theme="light"] .nav-cta:hover {
+  background: var(--accent-fill-hover) !important;
+  transform: translateY(-1px);
+  box-shadow: var(--shadow-button);
+}
+header[data-theme="light"] .nav-login { color: var(--text-secondary); }
+header[data-theme="light"] .nav-login:hover { color: var(--text-primary); }
+header[data-theme="light"] .nav-dropdown-menu {
+  background: var(--surface-raised);
+  border: 1px solid var(--border-default);
+  border-radius: var(--radius-card);
+  box-shadow: var(--shadow-overlay);
+  backdrop-filter: none;
+  -webkit-backdrop-filter: none;
+}
+header[data-theme="light"] .nav-dropdown-menu a { color: var(--text-secondary) !important; }
+header[data-theme="light"] .nav-dropdown-menu a:hover { color: var(--text-primary) !important; background: var(--surface-hover); }
+header[data-theme="light"] .nav-dropdown-menu a.see-all { color: var(--accent-text) !important; border-top-color: var(--border-subtle); }
+header[data-theme="light"] .nav-hamburger span { background: var(--text-primary); }
+
+/* The legal pages' footer link row is an inline flex with no wrap set. */
+footer div { flex-wrap: wrap; }
+
+/* The simple nav on the legal pages (no hamburger, no drawer) overflowed a
+   390px screen on its 48px gutters. */
+@media (max-width: 480px) {
+  header[data-theme="light"] nav:not(:has(.nav-hamburger)) { padding: 0 16px; }
+  header[data-theme="light"] nav:not(:has(.nav-hamburger)) .nav-links { gap: 14px; }
+  header[data-theme="light"] nav:not(:has(.nav-hamburger)) .nav-logo { font-size: 24px; }
+}
+
+@media (max-width: 768px) {
+  header[data-theme="light"] .nav-links { background: var(--surface-page); border-left: 1px solid var(--border-default); }
+  header[data-theme="light"] .nav-links::before,
+  header[data-theme="light"] .nav-links > a,
+  header[data-theme="light"] .nav-links > .nav-dropdown { border-color: var(--border-subtle); }
+  header[data-theme="light"] .nav-links > a:not(.nav-cta):hover { background: var(--surface-hover); }
+  header[data-theme="light"] .nav-dropdown-menu { background: var(--surface-inset); border: 0; border-radius: 0; box-shadow: none; }
+  header[data-theme="light"] .nav-dropdown-menu a { color: var(--text-muted) !important; border-bottom-color: var(--border-subtle) !important; }
+  header[data-theme="light"] .nav-dropdown-menu a:hover { color: var(--text-primary) !important; background: var(--surface-hover) !important; }
+  header[data-theme="light"] .nav-links > .nav-cta { border-radius: var(--radius-control) !important; }
+}
+
+/* --------------------------------------------------------------------------
+   The Night Job body: burgundy actions, no gradients or glows (the same
+   rules the homepage applies to its dark sections).
+   -------------------------------------------------------------------------- */
+.btn-primary {
+  background: #7A1F1F;
+  color: #FFFFFF;
+  border-radius: 6px;
+  font-family: var(--fb);
+  font-weight: 700;
+  letter-spacing: 0;
+  box-shadow: 0 0 0 1px rgba(243, 238, 227, 0.22), 0 6px 18px rgba(0, 0, 0, 0.35);
+}
+.btn-primary::before { content: none; }
+.btn-primary:hover {
+  background: #5E1616;
+  transform: translateY(-2px);
+  box-shadow: 0 0 0 1px rgba(243, 238, 227, 0.32), 0 10px 24px rgba(0, 0, 0, 0.4);
+}
+.btn-primary:active { transform: translateY(1px); }
+
+.gradient-text {
+  background: none;
+  color: var(--accent-hi);
+  -webkit-text-fill-color: currentColor;
+  animation: none;
+}
+
+.divider { background: linear-gradient(90deg, transparent, color-mix(in srgb, var(--accent) 25%, transparent), transparent); }
+
+.footer-brand .nav-logo { font-family: var(--font-wordmark); font-weight: 900; letter-spacing: var(--tracking-wordmark); color: var(--text); }
+.footer-brand .nav-logo span { color: var(--accent); }
+.footer-col h4 { font-weight: 800; }
+
+/* --------------------------------------------------------------------------
+   Reduced motion: movement stops; nothing stays hidden.
+   -------------------------------------------------------------------------- */
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}

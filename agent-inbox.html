@@ -8,7 +8,7 @@
 <meta name="keywords" content="MCP, Model Context Protocol, Claude content, ChatGPT content, AI content OS, Heist agent, AI-first workflow">
 <meta name="author" content="Heist Brain">
 <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1">
-<meta name="theme-color" content="#8B5CF6">
+<meta name="theme-color" content="#F3EEE3">
 <meta property="og:type" content="website">
 <meta property="og:locale" content="en_US">
 <meta property="og:title" content="Run your content business from Claude — Heist Agent Inbox">
@@ -28,7 +28,7 @@
 <link rel="apple-touch-icon" href="/apple-touch-icon.png?v=2">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=DM+Sans:ital,opsz,wght@0,9..40,300..800;1,9..40,300..800&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Schibsted+Grotesk:wght@400..900&display=swap" rel="stylesheet">
 <script type="application/ld+json">{"@context":"https://schema.org","@type":"WebPage","name":"Heist Agent Inbox — Run Heist from Claude or ChatGPT","url":"https://heistbrain.com/agent-inbox.html","description":"Heist connects to Claude, ChatGPT, Cursor, and Copilot. Plan, draft, schedule, and publish a month of content from a chat window. Connect your accounts once, then run it from chat.","isPartOf":{"@type":"WebSite","url":"https://heistbrain.com"}}</script>
 <script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://heistbrain.com/"},{"@type":"ListItem","position":2,"name":"Agent Inbox","item":"https://heistbrain.com/agent-inbox.html"}]}</script>
 <script type="application/ld+json">{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"What AI tools does Heist work with?","acceptedAnswer":{"@type":"Answer","text":"Heist works with any AI assistant that supports MCP. Today that's Claude (desktop and web), ChatGPT, Cursor, Copilot, and Windsurf. More clients support MCP every month. The connector is included on Pro, Founder and Agency, and during the 7-day trial. Claude's custom connector works on any Claude plan, including Free; ChatGPT needs a paid plan with developer mode turned on. Starter runs on your own AI API key in the web app instead."}},{"@type":"Question","name":"Do I still need the web app?","acceptedAnswer":{"@type":"Answer","text":"Once, for setup: open Heist to verify your email and connect your social accounts, because the chat can't schedule or publish until you do. After that, everything you do in the web app — plan, draft, schedule, publish, edit your Brain — you can do from your AI assistant on Pro, Founder, Agency or the 7-day Pro trial. The web app is there when you want it."}},{"@type":"Question","name":"Can the AI mess up my brand?","acceptedAnswer":{"@type":"Answer","text":"No. Every AI action lands in an audit log. You can set a preference so nothing applies until you approve it. All writes require a source or reason — the AI can't save a fact without citing where it came from."}},{"@type":"Question","name":"What's the learning curve?","acceptedAnswer":{"@type":"Answer","text":"If you can have a conversation, you can use it. You chat naturally — ask anything you'd ask Claude, in your own words. We also publish named shortcut prompts (daily briefing, weekly plan, brand audit, voice refresh) that AI clients surface in their prompt picker, but they're optional — the agent figures out which Heist tools to call either way."}},{"@type":"Question","name":"Do I have to use specific prompts?","acceptedAnswer":{"@type":"Answer","text":"No. The chat works exactly like talking to Claude. Ask anything, in any phrasing — the AI picks the right Heist tools automatically based on what you're asking for. The prompts on this page are examples, not requirements. Steal them, paraphrase them, or ignore them and just talk."}},{"@type":"Question","name":"Is it safe to give an AI write access to my brand?","acceptedAnswer":{"@type":"Answer","text":"Yes — by design. When you connect via the OAuth URL flow, Heist's consent screen lets you pick exactly which brands the AI can access and what it can do (read brand context, create drafts, schedule, publish, edit your Brain). You grant only what you need; the AI can't escalate. Every write lands in an audit log and can be reversed by asking the agent to undo it."}},{"@type":"Question","name":"What happens if I cancel?","acceptedAnswer":{"@type":"Answer","text":"Your data is yours. Your posts stay published on their platforms. Your Brain content can be exported. Cancel from Settings — no fees, no questions."}}]}</script>
@@ -58,7 +58,7 @@
 
 <style>
 *,*::before,*::after{margin:0;padding:0;box-sizing:border-box}
-:root{--bg:#06050C;--bg2:#0C0A18;--bg3:#110E22;--surface:rgba(16,13,30,0.55);--surface-solid:#0F0D1E;--accent:#8B5CF6;--accent-hi:#A78BFA;--accent-lo:#6D28D9;--accent-glow:rgba(139,92,246,0.35);--pink:#EC4899;--cyan:#22D3EE;--emerald:#34D399;--text:#F1F0F5;--text2:#908CA1;--text3:#57536B;--border:rgba(255,255,255,0.06);--border2:rgba(255,255,255,0.12);--fd:'Instrument Serif',Georgia,serif;--fb:'DM Sans',system-ui,sans-serif;--fm:'JetBrains Mono',monospace;--ease:cubic-bezier(0.16,1,0.3,1)}
+:root{/* Palette, type and chrome: Case File tokens via /css/tokens.css + /css/case-file.css (legacy names aliased there). */}
 @media (prefers-reduced-motion: reduce){*,*::before,*::after{animation-duration:0.01ms !important;animation-iteration-count:1 !important;transition-duration:0.01ms !important;scroll-behavior:auto !important}}
 html{scroll-behavior:smooth;overflow-x:clip}
 body{font-family:var(--fb);background:var(--bg);color:var(--text);line-height:1.65;-webkit-font-smoothing:antialiased;overflow-x:clip}
@@ -69,7 +69,7 @@ a{color:inherit}
 /* Skip link */
 /* Visually hidden until focused — keyboard users can Tab to it, no visual artifact otherwise */
 .skip-link{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;border:0}
-.skip-link:focus{position:absolute;top:0;left:0;width:auto;height:auto;padding:8px 16px;margin:0;overflow:visible;clip:auto;white-space:normal;background:var(--accent);color:#fff;z-index:1000;text-decoration:none;border-radius:0 0 8px 0}
+.skip-link:focus{position:absolute;top:0;left:0;width:auto;height:auto;padding:8px 16px;margin:0;overflow:visible;clip:auto;white-space:normal;background:var(--accent);color:var(--text);z-index:1000;text-decoration:none;border-radius:0 0 8px 0}
 
 /* Nav — synchronised with index.html (Phase 7.B follow-up: user
    noticed the nav font/format was visually different between
@@ -85,10 +85,10 @@ nav {
   position: fixed; top: 0; left: 0; right: 0; z-index: 170;
   padding: 0 48px; height: 72px;
   display: flex; align-items: center; justify-content: space-between;
-  background: rgba(6,5,12,0.5); backdrop-filter: blur(30px) saturate(1.5);
+  background: color-mix(in srgb, var(--bg) 50%, transparent); backdrop-filter: blur(30px) saturate(1.5);
   border-bottom: 1px solid var(--border); transition: all 0.4s;
 }
-nav.scrolled { background: rgba(6,5,12,0.85); border-color: var(--border2); }
+nav.scrolled { background: var(--surface-header); border-color: var(--border2); }
 .nav-logo { display: inline-flex; align-items: center; font-family: var(--fd); font-size: 30px; color: var(--text); text-decoration: none; letter-spacing: 0.02em; }
 .nav-logo__mark { height: 1.4em; width: auto; display: block; flex-shrink: 0; margin-right: 8px; }
 .nav-logo span { color: var(--accent); }
@@ -100,14 +100,14 @@ nav.scrolled { background: rgba(6,5,12,0.85); border-color: var(--border2); }
 .nav-cta {
   padding: 10px 24px; border-radius: 10px; font-weight: 600; font-size: 13px;
   letter-spacing: 0.03em; transition: all 0.3s;
-  background: linear-gradient(135deg, rgba(139,92,246,0.15), rgba(139,92,246,0.05));
-  border: 1px solid rgba(139,92,246,0.3); color: var(--accent-hi);
+  background: linear-gradient(135deg, color-mix(in srgb, var(--accent) 15%, transparent), color-mix(in srgb, var(--accent) 5%, transparent));
+  border: 1px solid color-mix(in srgb, var(--accent) 30%, transparent); color: var(--accent-hi);
 }
 .nav-cta {
-  background: linear-gradient(135deg, #8B5CF6, #6D28D9) !important;
-  color: #fff !important; border: none !important;
+  background: #7A1F1F !important;
+  color:var(--text) !important; border: none !important;
 }
-.nav-cta:hover { transform: translateY(-1px); box-shadow: 0 4px 20px rgba(139,92,246,0.3); }
+.nav-cta:hover { transform: translateY(-1px); box-shadow: 0 4px 20px color-mix(in srgb, var(--accent) 30%, transparent); }
 .nav-login { color: var(--text2); text-decoration: none; font-size: 14px; font-weight: 500; transition: color 0.3s; }
 .nav-login:hover { color: var(--text); }
 
@@ -116,7 +116,7 @@ nav.scrolled { background: rgba(6,5,12,0.85); border-color: var(--border2); }
 .nav-dropdown > a { cursor: pointer; }
 .nav-dropdown-menu {
   position: absolute; top: calc(100% + 12px); left: 50%; transform: translateX(-50%);
-  min-width: 160px; padding: 8px 0; background: rgba(12,10,24,0.95);
+  min-width: 160px; padding: 8px 0; background: var(--surface-overlay);
   backdrop-filter: blur(20px); border: 1px solid var(--border2); border-radius: 12px;
   box-shadow: 0 12px 40px rgba(0,0,0,0.5); opacity: 0; visibility: hidden;
   transition: opacity 0.2s, visibility 0.2s; z-index: 110;
@@ -126,8 +126,8 @@ nav.scrolled { background: rgba(6,5,12,0.85); border-color: var(--border2); }
   display: block !important; padding: 8px 20px !important; font-size: 14px !important;
   color: var(--text2) !important; white-space: nowrap;
 }
-.nav-dropdown-menu a:hover { color: var(--text) !important; background: rgba(139,92,246,0.06); }
-.nav-dropdown-menu a.see-all { border-top: 1px solid rgba(255,255,255,0.08); margin-top: 4px; padding-top: 12px !important; color: var(--accent-hi) !important; font-weight: 600; }
+.nav-dropdown-menu a:hover { color: var(--text) !important; background: color-mix(in srgb, var(--accent) 6%, transparent); }
+.nav-dropdown-menu a.see-all { border-top: 1px solid var(--border); margin-top: 4px; padding-top: 12px !important; color: var(--accent-hi) !important; font-weight: 600; }
 .nav-dropdown-menu a::after { display: none !important; }
 
 /* Hamburger */
@@ -186,7 +186,7 @@ nav.scrolled { background: rgba(6,5,12,0.85); border-color: var(--border2); }
   }
   .nav-links a::after { display: none !important; }
   .nav-dropdown > a.nav-dropdown-trigger { width: 100%; box-sizing: border-box; }
-  .nav-links > a:not(.nav-cta):hover { color: var(--text); background: rgba(255,255,255,0.02); }
+  .nav-links > a:not(.nav-cta):hover { color: var(--text); background: var(--surface-hover); }
 
   /* Login */
   .nav-login { font-size: 16px !important; padding: 18px 28px !important; }
@@ -205,7 +205,7 @@ nav.scrolled { background: rgba(6,5,12,0.85); border-color: var(--border2); }
   .nav-dropdown:hover .nav-dropdown-menu { opacity: 0; visibility: hidden; }
   .nav-dropdown-menu {
     position: static; transform: none;
-    background: rgba(255,255,255,0.015); border: none; box-shadow: none; backdrop-filter: none;
+    background: var(--surface-hover); border: none; box-shadow: none; backdrop-filter: none;
     padding: 0; min-width: 0;
     max-height: 0; overflow: hidden; opacity: 1; visibility: visible;
     transition: max-height 0.3s var(--ease);
@@ -217,7 +217,7 @@ nav.scrolled { background: rgba(6,5,12,0.85); border-color: var(--border2); }
     border-bottom: 1px solid var(--border) !important;
     color: var(--text3) !important;
   }
-  .nav-dropdown-menu a:hover { color: var(--text2) !important; background: rgba(139,92,246,0.04) !important; }
+  .nav-dropdown-menu a:hover { color: var(--text2) !important; background: color-mix(in srgb, var(--accent) 4%, transparent) !important; }
   .nav-dropdown-menu a:last-child { border-bottom: none !important; }
 }
 
@@ -240,22 +240,22 @@ em{font-style:italic}
 .agent-hero h1{max-width:900px;margin-left:auto;margin-right:auto}
 .agent-hero .sub{max-width:760px;margin:0 auto 36px;font-size:19px;line-height:1.6}
 .agent-hero-ctas{display:flex;gap:16px;justify-content:center;align-items:center;flex-wrap:wrap}
-.btn-primary{display:inline-flex;align-items:center;gap:10px;padding:16px 32px;background:linear-gradient(135deg,var(--accent),var(--accent-lo));color:#fff;border:none;border-radius:14px;font-family:var(--fb);font-size:16px;font-weight:600;cursor:pointer;text-decoration:none;box-shadow:0 0 30px rgba(139,92,246,0.25);transition:all 0.3s}
-.btn-primary:hover{transform:translateY(-2px);box-shadow:0 0 50px rgba(139,92,246,0.4)}
+.btn-primary{display:inline-flex;align-items:center;gap:10px;padding:16px 32px;background:#7A1F1F;color:var(--text);border:none;border-radius:14px;font-family:var(--fb);font-size:16px;font-weight:600;cursor:pointer;text-decoration:none;box-shadow:0 0 30px color-mix(in srgb, var(--accent) 25%, transparent);transition:all 0.3s}
+.btn-primary:hover{transform:translateY(-2px);box-shadow:0 0 50px color-mix(in srgb, var(--accent) 40%, transparent)}
 .btn-secondary{display:inline-flex;align-items:center;gap:8px;padding:16px 24px;background:transparent;color:var(--text);border:1px solid var(--border2);border-radius:14px;font-family:var(--fb);font-size:15px;font-weight:500;cursor:pointer;text-decoration:none;transition:all 0.3s}
 .btn-secondary:hover{border-color:var(--accent-hi);color:var(--accent-hi)}
 
 /* Video placeholder */
 .video-wrap{margin:60px auto 0;max-width:900px;padding:0 24px}
-.video-placeholder{aspect-ratio:16/9;background:linear-gradient(135deg,rgba(139,92,246,0.06),rgba(109,40,217,0.04));border:1px solid var(--border2);border-radius:20px;display:flex;align-items:center;justify-content:center;flex-direction:column;gap:20px;position:relative;overflow:hidden}
-.video-placeholder::before{content:'';position:absolute;inset:0;background:radial-gradient(circle at 50% 50%,rgba(139,92,246,0.08),transparent 60%)}
-.video-play{position:relative;width:80px;height:80px;border-radius:50%;background:rgba(139,92,246,0.12);border:1px solid rgba(139,92,246,0.3);display:flex;align-items:center;justify-content:center;color:var(--accent-hi)}
+.video-placeholder{aspect-ratio:16/9;background:linear-gradient(135deg,color-mix(in srgb, var(--accent) 6%, transparent),color-mix(in srgb, var(--accent) 4%, transparent));border:1px solid var(--border2);border-radius:20px;display:flex;align-items:center;justify-content:center;flex-direction:column;gap:20px;position:relative;overflow:hidden}
+.video-placeholder::before{content:'';position:absolute;inset:0;background:radial-gradient(circle at 50% 50%,color-mix(in srgb, var(--accent) 8%, transparent),transparent 60%)}
+.video-play{position:relative;width:80px;height:80px;border-radius:50%;background:color-mix(in srgb, var(--accent) 12%, transparent);border:1px solid color-mix(in srgb, var(--accent) 30%, transparent);display:flex;align-items:center;justify-content:center;color:var(--accent-hi)}
 .video-caption{position:relative;font-size:14px;color:var(--text3);text-align:center}
 .video-caption a{color:var(--accent-hi);text-decoration:none}
 .video-caption a:hover{text-decoration:underline}
 
 /* "What is this" explainer */
-.explainer{padding:80px 0;background:linear-gradient(180deg,transparent,rgba(139,92,246,0.02))}
+.explainer{padding:80px 0;background:linear-gradient(180deg,transparent,color-mix(in srgb, var(--accent) 2%, transparent))}
 .explainer p{margin-bottom:20px;font-size:17px}
 
 /* "See it happen" — 6 example prompts */
@@ -263,22 +263,22 @@ em{font-style:italic}
 .examples-header{text-align:center;margin-bottom:60px}
 .examples-header p{max-width:640px;margin:0 auto;font-size:17px}
 .examples-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:24px}
-.example-card{padding:28px;border-radius:18px;background:rgba(255,255,255,0.03);border:1px solid var(--border);transition:transform 0.3s,border-color 0.3s;display:flex;flex-direction:column}
-.example-card:hover{transform:translateY(-3px);border-color:rgba(139,92,246,0.25)}
+.example-card{padding:28px;border-radius:18px;background:var(--bg2);border:1px solid var(--border);transition:transform 0.3s,border-color 0.3s;display:flex;flex-direction:column}
+.example-card:hover{transform:translateY(-3px);border-color:color-mix(in srgb, var(--accent) 25%, transparent)}
 .example-label{font-family:var(--fm);font-size:10px;letter-spacing:0.16em;text-transform:uppercase;color:var(--accent-hi);margin-bottom:12px}
 .example-quote{font-family:var(--fd);font-size:19px;color:var(--text);line-height:1.4;margin-bottom:20px;font-style:italic}
 .example-result-label{font-family:var(--fm);font-size:10px;letter-spacing:0.16em;text-transform:uppercase;color:var(--text3);margin-bottom:8px}
 .example-result{font-size:14px;color:var(--text2);line-height:1.65;margin-bottom:16px}
 .example-why{margin-top:auto;padding-top:16px;border-top:1px dashed var(--border);font-size:12.5px;color:var(--text3);line-height:1.6;font-style:italic}
-.example-why code{font-family:var(--fm);font-size:11.5px;color:var(--accent-hi);background:rgba(139,92,246,0.08);padding:1px 5px;border-radius:4px;font-style:normal}
+.example-why code{font-family:var(--fm);font-size:11.5px;color:var(--accent-hi);background:color-mix(in srgb, var(--accent) 8%, transparent);padding:1px 5px;border-radius:4px;font-style:normal}
 @media(max-width:960px){.examples-grid{grid-template-columns:repeat(2,1fr)}}
 @media(max-width:640px){.examples-grid{grid-template-columns:1fr}}
 
 /* Capabilities by outcome */
-.capabilities{padding:100px 0;background:linear-gradient(180deg,transparent,rgba(139,92,246,0.02),transparent)}
+.capabilities{padding:100px 0;background:linear-gradient(180deg,transparent,color-mix(in srgb, var(--accent) 2%, transparent),transparent)}
 .capabilities-header{text-align:center;margin-bottom:60px}
 .capabilities-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:24px;margin-bottom:32px}
-.cap-group{padding:28px;border-radius:16px;background:rgba(255,255,255,0.03);border:1px solid var(--border)}
+.cap-group{padding:28px;border-radius:16px;background:var(--bg2);border:1px solid var(--border)}
 .cap-group h3{font-size:24px;margin-bottom:16px;color:var(--accent-hi)}
 .cap-group ul{list-style:none;display:flex;flex-direction:column;gap:10px}
 .cap-group li{font-size:14px;line-height:1.55;color:var(--text2);padding-left:18px;position:relative}
@@ -291,17 +291,17 @@ em{font-style:italic}
 .setup{padding:100px 0}
 .setup-header{text-align:center;margin-bottom:60px}
 .setup-steps{display:flex;flex-direction:column;gap:32px;max-width:860px;margin:0 auto}
-.setup-step{padding:28px;border-radius:16px;background:rgba(255,255,255,0.03);border:1px solid var(--border)}
+.setup-step{padding:28px;border-radius:16px;background:var(--bg2);border:1px solid var(--border)}
 .setup-step-num{display:inline-block;font-family:var(--fm);font-size:12px;letter-spacing:0.18em;text-transform:uppercase;color:var(--accent-hi);margin-bottom:12px}
 .setup-step h3{font-size:26px;margin-bottom:12px}
 .setup-step p{font-size:15.5px;margin-bottom:16px}
 .setup-step p a{color:var(--accent-hi);text-decoration:none}
 .setup-step p a:hover{text-decoration:underline}
-.code-block{position:relative;margin-top:16px;background:var(--bg2);border:1px solid var(--border);border-radius:12px;padding:18px 20px;font-family:var(--fm);font-size:13px;color:#d6d0e8;overflow-x:auto;line-height:1.6}
+.code-block{position:relative;margin-top:16px;background:var(--bg2);border:1px solid var(--border);border-radius:12px;padding:18px 20px;font-family:var(--font-mono);font-size:13px;color:var(--text2);overflow-x:auto;line-height:1.6}
 .code-block pre{margin:0;white-space:pre}
-.code-copy{position:absolute;top:10px;right:10px;background:rgba(139,92,246,0.12);border:1px solid rgba(139,92,246,0.3);color:var(--accent-hi);padding:6px 12px;border-radius:8px;font-family:var(--fb);font-size:11px;font-weight:600;cursor:pointer;letter-spacing:0.04em;transition:background 0.2s}
-.code-copy:hover{background:rgba(139,92,246,0.22)}
-.code-copy.copied{background:rgba(52,211,153,0.15);color:var(--emerald);border-color:rgba(52,211,153,0.35)}
+.code-copy{position:absolute;top:10px;right:10px;background:color-mix(in srgb, var(--accent) 12%, transparent);border:1px solid color-mix(in srgb, var(--accent) 30%, transparent);color:var(--accent-hi);padding:6px 12px;border-radius:8px;font-family:var(--fb);font-size:11px;font-weight:600;cursor:pointer;letter-spacing:0.04em;transition:background 0.2s}
+.code-copy:hover{background:color-mix(in srgb, var(--accent) 22%, transparent)}
+.code-copy.copied{background:color-mix(in srgb, var(--success-text) 15%, transparent);color:var(--emerald);border-color:color-mix(in srgb, var(--success-text) 35%, transparent)}
 .setup-client-label{display:block;margin-top:16px;margin-bottom:6px;font-family:var(--fm);font-size:11px;letter-spacing:0.14em;text-transform:uppercase;color:var(--text3)}
 
 /* FAQ — matches index.html pattern */
@@ -311,13 +311,13 @@ em{font-style:italic}
 .faq-item{padding:24px 28px;border-radius:16px;background:var(--surface);border:1px solid var(--border);cursor:pointer;transition:all 0.3s}
 .faq-item:hover{border-color:var(--border2)}
 .faq-q{display:flex;align-items:center;justify-content:space-between;font-weight:600;font-size:15px;gap:16px}
-.faq-toggle{width:28px;height:28px;border-radius:50%;flex-shrink:0;background:rgba(139,92,246,0.08);display:flex;align-items:center;justify-content:center;font-size:16px;color:var(--accent-hi);transition:transform 0.3s}
+.faq-toggle{width:28px;height:28px;border-radius:50%;flex-shrink:0;background:color-mix(in srgb, var(--accent) 8%, transparent);display:flex;align-items:center;justify-content:center;font-size:16px;color:var(--accent-hi);transition:transform 0.3s}
 .faq-item.open .faq-toggle{transform:rotate(45deg)}
 .faq-a{max-height:0;overflow:hidden;transition:max-height 0.4s var(--ease),margin 0.3s;font-size:14.5px;color:var(--text2);line-height:1.75}
 .faq-item.open .faq-a{max-height:400px;margin-top:16px}
 
 /* Final CTA */
-.final-cta{padding:100px 0;text-align:center;background:linear-gradient(180deg,transparent,rgba(139,92,246,0.04))}
+.final-cta{padding:100px 0;text-align:center;background:linear-gradient(180deg,transparent,color-mix(in srgb, var(--accent) 4%, transparent))}
 .final-cta h2{margin-bottom:16px}
 .final-cta p{max-width:680px;margin:0 auto 32px;font-size:18px}
 .final-cta .fine-print{margin-top:16px;font-size:13px;color:var(--text3)}
@@ -337,12 +337,14 @@ footer{padding:80px 48px 40px;border-top:1px solid var(--border);background:var(
 @media(max-width:960px){.footer-inner{grid-template-columns:1fr 1fr 1fr;gap:32px}.footer-brand{grid-column:1/-1}}
 @media(max-width:768px){footer{padding:60px 24px 40px}.footer-inner{grid-template-columns:1fr 1fr}.footer-social{flex-wrap:wrap;gap:16px !important;padding:20px 24px !important}.footer-bottom{flex-direction:column;gap:12px;text-align:center}}
 </style>
+<link rel="stylesheet" href="/css/tokens.css">
+<link rel="stylesheet" href="/css/case-file.css">
 </head>
-<body>
+<body data-theme="dark">
 <a href="#main-content" class="skip-link">Skip to main content</a>
 
 <!-- ═══════════ HEADER + NAV ═══════════ -->
-<header role="banner">
+<header role="banner" data-theme="light">
 <nav id="nav">
   <a href="/" class="nav-logo"><img class="nav-logo__mark" src="/img/heist-mark.webp" alt="" />Heist<span>.</span></a>
   <div class="nav-links" id="nav-links">
@@ -431,7 +433,7 @@ footer{padding:80px 48px 40px;border-top:1px solid var(--border);background:var(
   <div class="container">
 
     <!-- Phase 7.B — flexibility callout. Frames the prompts as starters, not requirements. -->
-    <div style="max-width:760px;margin:0 auto 48px;background:rgba(139,92,246,0.05);border:1px solid rgba(139,92,246,0.30);border-left:4px solid var(--accent);border-radius:10px;padding:18px 22px;text-align:left;">
+    <div style="max-width:760px;margin:0 auto 48px;background:color-mix(in srgb, var(--accent) 5%, transparent);border:1px solid color-mix(in srgb, var(--accent) 30%, transparent);border-left:4px solid var(--accent);border-radius:10px;padding:18px 22px;text-align:left;">
       <div style="font-family:var(--fd);font-size:18px;font-weight:500;color:var(--text);margin-bottom:6px;">You don't have to use these prompts.</div>
       <div style="font-size:14px;color:var(--text2);line-height:1.65;">
         The Heist connector works like any Claude or ChatGPT conversation — ask in your own words, change your mind mid-thread, follow up. The 100+ tools fire automatically based on what you're asking for. Everything below is just here to spark ideas.
@@ -554,10 +556,10 @@ footer{padding:80px 48px 40px;border-top:1px solid var(--border);background:var(
     </div>
 
     <!-- Hero URL paste card — the recommended path -->
-    <div class="code-block" style="background:linear-gradient(135deg,rgba(139,92,246,0.10),rgba(99,102,241,0.05));border:2px solid rgba(139,92,246,0.45);padding:24px;margin-bottom:48px;text-align:left;position:relative;">
-      <div style="position:absolute;top:-12px;left:20px;background:var(--accent);color:#fff;font-size:10px;font-weight:700;letter-spacing:0.05em;text-transform:uppercase;padding:4px 10px;border-radius:6px;">Paste this URL</div>
+    <div class="code-block" style="background:linear-gradient(135deg,color-mix(in srgb, var(--accent) 10%, transparent),rgba(99,102,241,0.05));border:2px solid color-mix(in srgb, var(--accent) 45%, transparent);padding:24px;margin-bottom:48px;text-align:left;position:relative;">
+      <div style="position:absolute;top:-12px;left:20px;background:var(--accent-fill);color:var(--on-accent);font-size:11px;font-weight:700;letter-spacing:0.05em;text-transform:uppercase;padding:4px 10px;border-radius:6px;">Paste this URL</div>
       <div style="font-size:14px;color:var(--text2);margin:6px 0 12px;">In Claude.ai or ChatGPT: <strong style="color:var(--accent-hi);">Settings &rarr; Connectors &rarr; Add custom connector</strong></div>
-      <div style="background:var(--bg2);border:1px solid rgba(139,92,246,0.30);border-radius:8px;padding:14px 16px;display:flex;align-items:center;justify-content:space-between;gap:12px;font-family:var(--fm);font-size:14px;color:var(--accent-hi);">
+      <div style="background:var(--bg2);border:1px solid color-mix(in srgb, var(--accent) 30%, transparent);border-radius:8px;padding:14px 16px;display:flex;align-items:center;justify-content:space-between;gap:12px;font-family:var(--fm);font-size:14px;color:var(--accent-hi);">
 <pre style="margin:0;padding:0;background:transparent;border:none;color:inherit;font:inherit;">https://app.heistbrain.com/mcp</pre>
         <button class="code-copy" type="button" data-mcp-copy="oauth-url" aria-label="Copy MCP URL" style="position:static;flex-shrink:0;">Copy URL</button>
       </div>
@@ -586,7 +588,7 @@ footer{padding:80px 48px 40px;border-top:1px solid var(--border);background:var(
     </div>
 
     <!-- Advanced: stdio clients (Claude Desktop, Cursor, Windsurf) — collapsed by default -->
-    <details style="margin-top:48px;background:rgba(255,255,255,0.02);border:1px solid var(--border2);border-radius:12px;padding:18px 22px;">
+    <details style="margin-top:48px;background:var(--surface-hover);border:1px solid var(--border2);border-radius:12px;padding:18px 22px;">
       <summary style="cursor:pointer;font-family:var(--fd);font-size:18px;font-weight:500;color:var(--text);">Advanced: Claude Desktop, Cursor, Windsurf (stdio clients)</summary>
       <div style="margin-top:18px;color:var(--text2);font-size:14px;line-height:1.65;">
         <p style="margin-bottom:14px;">Use the URL paste flow above instead — it works in Claude.ai web and ChatGPT and gives you the same 100+ tools. This advanced path is only for users who specifically need a local stdio MCP client (Claude Desktop, Cursor, Windsurf, Zed, VS Code GitHub Copilot) — those clients don't speak the OAuth web flow.</p>
@@ -723,7 +725,7 @@ footer{padding:80px 48px 40px;border-top:1px solid var(--border);background:var(
 </section>
 
 <!-- ═══════════ TIPS ═══════════ -->
-<section class="examples" style="padding-top:80px;background:rgba(255,255,255,0.02);">
+<section class="examples" style="padding-top:80px;background:var(--surface-hover);">
   <div class="container">
     <div class="examples-header">
       <div class="section-label" style="justify-content:center">Best practices</div>

@@ -8,7 +8,7 @@
 <meta name="keywords" content="content marketing blog, AI content blog, social media strategy, copywriting tips, brand voice, content batching, multi-platform content, hooks that convert, Heist Brain blog">
 <meta name="author" content="Heist Brain">
 <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1">
-<meta name="theme-color" content="#8B5CF6">
+<meta name="theme-color" content="#F3EEE3">
 
 <meta property="og:type" content="website">
 <meta property="og:locale" content="en_US">
@@ -40,18 +40,18 @@
 <link rel="apple-touch-icon" href="/apple-touch-icon.png?v=2">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=DM+Sans:ital,opsz,wght@0,9..40,300..800;1,9..40,300..800&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Schibsted+Grotesk:wght@400..900&display=swap" rel="stylesheet">
 
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-C4JK66ZQ43"></script>
 <script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','G-C4JK66ZQ43');</script>
 
 <style>
 *,*::before,*::after{margin:0;padding:0;box-sizing:border-box}
-:root{--bg:#06050C;--bg2:#0C0A18;--surface:rgba(16,13,30,0.55);--accent:#8B5CF6;--accent-hi:#A78BFA;--accent-lo:#6D28D9;--text:#F1F0F5;--text2:#908CA1;--text3:#57536B;--border:rgba(255,255,255,0.06);--border2:rgba(255,255,255,0.12);--fd:'Instrument Serif',Georgia,serif;--fb:'DM Sans',system-ui,sans-serif;--fm:'JetBrains Mono',monospace}
+:root{/* Palette, type and chrome: Case File tokens via /css/tokens.css + /css/case-file.css (legacy names aliased there). */}
 html{scroll-behavior:smooth;overflow-x:clip}
 body{font-family:var(--fb);background:var(--bg);color:var(--text);line-height:1.65;-webkit-font-smoothing:antialiased;overflow-x:clip}
 
-nav{position:fixed;top:0;left:0;right:0;z-index:100;padding:0 48px;height:72px;display:flex;align-items:center;justify-content:space-between;background:rgba(6,5,12,0.85);backdrop-filter:blur(30px) saturate(1.5);border-bottom:1px solid var(--border)}
+nav{position:fixed;top:0;left:0;right:0;z-index:100;padding:0 48px;height:72px;display:flex;align-items:center;justify-content:space-between;background:var(--surface-header);backdrop-filter:blur(30px) saturate(1.5);border-bottom:1px solid var(--border)}
 .nav-logo{font-family:var(--fd);font-size:30px;color:var(--text);text-decoration:none;letter-spacing:0.02em}
 .nav-logo span{color:var(--accent)}.nav-logo{display:inline-flex;align-items:center}.nav-logo__mark{height:1.4em;width:auto;display:block;flex-shrink:0;margin-right:8px}
 .nav-links{display:flex;gap:36px;align-items:center}
@@ -61,13 +61,13 @@ nav{position:fixed;top:0;left:0;right:0;z-index:100;padding:0 48px;height:72px;d
 .nav-dropdown-trigger{display:flex!important;align-items:center;gap:6px;cursor:pointer}
 .nav-caret-tools{width:12px;height:12px;flex-shrink:0;opacity:0.7;transition:transform 0.2s}
 .nav-dropdown:hover .nav-caret-tools{transform:rotate(180deg)}
-.nav-dropdown-menu{position:absolute;top:100%;left:50%;transform:translateX(-50%);background:rgba(12,10,24,0.96);backdrop-filter:blur(20px);border:1px solid rgba(255,255,255,0.12);border-radius:12px;padding:6px;min-width:200px;opacity:0;visibility:hidden;transition:opacity 0.2s,visibility 0.2s;margin-top:10px;z-index:200;box-shadow:0 8px 32px rgba(0,0,0,0.4)}
+.nav-dropdown-menu{position:absolute;top:100%;left:50%;transform:translateX(-50%);background:var(--surface-overlay);backdrop-filter:blur(20px);border:1px solid var(--border2);border-radius:12px;padding:6px;min-width:200px;opacity:0;visibility:hidden;transition:opacity 0.2s,visibility 0.2s;margin-top:10px;z-index:200;box-shadow:0 8px 32px rgba(0,0,0,0.4)}
 .nav-dropdown:hover .nav-dropdown-menu{opacity:1;visibility:visible}
 .nav-dropdown-menu a{display:block!important;padding:10px 14px!important;font-size:14px!important;color:var(--text2)!important;border-radius:8px;white-space:nowrap;font-weight:500}
-.nav-dropdown-menu a:hover{color:white!important;background:rgba(139,92,246,0.12)}
-.nav-dropdown-menu a.see-all{border-top:1px solid rgba(255,255,255,0.08);margin-top:4px;padding-top:12px!important;color:var(--accent-hi)!important;font-weight:600}
+.nav-dropdown-menu a:hover{color:var(--text)!important;background:color-mix(in srgb, var(--accent) 12%, transparent)}
+.nav-dropdown-menu a.see-all{border-top:1px solid var(--border);margin-top:4px;padding-top:12px!important;color:var(--accent-hi)!important;font-weight:600}
 @media(max-width:768px){.nav-dropdown{width:100%}.nav-dropdown-menu{position:static;transform:none;background:transparent;border:none;padding:0;margin:6px 0 0 16px;box-shadow:none;min-width:0;display:none}.nav-dropdown.open .nav-dropdown-menu{display:block}.nav-dropdown-menu a{padding:10px 0!important;font-size:16px!important}.nav-caret-tools{display:none}.nav-dropdown-trigger{font-weight:600}}
-.nav-cta{background:linear-gradient(135deg,#8B5CF6,#6D28D9)!important;color:#fff!important;border:none!important;padding:10px 24px;border-radius:10px;font-weight:600;font-size:13px;letter-spacing:0.03em}
+.nav-cta{background:#7A1F1F!important;color:var(--text)!important;border:none!important;padding:10px 24px;border-radius:10px;font-weight:600;font-size:13px;letter-spacing:0.03em}
 .nav-login{color:var(--text2);text-decoration:none;font-size:14px;font-weight:500;transition:color 0.3s}
 .nav-hamburger{display:none;flex-direction:column;gap:5px;background:none;border:none;cursor:pointer;padding:8px}
 .nav-hamburger span{display:block;width:22px;height:2px;background:var(--text);border-radius:1px}
@@ -84,42 +84,42 @@ nav{position:fixed;top:0;left:0;right:0;z-index:100;padding:0 48px;height:72px;d
 .page-hero{padding:140px 0 60px;text-align:center}
 .page-hero h1{font-family:var(--fd);font-size:clamp(32px,5vw,52px);line-height:1.15;margin-bottom:16px;font-weight:400}
 .page-hero p{font-size:17px;color:var(--text2);max-width:600px;margin:0 auto;line-height:1.8}
-.divider{height:1px;max-width:500px;margin:0 auto;background:linear-gradient(90deg,transparent,rgba(139,92,246,0.2),transparent)}
+.divider{height:1px;max-width:500px;margin:0 auto;background:linear-gradient(90deg,transparent,color-mix(in srgb, var(--accent) 20%, transparent),transparent)}
 
 /* Blog grid */
 .blog-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:28px;max-width:1000px;margin:0 auto;padding:60px 0 80px}
 @media(max-width:900px){.blog-grid{grid-template-columns:1fr}}
-.blog-card{background:rgba(255,255,255,0.03);border:1px solid rgba(255,255,255,0.08);border-radius:16px;padding:28px;transition:transform 0.2s,border-color 0.2s;display:flex;flex-direction:column}
-.blog-card:hover{transform:translateY(-2px);border-color:rgba(255,255,255,0.15)}
+.blog-card{background:var(--bg2);border:1px solid var(--border);border-radius:16px;padding:28px;transition:transform 0.2s,border-color 0.2s;display:flex;flex-direction:column}
+.blog-card:hover{transform:translateY(-2px);border-color:var(--text3)}
 .blog-card-category{display:inline-block;padding:4px 12px;border-radius:20px;font-size:12px;font-weight:600;text-transform:uppercase;letter-spacing:0.05em;margin-bottom:14px;width:fit-content}
-.cat-strategy{background:rgba(74,222,128,0.15);color:#4ade80}
-.cat-product{background:rgba(139,92,246,0.15);color:#8b5cf6}
-.cat-craft{background:rgba(251,191,36,0.15);color:#fbbf24}
-.cat-workflow{background:rgba(56,189,248,0.15);color:#38bdf8}
-.blog-card h3{font-size:19px;font-weight:700;color:white;margin-bottom:10px;line-height:1.35}
-.blog-card h3 a{color:white;text-decoration:none}
-.blog-card h3 a:hover{color:#a78bfa}
-.blog-card-excerpt{font-size:14.5px;line-height:1.65;color:rgba(255,255,255,0.6);margin-bottom:16px;flex-grow:1}
-.blog-card-date{font-size:13px;color:rgba(255,255,255,0.35)}
-.blog-card-readmore{display:inline-block;color:#a78bfa;font-size:14px;font-weight:600;text-decoration:none;margin-top:8px}
-.blog-card-readmore:hover{color:#c4b5fd}
+.cat-strategy{background:color-mix(in srgb, var(--success-text) 15%, transparent);color:var(--success-text)}
+.cat-product{background:color-mix(in srgb, var(--accent) 15%, transparent);color:var(--accent)}
+.cat-craft{background:color-mix(in srgb, var(--warning-text) 15%, transparent);color:var(--warning-text)}
+.cat-workflow{background:rgba(56,189,248,0.15);color:var(--info-text)}
+.blog-card h3{font-size:19px;font-weight:700;color:var(--text);margin-bottom:10px;line-height:1.35}
+.blog-card h3 a{color:var(--text);text-decoration:none}
+.blog-card h3 a:hover{color:var(--accent-hi)}
+.blog-card-excerpt{font-size:14.5px;line-height:1.65;color:var(--text2);margin-bottom:16px;flex-grow:1}
+.blog-card-date{font-size:13px;color:var(--text3)}
+.blog-card-readmore{display:inline-block;color:var(--accent-hi);font-size:14px;font-weight:600;text-decoration:none;margin-top:8px}
+.blog-card-readmore:hover{color:var(--accent-hi)}
 
 /* Newsletter */
 .newsletter-section{padding:60px 0 80px;text-align:center}
 .newsletter-section h2{font-family:var(--fd);font-size:clamp(24px,3.5vw,36px);margin-bottom:8px;font-weight:400}
 .newsletter-section p{font-size:15px;color:var(--text2);margin-bottom:24px}
 .blog-newsletter{max-width:480px;margin:0 auto;display:flex;gap:10px}
-.blog-newsletter input[type="email"]{flex:1;padding:12px 16px;border-radius:10px;border:1px solid rgba(255,255,255,0.15);background:rgba(255,255,255,0.05);color:white;font-size:15px;font-family:var(--fb);outline:none}
-.blog-newsletter input[type="email"]::placeholder{color:rgba(255,255,255,0.35)}
-.blog-newsletter button{padding:12px 24px;border-radius:10px;border:none;background:linear-gradient(135deg,#7c3aed,#5b21b6);color:white;font-weight:700;font-size:15px;cursor:pointer;white-space:nowrap;font-family:var(--fb)}
+.blog-newsletter input[type="email"]{flex:1;padding:12px 16px;border-radius:10px;border:1px solid var(--border2);background:var(--bg2);color:var(--text);font-size:15px;font-family:var(--fb);outline:none}
+.blog-newsletter input[type="email"]::placeholder{color:var(--text3)}
+.blog-newsletter button{padding:12px 24px;border-radius:10px;border:none;background:#7A1F1F;color:var(--text);font-weight:700;font-size:15px;cursor:pointer;white-space:nowrap;font-family:var(--fb)}
 .newsletter-fine{font-size:12px;color:var(--text3);margin-top:10px}
 @media(max-width:500px){.blog-newsletter{flex-direction:column}}
 
 /* CTA */
 .page-cta{padding:80px 0;text-align:center}
 .page-cta h2{font-family:var(--fd);font-size:clamp(28px,4vw,44px);margin-bottom:16px;font-weight:400}
-.btn-primary{display:inline-flex;align-items:center;gap:10px;padding:16px 32px;background:linear-gradient(135deg,var(--accent),var(--accent-lo));color:white;border:none;border-radius:14px;font-family:var(--fb);font-size:16px;font-weight:600;cursor:pointer;text-decoration:none;box-shadow:0 0 30px rgba(139,92,246,0.25);transition:all 0.3s}
-.btn-primary:hover{transform:translateY(-2px);box-shadow:0 0 50px rgba(139,92,246,0.4)}
+.btn-primary{display:inline-flex;align-items:center;gap:10px;padding:16px 32px;background:#7A1F1F;color:var(--text);border:none;border-radius:14px;font-family:var(--fb);font-size:16px;font-weight:600;cursor:pointer;text-decoration:none;box-shadow:0 0 30px color-mix(in srgb, var(--accent) 25%, transparent);transition:all 0.3s}
+.btn-primary:hover{transform:translateY(-2px);box-shadow:0 0 50px color-mix(in srgb, var(--accent) 40%, transparent)}
 
 footer{padding:80px 48px 40px;border-top:1px solid var(--border)}
 .footer-inner{max-width:1200px;margin:0 auto;display:grid;grid-template-columns:2fr 1fr 1fr 1fr 1fr 1fr;gap:32px}
@@ -132,9 +132,12 @@ footer{padding:80px 48px 40px;border-top:1px solid var(--border)}
 @media(max-width:1024px){.footer-inner{grid-template-columns:1fr 1fr 1fr;gap:32px}}
 @media(max-width:768px){footer{padding:60px 24px 40px}.footer-inner{grid-template-columns:1fr 1fr}.footer-bottom{flex-direction:column;gap:12px;text-align:center}}
 </style>
+<link rel="stylesheet" href="/css/tokens.css">
+<link rel="stylesheet" href="/css/case-file.css">
 </head>
-<body>
+<body data-theme="dark">
 
+<header role="banner" data-theme="light">
 <nav id="nav">
   <a href="/" class="nav-logo"><img class="nav-logo__mark" src="/img/heist-mark.webp" alt="" />Heist<span>.</span></a>
   <div class="nav-links" id="nav-links">
@@ -185,13 +188,14 @@ footer{padding:80px 48px 40px;border-top:1px solid var(--border)}
     <span></span><span></span><span></span>
   </button>
 </nav>
+</header>
 
 <div class="page-hero">
   <div class="container">
     <h1>The Heist Blog</h1>
     <p>Content strategy, AI insights, and the playbook for creators who'd rather work smarter than harder.</p>
     <p style="margin-top:18px;font-size:14px;color:rgba(241,240,245,0.5);">
-      New: <a href="/agent-inbox.html" style="color:#a78bfa;text-decoration:none;font-weight:600;">Try Heist from Claude &rarr;</a>
+      New: <a href="/agent-inbox.html" style="color:var(--accent-hi);text-decoration:none;font-weight:600;">Try Heist from Claude &rarr;</a>
     </p>
   </div>
 </div>

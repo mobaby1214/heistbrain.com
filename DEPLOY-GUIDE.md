@@ -197,7 +197,8 @@ deploy/
 - **The homepage links it.**
   - Its header, hero and "How the job goes down" strip carry `data-theme="light"`: that's "The Case File" look.
   - The dark sections below use the page's own variables, remapped to "The Night Job" values.
-- **The other pages link it in the redesign's Phase 4 step 1,** which renders them from shared partials. A dark page needs `data-theme="dark"` on `<html>`; without it the light theme's values apply.
+- **Every other page links it too**, followed by `css/case-file.css` (hand-written here, not synced): the shared Case File chrome for the subpages. It aliases the pages' legacy variable names (`--bg`, `--accent-hi`, `--text2`, ...) onto token roles — never literal colours — and styles the parchment nav and the Night Job buttons the way the homepage does inline. The load order matters: tokens.css, then the page's own `<style>`, then case-file.css.
+- **Theme scoping on the subpages:** `<body data-theme="dark">` (The Night Job) with the nav wrapped in `<header role="banner" data-theme="light">` (The Case File), mirroring the homepage. The aliases recompute per `[data-theme]` scope, so the same variable name resolves parchment in the header and near-black burgundy in the body.
 
 ## Homepage copy and the dossier
 
