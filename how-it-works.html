@@ -309,17 +309,7 @@ section { position: relative; z-index: 1; }
 .how-header h1 { font-family: var(--fd); font-size: clamp(32px, 5vw, 52px); line-height: 1.15; margin-bottom: 16px; }
 .how-header h1 em { font-style: italic; color: var(--accent-hi); }
 .how-header p { font-size: 17px; color: var(--text2); max-width: 500px; margin: 0 auto; }
-.steps { display: grid; grid-template-columns: 1fr 1fr; gap: 32px; }
-.step { padding: 36px; border-radius: 20px; background: var(--surface); border: 1px solid var(--border); transition: all 0.4s var(--ease); overflow: hidden; position: relative; }
-.step::before { content:''; position:absolute; top:0; left:0; right:0; height:1px; background: linear-gradient(90deg, transparent, color-mix(in srgb, var(--accent) 15%, transparent), transparent); }
-.step:hover { border-color: color-mix(in srgb, var(--accent) 20%, transparent); box-shadow: 0 0 40px color-mix(in srgb, var(--accent) 6%, transparent); transform: translateY(-4px); }
-.step::after { content:''; position:absolute; width:300px; height:300px; border-radius:50%; background: radial-gradient(circle, color-mix(in srgb, var(--accent) 7%, transparent), transparent 70%); top: var(--my, 50%); left: var(--mx, 50%); transform: translate(-50%,-50%); pointer-events:none; opacity:0; transition: opacity 0.4s; }
-.step:hover::after { opacity:1; }
-.step-num { font-family: var(--fm); font-size: 48px; font-weight: 800; color: color-mix(in srgb, var(--accent) 45%, transparent); margin-bottom: 16px; display: flex; align-items: center; gap: 10px; line-height: 1; }
-.step-num::after { content:''; flex:1; height:1px; background: linear-gradient(90deg, color-mix(in srgb, var(--accent) 35%, transparent), transparent); }
-.step-icon { font-size: 32px; margin-bottom: 16px; }
-.step h3 { font-family: var(--fd); font-size: 24px; margin-bottom: 10px; font-weight: 400; }
-.step p { font-size: 14px; color: var(--text2); line-height: 1.7; }
+/* Four-stage explorer: shared component styles in /css/demos.css */
 
 /* ═══════════ VERSUS ═══════════ */
 .versus { padding: 100px 0; position: relative; overflow: hidden; }
@@ -607,6 +597,8 @@ footer { padding: 80px 48px 40px; border-top: 1px solid var(--border); }
 </style>
 <link rel="stylesheet" href="/css/tokens.css">
 <link rel="stylesheet" href="/css/case-file.css">
+<link rel="stylesheet" href="/css/demos.css">
+<script src="/js/demos.js" defer></script>
 </head>
 <body data-theme="dark">
 <a href="#main-content" class="skip-nav" style="position:absolute;top:-40px;left:0;background:var(--accent-fill);color:var(--on-accent);padding:8px 16px;z-index:10001;transition:top 0.3s;font-size:14px;border-radius:0 0 8px 0;">Skip to content</a>
@@ -682,11 +674,116 @@ footer { padding: 80px 48px 40px; border-top: 1px solid var(--border); }
       <h1>One idea in. <em>One month out.</em></h1>
       <p>Four steps. One sitting. The rest of your week is yours again.</p>
     </div>
-    <div class="steps">
-      <div class="step r"><div class="step-num">01</div><div class="step-icon"><svg width="32" height="32" viewBox="0 0 24 24" fill="none" style="stroke:var(--accent-hi)" stroke-width="1.75"><path d="M12 2a7 7 0 0 1 7 7c0 2.38-1.19 4.47-3 5.74V17a2 2 0 0 1-2 2h-4a2 2 0 0 1-2-2v-2.26C6.19 13.47 5 11.38 5 9a7 7 0 0 1 7-7z"/><path d="M9 22h6"/></svg></div><h3>Set Up Your Brain</h3><p>Define your voice, audience and offer. The Brain keeps it on file, along with the drafts you reject and the posts that perform.</p></div>
-      <div class="step r"><div class="step-num">02</div><div class="step-icon"><svg width="32" height="32" viewBox="0 0 24 24" fill="none" style="stroke:var(--accent-hi)" stroke-width="1.75"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10"/></svg></div><h3>Pull the Heist</h3><p>Enter one idea. Your own AI, briefed by the Brain, drafts a month of posts and blogs for LinkedIn, X, Instagram, Facebook, YouTube and WordPress. Add your own keys for AI images and faceless video (video is on paid plans).</p></div>
-      <div class="step r"><div class="step-num">03</div><div class="step-icon"><svg width="32" height="32" viewBox="0 0 24 24" fill="none" style="stroke:var(--accent-hi)" stroke-width="1.75"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/><circle cx="12" cy="12" r="3"/></svg></div><h3>Preview Everything</h3><p>Preview each post for each platform before it goes out, and fix anything before anyone else sees it.</p></div>
-      <div class="step r"><div class="step-num">04</div><div class="step-icon"><svg width="32" height="32" viewBox="0 0 24 24" fill="none" style="stroke:var(--accent-hi)" stroke-width="1.75"><path d="M22 2L11 13"/><path d="M22 2L15 22l-4-9-9-4z"/></svg></div><h3>Schedule &amp; Go</h3><p>Drag posts to your calendar, hit schedule, walk away clean. Your content runs on autopilot.</p></div>
+    <div class="cfx r" data-demo="explorer">
+      <div class="cfx-tabs" aria-label="The four stages of the job">
+        <button class="cfx-tab" id="cfx-tab-1" type="button"><span class="n">01</span><span class="t">The Brain</span></button>
+        <button class="cfx-tab" id="cfx-tab-2" type="button"><span class="n">02</span><span class="t">The Heist</span></button>
+        <button class="cfx-tab" id="cfx-tab-3" type="button"><span class="n">03</span><span class="t">The Preview</span></button>
+        <button class="cfx-tab" id="cfx-tab-4" type="button"><span class="n">04</span><span class="t">The Schedule</span></button>
+      </div>
+      <div class="cfx-body">
+
+        <section class="cfx-stage" id="cfx-stage-1">
+          <div class="cfx-stage-info">
+            <div class="cfx-kicker">Stage 01</div>
+            <h3>Set Up Your Brain</h3>
+            <p>Define your voice, audience and offer. The Brain keeps it on file, along with the drafts you reject and the posts that perform.</p>
+            <button class="cfx-next" type="button">Next: pull the heist &rarr;</button>
+          </div>
+          <div class="cfx-paper-zone" data-theme="light">
+            <div class="paper">
+              <div class="paper-head"><span>Case file &middot; Brand profile</span><span class="stamp stamp--ok">On file</span></div>
+              <div class="paper-body">
+                <dl>
+                  <div class="paper-field"><dt>Voice</dt><dd>Plainspoken, dry wit, no jargon</dd></div>
+                  <div class="paper-field"><dt>Audience</dt><dd>Busy founders who hate posting</dd></div>
+                  <div class="paper-field"><dt>Offer</dt><dd>Done-with-you content systems</dd></div>
+                  <div class="paper-field"><dt>Learns from</dt><dd>Every post you rate, every result that comes back</dd></div>
+                </dl>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <section class="cfx-stage" id="cfx-stage-2">
+          <div class="cfx-stage-info">
+            <div class="cfx-kicker">Stage 02</div>
+            <h3>Pull the Heist</h3>
+            <p>Enter one idea. Your own AI, briefed by the Brain, drafts a month of posts and blogs for LinkedIn, X, Instagram, Facebook, YouTube and WordPress. Add your own keys for AI images and faceless video (video is on paid plans).</p>
+            <button class="cfx-next" type="button">Next: preview everything &rarr;</button>
+          </div>
+          <div class="cfx-paper-zone" data-theme="light">
+            <div class="cfx-fan">
+              <div class="paper">
+                <div class="paper-head"><span>The one idea</span></div>
+                <div class="cfx-draft"><span class="line" style="font-style:italic;">&ldquo;Our spring launch: the June cohort opens for booking.&rdquo;</span></div>
+              </div>
+              <div class="paper">
+                <div class="cfx-draft"><span class="tag">LinkedIn</span><span class="line">The June cohort opens today. Twelve seats, same promise as always: you leave with a system, not a binder.</span></div>
+              </div>
+              <div class="paper">
+                <div class="cfx-draft"><span class="tag">Instagram</span><span class="line">One idea went into this calendar. A month came out. Here&rsquo;s how the June cohort works &mdash;</span></div>
+              </div>
+            </div>
+            <div class="cfx-count">&hellip;and the rest of the month, drafted in the same sitting</div>
+          </div>
+        </section>
+
+        <section class="cfx-stage" id="cfx-stage-3">
+          <div class="cfx-stage-info">
+            <div class="cfx-kicker">Stage 03</div>
+            <h3>Preview Everything</h3>
+            <p>Preview each post for each platform before it goes out, and fix anything before anyone else sees it.</p>
+            <button class="cfx-next" type="button">Next: schedule &amp; go &rarr;</button>
+          </div>
+          <div class="cfx-paper-zone" data-theme="light">
+            <div class="paper">
+              <div class="paper-head"><span>The Lookout &middot; LinkedIn preview</span></div>
+              <div class="paper-body">
+                <div class="cfx-preview-post">
+                  <div class="cfx-preview-meta">
+                    <span class="cfx-avatar" aria-hidden="true">J</span>
+                    <span><span class="who">Jordan Vale</span><br><span class="when">Draft &middot; not posted yet</span></span>
+                  </div>
+                  The June cohort opens today. Twelve seats, same promise as always: you leave with a system, not a binder. Link in the first comment.
+                  <div class="cfx-actions" aria-hidden="true">
+                    <span class="chip chip--approve">Approve</span>
+                    <span class="chip chip--edit">Edit</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <section class="cfx-stage" id="cfx-stage-4">
+          <div class="cfx-stage-info">
+            <div class="cfx-kicker">Stage 04</div>
+            <h3>Schedule &amp; Go</h3>
+            <p>Drag posts to your calendar, hit schedule, walk away clean. Your content runs on autopilot.</p>
+            <button class="cfx-next" type="button">Back to the Brain &rarr;</button>
+          </div>
+          <div class="cfx-paper-zone" data-theme="light">
+            <div class="paper">
+              <div class="paper-head"><span>The Blueprint &middot; one month out</span></div>
+              <div class="paper-body">
+                <div class="cfx-month" aria-hidden="true">
+                  <span class="cfx-day on">1</span><span class="cfx-day">2</span><span class="cfx-day on">3</span><span class="cfx-day">4</span><span class="cfx-day on">5</span><span class="cfx-day">6</span><span class="cfx-day">7</span>
+                  <span class="cfx-day on">8</span><span class="cfx-day">9</span><span class="cfx-day on">10</span><span class="cfx-day">11</span><span class="cfx-day on">12</span><span class="cfx-day">13</span><span class="cfx-day">14</span>
+                  <span class="cfx-day on">15</span><span class="cfx-day">16</span><span class="cfx-day on">17</span><span class="cfx-day">18</span><span class="cfx-day on">19</span><span class="cfx-day">20</span><span class="cfx-day">21</span>
+                  <span class="cfx-day on">22</span><span class="cfx-day">23</span><span class="cfx-day on">24</span><span class="cfx-day">25</span><span class="cfx-day on">26</span><span class="cfx-day">27</span><span class="cfx-day">28</span>
+                </div>
+                <div class="cfx-month-foot">
+                  <span class="lbl">Twelve slots filled &middot; previews approved</span>
+                  <span class="stamp">Scheduled</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+      </div>
+      <p class="demo-note">Simulated preview &mdash; sample content written for this demo</p>
     </div>
   </div>
 </section>
@@ -740,6 +837,102 @@ footer { padding: 80px 48px 40px; border-top: 1px solid var(--border); }
     </div>
   </div>
 </article>
+
+<div class="divider"></div>
+
+<!-- ═══════════ THE BRAIN NOTEBOOK (interactive demo) ═══════════ -->
+<section class="brain-notebook" id="brain-notebook" style="padding:100px 0;">
+  <div class="container">
+    <div class="section-label r" style="justify-content:center;">Hear the Difference</div>
+    <h2 class="r" style="font-family:var(--fd);font-size:clamp(28px,3.5vw,44px);text-align:center;line-height:1.2;margin-bottom:16px;">
+      Same idea. <em>Different owner.</em>
+    </h2>
+    <p class="r" style="text-align:center;color:var(--text2);max-width:560px;margin:0 auto 40px;font-size:15px;line-height:1.8;">
+      Pick a brand and watch one announcement come out two ways: the way a
+      memoryless AI writes it, and the way it reads when the Brain briefs the
+      same AI first.
+    </p>
+
+    <div class="bnb r" data-demo="brain">
+      <div class="bnb-chips" aria-label="Pick a sample brand">
+        <button class="bnb-chip" type="button">Mara &middot; Real-estate agent</button>
+        <button class="bnb-chip" type="button">Coach Dre &middot; Strength coach</button>
+        <button class="bnb-chip" type="button">Nova Metrics &middot; B2B SaaS</button>
+      </div>
+
+      <div class="bnb-voice">
+        <p class="bnb-idea">The idea: <strong>&ldquo;Announce Saturday&rsquo;s open house on Juniper Hill.&rdquo;</strong></p>
+        <div class="bnb-pair" data-theme="light">
+          <div class="bnb-col bnb-col--generic">
+            <div class="paper">
+              <div class="paper-head"><span>Any AI &middot; no memory</span></div>
+              <div class="paper-body">🏡 Don&rsquo;t miss our EXCITING open house this Saturday! Stunning 4-bed home with amazing views. This dream home won&rsquo;t last long!! Like &amp; share! #RealEstate #DreamHome #OpenHouse #Blessed</div>
+            </div>
+          </div>
+          <div class="bnb-col">
+            <div class="paper">
+              <div class="paper-head"><span>Same AI &middot; briefed by the Brain</span><span class="stamp stamp--ok">On brand</span></div>
+              <div class="paper-body">Juniper Hill opens its doors Saturday, 11 to 2. Four bedrooms, a kitchen that gets the morning light, and a view you&rsquo;ll stop noticing the price over. Come walk it before someone else does.</div>
+            </div>
+          </div>
+        </div>
+        <div class="bnb-knew">
+          <span>Voice: understated, no emojis</span>
+          <span>Audience: move-up buyers</span>
+          <span>Rule: never say &ldquo;stunning&rdquo;</span>
+        </div>
+      </div>
+
+      <div class="bnb-voice">
+        <p class="bnb-idea">The idea: <strong>&ldquo;Fill the last three spots in the 6am small-group block.&rdquo;</strong></p>
+        <div class="bnb-pair" data-theme="light">
+          <div class="bnb-col bnb-col--generic">
+            <div class="paper">
+              <div class="paper-head"><span>Any AI &middot; no memory</span></div>
+              <div class="paper-body">💪 Ready to CRUSH your fitness goals?? Our amazing 6am class has LIMITED spots left! Don&rsquo;t wait &mdash; sign up now before it&rsquo;s too late! #Fitness #NoExcuses #GrindMode</div>
+            </div>
+          </div>
+          <div class="bnb-col">
+            <div class="paper">
+              <div class="paper-head"><span>Same AI &middot; briefed by the Brain</span><span class="stamp stamp--ok">On brand</span></div>
+              <div class="paper-body">Three spots left in the 6am block. It&rsquo;s dark, it&rsquo;s early, and it&rsquo;s the only hour nobody can take from you. Bring the friend who keeps saying &ldquo;Monday.&rdquo;</div>
+            </div>
+          </div>
+        </div>
+        <div class="bnb-knew">
+          <span>Voice: blunt, zero hype</span>
+          <span>Audience: working parents</span>
+          <span>Rule: no &ldquo;crush your goals&rdquo;</span>
+        </div>
+      </div>
+
+      <div class="bnb-voice">
+        <p class="bnb-idea">The idea: <strong>&ldquo;Share the new churn-report feature.&rdquo;</strong></p>
+        <div class="bnb-pair" data-theme="light">
+          <div class="bnb-col bnb-col--generic">
+            <div class="paper">
+              <div class="paper-head"><span>Any AI &middot; no memory</span></div>
+              <div class="paper-body">🚀 Exciting news! We just launched our game-changing churn report feature! Revolutionize your analytics and supercharge your growth today! #SaaS #Innovation #GameChanger</div>
+            </div>
+          </div>
+          <div class="bnb-col">
+            <div class="paper">
+              <div class="paper-head"><span>Same AI &middot; briefed by the Brain</span><span class="stamp stamp--ok">On brand</span></div>
+              <div class="paper-body">We shipped the churn report. It answers one question: which accounts went quiet before they left. Three customers asked for it by name &mdash; this one&rsquo;s yours.</div>
+            </div>
+          </div>
+        </div>
+        <div class="bnb-knew">
+          <span>Voice: plain, specific</span>
+          <span>Audience: heads of CS</span>
+          <span>Rule: features = customer asks</span>
+        </div>
+      </div>
+
+      <p class="demo-note" style="justify-content:center;">Sample output written for this demo &mdash; your Brain writes in your voice, not these</p>
+    </div>
+  </div>
+</section>
 
 <div class="divider"></div>
 

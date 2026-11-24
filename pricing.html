@@ -491,6 +491,8 @@ footer { padding: 80px 48px 40px; border-top: 1px solid var(--border); }
 </style>
 <link rel="stylesheet" href="/css/tokens.css">
 <link rel="stylesheet" href="/css/case-file.css">
+<link rel="stylesheet" href="/css/demos.css">
+<script src="/js/demos.js" defer></script>
 </head>
 <body data-theme="dark">
 <a href="#main-content" class="skip-nav" style="position:absolute;top:-40px;left:0;background:var(--accent-fill);color:var(--on-accent);padding:8px 16px;z-index:10001;transition:top 0.3s;font-size:14px;border-radius:0 0 8px 0;">Skip to content</a>
@@ -661,6 +663,63 @@ footer { padding: 80px 48px 40px; border-top: 1px solid var(--border); }
     </div>
     <p style="text-align:center;margin-top:16px;font-size:13px;color:var(--text3)">Running a bigger team? Agency workspaces can add extra seats — <a href="mailto:support@heistbrain.com" style="color:var(--accent)">contact us</a>.</p>
     <div class="pricing-note r">Every plan starts with a 7-day free trial of Pro: no credit card, no API key. During the trial and on Pro, Founder and Agency, Heist plugs into your own Claude (any plan) or ChatGPT (a paid plan). Starter runs on your own AI API key. Cancel anytime.</div>
+
+    <!-- ═══ Plan finder + time math (JS aid; hidden without JS) ═══ -->
+    <div class="pf r" data-demo="plan-finder">
+      <div class="pf-box">
+        <h3>Not sure which plan? Case it first.</h3>
+        <p>Three questions. The answer comes straight from the plan cards above.</p>
+
+        <fieldset class="pf-q">
+          <legend>How many brands?</legend>
+          <div class="pf-opts">
+            <label class="pf-opt"><input type="radio" name="pf-brands" value="one"><span>Just mine</span></label>
+            <label class="pf-opt"><input type="radio" name="pf-brands" value="few"><span>2&ndash;5 brands</span></label>
+            <label class="pf-opt"><input type="radio" name="pf-brands" value="many"><span>6&ndash;25 (agency)</span></label>
+          </div>
+        </fieldset>
+
+        <fieldset class="pf-q">
+          <legend>How much do you post?</legend>
+          <div class="pf-opts">
+            <label class="pf-opt"><input type="radio" name="pf-volume" value="low"><span>Up to 100 posts/mo</span></label>
+            <label class="pf-opt"><input type="radio" name="pf-volume" value="mid"><span>Up to 500 posts/mo</span></label>
+            <label class="pf-opt"><input type="radio" name="pf-volume" value="high"><span>No ceiling, please</span></label>
+          </div>
+        </fieldset>
+
+        <fieldset class="pf-q">
+          <legend>Work from Claude or ChatGPT chat?</legend>
+          <div class="pf-opts">
+            <label class="pf-opt"><input type="radio" name="pf-chat" value="yes"><span>Yes, that&rsquo;s the point</span></label>
+            <label class="pf-opt"><input type="radio" name="pf-chat" value="no"><span>Dashboard is fine</span></label>
+          </div>
+        </fieldset>
+
+        <div class="pf-result" hidden aria-live="polite">
+          <div>
+            <div class="plan"></div>
+            <div class="why" style="margin-top:8px;"></div>
+          </div>
+          <a class="go" href="https://app.heistbrain.com/#signup">Start free on this plan
+            <svg width="14" height="14" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </a>
+        </div>
+
+        <div class="pf-math">
+          <span class="q">And the time math, with your numbers</span>
+          <div class="pf-math-inputs">
+            <label>Hours a week on content
+              <input type="number" id="pf-hours" value="6" min="0" max="80" step="0.5" inputmode="decimal">
+            </label>
+            <label>What your hour is worth ($)
+              <input type="number" id="pf-rate" value="50" min="0" max="2000" step="5" inputmode="decimal">
+            </label>
+          </div>
+          <p class="pf-math-out" aria-live="polite"></p>
+        </div>
+      </div>
+    </div>
   </div>
 </section>
 

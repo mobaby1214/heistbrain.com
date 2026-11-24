@@ -59,17 +59,30 @@ resolved, what this phase changed, and what remains.
 - **Docs**: `docs/design-system.md` is the permanent design/brand/truth
   standard; DEPLOY-GUIDE points to it.
 
-## Deferred backlog (priority order, from the handoff)
+## Phase 2 — P1 interactive program (branch `claude/site-refinement-phase2-demos`)
 
-P1 interactive program (each is its own buildable unit, fixtures only):
-1. How-it-works four-stage case-file explorer (tabs + layered paper preview).
-2. The Brain notebook (voice/audience selector → prewritten side-by-side
-   captions).
-3. Industry sample calendars on `for/*` (one reusable template, 3–5 posts).
-4. "Heist + your AI" conversation-to-calendar demo (preset prompts → staged
-   drafts).
-5. Pricing plan finder + time-value calculator (needs verified entitlement
-   data; formula specified in the handoff).
+All five P1 demos shipped as fixture-only components (`css/demos.css` +
+`js/demos.js`; standards in `docs/design-system.md`, "Interactive demos"):
+
+1. **How-it-works four-stage case-file explorer** — folder tabs + parchment
+   paper previews (brand profile, draft fan, platform preview, month grid);
+   replaces the static step grid, keyboard-operable, no-JS = stacked stages.
+2. **The Brain notebook** (how-it-works) — three sample brands, same idea
+   rendered generic vs Brain-briefed, with the rules the Brain applied.
+3. **Industry sample calendars** on the 10 `for/*` persona pages — static
+   Mon–Fri parchment week, per-industry sample posts, before each cta-box.
+4. **Conversation → calendar** (agent-inbox, "See it run") — three preset
+   scenarios replayed into a Blueprint week; every scene ends in the review
+   queue, nothing auto-publishes.
+5. **Pricing plan finder + time math** — three questions resolve to a plan
+   using only the entitlements on the page's own plan cards; the calculator
+   prices the visitor's own hours and claims no savings figure. (Entitlement
+   data in `js/demos.js` mirrors the plan cards — keep in sync.)
+
+Verified: site-wide contrast/overflow/console scan clean; keyboard and
+no-JS fallbacks tested; demo states screenshotted at 1440/390.
+
+## Deferred backlog (remaining)
 
 P2: free-tools shared shell + consent-based result transfer (backend work —
 scope separately); resources goal-based filtering; comparisons workflow
