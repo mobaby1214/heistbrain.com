@@ -143,6 +143,24 @@ Checked against app master 1e03763a (live in production). Full audit: `content-g
 | Facebook/Instagram data-deletion callback "processed automatically" | data-deletion.html | No such endpoint in the app (only OAuth under `/api/auth/meta`) | **OWNER DECISION — not changed**: build the endpoint or drop the claim |
 | Autopilot default "`social_approval_required` 0" (§6 above) | — | Stale: app PR #50 made review-first the default (`server/db.js` DEFAULT 1, no-reply default 0) | Ledger note only; site copy was already true |
 
+## 8. App consistency pass, wording (2026-11-25)
+
+Second half of the same audit (items #9, #11, #14, #15, #23, #25, #26, #29). Checked against app origin/master 1e03763a.
+
+| Claim | Where | Backing | Action |
+|---|---|---|---|
+| Trash "recoverable for 30 days" | how-it-works.html (Vault card, Soft-delete card), pricing.html (FAQ + JSON-LD) | Trash purges after 60 days (app `server/server.js` daily job, `-60 days`); blog posts skip Trash and delete permanently after a confirm (`app/src/pages/library.js` delete dialog) | Now "60 days"; blog posts named as permanent |
+| Review queue called "the Agent Inbox inside the app" | agent-inbox.html, index.html teaser ("land in your inbox"), for/ai-first-workflow.html link text | App sidebar label is **Review** (`app/index.html`); app `docs/brand-messaging.md` §6: "Review" replaces "Agent Inbox", route unchanged | Present-tense copy says Review. URLs and file names unchanged; changelog.html 2026 history entry left as written |
+| Approving in the queue: "and they're live" | agent-inbox.html | Approve moves a draft from pending to draft, or to scheduled if it has a date (`server/routes/agentActions.js` header, bulk-approve dialog in `app/src/pages/agentInbox.js`) | Says it files the draft or schedules it; a draft goes live only when scheduled |
+| Plan finder "Start free on this plan" | pricing.html, js/demos.js | Every signup gets the same 7-day trial (`server/routes/auth.js` sets tier `trial`); no plan param is read at signup | Button is "Start your free trial" with "Pick {plan} when it ends" note; static href now carries `utm_content=plan-finder` |
+| "Every plan starts with a 7-day free trial" | pricing.html meta/og/twitter, pricing note, final CTA | `plans.json` trialNote: "Every account starts with a 7-day free trial of Pro" | Matched |
+| Extra seats "contact us" | pricing.html note, for/agencies.html FAQ + JSON-LD | Self-serve: Settings → "+ Add Seats ($10/seat/mo)", Agency owners only, up to 50 total (`app/src/pages/settings.js`, `server/routes/billing.js` `/add-seats`); seat counts include the owner (`server/routes/workspace.js` `SEAT_LIMITS`) | Reworded; "including yours" in notes, FAQ and plan-finder text. Card bullets unchanged (plan parity) |
+| Autosave "every 30 seconds" | how-it-works.html, pricing.html (FAQ + JSON-LD) | Saves 2 s after each edit (`app/src/pages/create.js` `setTimeout(autoSave, 2000)`) | "Drafts save automatically as you type" |
+| Client share links (no expiry stated) | for/agencies.html | Links always expire: 30-day default, 7/30/90 choice, renewable (`server/routes/clientView.js` `SHARE_DEFAULT_DAYS`, `SHARE_MAX_DAYS`; Settings "Renew 30 days") | Expiry stated |
+| "AES-256 encryption" (whole platform) | about.html | Only tokens, API keys and integration credentials are encrypted at rest (AES-256-GCM); same wording as security.html | Matched to security.html |
+| Engagement sync "(Meta, X, LinkedIn)" | pricing.html FAQ | Sync also covers WordPress, YouTube, Pinterest and Reddit (`server/jobs/engagementSync.js` extended-platform set) | List dropped: "from your connected platforms" |
+| Header CTA "Get Your Time Back →" | 132 pages' nav + `.claude/update-nav.js` template | App `docs/brand-messaging.md` header CTA: "Start free trial" (homepage already used it) | Nav CTA text only; hrefs and UTM untouched. Two in-body blog buttons not changed |
+
 ## 9. Owner decisions (2026-11-25)
 
 Owner decisions from the app↔site audit (#2, #12, #13, #19): "go with your recommendations, drop the meta callback". Checked against app origin/master.
