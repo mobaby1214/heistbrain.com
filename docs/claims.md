@@ -128,3 +128,17 @@ The hero was rebuilt with approved copy (`content-generator-v3/docs/brand-messag
 | Dossier demo panels (brief, sample post, sample month, approval demo, sample week) | Hero | Static sample content. It calls no API and names no customer. "42 posts, 4 channels" is the sample calendar's own count | Every panel is labelled "Sample" or "Try it". The approval demo says "Nothing here posts anywhere." |
 | "100+ tools your AI can call" and "6 platforms, one workflow" hero stats; the illustrative Agent Inbox mockup and its caption | Old hero | n/a | Removed with the old hero. "100+ tools" still appears in the Agent Inbox section |
 | og/twitter description "AI content OS with a 10-layer Brain … six platforms" | Head | n/a | Replaced with the approved description, which has no counts |
+
+## 7. App consistency pass (2026-11-25)
+
+Checked against app master 1e03763a (live in production). Full audit: `content-generator-v3/audit/app-site-consistency-2026-11-25.md`.
+
+| Claim | Where | Backing | Action |
+|---|---|---|---|
+| Account deletion "removes your data right away" | privacy.html, data-deletion.html, security.html | FALSE since the 7-day undo shipped: self-service delete locks the account, cancels any subscription, and purges after 7 days; signing in before then restores it (app `server/lib/accountDeletion.js` `DELETION_GRACE_DAYS = 7`, hourly purge job) | Reworded on all three pages; backups "within 30 days after that". refunds.html now says deleting cancels the subscription right away (app `lib/billing.js`), unlike cancelling |
+| Button name "Delete Account" | data-deletion.html | App button is "Delete my account" under Settings → Account | Quoted the app's label |
+| API-key setup: "read + draft + auto_approve is a good start" | agent-inbox.html (stdio clients) | `auto_approve` skips review (app `server/oauth/routes.js` "Skip review"); contradicts "Nothing posts until you approve" on the same page | Now "read + draft"; drafts wait in Review |
+| API-key link `#settings?tab=api-keys`, "Settings → Account → Advanced" | agent-inbox.html | Dead end: Settings ignores `tab`; keys live at `#connectors` under "Advanced setup" (`?advanced=1` opens it) | Link and label corrected |
+| "Start Free Trial" → `https://app.heistbrain.com` | about.html, changelog.html, blog.html, tools/hooks.html | Bare URL lands on the login page (router default `#home` → `#login` when signed out) | Now `?utm_…#signup` |
+| Facebook/Instagram data-deletion callback "processed automatically" | data-deletion.html | No such endpoint in the app (only OAuth under `/api/auth/meta`) | **OWNER DECISION — not changed**: build the endpoint or drop the claim |
+| Autopilot default "`social_approval_required` 0" (§6 above) | — | Stale: app PR #50 made review-first the default (`server/db.js` DEFAULT 1, no-reply default 0) | Ledger note only; site copy was already true |
