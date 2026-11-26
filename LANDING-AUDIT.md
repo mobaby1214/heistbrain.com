@@ -13,7 +13,7 @@ All **12** links to `app.heistbrain.com/#signup` on index.html now carry
 |---|---|---|
 | `nav` | Sticky nav | Get Your Time Back → |
 | `hero` | Hero | Generate Your First Month Free → |
-| `brain-section` | 10-layer Brain section | Set Up Your Brain Free |
+| `brain-section` | Brain section | Set Up Your Brain Free |
 | `faceless-video` | Faceless video spotlight | Make your first video free |
 | `comparison-table` | Versus/comparison table | Start Your Free Trial |
 | `pricing-starter` | Pricing — Starter card | Start Free Trial |
