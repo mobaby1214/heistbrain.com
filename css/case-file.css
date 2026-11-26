@@ -201,25 +201,58 @@ footer div { flex-wrap: wrap; }
 }
 
 /* --------------------------------------------------------------------------
-   The Night Job body: burgundy actions, no gradients or glows (the same
-   rules the homepage applies to its dark sections).
+   Primary actions: one rule, the contract tokens. In the Night Job body
+   --accent-fill / --on-accent resolve to a parchment fill with a burgundy
+   label; inside a data-theme="light" island they resolve to burgundy with
+   a white label. The selector list matches the page-level rules it replaces
+   (same specificity, and this file loads after each page's <style>), so no
+   page hard-codes a button colour. No gradients or glows.
    -------------------------------------------------------------------------- */
-.btn-primary {
-  background: #7A1F1F;
-  color: #FFFFFF;
+.btn-primary,
+.cta-box .btn-primary,
+.upsell .btn-primary,
+.btn-generate,
+.btn-quiz,
+.blog-post-cta-mid-btn,
+.blog-newsletter button,
+.p-cta-primary,
+.agent-inbox-cta {
+  background: var(--accent-fill);
+  color: var(--on-accent);
+  border: none;
   border-radius: 6px;
   font-family: var(--fb);
   font-weight: 700;
   letter-spacing: 0;
-  box-shadow: 0 0 0 1px rgba(243, 238, 227, 0.22), 0 6px 18px rgba(0, 0, 0, 0.35);
+  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.35);
 }
 .btn-primary::before { content: none; }
-.btn-primary:hover {
-  background: #5E1616;
+.btn-primary:hover,
+.cta-box .btn-primary:hover,
+.upsell .btn-primary:hover,
+.btn-generate:hover,
+.btn-quiz:hover,
+.blog-post-cta-mid-btn:hover,
+.blog-newsletter button:hover,
+.p-cta-primary:hover,
+.agent-inbox-cta:hover {
+  background: var(--accent-fill-hover);
+  color: var(--on-accent);
   transform: translateY(-2px);
-  box-shadow: 0 0 0 1px rgba(243, 238, 227, 0.32), 0 10px 24px rgba(0, 0, 0, 0.4);
+  box-shadow: 0 10px 24px rgba(0, 0, 0, 0.4);
 }
-.btn-primary:active { transform: translateY(1px); }
+.btn-primary:active,
+.cta-box .btn-primary:active,
+.upsell .btn-primary:active,
+.btn-generate:active,
+.btn-quiz:active,
+.blog-post-cta-mid-btn:active,
+.blog-newsletter button:active,
+.p-cta-primary:active,
+.agent-inbox-cta:active {
+  background: var(--accent-fill-pressed);
+  transform: translateY(1px);
+}
 
 .gradient-text {
   background: none;

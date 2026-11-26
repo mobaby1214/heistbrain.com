@@ -92,13 +92,13 @@
     /* Entitlements mirror the plan cards on this page — keep in sync. */
     var PLANS = {
       starter: { name: 'Starter', price: '$19/mo', anchor: 'pricing-starter',
-        why: '1 Brand Brain, 100 posts a month, 5 campaigns. Runs on your own AI API key — the AI-chat connector starts on Pro.' },
+        why: '1 Brand Brain, 100 posts a month, 5 campaigns. Runs on your own AI API key; Heist + your AI starts on Pro.' },
       pro: { name: 'Pro', price: '$49/mo', anchor: 'pricing-pro',
-        why: '1 Brand Brain, 500 posts a month, 20 campaigns, and the AI-chat connector for Claude and ChatGPT.' },
+        why: '1 Brand Brain, 500 posts a month, 20 campaigns, and Heist + your AI (Claude, ChatGPT).' },
       founder: { name: 'Founder', price: '$99/mo', anchor: 'pricing-founder',
-        why: '5 Brand Brains, 3 team seats including yours, unlimited posts and campaigns, approvals and roles.' },
+        why: '5 Brand Brains, 3 team seats including yours, unlimited posts and campaigns, approvals and roles, and Heist + your AI (Claude, ChatGPT).' },
       agency: { name: 'Agency', price: '$199/mo', anchor: 'pricing-agency',
-        why: 'Up to 25 Brand Brains, 10 team seats including yours (add more in Settings at $10/seat/month), unlimited posts and campaigns, approvals and roles.' }
+        why: 'Up to 25 Brand Brains, 10 team seats including yours (add more in Settings at $10/seat/month), unlimited posts and campaigns, approvals and roles, and Heist + your AI (Claude, ChatGPT).' }
     };
 
     var out = root.querySelector('.pf-result');

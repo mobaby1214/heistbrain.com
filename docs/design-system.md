@@ -49,10 +49,18 @@ the title.
 
 ## Actions
 
-- Primary: solid burgundy — `#7A1F1F` fill, white label, radius 6px, the
-  parchment ring + soft shadow from `case-file.css`. Hover darkens to
-  `#5E1616` and lifts 2px; active presses 1px. No gradients, no glows.
-- In the light header the CTA uses `--accent-fill` / `--on-accent`.
+- Primary: one rule, the contract tokens. Every primary button paints
+  `--accent-fill` with an `--on-accent` label, radius 6px, a soft shadow,
+  no gradients or glows. Hover uses `--accent-fill-hover` and lifts 2px;
+  active uses `--accent-fill-pressed` and presses 1px.
+  - Night Job (dark) scope: parchment `#F3EEE3` fill, burgundy `#5E1616`
+    label (11.33:1); hover `#FFFFFF`, pressed `#E3DACA`.
+  - Light scope (the header, the homepage hero and how-it-works, paper
+    islands): burgundy `#7A1F1F` fill, white label; hover `#5E1616`.
+  - Never hard-code a button colour. Subpages get the rule from
+    `case-file.css` (body is `data-theme="dark"`); on the homepage the
+    dark-section primaries carry `data-theme="dark"` because the page body
+    is not theme-scoped.
 - Secondary: text links in `--accent-hi` (dark scope) with underline on hover.
 - One primary action per screen.
 
