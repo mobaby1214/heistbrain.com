@@ -96,9 +96,9 @@
       pro: { name: 'Pro', price: '$49/mo', anchor: 'pricing-pro',
         why: '1 Brand Brain, 500 posts a month, 20 campaigns, and the AI-chat connector for Claude and ChatGPT.' },
       founder: { name: 'Founder', price: '$99/mo', anchor: 'pricing-founder',
-        why: '5 Brand Brains, 3 team seats, unlimited posts and campaigns, approvals and roles.' },
+        why: '5 Brand Brains, 3 team seats including yours, unlimited posts and campaigns, approvals and roles.' },
       agency: { name: 'Agency', price: '$199/mo', anchor: 'pricing-agency',
-        why: 'Up to 25 Brand Brains, 10 team seats, unlimited posts and campaigns, approvals and roles.' }
+        why: 'Up to 25 Brand Brains, 10 team seats including yours (add more in Settings at $10/seat/month), unlimited posts and campaigns, approvals and roles.' }
     };
 
     var out = root.querySelector('.pf-result');
@@ -121,6 +121,9 @@
       out.hidden = false;
       out.querySelector('.plan').innerHTML = p.name + '<small>' + p.price + '</small>';
       out.querySelector('.why').textContent = p.why;
+      /* Every signup gets the same 7-day Pro trial; the plan is picked when it ends. */
+      var note = out.querySelector('.trial-note');
+      if (note) note.textContent = 'Every account starts with a 7-day Pro trial. Pick ' + p.name + ' when it ends.';
       var go = out.querySelector('a.go');
       go.href = 'https://app.heistbrain.com/?utm_source=landing&utm_medium=cta&utm_content=plan-finder#signup';
       go.setAttribute('data-cta', 'plan-finder-' + p.anchor);

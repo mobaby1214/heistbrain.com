@@ -50,7 +50,7 @@ const NEW_NAV = `  <div class="nav-links" id="nav-links">
     </div>
     <a href="/#pricing">Pricing</a>
     <a href="https://app.heistbrain.com/#login" class="nav-login">Login</a>
-    <a href="https://app.heistbrain.com/#signup" class="nav-cta">Get Your Time Back &rarr;</a>
+    <a href="https://app.heistbrain.com/#signup" class="nav-cta">Start free trial</a>
   </div>`;
 
 // Regex: match from `<div class="nav-links" id="nav-links">` through its closing `</div>`
