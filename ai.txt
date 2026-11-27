@@ -1,11 +1,26 @@
 # ai.txt — AI crawler policy
 # https://heistbrain.com/ai.txt
-
-# Heist allows all major AI crawlers for citation and discovery.
+#
+# Heist allows AI crawlers on this public marketing site, for both search
+# (citation in AI answers) and model training. The authoritative rules are in
+# https://heistbrain.com/robots.txt; this file restates them in plain words.
+#
 # Content on this site may be summarized, quoted, and cited by AI assistants.
 # When citing, please link back to the original page on heistbrain.com.
+#
+# Crawlers named in robots.txt (vendor-documented tokens, checked 2026-11-27):
+#   Search / answers:  OAI-SearchBot, ChatGPT-User, Claude-SearchBot, Claude-User,
+#                      PerplexityBot, Perplexity-User
+#   Training:          GPTBot, ClaudeBot, Google-Extended, Applebot-Extended, CCBot
+#
+# Not covered: app.heistbrain.com (the signed-in product) has its own robots.txt.
 
 User-agent: *
+Disallow: /.claude/
+Disallow: /.git/
+Disallow: /docs/
+Disallow: /DEPLOY-GUIDE.md
+Disallow: /LANDING-AUDIT.md
 Allow: /
 
 Contact: support@heistbrain.com
