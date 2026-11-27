@@ -1,37 +1,44 @@
 # Heist Brain — robots.txt
 # https://heistbrain.com
+#
+# Policy (decided 2026-11-27): this is a public marketing site. All crawlers,
+# including AI search and AI training crawlers, are allowed. Reversible any time.
+# robots.txt is a request, not an access control: nothing listed below is hidden.
 
 User-agent: *
-Allow: /
 Disallow: /.claude/
 Disallow: /.git/
+Disallow: /docs/
+Disallow: /DEPLOY-GUIDE.md
+Disallow: /LANDING-AUDIT.md
+Allow: /
 
-# Allow major AI crawlers for citation / discovery
+# AI crawlers, named explicitly so the policy is visible. They get the same
+# rules as everyone else: a crawler that matches a named group ignores the
+# "*" group, so the Disallow lines are repeated here on purpose.
+# Tokens as documented by each vendor, checked 2026-11-27:
+#   OpenAI      GPTBot (training), OAI-SearchBot (ChatGPT search), ChatGPT-User (user fetch)
+#   Anthropic   ClaudeBot (training), Claude-SearchBot (search), Claude-User (user fetch)
+#   Perplexity  PerplexityBot (search), Perplexity-User (user fetch)
+#   Google      Google-Extended (Gemini training/grounding control token; not Search)
+#   Apple       Applebot-Extended (Apple model training control token; not Search)
+#   Common Crawl CCBot (open web corpus, widely used for training)
 User-agent: GPTBot
-Allow: /
-
-User-agent: ChatGPT-User
-Allow: /
-
 User-agent: OAI-SearchBot
-Allow: /
-
+User-agent: ChatGPT-User
 User-agent: ClaudeBot
-Allow: /
-
-User-agent: Claude-Web
-Allow: /
-
+User-agent: Claude-SearchBot
+User-agent: Claude-User
 User-agent: PerplexityBot
-Allow: /
-
+User-agent: Perplexity-User
 User-agent: Google-Extended
-Allow: /
-
 User-agent: Applebot-Extended
-Allow: /
-
 User-agent: CCBot
+Disallow: /.claude/
+Disallow: /.git/
+Disallow: /docs/
+Disallow: /DEPLOY-GUIDE.md
+Disallow: /LANDING-AUDIT.md
 Allow: /
 
 Sitemap: https://heistbrain.com/sitemap.xml
