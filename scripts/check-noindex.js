@@ -6,7 +6,7 @@
  *   - it has exactly ONE <meta name="robots"> tag (no conflicting duplicates)
  *   - pages in the programmatic folders keep "follow" (internal links still pass)
  *   - its URL (canonical or file path) is NOT in the manifest
- * Also checks that the business-fit hashtag pages stay indexable and that no
+ * Also checks that the business-fit and Bing-cited pages stay indexable and that no
  * manifest URL points at a noindex page.
  *
  * Usage (from the marketing repo root):
@@ -28,6 +28,15 @@ const PROGRAMMATIC_DIRS = ['hashtags', 'best-time-to-post', 'caption-examples', 
 // Kept indexable regardless of Search Console data (owner decision 4).
 const BUSINESS_FIT = ['small-business', 'b2b', 'startup', 'freelance', 'coaching', 'marketing', 'ecommerce']
     .map((s) => `hashtags/${s}.html`);
+
+// 0 Google impressions but cited by Bing Copilot (Bing Webmaster Tools AI
+// Performance, Aug 27 - Nov 25, 2026), so they stay indexable for Bing grounding.
+const BING_CITED = [
+    'content-ideas/facebook.html', 'hashtags/education.html', 'hashtags/music.html',
+    'hashtags/lifestyle.html', 'hashtags/crypto.html', 'hashtags/beauty.html',
+    'hashtags/parenting.html', 'caption-examples/facebook.html', 'caption-examples/linkedin.html',
+];
+const KEEP_INDEXED = [...BUSINESS_FIT, ...BING_CITED];
 
 function walk(dir, out = []) {
     for (const name of fs.readdirSync(dir)) {
@@ -66,10 +75,10 @@ for (const file of walk(ROOT)) {
     }
 }
 
-for (const rel of BUSINESS_FIT) {
+for (const rel of KEEP_INDEXED) {
     const p = indexByRel.get(rel);
-    if (!p) failures.push(`${rel}: business-fit page missing`);
-    else if (p.noindex) failures.push(`${rel}: business-fit page is noindex`);
+    if (!p) failures.push(`${rel}: keep-indexed page missing`);
+    else if (p.noindex) failures.push(`${rel}: keep-indexed page is noindex`);
 }
 
 for (const mf of manifests) {
@@ -78,9 +87,9 @@ for (const mf of manifests) {
         const asPath = `https://heistbrain.com/${rel}`;
         if (urls.has(url) || urls.has(asPath)) failures.push(`${rel}: noindex but listed in ${path.basename(mf)}`);
     }
-    for (const rel of BUSINESS_FIT) {
+    for (const rel of KEEP_INDEXED) {
         const p = indexByRel.get(rel);
-        if (p && !urls.has(p.url)) failures.push(`${rel}: business-fit page missing from ${path.basename(mf)}`);
+        if (p && !urls.has(p.url)) failures.push(`${rel}: keep-indexed page missing from ${path.basename(mf)}`);
     }
     console.log(`${mf}: ${urls.size} URLs`);
 }
