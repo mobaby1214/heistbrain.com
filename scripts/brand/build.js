@@ -12,6 +12,13 @@
  *   favicon-32.png         the tile at 32px
  *   apple-touch-icon.png   the tile at 180px, full bleed (iOS rounds the corners)
  *   og-image.png           the 1200x630 share card, from scripts/brand/og-image.html
+ *   favicon.ico            the tile at 16, 32 and 48px in one .ico (PNG entries)
+ *   icon-192.png, icon-512.png       the tile for web-app manifests
+ *   icon-maskable-512.png  full-bleed tile, mark inside the 80% safe zone
+ *   manifest.webmanifest   name, colours and the icons above
+ *
+ *   node scripts/brand/build.js --icons-only   writes only the favicon.ico,
+ *   icon-*.png and manifest files (leaves the existing assets untouched)
  *
  * Colours are the Case File tokens (content-generator-v3/app/styles/tokens.css).
  * Needs Playwright: from node_modules here, else $HEIST_APP_DIR, else
@@ -56,6 +63,14 @@ const tile = (rx) => `${head}
     ${bandit(onBurgundy)}
   </g>
 </svg>\n`;
+// Maskable icons are cropped to a circle or squircle by the OS: keep the mark
+// inside the central 80% (scale 1.08 * 0.8).
+const maskable = `${head}
+  <rect width="200" height="200" fill="${C.burgundy}"/>
+  <g transform="translate(100 101) scale(.86) translate(-100 -99)">
+    ${bandit(onBurgundy)}
+  </g>
+</svg>\n`;
 const svgs = {
   'img/heist-bandit.svg': `${head}\n  <g>\n    ${bandit(onLight)}\n  </g>\n</svg>\n`,
   'img/heist-mark.svg': `${head}
@@ -72,6 +87,67 @@ const rasters = [
   { from: svgs['favicon.svg'], out: 'favicon-32.png', size: 32, type: 'image/png' },
   { from: tile(0), out: 'apple-touch-icon.png', size: 180, type: 'image/png' },
 ];
+const iconRasters = [
+  { from: tile(24), out: 'icon-192.png', size: 192, type: 'image/png' },
+  { from: tile(64), out: 'icon-512.png', size: 512, type: 'image/png' },
+  { from: maskable, out: 'icon-maskable-512.png', size: 512, type: 'image/png' },
+];
+const ICO_SIZES = [16, 32, 48];
+const manifest = {
+  name: 'Heist', short_name: 'Heist',
+  description: 'Content planner and social media scheduler.',
+  start_url: '/', scope: '/', display: 'browser',
+  background_color: C.paper, theme_color: C.burgundy,
+  icons: [
+    { src: '/icon-192.png', sizes: '192x192', type: 'image/png', purpose: 'any' },
+    { src: '/icon-512.png', sizes: '512x512', type: 'image/png', purpose: 'any' },
+    { src: '/icon-maskable-512.png', sizes: '512x512', type: 'image/png', purpose: 'maskable' },
+  ],
+};
+
+// An .ico is a 6-byte header, one 16-byte entry per image, then the images.
+// PNG-in-ICO is supported by every current browser.
+function ico(pngs) {
+  const header = Buffer.alloc(6); header.writeUInt16LE(0, 0); header.writeUInt16LE(1, 2); header.writeUInt16LE(pngs.length, 4);
+  let offset = 6 + 16 * pngs.length;
+  const entries = pngs.map(({ size, buf }) => {
+    const e = Buffer.alloc(16);
+    e.writeUInt8(size >= 256 ? 0 : size, 0); e.writeUInt8(size >= 256 ? 0 : size, 1);
+    e.writeUInt16LE(1, 4); e.writeUInt16LE(32, 6); e.writeUInt32LE(buf.length, 8); e.writeUInt32LE(offset, 12);
+    offset += buf.length; return e;
+  });
+  return Buffer.concat([header, ...entries, ...pngs.map((p) => p.buf)]);
+}
+
+async function raster(page, { svg, size, type, quality }) {
+  const dataUrl = await page.evaluate(async ({ svg, size, type, quality }) => {
+    const img = new Image();
+    img.src = 'data:image/svg+xml;charset=utf-8,' + encodeURIComponent(svg);
+    await img.decode();
+    const c = document.createElement('canvas');
+    c.width = size; c.height = size;
+    const ctx = c.getContext('2d');
+    ctx.imageSmoothingQuality = 'high';
+    ctx.drawImage(img, 0, 0, size, size);
+    return c.toDataURL(type, quality);
+  }, { svg, size, type, quality });
+  if (!dataUrl.startsWith('data:' + type)) throw new Error(size + 'px: this browser cannot encode ' + type);
+  return Buffer.from(dataUrl.split(',')[1], 'base64');
+}
+
+async function buildIcons(page) {
+  for (const r of iconRasters) {
+    fs.writeFileSync(path.join(SITE, r.out), await raster(page, { svg: r.from, size: r.size, type: r.type }));
+    console.log('wrote', r.out, r.size + 'px');
+  }
+  const pngs = [];
+  for (const size of ICO_SIZES) pngs.push({ size, buf: await raster(page, { svg: svgs['favicon.svg'], size, type: 'image/png' }) });
+  fs.writeFileSync(path.join(SITE, 'favicon.ico'), ico(pngs));
+  console.log('wrote favicon.ico', ICO_SIZES.join('/') + 'px');
+  fs.writeFileSync(path.join(SITE, 'manifest.webmanifest'), JSON.stringify(manifest, null, 2) + '\n');
+  console.log('wrote manifest.webmanifest');
+}
+const ICONS_ONLY = process.argv.includes('--icons-only');
 
 function loadPlaywright() {
   const tries = ['playwright', process.env.HEIST_APP_DIR && path.join(process.env.HEIST_APP_DIR, 'node_modules', 'playwright'),
@@ -82,6 +158,13 @@ function loadPlaywright() {
 }
 
 (async () => {
+  if (ICONS_ONLY) {
+    const { chromium } = loadPlaywright();
+    const browser = await chromium.launch();
+    await buildIcons(await browser.newPage());
+    await browser.close();
+    return;
+  }
   for (const [rel, svg] of Object.entries(svgs)) {
     fs.writeFileSync(path.join(SITE, rel), svg);
     console.log('wrote', rel);
@@ -90,21 +173,10 @@ function loadPlaywright() {
   const browser = await chromium.launch();
   const page = await browser.newPage();
   for (const r of rasters) {
-    const dataUrl = await page.evaluate(async ({ svg, size, type, quality }) => {
-      const img = new Image();
-      img.src = 'data:image/svg+xml;charset=utf-8,' + encodeURIComponent(svg);
-      await img.decode();
-      const c = document.createElement('canvas');
-      c.width = size; c.height = size;
-      const ctx = c.getContext('2d');
-      ctx.imageSmoothingQuality = 'high';
-      ctx.drawImage(img, 0, 0, size, size);
-      return c.toDataURL(type, quality);
-    }, { svg: r.from, size: r.size, type: r.type, quality: r.quality });
-    if (!dataUrl.startsWith('data:' + r.type)) throw new Error(r.out + ': this browser cannot encode ' + r.type);
-    fs.writeFileSync(path.join(SITE, r.out), Buffer.from(dataUrl.split(',')[1], 'base64'));
+    fs.writeFileSync(path.join(SITE, r.out), await raster(page, { svg: r.from, size: r.size, type: r.type, quality: r.quality }));
     console.log('wrote', r.out, r.size + 'px');
   }
+  await buildIcons(page);
   const card = await browser.newPage({ viewport: { width: 1200, height: 630 }, deviceScaleFactor: 1 });
   await card.goto(pathToFileURL(path.join(__dirname, 'og-image.html')).href, { waitUntil: 'networkidle' });
   await card.evaluate(() => document.fonts.ready);

@@ -1,30 +1,28 @@
-# Heist — AI Content OS
-> The brains behind the operation. Heist is the AI content OS with a Brand Brain that learns your voice, audience, and past performance, then briefs your own AI to turn one idea into a month of on-brand social media content in one sitting.
+# Heist (heistbrain.com)
+> Heist is a content planner and social media scheduler for small businesses, consultants and creators. It keeps your brand voice on file, works with the AI you already use (Claude, ChatGPT or your own API key) to plan and draft a month of social posts, and puts every draft through your review before anything is scheduled.
 
-Key product facts:
-- Founded: 2025
-- Category: AI Content Operating System / Social Media SaaS
-- Platforms supported: LinkedIn, X (Twitter — via your own X developer app keys on a paid X API tier), Instagram, Facebook, YouTube, WordPress, plus a hosted website blog. TikTok, Pinterest, and Reddit coming soon.
-- Pricing: Starter $19/mo, Pro $49/mo, Founder $99/mo, Agency $199/mo. Billed yearly: $192, $492, $984 and $1,908 a year ($16, $41, $82 and $159 a month), which saves about 2 months
-- Free trial: 7-day free trial of Pro, no credit card required. When it ends the account locks until you choose a plan; your data is kept and you can still sign in to download it or delete the account
-- AI: Heist runs on your own AI. Heist + your AI (the Claude/ChatGPT connector, over MCP) is included on Pro, Founder, Agency and the 7-day trial; Claude's custom connector works on any Claude plan, including Free, and ChatGPT needs a paid plan with developer mode turned on. Starter doesn't include Heist + your AI and writes with your own AI API key
-- Limits: Starter 1 brand and 100 posts/month; Pro 1 brand and 500 posts/month; Founder 5 brands, 3 team seats and unlimited posts; Agency 25 brands, 10 team seats and unlimited posts. Founder and Agency include content approvals and roles
-- Differentiator: Persistent Brand Brain with memory, voice drift detection, and real engagement data feedback loop
+Last verified: 2026-11-27. Prices and plan limits were last checked against the app and Stripe on 2026-11-22.
+
+## Key facts
+- Name: Heist. Website: https://heistbrain.com. App: https://app.heistbrain.com. "Heistbrain" is the domain, not a different product.
+- Category: content planner and social media scheduler (web app).
+- How the AI works: Heist does not charge a separate AI-generation fee and does not run hosted AI for you. You either connect your AI chat (Claude or ChatGPT, over MCP) or add your own AI API key. Your AI provider's plan, limits and any usage charges apply.
+- Connecting your AI chat (MCP connector): included on Pro, Founder, Agency and the 7-day trial. Claude's custom connector works on any Claude plan, including Free. ChatGPT needs a paid plan with developer mode turned on. Starter does not include the connector and writes with your own AI API key.
+- Review first: drafts land in Heist for you to review and approve. Nothing posts without your approval unless you turn on Autopilot yourself.
+- Publishing: connects to LinkedIn, Facebook, Instagram, YouTube and WordPress, plus a hosted website blog. X works through your own X developer app keys on a paid X API tier. TikTok, Pinterest and Reddit are coming soon.
+- Pricing (monthly): Starter $19, Pro $49, Founder $99, Agency $199. Billed yearly: $192, $492, $984 and $1,908 a year (about two months free).
+- Limits: Starter 1 brand and 100 posts a month; Pro 1 brand and 500 posts a month; Founder 5 brands, 3 team seats, unlimited posts; Agency 25 brands, 10 team seats, unlimited posts. Founder and Agency include content approvals and roles.
+- Free trial: 7 days of Pro, no credit card. When it ends the account locks until you choose a plan; your data is kept and you can still sign in to download it or delete the account.
+- Not available yet: the personalized visual Planner, TikTok/Pinterest/Reddit publishing.
+- Contact: support@heistbrain.com
 
 ## Primary pages
-- [Home](https://heistbrain.com): Product overview and free trial signup
-- [Pricing](https://heistbrain.com/pricing): Plans, limits and FAQ
-- [Blog](https://heistbrain.com/blog): Product deep-dives, content strategy essays, platform guides
-- [Free Tools](https://heistbrain.com/tools/): 15 free content creator tools (hook generator, character counter, brand voice analyzer, etc.)
-- [Solutions by role](https://heistbrain.com/for/): Tailored pages for agencies, coaches, consultants, ecommerce, fitness creators, freelancers, real estate, SaaS, nonprofits, authors
-- [Comparisons](https://heistbrain.com/vs/): Heist vs Jasper, Heist vs Buffer, Heist vs Hootsuite
-- [Guides](https://heistbrain.com/guides/): Long-form content marketing guides
-- [Glossary](https://heistbrain.com/glossary/): Content marketing term definitions
-- [About](https://heistbrain.com/about): Founder story and company background
-
-## What makes Heist different
-Most AI content tools are stateless — they forget your brand after every session. Heist's Brain persists brand memory: voice profile, audience personas, memory facts, knowledge base, chat insights, anti-repetition tracking, performance patterns, smart onboarding, voice drift detection, and real engagement metrics. The longer you use it, the better it gets.
-
-## Contact
-- Email: support@heistbrain.com
-- Website: https://heistbrain.com
+- [Home](https://heistbrain.com/): what Heist is and the free trial
+- [How it works](https://heistbrain.com/how-it-works): from brand setup to a reviewed, scheduled month
+- [Heist + your AI](https://heistbrain.com/agent-inbox.html): connecting Claude or ChatGPT (MCP), what the connector can do, plan eligibility
+- [Pricing](https://heistbrain.com/pricing): plans, limits, trial terms and FAQ
+- [Solutions](https://heistbrain.com/for/): consultants, coaches, freelancers, small agencies and more
+- [Comparisons](https://heistbrain.com/vs/): Heist compared with other tools
+- [Free tools](https://heistbrain.com/tools/) and [templates](https://heistbrain.com/templates/): no-signup planning tools and content calendar templates
+- [Guides](https://heistbrain.com/guides/) and [blog](https://heistbrain.com/blog): content planning guides and product notes
+- [About](https://heistbrain.com/about)
