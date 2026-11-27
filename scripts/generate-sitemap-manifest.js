@@ -11,7 +11,8 @@
  * canonicalize clean — /about — while subdirectory pages canonicalize with
  * .html; we mirror the tags rather than fight them). Excluded: 404.html,
  * blog.html (301 → /blog), blog/*.html (301s / redirect stubs to the dynamic
- * blog). lastmod = the file's last git commit date.
+ * blog), and any page whose robots meta says noindex (a sitemap should only
+ * list pages we ask Google to index). lastmod = the file's last git commit date.
  *
  * Run from the marketing repo root after adding/removing pages:
  *   node scripts/generate-sitemap-manifest.js
@@ -36,15 +37,23 @@ function walk(dir, out = []) {
     return out;
 }
 
+// True when the page carries <meta name="robots" content="...noindex...">.
+function isNoindex(html) {
+    const metas = html.match(/<meta\s+name=["']robots["'][^>]*>/gi) || [];
+    return metas.some((tag) => /content=["'][^"']*\bnoindex\b/i.test(tag));
+}
+
 const files = walk(ROOT);
 const pages = [];
+const skippedNoindex = [];
 for (const file of files) {
     const rel = path.relative(ROOT, file).replace(/\\/g, '/');
     if (rel === '404.html') continue;               // never in a sitemap
     if (rel === 'blog.html') continue;              // 301 → dynamic /blog
     if (rel.startsWith('blog/')) continue;          // legacy twins/stubs, all 301
     const html = fs.readFileSync(file, 'utf8');
-    const m = html.match(/<link rel="canonical" href="([^"]+)"/);
+    if (isNoindex(html)) { skippedNoindex.push(rel); continue; }  // not asking Google to index it
+    const m =html.match(/<link rel="canonical" href="([^"]+)"/);
     let url = m ? m[1] : `https://heistbrain.com/${rel}`;
     // Normalize: sitemap is apex-only.
     url = url.replace('://www.heistbrain.com', '://heistbrain.com');
@@ -65,4 +74,4 @@ const result = Array.from(byUrl.values()).sort((a, b) => a.url.localeCompare(b.u
 
 const json = JSON.stringify({ generated_at: new Date().toISOString(), pages: result }, null, 2) + '\n';
 fs.writeFileSync(path.join(ROOT, 'marketing-pages.json'), json);
-console.log(`marketing-pages.json — ${result.length} pages`);
+console.log(`marketing-pages.json — ${result.length} pages (${skippedNoindex.length} noindex pages skipped)`);
